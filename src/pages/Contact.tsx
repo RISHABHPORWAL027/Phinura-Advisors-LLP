@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Phone, Mail, MapPin, Send, Globe, Users, Instagram, Facebook, Linkedin, Headset } from "lucide-react";
 import siteDetails from "../data/siteDetails.json";
+import logo from "../Assets/Phinura_Advisors_logo.png";
 
 const Hero = () => {
   const { hero } = siteDetails.pages.contact;
@@ -192,7 +193,10 @@ const Footer = () => (
   <footer className="py-16 md:py-20 px-6 bg-white">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
-        <h4 className="text-lg font-bold text-primary mb-6">{siteDetails.companyName}</h4>
+        <Link to="/" className="flex items-center gap-2 mb-6 group">
+          <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
+          <span className="text-lg font-bold text-primary">{siteDetails.companyName}</span>
+        </Link>
         <p className="text-on-surface-variant text-sm leading-relaxed mb-8">{siteDetails.tagline}</p>
         <div className="flex gap-4">
           <a href={siteDetails.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all cursor-pointer">

@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import { servicesData } from "../data/services";
 import siteDetails from "../data/siteDetails.json";
+import logo from "../Assets/Phinura_Advisors_logo.png";
 
 const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
   const ref = useRef(null);
@@ -175,7 +176,10 @@ const FooterCTA = () => (
   <footer className="bg-slate-50 py-16 md:py-20 px-6">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
-        <h4 className="text-lg font-bold text-primary mb-6">{siteDetails.companyName}</h4>
+        <Link to="/" className="flex items-center gap-2 mb-6 group">
+          <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
+          <span className="text-lg font-bold text-primary">{siteDetails.companyName}</span>
+        </Link>
         <p className="text-on-surface-variant text-sm leading-relaxed">{siteDetails.tagline}</p>
       </div>
       <div>

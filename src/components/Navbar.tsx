@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import siteDetails from "../data/siteDetails.json";
+import logo from "../Assets/Phinura_Advisors_logo.png";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,7 @@ export const Navbar = () => {
     <nav className="fixed top-0 w-full z-[100] bg-white border-b border-primary/5 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group">
-          <img src={siteDetails.logo} alt={siteDetails.companyName} className="h-9 w-auto group-hover:scale-105 transition-transform logo-img" />
+          <img src={logo} alt={siteDetails.companyName} className="h-9 w-auto group-hover:scale-105 transition-transform logo-img" />
           <span className="text-xl font-bold tracking-tighter text-primary font-headline sm:block">
             {siteDetails.companyName}
           </span>
