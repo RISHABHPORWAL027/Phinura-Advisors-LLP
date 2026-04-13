@@ -1,48 +1,110 @@
-import { motion } from "motion/react";
+import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
+import { useEffect, useRef } from "react";
 import { 
   ArrowRight,
-  Send
+  Send,
+  CheckCircle2,
+  TrendingUp,
+  Quote
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { servicesData } from "../data/services";
+import siteDetails from "../data/siteDetails.json";
 
-const Hero = () => (
-  <section className="pt-32 pb-20 bg-white">
-    <div className="max-w-7xl mx-auto px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-3xl"
-      >
-        <h1 className="text-5xl md:text-6xl font-headline font-extrabold text-primary mb-8 leading-tight">
-          Our Professional <span className="text-secondary">Services</span>
-        </h1>
-        <p className="text-xl text-on-surface-variant leading-relaxed">
-          Comprehensive financial architecture and compliance engineering for modern enterprises. From incorporation to global auditing, we secure your capital's integrity.
-        </p>
-      </motion.div>
-    </div>
-  </section>
-);
+const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 60,
+  });
+  const displayValue = useTransform(springValue, (latest) => 
+    latest.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
+  );
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {prefix}
+      <motion.span>{displayValue}</motion.span>
+      {suffix}
+    </span>
+  );
+};
+
+const Hero = () => {
+  const { hero } = siteDetails.pages.services;
+  return (
+    <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-3xl"
+        >
+          <h1 className="text-5xl md:text-6xl font-headline font-extrabold text-primary mb-8 leading-tight">
+            {hero.title.split('Services')[0]} <span className="text-secondary">Services</span>
+          </h1>
+          <p className="text-xl text-on-surface-variant leading-relaxed">
+            {hero.subtitle}
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const ServiceGrid = () => (
-  <section className="pb-24 bg-white">
+  <section className="py-16 md:py-24 bg-white">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {servicesData.map((service, i) => (
           <Link
             to={`/services/${service.id}`}
             key={i}
-            className="bg-surface-container-lowest p-10 rounded-3xl border border-outline-variant/10 flex flex-col h-full group hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500"
+            className="group relative"
           >
-            <div className="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-              <service.icon className="w-7 h-7" />
-            </div>
-            <h3 className="text-2xl font-headline font-bold text-primary mb-4">{service.title}</h3>
-            <p className="text-on-surface-variant leading-relaxed mb-8 flex-grow">{service.description}</p>
-            <div className="w-full bg-primary text-white py-4 rounded-xl font-headline font-bold text-sm text-center hover:bg-primary-container transition-colors cursor-pointer">
-              Get Started
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                y: -12,
+                rotateX: 2,
+                rotateY: 2,
+                scale: 1.01,
+                transition: { duration: 0.3 }
+              }}
+              viewport={{ once: true }}
+              style={{ transformStyle: "preserve-3d" }}
+              className="bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col"
+            >
+              <div 
+                className="w-14 h-14 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
+                style={{ transform: "translateZ(30px)" }}
+              >
+                <service.icon className="w-7 h-7" />
+              </div>
+              <h3 
+                className="text-2xl font-headline font-bold text-primary mb-4"
+                style={{ transform: "translateZ(20px)" }}
+              >
+                {service.title}
+              </h3>
+              <p className="text-on-surface-variant leading-relaxed mb-8 flex-grow opacity-80">{service.description}</p>
+              <div 
+                className="inline-flex items-center font-bold text-primary group/link border-t border-outline-variant/30 pt-6"
+                style={{ transform: "translateZ(10px)" }}
+              >
+                Explore Service
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
+              </div>
+            </motion.div>
           </Link>
         ))}
       </div>
@@ -50,75 +112,88 @@ const ServiceGrid = () => (
   </section>
 );
 
-const StatsCTA = () => (
-  <section className="py-24 px-6">
-    <div className="max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-primary rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-          <div>
-            <span className="inline-block py-1 px-3 bg-secondary text-white rounded-full text-xs font-bold uppercase tracking-wider mb-6">Business Owners</span>
-            <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8 leading-tight">
-              Custom Solutions for Architects of Commerce.
-            </h2>
-            <p className="text-on-primary-container text-lg mb-12 max-w-xl">
-              No two business structures are identical. We provide bespoke financial modeling and operational accounting designed specifically for your unique organizational goals.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button className="bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer">
-                Request Bespoke Proposal
-              </button>
-              <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-headline font-bold hover:bg-white/20 transition-colors cursor-pointer">
-                View Case Studies
-              </button>
+const StatsCTA = () => {
+  const { statsCTA } = siteDetails.pages.services;
+  return (
+    <section className="py-16 md:py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 text-white relative overflow-hidden"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+              <span className="inline-block py-1 px-3 bg-secondary text-white rounded-full text-[10px] font-bold uppercase tracking-wider mb-6">
+                {statsCTA.badge}
+              </span>
+              <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8 leading-tight">
+                {statsCTA.title}
+              </h2>
+              <p className="text-blue-100 text-lg mb-12 max-w-xl opacity-90">
+                {statsCTA.subtitle}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-white/10 cursor-pointer inline-block"
+                >
+                  Get Free Quote
+                </a>
+                <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-headline font-bold hover:bg-white/20 transition-colors cursor-pointer">
+                  View Case Studies
+                </button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:gap-8">
+              {statsCTA.stats.map((stat: any, i: number) => (
+                <div key={i} className="text-center p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="text-3xl md:text-4xl font-headline font-extrabold mb-2 text-white tabular-nums">
+                    <Counter 
+                      value={stat.value} 
+                      prefix={stat.prefix} 
+                      suffix={stat.suffix} 
+                      decimals={stat.decimals || 0} 
+                    />
+                  </div>
+                  <p className="text-blue-100 text-sm font-medium opacity-80">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            {[
-              { label: "Compliance Accuracy", value: "99.8%" },
-              { label: "Assets Under Audit", value: "$4.2B" },
-              { label: "Strategic Industries", value: "15+" },
-              { label: "Inquiry Response", value: "24h" },
-            ].map((stat, i) => (
-              <div key={i} className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl">
-                <div className="text-3xl font-headline font-extrabold text-secondary mb-2">{stat.value}</div>
-                <div className="text-sm text-on-primary-container font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const FooterCTA = () => (
-  <footer className="bg-slate-50 py-20 px-6">
+  <footer className="bg-slate-50 py-16 md:py-20 px-6">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
-        <h4 className="text-lg font-bold text-primary mb-6">The Sovereign Ledger</h4>
-        <p className="text-on-surface-variant text-sm leading-relaxed">Architecting financial futures with precision, integrity, and forward-thinking strategy.</p>
+        <h4 className="text-lg font-bold text-primary mb-6">{siteDetails.companyName}</h4>
+        <p className="text-on-surface-variant text-sm leading-relaxed">{siteDetails.tagline}</p>
       </div>
       <div>
         <h4 className="font-headline font-bold text-primary mb-6">Services</h4>
         <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><a href="#" className="hover:text-primary transition-colors">Tax Preparation</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Audit & Assurance</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Corporate Strategy</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Financial Planning</a></li>
+          <li><Link to="/services" className="hover:text-primary transition-colors">Tax Preparation</Link></li>
+          <li><Link to="/services" className="hover:text-primary transition-colors">Audit & Assurance</Link></li>
+          <li><Link to="/services" className="hover:text-primary transition-colors">Corporate Strategy</Link></li>
+          <li><Link to="/services" className="hover:text-primary transition-colors">Financial Planning</Link></li>
         </ul>
       </div>
       <div>
         <h4 className="font-headline font-bold text-primary mb-6">Company</h4>
         <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><a href="#" className="hover:text-primary transition-colors">About</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+          <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
+          <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+          <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+          <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
         </ul>
       </div>
       <div>
@@ -131,6 +206,12 @@ const FooterCTA = () => (
           </button>
         </div>
       </div>
+    </div>
+    <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p className="text-slate-400 text-xs">© {new Date().getFullYear()} {siteDetails.fullName}. All rights reserved.</p>
+      <p className="text-slate-400 text-xs">
+        Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
+      </p>
     </div>
   </footer>
 );

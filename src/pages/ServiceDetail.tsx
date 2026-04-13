@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
 import { servicesData } from "../data/services";
+import siteDetails from "../data/siteDetails.json";
 
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -23,7 +24,7 @@ export const ServiceDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center overflow-hidden">
+      <section className="relative min-h-[600px] pt-20 flex items-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -52,18 +53,20 @@ export const ServiceDetail = () => {
             <p className="text-xl text-white/80 leading-relaxed mb-10">
               {service.subtitle}
             </p>
-            <Link 
-              to="/services" 
-              className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors"
+            <a
+              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              Explore Services
-            </Link>
+              Get Free Quote
+            </a>
           </motion.div>
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl">
             <motion.div
@@ -129,13 +132,15 @@ export const ServiceDetail = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 bg-surface-container-lowest">
+      <section className="py-16 md:py-24 px-6 bg-surface-container-lowest">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{ rotateX: 1, rotateY: 1, scale: 1.01 }}
             viewport={{ once: true }}
-            className="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20"
+            style={{ transformStyle: "preserve-3d" }}
+            className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20 transition-all duration-500"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
             <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8 relative z-10">
@@ -145,14 +150,19 @@ export const ServiceDetail = () => {
               Connect with our compliance architects today for a hassle-free filing experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-              <button className="bg-emerald-500 text-white px-8 py-4 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all cursor-pointer">
+              <a 
+                href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-emerald-500 text-white px-8 py-4 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all cursor-pointer text-center"
+              >
                 <MessageSquare className="w-6 h-6" />
                 Consult via WhatsApp
-              </button>
-              <button className="text-white font-headline font-bold text-lg flex items-center justify-center gap-2 underline underline-offset-8 hover:text-secondary transition-colors cursor-pointer">
+              </a>
+              <Link to="/contact" className="text-white font-headline font-bold text-lg flex items-center justify-center gap-2 underline underline-offset-8 hover:text-secondary transition-colors cursor-pointer">
                 <PhoneCall className="w-5 h-5" />
                 Request a Call Back
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -162,16 +172,17 @@ export const ServiceDetail = () => {
       <footer className="bg-slate-50 py-12 px-6 border-t border-slate-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
-            <h4 className="font-bold text-primary mb-2">The Sovereign Ledger</h4>
+            <h4 className="font-bold text-primary mb-2">{siteDetails.companyName}</h4>
             <p className="text-xs text-on-surface-variant max-w-xs">
-              © 2024 The Sovereign Ledger. All rights reserved. Licensed accounting and advisory services. Architecting financial stability through rigorous compliance.
+              © {new Date().getFullYear()} {siteDetails.fullName}. All rights reserved. {siteDetails.tagline}
             </p>
           </div>
-          <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium">
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-primary transition-colors">Regulatory Disclosures</a>
-            <a href="#" className="hover:text-primary transition-colors">Sitemap</a>
+          <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
+            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+            <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
+              Design and Develop by Devyug Solution
+            </a>
           </div>
         </div>
       </footer>

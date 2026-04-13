@@ -1,0 +1,146 @@
+{
+  "companyName": "Phinura Advisors",
+  "fullName": "Phinura Advisors LLP",
+  "tagline": "Your Trusted Partner for Taxes and Business Growth.",
+  "address": "Phinura Advisors LLP 15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
+  "shortAddress": "Gowliguda, Hyderabad",
+  "mobile": "+91 8318697595",
+  "email": "partners@phinura.com",
+  "logo": "/src/Assets/Phinura_Advisors_logo.png",
+  "socialMedia": {
+    "instagram": "https://www.instagram.com/phinura_advisors?igsh=MWw3c2JvdmxzMXptbA==",
+    "facebook": "https://www.facebook.com/phinuraadvisors/",
+    "linkedin": "http://www.linkedin.com/company/phinura-advisors-llp/"
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "title": "Your Trusted Partner for Taxes and Business Growth.",
+        "subtitle": "We help you handle company registration, tax filings, and accounting with ease. Over 10 years of experience making compliance simple for business owners.",
+        "badge": "Expert Financial Guidance"
+      },
+      "stats": [
+        { "label": "Years Experience", "value": 15, "suffix": "+" },
+        { "label": "Happy Clients", "value": 500, "suffix": "+" },
+        { "label": "Annual Filings", "value": 1000, "suffix": "+" },
+        { "label": "Pan-India Reach", "value": "Presence", "suffix": "" }
+      ],
+      "coreServices": {
+        "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity."
+      },
+      "simpleSolutions": {
+        "title": "Simple Solutions for You",
+        "subtitle": "We cut through the legal jargon so you can focus on what matters—growing your dream business.",
+        "items": [
+          { 
+            "title": "Start Your Business", 
+            "icon": "Rocket", 
+            "color": "bg-primary-fixed", 
+            "text": "text-primary", 
+            "desc": "Full support for GST registration, PVT LTD incorporation, and shop licenses.", 
+            "features": ["Easy Documentation", "Fast Turnaround"] 
+          },
+          { 
+            "title": "Handle Your Taxes", 
+            "icon": "Wallet", 
+            "color": "bg-secondary-fixed", 
+            "text": "text-secondary", 
+            "desc": "Expert Income Tax and GST filing that keeps you on the right side of the law.", 
+            "features": ["Maximize Savings", "Error-Free Filings"] 
+          },
+          { 
+            "title": "Track Your Growth", 
+            "icon": "LineChart", 
+            "color": "bg-tertiary-fixed", 
+            "text": "text-on-tertiary-fixed-variant", 
+            "desc": "Monthly accounting and bookkeeping to help you understand your numbers better.", 
+            "features": ["Monthly Reports", "24/7 Dashboard"] 
+          }
+        ]
+      },
+      "whyChooseUs": {
+        "title": "Why Business Owners Choose Us",
+        "subtitle": "We're more than just consultants; we're your growth partners.",
+        "cards": [
+          {
+            "title": "A Decade of Trust",
+            "icon": "ShieldCheck",
+            "desc": "10 years of handling complex Indian regulations for startups and legacy brands alike. We've seen it all and solved it all.",
+            "trustedText": "Trusted by 500+ businesses"
+          },
+          {
+            "title": "Swift Support",
+            "icon": "Zap",
+            "desc": "Instant WhatsApp and email updates on your application status.",
+            "badge": "Efficiency Redefined"
+          },
+          {
+            "title": "Friendly Language",
+            "icon": "CheckCircle2",
+            "desc": "We explain compliance in plain English and Hindi, not legalese. Understanding your obligations should be the easiest part of your day.",
+            "img": "https://picsum.photos/seed/team/300/300"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to grow your business?",
+        "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free."
+      },
+      "testimonials": [
+        { "name": "Ankit Sharma", "role": "Founder, TechSprint Solutions", "quote": "They made my company registration so easy! I was worried about the paperwork, but they handled everything in just 10 days." },
+        { "name": "Priya Verma", "role": "Owner, Bloom Boutique", "quote": "GST filings used to be a headache every month. Now, it's just one text away. Their team is extremely professional and polite." },
+        { "name": "Rahul Mehta", "role": "Director, GreenLeaf Exports", "quote": "Their accounting services are top-notch. I can focus on my exports while they handle the complex GST compliance flawlessly." },
+        { "name": "Sneha Kapoor", "role": "CEO, Spark Digital", "quote": "Phinura Advisors helped us with our ROC compliance. The process was transparent and much faster than we expected." },
+        { "name": "Vikram Singh", "role": "Founder, Urban Crafts", "quote": "Excellent support for intellectual property registration. They explained everything in simple terms and guided us through the entire process." }
+      ]
+    },
+    "services": {
+      "hero": {
+        "title": "Our Professional Services",
+        "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises. From incorporation to global auditing, we secure your capital's integrity."
+      },
+      "statsCTA": {
+        "title": "Custom Solutions for Architects of Commerce.",
+        "subtitle": "No two business structures are identical. We provide bespoke financial modeling and operational accounting designed specifically for your unique organizational goals.",
+        "badge": "Business Owners",
+        "stats": [
+          { "label": "Compliance Accuracy", "value": 99.8, "suffix": "%", "decimals": 1 },
+          { "label": "Assets Under Audit", "value": 4.2, "prefix": "$", "suffix": "B", "decimals": 1 },
+          { "label": "Strategic Industries", "value": 15, "suffix": "+" },
+          { "label": "Inquiry Response", "value": 24, "suffix": "h" }
+        ]
+      }
+    },
+    "about": {
+      "hero": {
+        "title": "Partners in your financial legacy.",
+        "subtitle": "At Phinura Advisors, we've replaced complex jargon with clear paths forward. We're not just consultants; we're your dedicated financial growth partners.",
+        "badge": "Who We Are"
+      },
+      "story": {
+        "title": "Our Story",
+        "content": "We started with a big idea: that financial clarity shouldn't be a luxury reserved for giant corporations. At Phinura Advisors, we believe every business owner deserves a partner who cares as much about their success as they do."
+      },
+      "values": [
+        { "icon": "Heart", "title": "Heart-Centered", "desc": "We lead with empathy. Behind every ledger is a person with a dream, a family, and a vision for the future." },
+        { "icon": "Lightbulb", "title": "Forward Thinking", "desc": "We don't just report history; we help you write it. Our advice is always calibrated for long-term growth." },
+        { "icon": "ShieldCheck", "title": "Unwavering Trust", "desc": "Integrity is our cornerstone. We maintain the highest ethical standards in every audit and filing." }
+      ],
+      "people": {
+        "title": "Our People",
+        "subtitle": "A collective of specialists, strategists, and supporters dedicated to your journey.",
+        "team": [
+          { "name": "Julian Thorne", "role": "PRINCIPAL CHARTERED ACCOUNTANT", "desc": "Julian founded the firm with a vision to humanize financial services. He specializes in wealth architecture for families.", "img": "https://picsum.photos/seed/julian/400/500" },
+          { "name": "Elena Rodriguez", "role": "SENIOR COMPANY SECRETARY", "desc": "Elena ensures our clients stay ahead of the curve. She treats every client's business as if it were her own venture.", "img": "https://picsum.photos/seed/elena/400/500" },
+          { "name": "Marcus Chen", "role": "TAX STRATEGY LEAD", "desc": "Marcus brings a calm, analytical approach to complex tax puzzles, always looking for the most efficient path forward.", "img": "https://picsum.photos/seed/marcus/400/500" }
+        ]
+      }
+    },
+    "contact": {
+      "hero": {
+        "title": "Let's Chat About Your Business",
+        "subtitle": "Our friendly experts are here to answer your questions. No complex forms, just a quick message to get a free quote."
+      }
+    }
+  }
+}

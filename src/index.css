@@ -44,3 +44,25 @@
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Global Icon Shake Animation */
+@keyframes icon-shake {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-8deg); }
+  50% { transform: scale(1.1) rotate(8deg); }
+  75% { transform: scale(1.1) rotate(-4deg); }
+  100% { transform: scale(1.1) rotate(0deg); }
+}
+
+button:hover svg, 
+a:hover svg,
+.group:hover svg,
+.group:hover .logo-img {
+  animation: icon-shake 0.4s ease-in-out;
+}
+
+button:active svg,
+a:active svg {
+  transform: scale(0.9);
+  transition: transform 0.1s;
+}
