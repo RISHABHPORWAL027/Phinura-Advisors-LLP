@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { FileText, Scale, Gavel, AlertCircle } from "lucide-react";
-import siteDetails from "../data/siteDetails.json";
+import { useCMS } from "../hooks/useCMS";
 
 export const TermsOfService = () => {
+  const { data: siteDetails, loading } = useCMS();
+
+  if (loading || !siteDetails) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  const terms = siteDetails.pages.terms;
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[400px] pt-40 pb-20 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=2070" 
-            alt="Terms Background" 
+          <img
+            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=2070"
+            alt="Terms Background"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -29,10 +41,11 @@ export const TermsOfService = () => {
               Legal Framework
             </span>
             <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-white mb-8 leading-tight tracking-tighter">
-              Terms of <span className="text-secondary">Service</span>
+              {terms.hero.title.split(" ")[0]}{" "}
+              <span className="text-secondary">{terms.hero.title.split(" ").slice(1).join(" ")}</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed mb-10">
-              Understanding our mutual commitments. This agreement outlines the professional standards and operational boundaries of our partnership.
+              {terms.hero.subtitle}
             </p>
           </motion.div>
         </div>
@@ -90,6 +103,11 @@ export const TermsOfService = () => {
               <p className="text-on-surface-variant mb-8 leading-relaxed">
                 The content on this website is for general informational purposes only and does not constitute formal legal or financial advice. We recommend a private consultation for specific case analysis.
               </p>
+
+              <h2 className="text-2xl font-headline font-bold text-primary mt-12 mb-6">Full Terms</h2>
+              <div className="text-on-surface-variant whitespace-pre-line leading-relaxed">
+                {terms.content}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -107,10 +125,11 @@ export const TermsOfService = () => {
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="text-primary font-bold">Terms of Service</Link>
-            <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
-              Design and Develop by Devyug Solution
-            </a>
+
           </div>
+          <p className="text-slate-400 text-xs">
+            Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
+          </p>
         </div>
       </footer>
     </div>

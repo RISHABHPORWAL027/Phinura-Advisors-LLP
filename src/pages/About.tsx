@@ -2,7 +2,7 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from "moti
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Heart, Lightbulb, ShieldCheck, ArrowRight } from "lucide-react";
-import siteDetails from "../data/siteDetails.json";
+import { useCMS } from "../hooks/useCMS";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
@@ -29,6 +29,7 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
 };
 
 const Hero = () => {
+  const { data: siteDetails } = useCMS();
   const { hero } = siteDetails.pages.about;
   return (
     <section className="pt-24 pb-20 md:pt-40 md:pb-28 bg-white selection:bg-primary/10">
@@ -51,7 +52,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link to="/contact" className="bg-primary text-white px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:shadow-2xl hover:shadow-primary/30 transition-all text-center">
-                Partner With Us
+                {siteDetails.pages.home.hero.buttonText}
               </Link>
             </div>
           </motion.div>
@@ -63,7 +64,7 @@ const Hero = () => {
           >
             <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative">
               <img
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800"
+                src={hero.image}
                 alt="Our Workspace"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
               />
@@ -84,6 +85,7 @@ const Hero = () => {
 };
 
 const Story = () => {
+  const { data: siteDetails } = useCMS();
   const { story } = siteDetails.pages.about;
   return (
     <section className="py-16 md:py-24 bg-surface-container-low">
@@ -100,7 +102,8 @@ const Story = () => {
 };
 
 const Values = () => {
-  const { values } = siteDetails.pages.about;
+  const { data: siteDetails } = useCMS();
+  const { values, principles } = siteDetails.pages.about;
   const iconMap: { [key: string]: any } = {
     Heart,
     Lightbulb,
@@ -111,8 +114,8 @@ const Values = () => {
     <section className="py-16 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16">
-          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4 tracking-tight">Our Core Principles</h2>
-          <p className="text-on-surface-variant max-w-xl">These aren't just words on a wall; they are the gears that drive every interaction.</p>
+          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4 tracking-tight">{principles.title}</h2>
+          <p className="text-on-surface-variant max-w-xl">{principles.subtitle}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {values.map((item: any, i: number) => {
@@ -151,6 +154,7 @@ const Values = () => {
 };
 
 const People = () => {
+  const { data: siteDetails } = useCMS();
   const { people } = siteDetails.pages.about;
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -190,39 +194,43 @@ const People = () => {
   );
 };
 
-const CTA = () => (
-  <section className="py-16 md:py-24 px-6">
-    <div className="max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-24 text-center relative overflow-hidden"
-      >
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
-        <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8 relative z-10">
-          Ready to build your financial<br />future with a partner who cares?
-        </h2>
-        <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto relative z-10">
-          We're here to help you navigate the complexities of accounting and compliance with a human touch.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-          <a 
-            href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:scale-105 transition-transform cursor-pointer text-center"
-          >
-            Schedule a Coffee Chat
-          </a>
-          <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer">
-            Download Our Guide
-          </button>
-        </div>
-      </motion.div>
-    </div>
-  </section>
-);
+const CTA = () => {
+  const { data: siteDetails } = useCMS();
+  const { cta } = siteDetails.pages.about;
+  return (
+    <section className="py-16 md:py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-24 text-center relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+          <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8 relative z-10">
+            {cta.title}
+          </h2>
+          <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto relative z-10">
+            {cta.subtitle}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+            <a 
+              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:scale-105 transition-transform cursor-pointer text-center"
+            >
+              {cta.buttonText}
+            </a>
+            <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
+              {cta.secondaryButtonText}
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export const About = () => {
   return (
@@ -235,4 +243,3 @@ export const About = () => {
     </div>
   );
 };
-

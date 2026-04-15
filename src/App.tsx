@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail").then(module => ({ default: module.ServiceDetail })));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy").then(module => ({ default: module.PrivacyPolicy })));
 const TermsOfService = lazy(() => import("./pages/TermsOfService").then(module => ({ default: module.TermsOfService })));
+const AdminDashboard = lazy(() => import("./pages/Admin/Dashboard").then(module => ({ default: module.AdminDashboard })));
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -45,6 +46,7 @@ export default function App() {
               <Route path="/services/:serviceId" element={<ServiceDetail />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
           </Suspense>
         </main>

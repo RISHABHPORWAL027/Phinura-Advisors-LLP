@@ -1,9 +1,13 @@
-import { Mail, Globe, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
+import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "./SocialIcons";
 import { Link } from "react-router-dom";
-import siteDetails from "../data/siteDetails.json";
 import logo from "../Assets/Phinura_Advisors_logo.png";
+import { useCMS } from "../hooks/useCMS";
 
-export const Footer = () => (
+export const Footer = () => {
+  const { data: siteDetails } = useCMS();
+  
+  return (
   <footer className="w-full bg-slate-50 rounded-t-[2.5rem] mt-20">
     <div className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
@@ -55,4 +59,5 @@ export const Footer = () => (
       </p>
     </div>
   </footer>
-);
+  );
+};

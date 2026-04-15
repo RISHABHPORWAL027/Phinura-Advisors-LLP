@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import siteDetails from "../data/siteDetails.json";
 import logo from "../Assets/Phinura_Advisors_logo.png";
+import { useCMS } from "../hooks/useCMS";
 
 export const Navbar = () => {
+  const { data: siteDetails } = useCMS();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   

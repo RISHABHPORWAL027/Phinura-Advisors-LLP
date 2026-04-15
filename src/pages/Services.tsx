@@ -1,6 +1,6 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
-import { 
+import {
   ArrowRight,
   Send,
   CheckCircle2,
@@ -8,8 +8,8 @@ import {
   Quote
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { servicesData } from "../data/services";
-import siteDetails from "../data/siteDetails.json";
+import { useCMS } from "../hooks/useCMS";
+import * as Icons from "lucide-react";
 import logo from "../Assets/Phinura_Advisors_logo.png";
 
 const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
@@ -20,7 +20,7 @@ const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: num
     damping: 30,
     stiffness: 60,
   });
-  const displayValue = useTransform(springValue, (latest) => 
+  const displayValue = useTransform(springValue, (latest) =>
     latest.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
   );
 
@@ -39,11 +39,10 @@ const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: num
   );
 };
 
-const Hero = () => {
-  const { hero } = siteDetails.pages.services;
+const Hero = ({ hero }: { hero: any }) => {
   return (
     <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 mt-10 md:mt-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,60 +60,62 @@ const Hero = () => {
   );
 };
 
-const ServiceGrid = () => (
+const ServiceGrid = ({ services }: { services: any[] }) => (
   <section className="py-16 md:py-24 bg-white">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {servicesData.map((service, i) => (
-          <Link
-            to={`/services/${service.id}`}
-            key={i}
-            className="group relative"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ 
-                y: -12,
-                rotateX: 2,
-                rotateY: 2,
-                scale: 1.01,
-                transition: { duration: 0.3 }
-              }}
-              viewport={{ once: true }}
-              style={{ transformStyle: "preserve-3d" }}
-              className="bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 h-full flex flex-col"
+        {services.map((service, i) => {
+          const Icon = (Icons as any)[service.icon] || Icons.CheckCircle2;
+          return (
+            <Link
+              to={`/services/${service.id}`}
+              key={i}
+              className="group relative"
             >
-              <div 
-                className="w-14 h-14 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
-                style={{ transform: "translateZ(30px)" }}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  y: -12,
+                  rotateX: 2,
+                  rotateY: 2,
+                  scale: 1.01,
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: true, margin: "-50px" }}
+                style={{ transformStyle: "preserve-3d" }}
+                className="bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-colors transition-shadow duration-500 h-full flex flex-col"
               >
-                <service.icon className="w-7 h-7" />
-              </div>
-              <h3 
-                className="text-2xl font-headline font-bold text-primary mb-4"
-                style={{ transform: "translateZ(20px)" }}
-              >
-                {service.title}
-              </h3>
-              <p className="text-on-surface-variant leading-relaxed mb-8 flex-grow opacity-80">{service.description}</p>
-              <div 
-                className="inline-flex items-center font-bold text-primary group/link border-t border-outline-variant/30 pt-6"
-                style={{ transform: "translateZ(10px)" }}
-              >
-                Explore Service
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
-              </div>
-            </motion.div>
-          </Link>
-        ))}
+                <div
+                  className="w-14 h-14 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
+                  style={{ transform: "translateZ(30px)" }}
+                >
+                  <Icon className="w-7 h-7" />
+                </div>
+                <h3
+                  className="text-2xl font-headline font-bold text-primary mb-4"
+                  style={{ transform: "translateZ(20px)" }}
+                >
+                  {service.title}
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed mb-8 flex-grow opacity-80">{service.description}</p>
+                <div
+                  className="inline-flex items-center font-bold text-primary group/link border-t border-outline-variant/30 pt-6"
+                  style={{ transform: "translateZ(10px)" }}
+                >
+                  Explore Service
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
+                </div>
+              </motion.div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   </section>
 );
 
-const StatsCTA = () => {
-  const { statsCTA } = siteDetails.pages.services;
+const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any, siteDetails: any }) => {
   return (
     <section className="py-16 md:py-24 px-6">
       <div className="max-w-7xl mx-auto">
@@ -142,10 +143,10 @@ const StatsCTA = () => {
                   rel="noopener noreferrer"
                   className="bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-white/10 cursor-pointer inline-block"
                 >
-                  Get Free Quote
+                  {statsCTA.buttonText}
                 </a>
                 <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-headline font-bold hover:bg-white/20 transition-colors cursor-pointer">
-                  View Case Studies
+                  {statsCTA.secondaryButtonText}
                 </button>
               </div>
             </div>
@@ -154,11 +155,11 @@ const StatsCTA = () => {
               {statsCTA.stats.map((stat: any, i: number) => (
                 <div key={i} className="text-center p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div className="text-3xl md:text-4xl font-headline font-extrabold mb-2 text-white tabular-nums">
-                    <Counter 
-                      value={stat.value} 
-                      prefix={stat.prefix} 
-                      suffix={stat.suffix} 
-                      decimals={stat.decimals || 0} 
+                    <Counter
+                      value={stat.value}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                      decimals={stat.decimals || 0}
                     />
                   </div>
                   <p className="text-blue-100 text-sm font-medium opacity-80">{stat.label}</p>
@@ -172,7 +173,7 @@ const StatsCTA = () => {
   );
 };
 
-const FooterCTA = () => (
+const FooterCTA = ({ siteDetails }: { siteDetails: any }) => (
   <footer className="bg-slate-50 py-16 md:py-20 px-6">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
@@ -221,12 +222,22 @@ const FooterCTA = () => (
 );
 
 export const Services = () => {
+  const { data, loading } = useCMS();
+
+  if (loading || !data) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
-      <Hero />
-      <ServiceGrid />
-      <StatsCTA />
-      <FooterCTA />
+      <Hero hero={data.pages.services.hero} />
+      <ServiceGrid services={data.pages.services.serviceList} />
+      <StatsCTA statsCTA={data.pages.services.statsCTA} siteDetails={data} />
+      <FooterCTA siteDetails={data} />
     </div>
   );
 };

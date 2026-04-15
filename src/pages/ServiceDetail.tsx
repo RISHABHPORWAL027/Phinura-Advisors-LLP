@@ -1,12 +1,25 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
-import { servicesData } from "../data/services";
-import siteDetails from "../data/siteDetails.json";
+import { useCMS } from "../hooks/useCMS";
 
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
-  const service = servicesData.find((s) => s.id === serviceId);
+  const { data, loading } = useCMS();
+
+  if (loading || !data) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  const services = data.pages.services.serviceList || [];
+  const serviceIdNormalized = (serviceId || "").toLowerCase();
+  const service =
+    services.find((s: any) => String(s?.id ?? "").toLowerCase() === serviceIdNormalized) ||
+    services.find((s: any) => String(s?.slug ?? "").toLowerCase() === serviceIdNormalized);
 
   if (!service) {
     return (
@@ -21,15 +34,42 @@ export const ServiceDetail = () => {
     );
   }
 
+  const heroTitle = service.heroTitle || service.hero_title || service.title || "Our Service";
+  const subtitle =
+    service.subtitle ||
+    service.description ||
+    "Professional service tailored to your business needs.";
+  const category = service.category || "Regulatory Excellence";
+  const mainHeading = service.mainHeading || heroTitle;
+  const longDescription =
+    service.longDescription ||
+    (service.description ? `${service.description}\n\nContact us to get a custom quote and timeline.` : "Contact us to get a custom quote and timeline.");
+  const deliverables =
+    (service.deliverables && service.deliverables.length > 0 ? service.deliverables : null) || [
+      "Initial consultation and requirement checklist",
+      "Document review and preparation",
+      "Filing / submission support",
+      "Status updates and follow-ups",
+    ];
+  const benefits =
+    (service.benefits && service.benefits.length > 0 ? service.benefits : null) || [
+      "Reduced compliance risk",
+      "Faster turnaround",
+      "Clear, step-by-step guidance",
+      "Transparent pricing and communication",
+    ];
+  const ctaTitle = service.ctaTitle || service.cta_title || "Ready to get started?";
+  const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[600px] pt-20 flex items-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070" 
-            alt="Architectural Background" 
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070"
+            alt="Architectural Background"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -45,22 +85,31 @@ export const ServiceDetail = () => {
             className="max-w-3xl"
           >
             <span className="inline-block py-1 px-3 bg-secondary text-white rounded-full text-[10px] font-bold uppercase tracking-widest mb-6">
-              Regulatory Excellence
+              {category}
             </span>
             <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-white mb-8 leading-tight tracking-tighter">
-              {service.heroTitle}
+              {heroTitle}
             </h1>
             <p className="text-xl text-white/80 leading-relaxed mb-10">
-              {service.subtitle}
+              {subtitle}
             </p>
-            <a
-              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
-            >
-              Get Free Quote
-            </a>
+            {whatsappPhone ? (
+              <a
+                href={`https://wa.me/${whatsappPhone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
+              >
+                {data.pages.home.hero.buttonText}
+              </a>
+            ) : (
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
+              >
+                Contact Us
+              </Link>
+            )}
           </motion.div>
         </div>
       </section>
@@ -75,12 +124,12 @@ export const ServiceDetail = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-4xl font-headline font-extrabold text-primary mb-2">
-                {service.mainHeading}
+                {mainHeading}
               </h2>
               <div className="w-20 h-1.5 bg-secondary mb-12 rounded-full"></div>
-              
+
               <div className="space-y-8 text-on-surface-variant text-lg leading-relaxed mb-16 whitespace-pre-line">
-                {service.longDescription}
+                {longDescription}
               </div>
             </motion.div>
 
@@ -95,7 +144,7 @@ export const ServiceDetail = () => {
                   Key Deliverables
                 </h3>
                 <ul className="space-y-6">
-                  {service.deliverables.map((item, i) => (
+                  {deliverables.map((item: string, i: number) => (
                     <li key={i} className="flex gap-4 text-on-surface-variant">
                       <div className="w-6 h-6 rounded-full bg-primary-fixed flex-shrink-0 flex items-center justify-center text-primary">
                         <CheckCircle2 className="w-4 h-4" />
@@ -116,7 +165,7 @@ export const ServiceDetail = () => {
                   Strategic Benefits
                 </h3>
                 <ul className="space-y-6">
-                  {service.benefits.map((item, i) => (
+                  {benefits.map((item: string, i: number) => (
                     <li key={i} className="flex gap-4 text-on-surface-variant">
                       <div className="w-6 h-6 rounded-full bg-secondary-fixed flex-shrink-0 flex items-center justify-center text-secondary">
                         <CheckCircle2 className="w-4 h-4" />
@@ -144,21 +193,23 @@ export const ServiceDetail = () => {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
             <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8 relative z-10">
-              {service.ctaTitle}
+              {ctaTitle}
             </h2>
             <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto relative z-10">
               Connect with our compliance architects today for a hassle-free filing experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-              <a 
-                href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-emerald-500 text-white px-8 py-4 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all cursor-pointer text-center"
-              >
-                <MessageSquare className="w-6 h-6" />
-                Consult via WhatsApp
-              </a>
+              {whatsappPhone ? (
+                <a 
+                  href={`https://wa.me/${whatsappPhone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-emerald-500 text-white px-8 py-4 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all cursor-pointer text-center"
+                >
+                  <MessageSquare className="w-6 h-6" />
+                  {data.pages.contact.form.whatsappButtonText}
+                </a>
+              ) : null}
               <Link to="/contact" className="text-white font-headline font-bold text-lg flex items-center justify-center gap-2 underline underline-offset-8 hover:text-secondary transition-colors cursor-pointer">
                 <PhoneCall className="w-5 h-5" />
                 Request a Call Back
@@ -172,17 +223,17 @@ export const ServiceDetail = () => {
       <footer className="bg-slate-50 py-12 px-6 border-t border-slate-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div>
-            <h4 className="font-bold text-primary mb-2">{siteDetails.companyName}</h4>
+            <h4 className="font-bold text-primary mb-2">{data.companyName}</h4>
             <p className="text-xs text-on-surface-variant max-w-xs">
-              © {new Date().getFullYear()} {siteDetails.fullName}. All rights reserved. {siteDetails.tagline}
+              © {new Date().getFullYear()} {data.fullName}. All rights reserved. {data.tagline}
             </p>
           </div>
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
-              Design and Develop by Devyug Solution
-            </a>
+            <p className="text-slate-400 text-xs">
+              Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
+            </p>
           </div>
         </div>
       </footer>

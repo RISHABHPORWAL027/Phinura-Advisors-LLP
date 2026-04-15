@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Shield, Lock, Eye, FileText } from "lucide-react";
-import siteDetails from "../data/siteDetails.json";
+import { useCMS } from "../hooks/useCMS";
 
 export const PrivacyPolicy = () => {
+  const { data: siteDetails, loading } = useCMS();
+
+  if (loading || !siteDetails) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  const privacy = siteDetails.pages.privacy;
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative min-h-[400px] pt-40 pb-20 flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=2071" 
-            alt="Privacy Background" 
+          <img
+            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=2071"
+            alt="Privacy Background"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -29,7 +41,8 @@ export const PrivacyPolicy = () => {
               Legal & Compliance
             </span>
             <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-white mb-8 leading-tight tracking-tighter">
-              Privacy <span className="text-secondary">Policy</span>
+              {privacy.hero.title.split(" ")[0]}{" "}
+              <span className="text-secondary">{privacy.hero.title.split(" ").slice(1).join(" ")}</span>
             </h1>
             <p className="text-xl text-white/80 leading-relaxed mb-10">
               Your trust is our most valuable asset. Learn how {siteDetails.companyName} protects your data and maintains absolute confidentiality.
@@ -80,6 +93,11 @@ export const PrivacyPolicy = () => {
               <p className="text-on-surface-variant mb-8 leading-relaxed">
                 By using our website, you hereby consent to our Privacy Policy and agree to its terms.
               </p>
+
+              <h2 className="text-2xl font-headline font-bold text-primary mt-12 mb-6">Full Policy</h2>
+              <div className="text-on-surface-variant whitespace-pre-line leading-relaxed">
+                {privacy.content}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -97,10 +115,11 @@ export const PrivacyPolicy = () => {
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
             <Link to="/privacy" className="text-primary font-bold">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
-              Design and Develop by Devyug Solution
-            </a>
+
           </div>
+          <p className="text-slate-400 text-xs">
+            Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
+          </p>
         </div>
       </footer>
     </div>
