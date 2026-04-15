@@ -1,5 +1,5 @@
 {
-  "companyName": "Phinura Advisors",
+  "companyName": "Phinura Advisorss",
   "fullName": "Phinura Advisors LLP",
   "tagline": "Your Trusted Partner for Taxes and Business Growth.",
   "address": "Phinura Advisors LLP 15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
@@ -17,8 +17,13 @@
       "hero": {
         "title": "Your Trusted Partner for Taxes and Business Growth.",
         "subtitle": "We help you handle company registration, tax filings, and accounting with ease. Over 10 years of experience making compliance simple for business owners.",
-        "badge": "Expert Financial Guidance"
+        "badge": "Expert Financial Guidance",
+        "buttonText": "Get Free Quote",
+        "secondaryButtonText": "Talk to Expert",
+        "videoUrl": "/homebanner.webm",
+        "posterUrl": "/BANNERPREVIEW.png"
       },
+      "statsTitle": "Strategic Industry Partners",
       "stats": [
         {
           "label": "Years Experience",
@@ -42,6 +47,8 @@
         }
       ],
       "coreServices": {
+        "badge": "Comprehensive Expertise",
+        "title": "Our Core Services",
         "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity."
       },
       "simpleSolutions": {
@@ -107,9 +114,12 @@
           }
         ]
       },
+      "testimonialsTitle": "Trusted by Businesses Like Yours",
       "cta": {
         "title": "Ready to grow your business?",
-        "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free."
+        "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free.",
+        "buttonText": "Schedule Free Call",
+        "secondaryButtonText": "View Pricing"
       },
       "testimonials": [
         {
@@ -140,6 +150,50 @@
       ]
     },
     "services": {
+      "serviceList": [
+        {
+          "id": "mca-compliance",
+          "title": "MCA Compliance",
+          "description": "Ministry of Corporate Affairs adherence including annual filings and Director KYC updates.",
+          "icon": "Gavel",
+          "heroTitle": "",
+          "subtitle": "",
+          "mainHeading": "",
+          "longDescription": "",
+          "ctaTitle": "",
+          "category": "",
+          "deliverables": [],
+          "benefits": []
+        },
+        {
+          "id": "company-registration",
+          "title": "Company Registration",
+          "description": "Incorporate your PVT LTD, LLP, or OPC with zero hassle.",
+          "icon": "Building2",
+          "heroTitle": "",
+          "subtitle": "",
+          "mainHeading": "",
+          "longDescription": "",
+          "ctaTitle": "",
+          "category": "",
+          "deliverables": [],
+          "benefits": []
+        },
+        {
+          "id": "trademark-registration",
+          "title": "Trademark Registration",
+          "description": "Securing your intellectual property.",
+          "icon": "ShieldCheck",
+          "heroTitle": "",
+          "subtitle": "",
+          "mainHeading": "",
+          "longDescription": "",
+          "ctaTitle": "",
+          "category": "",
+          "deliverables": [],
+          "benefits": []
+        }
+      ],
       "hero": {
         "title": "Our Professional Services",
         "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises. From incorporation to global auditing, we secure your capital's integrity."
@@ -148,6 +202,8 @@
         "title": "Custom Solutions for Architects of Commerce.",
         "subtitle": "No two business structures are identical. We provide bespoke financial modeling and operational accounting designed specifically for your unique organizational goals.",
         "badge": "Business Owners",
+        "buttonText": "Get Free Quote",
+        "secondaryButtonText": "View Case Studies",
         "stats": [
           {
             "label": "Compliance Accuracy",
@@ -179,11 +235,16 @@
       "hero": {
         "title": "Partners in your financial legacy.",
         "subtitle": "At Phinura Advisors, we've replaced complex jargon with clear paths forward. We're not just consultants; we're your dedicated financial growth partners.",
-        "badge": "Who We Are"
+        "badge": "Who We Are",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c"
       },
       "story": {
         "title": "Our Story",
         "content": "We started with a big idea: that financial clarity shouldn't be a luxury reserved for giant corporations. At Phinura Advisors, we believe every business owner deserves a partner who cares as much about their success as they do."
+      },
+      "principles": {
+        "title": "Our Core Principles",
+        "subtitle": "These aren't just words on a wall; they are the gears that drive every interaction."
       },
       "values": [
         {
@@ -225,13 +286,38 @@
             "img": "https://picsum.photos/seed/marcus/400/500"
           }
         ]
+      },
+      "cta": {
+        "title": "Ready to build your financial \nfuture with a partner who cares?",
+        "subtitle": "We're here to help you navigate the complexities of accounting and compliance with a human touch.",
+        "buttonText": "Schedule a Coffee Chat",
+        "secondaryButtonText": "Download Our Guide"
       }
     },
     "contact": {
       "hero": {
         "title": "Let's Chat About Your Business",
         "subtitle": "Our friendly experts are here to answer your questions. No complex forms, just a quick message to get a free quote."
+      },
+      "form": {
+        "title": "Send Message",
+        "buttonText": "Send Message",
+        "whatsappButtonText": "Consult via WhatsApp"
       }
+    },
+    "terms": {
+      "hero": {
+        "title": "Terms of Service",
+        "subtitle": "Understanding our mutual commitments."
+      },
+      "content": "Professional standards and operational boundaries..."
+    },
+    "privacy": {
+      "hero": {
+        "title": "Privacy Policy",
+        "subtitle": "Your trust is our most valuable asset."
+      },
+      "content": "We implement industry-standard encryption..."
     }
   }
 }
