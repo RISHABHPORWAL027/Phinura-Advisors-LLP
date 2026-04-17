@@ -1,6 +1,7 @@
 import { Mail, Globe } from "lucide-react";
 import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "./SocialIcons";
 import { AppLink } from "../navigation/AppLink";
+import { DeveloperCredit } from "./DeveloperCredit";
 import logo from "../Assets/Phinura_Advisors_logo.png";
 import { useCMS } from "../hooks/useCMS";
 
@@ -54,9 +55,7 @@ export const Footer = () => {
     </div>
     <div className="max-w-7xl mx-auto px-8 py-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
       <p className="text-slate-400 text-xs">© {new Date().getFullYear()} {siteDetails.fullName}. {siteDetails.tagline}. All rights reserved.</p>
-      <p className="text-slate-400 text-xs">
-        Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
-      </p>
+      <DeveloperCredit />
     </div>
   </footer>
   );

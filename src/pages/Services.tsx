@@ -9,8 +9,9 @@ import {
 } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
-import * as Icons from "lucide-react";
+import { resolveLucideIcon } from "../utils/lucideIconMap";
 import logo from "../Assets/Phinura_Advisors_logo.png";
+import { DeveloperCredit } from "../components/DeveloperCredit";
 
 const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
   const ref = useRef(null);
@@ -65,7 +66,7 @@ const ServiceGrid = ({ services }: { services: any[] }) => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, i) => {
-          const Icon = (Icons as any)[service.icon] || Icons.CheckCircle2;
+          const Icon = resolveLucideIcon(service.icon) || CheckCircle2;
           return (
             <AppLink
               to={`/services/${service.id}`}
@@ -214,9 +215,7 @@ const FooterCTA = ({ siteDetails }: { siteDetails: any }) => (
     </div>
     <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
       <p className="text-slate-400 text-xs">© {new Date().getFullYear()} {siteDetails.fullName}. All rights reserved.</p>
-      <p className="text-slate-400 text-xs">
-        Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
-      </p>
+      <DeveloperCredit />
     </div>
   </footer>
 );

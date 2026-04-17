@@ -7,6 +7,11 @@
   "mobile": "+91 8318697595",
   "email": "partners@phinura.com",
   "logo": "/logo.png",
+  "developerCredit": {
+    "prefix": "Design and Develop by ",
+    "name": "Devyug Solution",
+    "url": "https://www.devyugsolutions.com/"
+  },
   "socialMedia": {
     "instagram": "https://www.instagram.com/phinura_advisors",
     "facebook": "https://www.facebook.com/phinuraadvisors/",
@@ -150,6 +155,8 @@
       ]
     },
     "services": {
+      "serviceDetailCtaSubtitle": "Connect with our compliance architects today for a hassle-free filing experience.",
+      "serviceDetailCallBackLinkText": "Request a Call Back",
       "hero": {
         "title": "Our Professional Services",
         "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises."

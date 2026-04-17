@@ -15,6 +15,23 @@ export default defineConfig(({mode}) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes('node_modules')) return;
+            if (id.includes('react-dom') || id.includes('/react/') || id.includes('react-router')) {
+              return 'vendor-react';
+            }
+            // Do not group `lucide-react` here: a single chunk forces the full icon set into every load.
+            // Tree-shaken icons stay in route chunks; `LucideIconSelectInner` async chunk holds the full set for admin only.
+            if (id.includes('node_modules/motion') || id.includes('/motion/')) {
+              return 'vendor-motion';
+            }
+          },
+        },
+      },
+    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.

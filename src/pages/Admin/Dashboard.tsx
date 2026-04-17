@@ -3,8 +3,6 @@ import { useCMS } from "../../hooks/useCMS";
 import { Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, Settings, Phone, Info, Briefcase, Plus, Trash2, Shield, Eye } from "lucide-react";
 import { SiteDetails } from "../../services/types";
 import { GitHubCMSService } from "../../services/githubService";
-import { SupabaseCMSService } from "../../services/supabaseService";
-import { supabase } from "../../lib/supabase";
 import { normalizeSiteDetails } from "../../utils/normalizeSiteDetails";
 import { storeAdminPreviewDraft, clearAdminPreviewDraft } from "../../lib/adminPreview";
 import { LUCIDE_SERVICE_ICON_OPTIONS_SORTED } from "../../constants/lucideServiceIconOptions";
@@ -37,8 +35,6 @@ export function AdminDashboard() {
   });
   const [authPassword, setAuthPassword] = useState("");
   const [authStatus, setAuthStatus] = useState<"idle" | "checking" | "error">("idle");
-  const [importStatus, setImportStatus] = useState<"idle" | "importing" | "error" | "success">("idle");
-
   // Initialize form after CMS data is ready (avoid render-phase setState; re-run when `data` updates from fetch/save)
   useEffect(() => {
     if (loading || !data) return;
@@ -54,6 +50,8 @@ export function AdminDashboard() {
           longDescription: service.longDescription ?? "",
           ctaTitle: service.ctaTitle ?? "",
           category: service.category ?? "",
+          ctaSubtitle: service.ctaSubtitle ?? "",
+          callBackLinkText: service.callBackLinkText ?? "",
           deliverables: Array.isArray(service.deliverables) ? service.deliverables : [],
           benefits: Array.isArray(service.benefits) ? service.benefits : [],
         }));
@@ -115,25 +113,6 @@ export function AdminDashboard() {
       }
     } finally {
       setIsSaving(false);
-    }
-  };
-
-  const handleImportFromSupabase = async () => {
-    if (!supabase) {
-      setImportStatus("error");
-      return;
-    }
-    setImportStatus("importing");
-    try {
-      const supa = new SupabaseCMSService();
-      const imported = await supa.getSiteDetails();
-      await updateData(imported); // In GitHub mode this writes to GitHub
-      setFormData(JSON.parse(JSON.stringify(normalizeSiteDetails(imported))));
-      setImportStatus("success");
-      setTimeout(() => setImportStatus("idle"), 4000);
-    } catch (e) {
-      console.error(e);
-      setImportStatus("error");
     }
   };
 
@@ -380,18 +359,6 @@ export function AdminDashboard() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-3">
-              {isGitHubMode && (
-                <button
-                  onClick={handleImportFromSupabase}
-                  disabled={isSaving || importStatus === "importing"}
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-surface-container text-on-surface rounded-full font-medium border border-outline-variant hover:bg-surface-container-high transition-all disabled:opacity-70 disabled:cursor-not-allowed"
-                  title="One-time migration: pull current content from Supabase and write it into GitHub JSON"
-                >
-                  <FileText size={20} />
-                  {importStatus === "importing" ? "Importing..." : "Import from Supabase"}
-                </button>
-              )}
-
               <button
                 type="button"
                 onClick={handlePreviewInNewTab}
@@ -418,20 +385,6 @@ export function AdminDashboard() {
               </button>
             </div>
           </div>
-
-          {importStatus === "success" && (
-            <div className="flex items-center gap-3 p-4 bg-green-500/10 text-green-600 border border-green-500/20 rounded-2xl">
-              <CheckCircle2 size={24} />
-              <p className="font-medium">Imported from Supabase and saved to GitHub successfully.</p>
-            </div>
-          )}
-
-          {importStatus === "error" && (
-            <div className="flex items-center gap-3 p-4 bg-red-500/10 text-red-600 border border-red-500/20 rounded-2xl">
-              <AlertCircle size={24} />
-              <p className="font-medium">Supabase import failed (check keys / connectivity). You can still edit manually.</p>
-            </div>
-          )}
 
           {saveStatus === "success" && (
             <div className="flex items-center gap-3 p-4 bg-green-500/10 text-green-600 border border-green-500/20 rounded-2xl">
@@ -513,6 +466,45 @@ export function AdminDashboard() {
                     />
                   </div>
                 </div>
+
+                <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Footer developer credit</h3>
+                <p className="text-xs text-on-surface-variant mb-3">
+                  Shown in the site footer and mini-footers (Privacy, Terms, Contact, Services, service detail). Empty fields fall back to the default Devyug line.
+                </p>
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Prefix (text before the link)</label>
+                    <input
+                      type="text"
+                      value={formData.developerCredit?.prefix ?? ""}
+                      onChange={(e) => handleChange(["developerCredit", "prefix"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
+                      placeholder="Design and Develop by "
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Link label</label>
+                      <input
+                        type="text"
+                        value={formData.developerCredit?.name ?? ""}
+                        onChange={(e) => handleChange(["developerCredit", "name"], e.target.value)}
+                        className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
+                        placeholder="Devyug Solution"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Link URL</label>
+                      <input
+                        type="url"
+                        value={formData.developerCredit?.url ?? ""}
+                        onChange={(e) => handleChange(["developerCredit", "url"], e.target.value)}
+                        className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
+                        placeholder="https://…"
+                      />
+                    </div>
+                  </div>
+                </div>
               </>
             )}
 
@@ -583,6 +575,18 @@ export function AdminDashboard() {
                       <label className="text-xs font-bold text-primary uppercase">Hero Poster URL</label>
                       <input type="text" value={formData.pages.home.hero.posterUrl} onChange={(e) => handleChange(["pages", "home", "hero", "posterUrl"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" />
                     </div>
+                  </div>
+
+                  <div className="space-y-2 mt-6 pt-6 border-t border-outline-variant/30">
+                    <label className="text-sm font-medium text-on-surface">Stats section label</label>
+                    <p className="text-xs text-on-surface-variant">Small caps line above the statistics row on the home page.</p>
+                    <input
+                      type="text"
+                      value={formData.pages.home.statsTitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "home", "statsTitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
+                      placeholder="Strategic Industry Partners"
+                    />
                   </div>
                   
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Home Page Stats</h3>
@@ -846,6 +850,30 @@ export function AdminDashboard() {
                     <label className="text-sm font-medium text-on-surface">Hero Subtitle</label>
                     <textarea rows={2} value={formData.pages.services.hero.subtitle} onChange={(e) => handleChange(["pages", "services", "hero", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
                   </div>
+
+                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Service detail pages — default CTA block</h3>
+                  <p className="text-sm text-on-surface-variant">
+                    Used on each <code className="text-xs bg-surface-container px-1 rounded">/services/…</code> page under the green CTA title. You can override per service below.
+                  </p>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Default paragraph (under CTA title)</label>
+                    <textarea
+                      rows={2}
+                      value={formData.pages.services.serviceDetailCtaSubtitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "services", "serviceDetailCtaSubtitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Default “callback” link text</label>
+                    <input
+                      type="text"
+                      value={formData.pages.services.serviceDetailCallBackLinkText ?? ""}
+                      onChange={(e) => handleChange(["pages", "services", "serviceDetailCallBackLinkText"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
+                      placeholder="Request a Call Back"
+                    />
+                  </div>
                   
                   {/* Stats CTA Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Bottom CTA Stats Region</h3>
@@ -914,6 +942,17 @@ export function AdminDashboard() {
                       </div>
 
                       <div className="space-y-1 mt-4 border-t border-outline-variant/20 pt-4">
+                        <label className="text-xs font-bold text-primary uppercase">Detail Page: Category Badge</label>
+                        <input
+                          type="text"
+                          value={service.category ?? ""}
+                          onChange={(e) => handleChange(["pages", "services", "serviceList", i, "category"], e.target.value)}
+                          className="w-full p-2 bg-surface-container rounded-lg border outline-none"
+                          placeholder="e.g. Regulatory Compliance"
+                        />
+                        <p className="text-[11px] text-on-surface-variant">Small label above the hero title on the service detail page.</p>
+                      </div>
+                      <div className="space-y-1">
                         <label className="text-xs font-bold text-primary uppercase">Detail Page: Hero Title</label>
                         <input type="text" value={service.heroTitle} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "heroTitle"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Hero Title" />
                       </div>
@@ -961,12 +1000,45 @@ export function AdminDashboard() {
                         <label className="text-xs font-bold text-primary uppercase">Detail Page: CTA Title</label>
                         <input type="text" value={service.ctaTitle} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "ctaTitle"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="CTA Block Title" />
                       </div>
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-primary uppercase">Detail Page: CTA paragraph (optional override)</label>
+                        <textarea
+                          rows={2}
+                          value={service.ctaSubtitle ?? ""}
+                          onChange={(e) => handleChange(["pages", "services", "serviceList", i, "ctaSubtitle"], e.target.value)}
+                          className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-y"
+                          placeholder="Leave empty to use the default from “Service detail pages — default CTA block” above"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-xs font-bold text-primary uppercase">Detail Page: Callback link text (optional override)</label>
+                        <input
+                          type="text"
+                          value={service.callBackLinkText ?? ""}
+                          onChange={(e) => handleChange(["pages", "services", "serviceList", i, "callBackLinkText"], e.target.value)}
+                          className="w-full p-2 bg-surface-container rounded-lg border outline-none"
+                          placeholder="Leave empty to use the default"
+                        />
+                      </div>
                     </div>
                   ))}
                   
                   <button 
                     onClick={() => handleArrayAdd(["pages", "services", "serviceList"], {
-                      id: "new-service", title: "New Service", heroTitle: "Hero Title", subtitle: "Subtitle", icon: "Star", description: "Short desc", longDescription: "Long description", mainHeading: "Main heading", ctaTitle: "Ready to start?", deliverables: [], benefits: []
+                      id: "new-service",
+                      title: "New Service",
+                      category: "Regulatory Compliance",
+                      heroTitle: "Hero Title",
+                      subtitle: "Subtitle",
+                      icon: "Star",
+                      description: "Short desc",
+                      longDescription: "Long description",
+                      mainHeading: "Main heading",
+                      ctaTitle: "Ready to start?",
+                      ctaSubtitle: "",
+                      callBackLinkText: "",
+                      deliverables: [],
+                      benefits: [],
                     })} 
                     className="flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all w-max"
                   >
@@ -1103,10 +1175,9 @@ export function AdminDashboard() {
           </div>
 
           <div className="bg-primary-container p-6 rounded-3xl mt-8">
-            <h4 className="font-bold text-on-primary-container">Architecture Note</h4>
+            <h4 className="font-bold text-on-primary-container">CMS</h4>
             <p className="text-on-primary-container/80 mt-2 text-sm">
-              This dashboard works locally. Changes are intercepted by the CMSFactory and kept loosely coupled. 
-              To configure a remote database like Supabase later, add credentials to .env file—no code changes required.
+              With <code className="text-xs">VITE_CMS_BACKEND=github</code>, saves go through the API to your repo JSON. Otherwise edits stay in the browser (local mode).
             </p>
           </div>
 

@@ -10,6 +10,6 @@ export class LocalCMSService implements ICMSService {
 
   async updateSiteDetails(details: SiteDetails): Promise<void> {
     console.log("Local Update (Simulated):", details);
-    alert("In local mode, changes are only logged to the console. Connect Supabase for persistence.");
+    alert("In local mode, changes are only logged to the console. Set VITE_CMS_BACKEND=github to save via the API.");
   }
 }

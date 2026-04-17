@@ -3,6 +3,7 @@ import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
+import { DeveloperCredit } from "../components/DeveloperCredit";
 
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -60,18 +61,26 @@ export const ServiceDetail = () => {
       "Transparent pricing and communication",
     ];
   const ctaTitle = service.ctaTitle || service.cta_title || "Ready to get started?";
+  const ctaBlockSubtitle =
+    service.ctaSubtitle ||
+    data.pages.services.serviceDetailCtaSubtitle ||
+    "Connect with our compliance architects today for a hassle-free filing experience.";
+  const callBackLinkLabel =
+    service.callBackLinkText ||
+    data.pages.services.serviceDetailCallBackLinkText ||
+    "Request a Call Back";
   const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative min-h-[600px] pt-20 flex items-center overflow-hidden">
+      {/* Hero Section — mobile: extra top padding, taller banner, bottom padding below CTA */}
+      <section className="relative flex min-h-[min(82vh,760px)] flex-col justify-start pt-28 pb-16 md:min-h-[600px] md:justify-center md:pt-20 md:pb-0 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070"
             alt="Architectural Background"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
@@ -197,7 +206,7 @@ export const ServiceDetail = () => {
               {ctaTitle}
             </h2>
             <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto relative z-10">
-              Connect with our compliance architects today for a hassle-free filing experience.
+              {ctaBlockSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
               {whatsappPhone ? (
@@ -213,7 +222,7 @@ export const ServiceDetail = () => {
               ) : null}
               <AppLink to="/contact" className="text-white font-headline font-bold text-lg flex items-center justify-center gap-2 underline underline-offset-8 hover:text-secondary transition-colors cursor-pointer">
                 <PhoneCall className="w-5 h-5" />
-                Request a Call Back
+                {callBackLinkLabel}
               </AppLink>
             </div>
           </motion.div>
@@ -232,9 +241,7 @@ export const ServiceDetail = () => {
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
             <AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink>
             <AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink>
-            <p className="text-slate-400 text-xs">
-              Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
-            </p>
+            <DeveloperCredit />
           </div>
         </div>
       </footer>

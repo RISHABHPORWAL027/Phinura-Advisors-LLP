@@ -2,6 +2,7 @@ import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { Shield, Lock, Eye, FileText } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
+import { DeveloperCredit } from "../components/DeveloperCredit";
 
 export const PrivacyPolicy = () => {
   const { data: siteDetails, loading } = useCMS();
@@ -117,9 +118,7 @@ export const PrivacyPolicy = () => {
             <AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink>
 
           </div>
-          <p className="text-slate-400 text-xs">
-            Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
-          </p>
+          <DeveloperCredit />
         </div>
       </footer>
     </div>

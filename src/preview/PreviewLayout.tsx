@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { CMSProvider } from "../hooks/useCMS";
 import { Navbar } from "../components/Navbar";
@@ -53,9 +53,7 @@ export function PreviewLayout() {
         <div className="min-h-screen bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed pb-14">
           <Navbar />
           <main>
-            <Suspense fallback={<PageLoading />}>
-              <Outlet />
-            </Suspense>
+            <Outlet />
           </main>
           <PreviewFooterGate />
           <div className="fixed bottom-0 left-0 right-0 z-[110] bg-amber-500 text-amber-950 text-center text-sm font-semibold py-2.5 px-4 border-t border-amber-600/30 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">

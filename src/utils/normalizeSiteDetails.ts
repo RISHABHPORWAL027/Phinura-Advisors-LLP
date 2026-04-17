@@ -82,6 +82,8 @@ function coerceServiceRow(raw: unknown): UnknownRecord {
     "longDescription",
     "ctaTitle",
     "category",
+    "ctaSubtitle",
+    "callBackLinkText",
   ] as const;
   for (const k of detailStringKeys) {
     const v = out[k];
@@ -124,7 +126,16 @@ function mergeServiceLists(defaultList: unknown[], incomingList: unknown[]): unk
 
     const merged = deepMergeWithDefaults(def, row) as UnknownRecord;
 
-    const detailKeys = ["heroTitle", "subtitle", "mainHeading", "longDescription", "ctaTitle", "category"] as const;
+    const detailKeys = [
+      "heroTitle",
+      "subtitle",
+      "mainHeading",
+      "longDescription",
+      "ctaTitle",
+      "category",
+      "ctaSubtitle",
+      "callBackLinkText",
+    ] as const;
     for (const k of detailKeys) {
       const m = merged[k];
       const d = def[k];

@@ -15,7 +15,7 @@ import {
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import { getHomepageFeaturedServices } from "../utils/homeFeaturedServices";
-import * as Icons from "lucide-react";
+import { resolveLucideIcon } from "../utils/lucideIconMap";
 import bundledHomeBannerWebm from "../Assets/homebanner.webm";
 import bundledHomeBannerMp4 from "../Assets/homebanner.mp4";
 import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.png";
@@ -267,7 +267,9 @@ const StatsBar = () => {
 
         {/* Industry Trust Logos */}
         <div className="mt-24 pt-16 border-t border-outline-variant/30 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12">{(siteDetails.pages.home as any).statsTitle || "Strategic Industry Partners"}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12">
+            {siteDetails.pages.home.statsTitle || "Strategic Industry Partners"}
+          </p>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
             {[
               "FINANCE.CO",
@@ -315,7 +317,7 @@ const CoreServices = () => {
             const featuredIds = siteDetails.pages.home.coreServices?.featuredServiceIds;
             const featuredServices = getHomepageFeaturedServices(allServices, featuredIds);
             return featuredServices.map((service: any, i: number) => {
-              const Icon = (Icons as any)[service.icon] || Icons.CheckCircle2;
+              const Icon = resolveLucideIcon(service.icon) || CheckCircle2;
               return (
               <AppLink
                 to={`/services/${service.id}`}
@@ -483,7 +485,7 @@ const WhyChooseUs = () => {
             <div className="relative z-10" style={{ transform: "translateZ(30px)" }}>
               {(() => {
                 const iconName = whyChooseUs.cards?.[0]?.icon || "ShieldCheck";
-                const Icon = iconMap[iconName] || Icons.ShieldCheck;
+                const Icon = iconMap[iconName] || ShieldCheck;
                 return <Icon className="w-12 h-12 mb-6 opacity-80" />;
               })()}
               <h3 className="text-3xl font-headline font-bold mb-4">{whyChooseUs.cards?.[0]?.title || "A Decade of Trust"}</h3>
@@ -518,7 +520,7 @@ const WhyChooseUs = () => {
             <div style={{ transform: "translateZ(30px)" }}>
               {(() => {
                 const iconName = whyChooseUs.cards?.[1]?.icon || "Zap";
-                const Icon = iconMap[iconName] || Icons.Zap;
+                const Icon = iconMap[iconName] || Zap;
                 return <Icon className="w-10 h-10 mb-6 text-primary" />;
               })()}
               <h3 className="text-2xl font-headline font-bold mb-4 text-primary">{whyChooseUs.cards?.[1]?.title || "Swift Support"}</h3>
@@ -553,7 +555,7 @@ const WhyChooseUs = () => {
             <div className="flex-grow"></div>
             {(() => {
               const iconName = whyChooseUs.cards?.[2]?.icon || "CheckCircle2";
-              const Icon = iconMap[iconName] || Icons.CheckCircle2;
+              const Icon = iconMap[iconName] || CheckCircle2;
               return <Icon className="w-16 h-16 text-primary/20 hidden lg:block" />;
             })()}
           </motion.div>

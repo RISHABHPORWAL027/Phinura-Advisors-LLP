@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Send, Globe, Users, Headset } from "lucide-react";
 import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "../components/SocialIcons";
 import { useCMS } from "../hooks/useCMS";
 import logo from "../Assets/Phinura_Advisors_logo.png";
+import { DeveloperCredit } from "../components/DeveloperCredit";
 
 const Hero = () => {
   const { data: siteDetails } = useCMS();
@@ -240,9 +241,7 @@ const Footer = () => {
         <div>
           <h4 className="font-headline font-bold text-primary mb-6 uppercase tracking-widest text-xs">Connect</h4>
           <p className="text-xs text-on-surface-variant leading-relaxed opacity-60 mb-2">© {new Date().getFullYear()} {siteDetails.fullName}. {siteDetails.tagline}</p>
-          <p className="text-[10px] text-on-surface-variant opacity-60">
-            Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
-          </p>
+          <DeveloperCredit className="text-[10px] text-on-surface-variant opacity-60" />
         </div>
       </div>
     </footer>

@@ -7,6 +7,12 @@ export interface SiteDetails {
   mobile: string;
   email: string;
   logo: string;
+  /** Shown in footers site-wide: “{prefix}{name as link}” */
+  developerCredit?: {
+    prefix: string;
+    name: string;
+    url: string;
+  };
   socialMedia: {
     instagram: string;
     facebook: string;
@@ -71,6 +77,8 @@ export interface SiteDetails {
         quote: string;
       }>;
       testimonialsTitle: string;
+      /** Label above the stats row on the home page */
+      statsTitle?: string;
     };
     services: {
       serviceList: Array<{
@@ -88,7 +96,15 @@ export interface SiteDetails {
         ctaTitle?: string;
         cta_title?: string;
         category?: string;
+        /** Optional: overrides `pages.services.serviceDetailCtaSubtitle` for this service’s CTA block */
+        ctaSubtitle?: string;
+        /** Optional: overrides `pages.services.serviceDetailCallBackLinkText` */
+        callBackLinkText?: string;
       }>;
+      /** Default paragraph under the CTA title on each service detail page */
+      serviceDetailCtaSubtitle?: string;
+      /** Default “Request a call back” link label on service detail pages */
+      serviceDetailCallBackLinkText?: string;
       hero: {
         title: string;
         subtitle: string;
