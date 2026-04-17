@@ -19,9 +19,10 @@ export default defineConfig(({mode}) => {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
+      // GitHub CMS: `yarn dev:api` must be running (default port 3001) or proxy returns ECONNREFUSED.
       proxy: {
         "/api": {
-          target: "http://localhost:3001",
+          target: env.VITE_DEV_API_PROXY || "http://localhost:3001",
           changeOrigin: true,
         },
       },

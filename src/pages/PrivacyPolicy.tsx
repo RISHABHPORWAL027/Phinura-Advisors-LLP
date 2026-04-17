@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { Shield, Lock, Eye, FileText } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
@@ -113,8 +113,8 @@ export const PrivacyPolicy = () => {
             </p>
           </div>
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
-            <Link to="/privacy" className="text-primary font-bold">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+            <AppLink to="/privacy" className="text-primary font-bold">Privacy Policy</AppLink>
+            <AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink>
 
           </div>
           <p className="text-slate-400 text-xs">

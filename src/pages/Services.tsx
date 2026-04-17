@@ -7,7 +7,7 @@ import {
   TrendingUp,
   Quote
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import * as Icons from "lucide-react";
 import logo from "../Assets/Phinura_Advisors_logo.png";
@@ -67,7 +67,7 @@ const ServiceGrid = ({ services }: { services: any[] }) => (
         {services.map((service, i) => {
           const Icon = (Icons as any)[service.icon] || Icons.CheckCircle2;
           return (
-            <Link
+            <AppLink
               to={`/services/${service.id}`}
               key={i}
               className="group relative"
@@ -107,7 +107,7 @@ const ServiceGrid = ({ services }: { services: any[] }) => (
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
                 </div>
               </motion.div>
-            </Link>
+            </AppLink>
           );
         })}
       </div>
@@ -177,28 +177,28 @@ const FooterCTA = ({ siteDetails }: { siteDetails: any }) => (
   <footer className="bg-slate-50 py-16 md:py-20 px-6">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
-        <Link to="/" className="flex items-center gap-2 mb-6 group">
+        <AppLink to="/" className="flex items-center gap-2 mb-6 group">
           <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
           <span className="text-lg font-bold text-primary">{siteDetails.companyName}</span>
-        </Link>
+        </AppLink>
         <p className="text-on-surface-variant text-sm leading-relaxed">{siteDetails.tagline}</p>
       </div>
       <div>
         <h4 className="font-headline font-bold text-primary mb-6">Services</h4>
         <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><Link to="/services" className="hover:text-primary transition-colors">Tax Preparation</Link></li>
-          <li><Link to="/services" className="hover:text-primary transition-colors">Audit & Assurance</Link></li>
-          <li><Link to="/services" className="hover:text-primary transition-colors">Corporate Strategy</Link></li>
-          <li><Link to="/services" className="hover:text-primary transition-colors">Financial Planning</Link></li>
+          <li><AppLink to="/services" className="hover:text-primary transition-colors">Tax Preparation</AppLink></li>
+          <li><AppLink to="/services" className="hover:text-primary transition-colors">Audit & Assurance</AppLink></li>
+          <li><AppLink to="/services" className="hover:text-primary transition-colors">Corporate Strategy</AppLink></li>
+          <li><AppLink to="/services" className="hover:text-primary transition-colors">Financial Planning</AppLink></li>
         </ul>
       </div>
       <div>
         <h4 className="font-headline font-bold text-primary mb-6">Company</h4>
         <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
-          <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-          <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-          <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+          <li><AppLink to="/about" className="hover:text-primary transition-colors">About</AppLink></li>
+          <li><AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink></li>
+          <li><AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink></li>
+          <li><AppLink to="/contact" className="hover:text-primary transition-colors">Contact</AppLink></li>
         </ul>
       </div>
       <div>

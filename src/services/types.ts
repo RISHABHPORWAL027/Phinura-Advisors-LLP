@@ -32,6 +32,7 @@ export interface SiteDetails {
         badge: string;
         title: string;
         subtitle: string;
+        featuredServiceIds: string[];
       };
       simpleSolutions: {
         title: string;

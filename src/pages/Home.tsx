@@ -12,8 +12,9 @@ import {
   ArrowRightLeft,
   Headset
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
+import { getHomepageFeaturedServices } from "../utils/homeFeaturedServices";
 import * as Icons from "lucide-react";
 import bundledHomeBannerWebm from "../Assets/homebanner.webm";
 import bundledHomeBannerMp4 from "../Assets/homebanner.mp4";
@@ -303,57 +304,62 @@ const CoreServices = () => {
               {(siteDetails.pages.home as any).coreServices?.subtitle || "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity."}
             </p>
           </div>
-          <Link to="/services" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl font-headline font-bold text-base shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shrink-0 group">
+          <AppLink to="/services" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl font-headline font-bold text-base shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shrink-0 group">
             View All Services
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </AppLink>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {siteDetails.pages.services.serviceList.slice(0, 6).map((service: any, i: number) => {
-            const Icon = (Icons as any)[service.icon] || Icons.CheckCircle2;
-            return (
-            <Link
-              to={`/services/${service.id}`}
-              key={i}
-              className="group relative"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{
-                  y: -10,
-                  rotateX: 2,
-                  rotateY: 2,
-                  transition: { duration: 0.3 }
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="h-full bg-white p-10 rounded-[2.5rem] border border-outline-variant/30 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-colors transition-shadow duration-500"
+          {(() => {
+            const allServices = siteDetails.pages.services.serviceList || [];
+            const featuredIds = siteDetails.pages.home.coreServices?.featuredServiceIds;
+            const featuredServices = getHomepageFeaturedServices(allServices, featuredIds);
+            return featuredServices.map((service: any, i: number) => {
+              const Icon = (Icons as any)[service.icon] || Icons.CheckCircle2;
+              return (
+              <AppLink
+                to={`/services/${service.id}`}
+                key={service.id}
+                className="group relative"
               >
-                <div
-                  className="w-16 h-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
-                  style={{ transform: "translateZ(30px)" }}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{
+                    y: -10,
+                    rotateX: 2,
+                    rotateY: 2,
+                    transition: { duration: 0.3 }
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  style={{ transformStyle: "preserve-3d" }}
+                  className="h-full bg-white p-10 rounded-[2.5rem] border border-outline-variant/30 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-colors transition-shadow duration-500"
                 >
-                  <Icon className="w-8 h-8" />
-                </div>
-                <h3
-                  className="text-2xl font-headline font-bold text-primary mb-4"
-                  style={{ transform: "translateZ(20px)" }}
-                >
-                  {service.title}
-                </h3>
-                <p className="text-on-surface-variant mb-6 line-clamp-2 leading-relaxed">{service.description}</p>
-                <div
-                  className="inline-flex items-center font-bold text-primary group/link"
-                  style={{ transform: "translateZ(10px)" }}
-                >
-                  <span className="border-b-2 border-primary/0 group-hover:border-primary transition-all">View Details</span>
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
-                </div>
-              </motion.div>
-            </Link>
-            );
-          })}
+                  <div
+                    className="w-16 h-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
+                    style={{ transform: "translateZ(30px)" }}
+                  >
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <h3
+                    className="text-2xl font-headline font-bold text-primary mb-4"
+                    style={{ transform: "translateZ(20px)" }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p className="text-on-surface-variant mb-6 line-clamp-2 leading-relaxed">{service.description}</p>
+                  <div
+                    className="inline-flex items-center font-bold text-primary group/link"
+                    style={{ transform: "translateZ(10px)" }}
+                  >
+                    <span className="border-b-2 border-primary/0 group-hover:border-primary transition-all">View Details</span>
+                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
+                  </div>
+                </motion.div>
+              </AppLink>
+              );
+            });
+          })()}
         </div>
       </div>
     </section>
@@ -643,9 +649,9 @@ const FinalCTA = () => {
             >
               {siteDetails.pages.home.cta.buttonText}
             </a>
-            <Link to="/services" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
+            <AppLink to="/services" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
               {siteDetails.pages.home.cta.secondaryButtonText}
-            </Link>
+            </AppLink>
           </div>
         </motion.div>
       </div>

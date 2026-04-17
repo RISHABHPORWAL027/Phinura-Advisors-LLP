@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import type { LucideIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 
 type Section = {
   title: string;
@@ -194,12 +194,12 @@ export function LegalPageLayout({
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-8 text-xs font-medium text-on-surface-variant">
-            <Link to="/privacy" className={activePage === "privacy" ? "font-bold text-primary" : "transition-colors hover:text-primary"}>
+            <AppLink to="/privacy" className={activePage === "privacy" ? "font-bold text-primary" : "transition-colors hover:text-primary"}>
               Privacy Policy
-            </Link>
-            <Link to="/terms" className={activePage === "terms" ? "font-bold text-primary" : "transition-colors hover:text-primary"}>
+            </AppLink>
+            <AppLink to="/terms" className={activePage === "terms" ? "font-bold text-primary" : "transition-colors hover:text-primary"}>
               Terms of Service
-            </Link>
+            </AppLink>
           </div>
         </div>
       </footer>

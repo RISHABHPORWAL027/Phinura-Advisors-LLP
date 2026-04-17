@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCMS } from "../../hooks/useCMS";
-import { Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, Settings, Phone, Info, Briefcase, Plus, Trash2, Shield } from "lucide-react";
+import { Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, Settings, Phone, Info, Briefcase, Plus, Trash2, Shield, Eye } from "lucide-react";
 import { SiteDetails } from "../../services/types";
 import { GitHubCMSService } from "../../services/githubService";
 import { SupabaseCMSService } from "../../services/supabaseService";
 import { supabase } from "../../lib/supabase";
 import { normalizeSiteDetails } from "../../utils/normalizeSiteDetails";
+import { storeAdminPreviewDraft, clearAdminPreviewDraft } from "../../lib/adminPreview";
+import { LUCIDE_SERVICE_ICON_OPTIONS_SORTED } from "../../constants/lucideServiceIconOptions";
+import { LucideIconSelect } from "../../components/admin/LucideIconSelect";
+import {
+  featuredIdsToSlots,
+  slotsToFeaturedIds,
+  HOMEPAGE_FEATURED_SERVICE_COUNT,
+} from "../../utils/homeFeaturedServices";
+
+/** Full clone so nested updates never mutate `prev` (React Strict Mode runs updaters twice in dev). */
+function cloneFormState(prev: SiteDetails): SiteDetails {
+  return structuredClone(prev);
+}
 
 export function AdminDashboard() {
   const { data, loading, updateData } = useCMS();
@@ -26,28 +39,31 @@ export function AdminDashboard() {
   const [authStatus, setAuthStatus] = useState<"idle" | "checking" | "error">("idle");
   const [importStatus, setImportStatus] = useState<"idle" | "importing" | "error" | "success">("idle");
 
-  // Initialize form data when context data loads
-  if (!loading && !formData && data) {
-    const cloned = JSON.parse(JSON.stringify(normalizeSiteDetails(data))); // Deep copy + schema-normalize
-    // Normalize optional arrays/fields so the admin UI never crashes on missing properties
-    if (cloned?.pages?.services?.serviceList && Array.isArray(cloned.pages.services.serviceList)) {
-      cloned.pages.services.serviceList = cloned.pages.services.serviceList.map((service: any) => ({
-        ...service,
-        heroTitle: service.heroTitle ?? "",
-        subtitle: service.subtitle ?? "",
-        mainHeading: service.mainHeading ?? "",
-        longDescription: service.longDescription ?? "",
-        ctaTitle: service.ctaTitle ?? "",
-        category: service.category ?? "",
-        deliverables: Array.isArray(service.deliverables) ? service.deliverables : [],
-        benefits: Array.isArray(service.benefits) ? service.benefits : [],
-      }));
-    }
-    if (cloned?.pages?.services?.statsCTA?.stats && !Array.isArray(cloned.pages.services.statsCTA.stats)) {
-      cloned.pages.services.statsCTA.stats = [];
-    }
-    setFormData(cloned);
-  }
+  // Initialize form after CMS data is ready (avoid render-phase setState; re-run when `data` updates from fetch/save)
+  useEffect(() => {
+    if (loading || !data) return;
+    setFormData((prev) => {
+      if (prev) return prev;
+      const cloned = JSON.parse(JSON.stringify(normalizeSiteDetails(data)));
+      if (cloned?.pages?.services?.serviceList && Array.isArray(cloned.pages.services.serviceList)) {
+        cloned.pages.services.serviceList = cloned.pages.services.serviceList.map((service: any) => ({
+          ...service,
+          heroTitle: service.heroTitle ?? "",
+          subtitle: service.subtitle ?? "",
+          mainHeading: service.mainHeading ?? "",
+          longDescription: service.longDescription ?? "",
+          ctaTitle: service.ctaTitle ?? "",
+          category: service.category ?? "",
+          deliverables: Array.isArray(service.deliverables) ? service.deliverables : [],
+          benefits: Array.isArray(service.benefits) ? service.benefits : [],
+        }));
+      }
+      if (cloned?.pages?.services?.statsCTA?.stats && !Array.isArray(cloned.pages.services.statsCTA.stats)) {
+        cloned.pages.services.statsCTA.stats = [];
+      }
+      return cloned;
+    });
+  }, [loading, data]);
 
   const handleUnlock = async () => {
     setAuthStatus("checking");
@@ -71,12 +87,24 @@ export function AdminDashboard() {
     }
   };
 
+  const handlePreviewInNewTab = () => {
+    if (!formData) return;
+    try {
+      storeAdminPreviewDraft(normalizeSiteDetails(formData));
+      window.open("/preview", "_blank", "noopener,noreferrer");
+    } catch (e) {
+      console.error(e);
+      alert("Could not open preview. Check that local storage is allowed for this site (private windows may block it).");
+    }
+  };
+
   const handleSave = async () => {
     if (!formData) return;
     setIsSaving(true);
     setSaveStatus("idle");
     try {
       await updateData(formData);
+      clearAdminPreviewDraft();
       setSaveStatus("success");
       setTimeout(() => setSaveStatus("idle"), 3000);
     } catch (error) {
@@ -114,7 +142,7 @@ export function AdminDashboard() {
     
     setFormData((prev) => {
       if (!prev) return prev;
-      const newData = { ...prev };
+      const newData = cloneFormState(prev);
       let current: any = newData;
       let parent: any = null;
       let parentKey: string | number | null = null;
@@ -156,7 +184,7 @@ export function AdminDashboard() {
     if (!formData) return;
     setFormData((prev) => {
       if (!prev) return prev;
-      const newData = { ...prev };
+      const newData = cloneFormState(prev);
       let current: any = newData;
       for (let i = 0; i < path.length - 1; i++) {
         const key = path[i];
@@ -180,7 +208,7 @@ export function AdminDashboard() {
     if (!formData) return;
     setFormData((prev) => {
       if (!prev) return prev;
-      const newData = { ...prev };
+      const newData = cloneFormState(prev);
       let current: any = newData;
       for (let i = 0; i < path.length - 1; i++) {
         const key = path[i];
@@ -365,6 +393,18 @@ export function AdminDashboard() {
               )}
 
               <button
+                type="button"
+                onClick={handlePreviewInNewTab}
+                disabled={!formData}
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-secondary/15 text-secondary rounded-full font-medium border border-secondary/30 hover:bg-secondary/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                title="Opens your current edits in a new tab (not saved to GitHub yet)"
+              >
+                <Eye size={20} />
+                Preview changes
+              </button>
+
+              <button
+                type="button"
                 onClick={handleSave}
                 disabled={isSaving}
                 className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-full font-medium shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
@@ -560,10 +600,56 @@ export function AdminDashboard() {
                     <Plus size={16} /> Add Stat
                   </button>
 
-                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Services Preview Teaser</h3>
+                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Services Preview Teaser</h3>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-on-surface">Core Services Section Subtitle</label>
                     <textarea rows={2} value={formData.pages.home.coreServices.subtitle} onChange={(e) => handleChange(["pages", "home", "coreServices", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
+                  </div>
+
+                  {/* Homepage Core Services: exactly 3 cards — pick order here */}
+                  <div className="mt-6 space-y-3">
+                    <label className="text-sm font-bold text-on-surface flex items-center gap-2">
+                      <Briefcase size={16} className="text-primary" />
+                      Homepage Core Services ({HOMEPAGE_FEATURED_SERVICE_COUNT} cards)
+                    </label>
+                    <p className="text-xs text-on-surface-variant">
+                      The home page always shows exactly {HOMEPAGE_FEATURED_SERVICE_COUNT} service cards in this section. Choose slot 1 → 2 → 3 (left to right on large screens). Leave a slot on
+                      “Auto” to fill from the next available service in your Services list.
+                    </p>
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      {(() => {
+                        const slots = featuredIdsToSlots(formData.pages.home.coreServices.featuredServiceIds);
+                        return [0, 1, 2].map((slotIndex) => (
+                          <div key={slotIndex} className="space-y-1">
+                            <label className="text-[10px] font-bold uppercase tracking-wide text-on-surface-variant">
+                              Slot {slotIndex + 1}
+                            </label>
+                            <select
+                              value={slots[slotIndex]}
+                              onChange={(e) => {
+                                const next = [...slots] as [string, string, string];
+                                next[slotIndex] = e.target.value;
+                                handleChange(
+                                  ["pages", "home", "coreServices", "featuredServiceIds"],
+                                  slotsToFeaturedIds(next)
+                                );
+                              }}
+                              className="w-full p-2.5 bg-surface-container rounded-lg border border-outline-variant outline-none text-sm"
+                            >
+                              <option value="">— Auto (next in list) —</option>
+                              {formData.pages.services.serviceList.map((service) => (
+                                <option key={service.id} value={service.id}>
+                                  {service.title}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        ));
+                      })()}
+                    </div>
+                    <p className="text-xs text-on-surface-variant">
+                      Add or edit services under the <strong>Services</strong> tab; then assign them here.
+                    </p>
                   </div>
 
                   {/* Simple Solutions */}
@@ -789,6 +875,14 @@ export function AdminDashboard() {
                   
                   {/* Service List Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Service Details Pages</h3>
+                  <p className="text-sm text-on-surface-variant mb-2">
+                    Add a service with <strong>Add New Service</strong>, set a unique <strong>Slug ID</strong> (used in URLs like <code className="text-xs bg-surface-container px-1 rounded">/services/your-slug</code>), then pick an icon: type the{" "}
+                    <strong>PascalCase</strong> name from the Lucide set (e.g. <code className="text-xs bg-surface-container px-1 rounded">Gavel</code>, <code className="text-xs bg-surface-container px-1 rounded">Building2</code>). Wrong or unknown names fall back to a checkmark on the live site.{" "}
+                    <a href="https://lucide.dev/icons/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold underline">
+                      Browse all icons →
+                    </a>{" "}
+                    Open the icon control to see each option with its preview; use the custom row for any name from the gallery.
+                  </p>
                   {formData.pages.services.serviceList.map((service, i) => (
                     <div key={i} className="mb-8 p-6 border border-outline-variant rounded-xl relative space-y-4 shadow-sm bg-surface">
                       <button onClick={() => handleArrayRemove(["pages", "services", "serviceList"], i)} className="absolute top-4 right-4 text-red-500 hover:text-red-700 z-10 p-2"><Trash2 size={20} /></button>
@@ -802,9 +896,16 @@ export function AdminDashboard() {
                           <label className="text-xs font-bold text-primary uppercase">Menu Title</label>
                           <input type="text" value={service.title} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "title"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Service Title" />
                         </div>
-                        <div className="space-y-1">
-                          <label className="text-xs font-bold text-primary uppercase">Icon (Lucide)</label>
-                          <input type="text" value={service.icon} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "icon"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="e.g. CheckCircle2" />
+                        <div className="space-y-1 md:col-span-2">
+                          <label className="text-xs font-bold text-primary uppercase" htmlFor={`service-icon-${i}`}>
+                            Icon (Lucide)
+                          </label>
+                          <LucideIconSelect
+                            id={`service-icon-${i}`}
+                            value={service.icon}
+                            onChange={(next) => handleChange(["pages", "services", "serviceList", i, "icon"], next)}
+                            options={LUCIDE_SERVICE_ICON_OPTIONS_SORTED}
+                          />
                         </div>
                         <div className="space-y-1">
                           <label className="text-xs font-bold text-primary uppercase">Short Description</label>

@@ -12,11 +12,24 @@ interface CMSContextType {
 
 const CMSContext = createContext<CMSContextType | undefined>(undefined);
 
-export function CMSProvider({ children }: { children: ReactNode }) {
-  const [data, setData] = useState<SiteDetails>(initialData as SiteDetails);
-  const [loading, setLoading] = useState(true);
+type CMSProviderProps = {
+  children: ReactNode;
+  /** When set (e.g. under `/preview`), skip remote fetch and use this draft only. */
+  previewDraft?: SiteDetails;
+};
+
+export function CMSProvider({ children, previewDraft }: CMSProviderProps) {
+  const isPreview = previewDraft != null;
+  const [data, setData] = useState<SiteDetails>(() =>
+    isPreview ? normalizeSiteDetails(previewDraft) : (initialData as SiteDetails)
+  );
+  const [loading, setLoading] = useState(() => !isPreview);
 
   useEffect(() => {
+    if (isPreview) {
+      setLoading(false);
+      return;
+    }
     async function loadData() {
       try {
         const remoteData = await cms.getSiteDetails();
@@ -28,9 +41,13 @@ export function CMSProvider({ children }: { children: ReactNode }) {
       }
     }
     loadData();
-  }, []);
+  }, [isPreview]);
 
   const updateData = async (newData: SiteDetails) => {
+    if (isPreview) {
+      console.warn("CMS save skipped: preview tab is read-only.");
+      return;
+    }
     try {
       const normalized = normalizeSiteDetails(newData);
       await cms.updateSiteDetails(normalized);

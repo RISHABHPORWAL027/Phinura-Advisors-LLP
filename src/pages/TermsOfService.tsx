@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { FileText, Scale, Gavel, AlertCircle } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
@@ -123,8 +123,8 @@ export const TermsOfService = () => {
             </p>
           </div>
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
-            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-primary font-bold">Terms of Service</Link>
+            <AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink>
+            <AppLink to="/terms" className="text-primary font-bold">Terms of Service</AppLink>
 
           </div>
           <p className="text-slate-400 text-xs">

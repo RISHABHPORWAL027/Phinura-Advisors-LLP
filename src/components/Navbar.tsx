@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useAppPath } from "../navigation/AppLink";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "../Assets/Phinura_Advisors_logo.png";
@@ -9,8 +10,19 @@ export const Navbar = () => {
   const { data: siteDetails } = useCMS();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  
-  const isActive = (path: string) => location.pathname === path;
+  const homePath = useAppPath("/");
+  const servicesPath = useAppPath("/services");
+  const aboutPath = useAppPath("/about");
+  const contactPath = useAppPath("/contact");
+
+  const navLinks = [
+    { name: "Home", to: homePath },
+    { name: "Services", to: servicesPath },
+    { name: "About", to: aboutPath },
+    { name: "Contact", to: contactPath },
+  ];
+
+  const isActive = (to: string) => location.pathname === to;
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -26,17 +38,10 @@ export const Navbar = () => {
     }
   }, [isOpen]);
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-  ];
-
   return (
     <nav className="fixed top-0 w-full z-[100] bg-white border-b border-primary/5 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to={homePath} className="flex items-center gap-2 group">
           <img src={logo} alt={siteDetails.companyName} className="h-9 w-auto group-hover:scale-105 transition-transform logo-img" />
           <span className="text-xl font-bold tracking-tighter text-primary font-headline sm:block">
             {siteDetails.companyName}
@@ -47,12 +52,12 @@ export const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-10">
           {navLinks.map((link) => (
             <Link 
-              key={link.path}
-              to={link.path} 
-              className={`relative font-headline font-bold text-sm tracking-tight transition-all duration-300 hover:text-primary ${isActive(link.path) ? "text-primary" : "text-on-surface-variant/70"}`}
+              key={link.to}
+              to={link.to} 
+              className={`relative font-headline font-bold text-sm tracking-tight transition-all duration-300 hover:text-primary ${isActive(link.to) ? "text-primary" : "text-on-surface-variant/70"}`}
             >
               {link.name}
-              {isActive(link.path) && (
+              {isActive(link.to) && (
                 <motion.div 
                   layoutId="nav-underline"
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
@@ -96,14 +101,14 @@ export const Navbar = () => {
             <div className="flex flex-col space-y-8 mt-4">
               {navLinks.map((link, i) => (
                 <motion.div
-                  key={link.path}
+                  key={link.to}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link 
-                    to={link.path}
-                    className={`text-4xl font-headline font-black tracking-tighter ${isActive(link.path) ? "text-primary" : "text-on-surface-variant/40 hover:text-primary"}`}
+                    to={link.to}
+                    className={`text-4xl font-headline font-black tracking-tighter ${isActive(link.to) ? "text-primary" : "text-on-surface-variant/40 hover:text-primary"}`}
                   >
                     {link.name}
                   </Link>

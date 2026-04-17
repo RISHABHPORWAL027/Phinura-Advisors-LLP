@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { Phone, Mail, MapPin, Send, Globe, Users, Headset } from "lucide-react";
 import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "../components/SocialIcons";
@@ -202,10 +202,10 @@ const Footer = () => {
     <footer className="py-16 md:py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-1">
-          <Link to="/" className="flex items-center gap-2 mb-6 group">
+          <AppLink to="/" className="flex items-center gap-2 mb-6 group">
             <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
             <span className="text-lg font-bold text-primary">{siteDetails.companyName}</span>
-          </Link>
+          </AppLink>
           <p className="text-on-surface-variant text-sm leading-relaxed mb-8">{siteDetails.tagline}</p>
           <div className="flex gap-4">
             <a href={siteDetails.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all cursor-pointer">
@@ -222,10 +222,10 @@ const Footer = () => {
         <div>
           <h4 className="font-headline font-bold text-primary mb-6 uppercase tracking-widest text-xs">Navigation</h4>
           <ul className="space-y-4 text-sm text-on-surface-variant">
-            <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
-            <li><a href="/services" className="hover:text-primary transition-colors">Services</a></li>
-            <li><a href="/about" className="hover:text-primary transition-colors">About</a></li>
-            <li><a href="/contact" className="hover:text-primary transition-colors font-bold text-primary">Contact</a></li>
+            <li><AppLink to="/" className="hover:text-primary transition-colors">Home</AppLink></li>
+            <li><AppLink to="/services" className="hover:text-primary transition-colors">Services</AppLink></li>
+            <li><AppLink to="/about" className="hover:text-primary transition-colors">About</AppLink></li>
+            <li><AppLink to="/contact" className="hover:text-primary transition-colors font-bold text-primary">Contact</AppLink></li>
           </ul>
         </div>
         <div>
@@ -233,8 +233,8 @@ const Footer = () => {
           <ul className="space-y-4 text-sm text-on-surface-variant">
             <li><a href="#" className="hover:text-primary transition-colors">Insights</a></li>
             <li><a href="#" className="hover:text-primary transition-colors">Newsletter</a></li>
-            <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+            <li><AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink></li>
+            <li><AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink></li>
           </ul>
         </div>
         <div>

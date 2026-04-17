@@ -1,6 +1,6 @@
 import { Mail, Globe } from "lucide-react";
 import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "./SocialIcons";
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import logo from "../Assets/Phinura_Advisors_logo.png";
 import { useCMS } from "../hooks/useCMS";
 
@@ -11,10 +11,10 @@ export const Footer = () => {
   <footer className="w-full bg-slate-50 rounded-t-[2.5rem] mt-20">
     <div className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
-        <Link to="/" className="flex items-center gap-2 mb-4 group">
+        <AppLink to="/" className="flex items-center gap-2 mb-4 group">
           <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
           <span className="text-lg font-bold text-primary group-hover:text-primary transition-all">{siteDetails.companyName}</span>
-        </Link>
+        </AppLink>
         <p className="text-on-surface-variant text-sm mb-6">{siteDetails.tagline}</p>
         <div className="flex gap-4">
           <a href={siteDetails.socialMedia.facebook} target="_blank" rel="noopener noreferrer">
@@ -31,17 +31,17 @@ export const Footer = () => {
       <div>
         <h4 className="font-headline font-bold text-primary mb-6">Explore</h4>
         <ul className="space-y-4">
-          <li><Link to="/" className="text-on-surface-variant hover:text-primary transition-all text-sm">Home</Link></li>
-          <li><Link to="/services" className="text-on-surface-variant hover:text-primary transition-all text-sm">Services</Link></li>
-          <li><Link to="/about" className="text-on-surface-variant hover:text-primary transition-all text-sm">About Us</Link></li>
-          <li><Link to="/contact" className="text-on-surface-variant hover:text-primary transition-all text-sm">Contact</Link></li>
+          <li><AppLink to="/" className="text-on-surface-variant hover:text-primary transition-all text-sm">Home</AppLink></li>
+          <li><AppLink to="/services" className="text-on-surface-variant hover:text-primary transition-all text-sm">Services</AppLink></li>
+          <li><AppLink to="/about" className="text-on-surface-variant hover:text-primary transition-all text-sm">About Us</AppLink></li>
+          <li><AppLink to="/contact" className="text-on-surface-variant hover:text-primary transition-all text-sm">Contact</AppLink></li>
         </ul>
       </div>
       <div>
         <h4 className="font-headline font-bold text-primary mb-6">Resources</h4>
         <ul className="space-y-4">
-          <li><Link className="text-on-surface-variant hover:text-primary transition-all text-sm" to="/privacy">Privacy Policy</Link></li>
-          <li><Link className="text-on-surface-variant hover:text-primary transition-all text-sm" to="/terms">Terms of Service</Link></li>
+          <li><AppLink className="text-on-surface-variant hover:text-primary transition-all text-sm" to="/privacy">Privacy Policy</AppLink></li>
+          <li><AppLink className="text-on-surface-variant hover:text-primary transition-all text-sm" to="/terms">Terms of Service</AppLink></li>
           <li><a className="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Newsletter</a></li>
           <li><a className="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Tax Calendar</a></li>
         </ul>

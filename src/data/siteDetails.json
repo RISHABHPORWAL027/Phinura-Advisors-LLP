@@ -55,7 +55,8 @@
       "coreServices": {
         "badge": "Comprehensive Expertise",
         "title": "Our Core Services",
-        "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity."
+        "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity.",
+        "featuredServiceIds": ["mca-compliance", "company-registration", "trademark-registration"]
       },
       "simpleSolutions": {
         "title": "Simple Solutions for You",

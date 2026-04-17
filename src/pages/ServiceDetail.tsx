@@ -1,4 +1,5 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
@@ -26,9 +27,9 @@ export const ServiceDetail = () => {
       <div className="min-h-screen flex items-center justify-center bg-surface">
         <div className="text-center">
           <h1 className="text-4xl font-headline font-bold text-primary mb-4">Service Not Found</h1>
-          <Link to="/services" className="text-secondary font-bold flex items-center justify-center gap-2">
+          <AppLink to="/services" className="text-secondary font-bold flex items-center justify-center gap-2">
             <ArrowLeft className="w-5 h-5" /> Back to Services
-          </Link>
+          </AppLink>
         </div>
       </div>
     );
@@ -103,12 +104,12 @@ export const ServiceDetail = () => {
                 {data.pages.home.hero.buttonText}
               </a>
             ) : (
-              <Link
+              <AppLink
                 to="/contact"
                 className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
               >
                 Contact Us
-              </Link>
+              </AppLink>
             )}
           </motion.div>
         </div>
@@ -210,10 +211,10 @@ export const ServiceDetail = () => {
                   {data.pages.contact.form.whatsappButtonText}
                 </a>
               ) : null}
-              <Link to="/contact" className="text-white font-headline font-bold text-lg flex items-center justify-center gap-2 underline underline-offset-8 hover:text-secondary transition-colors cursor-pointer">
+              <AppLink to="/contact" className="text-white font-headline font-bold text-lg flex items-center justify-center gap-2 underline underline-offset-8 hover:text-secondary transition-colors cursor-pointer">
                 <PhoneCall className="w-5 h-5" />
                 Request a Call Back
-              </Link>
+              </AppLink>
             </div>
           </motion.div>
         </div>
@@ -229,8 +230,8 @@ export const ServiceDetail = () => {
             </p>
           </div>
           <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
-            <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+            <AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink>
+            <AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink>
             <p className="text-slate-400 text-xs">
               Design and Develop by <a href="https://www.devyugsolutions.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">Devyug Solution</a>
             </p>

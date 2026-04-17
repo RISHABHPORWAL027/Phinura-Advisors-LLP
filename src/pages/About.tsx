@@ -1,6 +1,6 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { AppLink } from "../navigation/AppLink";
 import { Heart, Lightbulb, ShieldCheck, ArrowRight } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 
@@ -51,9 +51,9 @@ const Hero = () => {
               {hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link to="/contact" className="bg-primary text-white px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:shadow-2xl hover:shadow-primary/30 transition-all text-center">
+              <AppLink to="/contact" className="bg-primary text-white px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:shadow-2xl hover:shadow-primary/30 transition-all text-center">
                 {siteDetails.pages.home.hero.buttonText}
-              </Link>
+              </AppLink>
             </div>
           </motion.div>
 
@@ -164,9 +164,9 @@ const People = () => {
             <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">{people.title}</h2>
             <p className="text-on-surface-variant text-lg">{people.subtitle}</p>
           </div>
-          <Link to="/contact" className="flex items-center gap-2 font-bold text-primary group">
+          <AppLink to="/contact" className="flex items-center gap-2 font-bold text-primary group">
             Join our team <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </AppLink>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {people.team.map((person: any, i: number) => (
@@ -222,9 +222,9 @@ const CTA = () => {
             >
               {cta.buttonText}
             </a>
-            <Link to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
+            <AppLink to="/contact" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
               {cta.secondaryButtonText}
-            </Link>
+            </AppLink>
           </div>
         </motion.div>
       </div>
