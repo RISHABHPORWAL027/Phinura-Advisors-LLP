@@ -149,50 +149,6 @@
       ]
     },
     "services": {
-      "serviceList": [
-        {
-          "id": "mca-compliance",
-          "title": "MCA Compliance",
-          "description": "Ministry of Corporate Affairs adherence including annual filings and Director KYC updates.",
-          "icon": "Gavel",
-          "heroTitle": "",
-          "subtitle": "",
-          "mainHeading": "",
-          "longDescription": "",
-          "ctaTitle": "",
-          "category": "",
-          "deliverables": [],
-          "benefits": []
-        },
-        {
-          "id": "company-registration",
-          "title": "Company Registration",
-          "description": "Incorporate your PVT LTD, LLP, or OPC with zero hassle.",
-          "icon": "Building2",
-          "heroTitle": "",
-          "subtitle": "",
-          "mainHeading": "",
-          "longDescription": "",
-          "ctaTitle": "",
-          "category": "",
-          "deliverables": [],
-          "benefits": []
-        },
-        {
-          "id": "trademark-registration",
-          "title": "Trademark Registration",
-          "description": "Securing your intellectual property.",
-          "icon": "ShieldCheck",
-          "heroTitle": "",
-          "subtitle": "",
-          "mainHeading": "",
-          "longDescription": "",
-          "ctaTitle": "",
-          "category": "",
-          "deliverables": [],
-          "benefits": []
-        }
-      ],
       "hero": {
         "title": "Our Professional Services",
         "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises."
@@ -228,7 +184,106 @@
             "suffix": "h"
           }
         ]
-      }
+      },
+      "serviceList": [
+        {
+          "id": "mca-compliance",
+          "title": "MCA Compliance",
+          "icon": "Gavel",
+          "description": "Ministry of Corporate Affairs adherence including annual filings and Director KYC updates.",
+          "category": "Regulatory Compliance",
+          "heroTitle": "MCA Compliance Made Simple",
+          "subtitle": "Stay ahead of Ministry of Corporate Affairs deadlines with our expert-managed annual filings, Director KYC, and statutory compliance solutions—so you can focus on growing your business.",
+          "mainHeading": "End-to-End MCA Compliance Services",
+          "longDescription": "Navigating Ministry of Corporate Affairs regulations can be overwhelming for any business owner. From annual return filings to Director KYC updates, every deadline missed carries penalties that can disrupt your operations.\n\nAt Phinura Advisors, we take the entire compliance burden off your plate. Our dedicated compliance team monitors every due date, prepares all required documentation, and coordinates with MCA portals on your behalf.\n\nWe handle everything from ROC filings for Private Limited and LLP companies to board resolution drafting and secretarial audit support—giving you complete peace of mind.",
+          "ctaTitle": "Avoid MCA Penalties. Talk to Us Today.",
+          "deliverables": [
+            "Annual Return Filing (AOC-4 & MGT-7)",
+            "Director KYC (DIR-3 KYC) filing",
+            "Board Meeting & AGM documentation",
+            "Statutory Register maintenance",
+            "DIN & DSC management support",
+            "ROC compliance calendar with reminders"
+          ],
+          "benefits": [
+            "Zero penalty risk from missed deadlines",
+            "Dedicated compliance manager assigned",
+            "Real-time status updates via WhatsApp",
+            "Transparent flat-fee pricing",
+            "Secure document storage and retrieval",
+            "Pan-India filing capability"
+          ]
+        },
+        {
+          "id": "company-registration",
+          "title": "Company Registration",
+          "icon": "Building2",
+          "description": "Incorporate your PVT LTD, LLP, or OPC with zero hassle.",
+          "category": "Business Formation",
+          "heroTitle": "Register Your Company in 10 Days",
+          "subtitle": "From Private Limited and LLP to One Person Companies—we handle your entire incorporation process end-to-end, with zero paperwork headaches and full government compliance.",
+          "mainHeading": "Fast, Hassle-Free Business Incorporation",
+          "longDescription": "Starting a business in India involves navigating multiple government portals, documentation requirements, and approval stages. A single mistake can delay your launch by weeks.\n\nPhinura Advisors streamlines the entire company registration process for you. Whether you're launching a Private Limited Company, an LLP, or a One Person Company, our team prepares and files all required documents directly with the Ministry of Corporate Affairs.\n\nWe obtain your DIN, DSC, and Certificate of Incorporation quickly and accurately—so your business is legally operational in as little as 10 working days. We also advise you on the right structure based on your business goals and tax profile.",
+          "ctaTitle": "Ready to Launch? Let's Register Your Company.",
+          "deliverables": [
+            "Name reservation & approval (RUN/RSUP)",
+            "DIN & DSC procurement for all directors",
+            "MOA & AOA drafting and filing",
+            "Certificate of Incorporation",
+            "PAN & TAN for the new company",
+            "GST registration guidance post-incorporation"
+          ],
+          "benefits": [
+            "10-day average turnaround time",
+            "Expert guidance on PVT LTD vs LLP vs OPC",
+            "End-to-end documentation handled",
+            "Free post-registration compliance checklist",
+            "Dedicated relationship manager",
+            "Transparent, all-inclusive pricing"
+          ]
+        },
+        {
+          "id": "trademark-registration",
+          "title": "Trademark Registration",
+          "icon": "ShieldCheck",
+          "description": "Securing your intellectual property.",
+          "category": "Intellectual Property",
+          "heroTitle": "Protect Your Brand with a Trademark",
+          "subtitle": "Your brand name, logo, and slogan are your most valuable assets. We help you register and protect them under Indian trademark law before anyone else does.",
+          "mainHeading": "Comprehensive Trademark Protection Services",
+          "longDescription": "In today's competitive market, your brand identity is one of your most critical business assets. Without a registered trademark, your brand name, logo, or tagline can be legally used—or misused—by competitors.\n\nPhinura Advisors' trademark experts guide you through the full process: from conducting a thorough trademark search to filing the application under the correct class with the Indian Trademark Registry.\n\nWe monitor your application status, respond to examination reports, and handle objections on your behalf. Once registered, your trademark gives you exclusive nationwide rights for 10 years—renewable indefinitely. We also assist with trademark opposition proceedings if a third party challenges your application.",
+          "ctaTitle": "Secure Your Brand Today. Start Your Trademark Application.",
+          "deliverables": [
+            "Comprehensive trademark availability search",
+            "Trademark application filing (all classes)",
+            "TM-A filing with Trademark Registry",
+            "Status tracking & examination report response",
+            "Show-cause hearing representation",
+            "Trademark registration certificate"
+          ],
+          "benefits": [
+            "Exclusive nationwide brand protection",
+            "Legal right to use ™ and ® symbols",
+            "Protection against infringement and copying",
+            "10-year validity with easy renewal",
+            "Expert handling of objections and oppositions",
+            "Peace of mind for your brand's future"
+          ]
+        },
+        {
+          "id": "new-service",
+          "title": "New Service",
+          "heroTitle": "Hero Title",
+          "subtitle": "Subtitle",
+          "icon": "BadgeIndianRupee",
+          "description": "Short desc",
+          "longDescription": "Long description",
+          "mainHeading": "Main heading",
+          "ctaTitle": "Ready to start?",
+          "deliverables": [],
+          "benefits": []
+        }
+      ]
     },
     "about": {
       "hero": {
