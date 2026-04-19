@@ -75,6 +75,7 @@ export interface SiteDetails {
         name: string;
         role: string;
         quote: string;
+        image?: string;
       }>;
       testimonialsTitle: string;
       /** Label above the stats row on the home page */
@@ -85,6 +86,7 @@ export interface SiteDetails {
         id: string;
         title: string;
         icon: string;
+        image?: string;
         description: string;
         heroTitle?: string;
         hero_title?: string;

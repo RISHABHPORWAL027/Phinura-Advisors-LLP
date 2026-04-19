@@ -1,4 +1,4 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useInView, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import {
   Rocket,
@@ -10,7 +10,12 @@ import {
   Quote,
   ArrowRight,
   ArrowRightLeft,
-  Headset
+  Headset,
+  User,
+  BadgeCheck,
+  Clock,
+  UserSearch,
+  Tag
 } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
@@ -19,6 +24,7 @@ import { resolveLucideIcon } from "../utils/lucideIconMap";
 import bundledHomeBannerWebm from "../Assets/homebanner.webm";
 import bundledHomeBannerMp4 from "../Assets/homebanner.mp4";
 import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.png";
+import phinuraLogo from "../Assets/Phinura_Advisors_logo.png";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   // ...
@@ -319,46 +325,66 @@ const CoreServices = () => {
             return featuredServices.map((service: any, i: number) => {
               const Icon = resolveLucideIcon(service.icon) || CheckCircle2;
               return (
-              <AppLink
-                to={`/services/${service.id}`}
-                key={service.id}
-                className="group relative"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{
-                    y: -10,
-                    rotateX: 2,
-                    rotateY: 2,
-                    transition: { duration: 0.3 }
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  style={{ transformStyle: "preserve-3d" }}
-                  className="h-full bg-white p-10 rounded-[2.5rem] border border-outline-variant/30 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-colors transition-shadow duration-500"
+                <AppLink
+                  to={`/services/${service.id}`}
+                  key={service.id}
+                  className="group h-full"
                 >
-                  <div
-                    className="w-16 h-16 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
-                    style={{ transform: "translateZ(30px)" }}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative h-full flex flex-col"
                   >
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <h3
-                    className="text-2xl font-headline font-bold text-primary mb-4"
-                    style={{ transform: "translateZ(20px)" }}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="text-on-surface-variant mb-6 line-clamp-2 leading-relaxed">{service.description}</p>
-                  <div
-                    className="inline-flex items-center font-bold text-primary group/link"
-                    style={{ transform: "translateZ(10px)" }}
-                  >
-                    <span className="border-b-2 border-primary/0 group-hover:border-primary transition-all">View Details</span>
-                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
-                  </div>
-                </motion.div>
-              </AppLink>
+                    {/* Image Section Wrapper */}
+                    <div className="relative aspect-[16/10]">
+                      {/* Actual Image with its own overflow clipping */}
+                      <div className="absolute inset-0 rounded-t-[2.5rem] overflow-hidden">
+                        {service.image ? (
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10" />
+                        )}
+                      </div>
+                      
+                      {/* Category Badge */}
+                      {service.category && (
+                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-primary px-4 py-1.5 rounded-xl text-[10px] font-extrabold uppercase tracking-[0.15em] shadow-sm z-20">
+                          {service.category}
+                        </div>
+                      )}
+
+                      {/* Floating Icon Box (CRITICAL: Must be outside overflow-hidden) */}
+                      <div className="absolute -bottom-7 left-8 w-14 h-14 rounded-2xl bg-white shadow-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 z-30 border border-slate-50">
+                        <Icon className="w-7 h-7" />
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-8 pt-12 flex flex-col flex-grow">
+                      <h3 className="text-xl font-headline font-bold text-primary mb-3 leading-tight">
+                        {service.title}
+                      </h3>
+                      <p className="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow opacity-70 line-clamp-3">
+                        {service.description}
+                      </p>
+                      
+                      <div className="pt-6 border-t border-outline-variant/30 flex justify-between items-center">
+                        <span className="font-bold text-primary text-sm flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
+                          View Details
+                          <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                </AppLink>
               );
             });
           })()}
@@ -457,108 +483,95 @@ const SimpleSolutions = () => {
 const WhyChooseUs = () => {
   const { data: siteDetails } = useCMS();
   const { whyChooseUs } = siteDetails.pages.home;
+  const cards = whyChooseUs.cards || [];
 
-  const iconMap: { [key: string]: any } = {
-    ShieldCheck,
-    Zap,
-    CheckCircle2
-  };
+  const iconMap: { [key: string]: any } = { ShieldCheck, Zap, CheckCircle2 };
+
+  // Extra features to supplement CMS cards
+  const extraFeatures = [
+    { icon: Tag,        title: "Transparent Pricing",     desc: "No hidden charges. Clear, upfront fee structures for all professional engagements." },
+    { icon: Clock,      title: "Timely Delivery",          desc: "We value your time. Strict adherence to deadlines for all compliance and advisory tasks." },
+    { icon: UserSearch, title: "Personalized Solutions",   desc: "Every business is unique. We tailor our services to meet your specific financial and legal needs." },
+  ];
+
+  // CMS cards come first, extras fill up to 5 total
+  const allFeatures = [
+    ...cards.map((c: any) => ({ icon: iconMap[c.icon] || CheckCircle2, title: c.title, desc: c.desc })),
+    ...extraFeatures,
+  ].slice(0, 5);
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
+    <section className="py-16 md:py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">{whyChooseUs.title}</h2>
-          <p className="text-on-surface-variant">{whyChooseUs.subtitle}</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Card 1: Decade of Trust */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            whileHover={{ rotateX: 2, rotateY: 2, y: -5 }}
-            viewport={{ once: true, margin: "-50px" }}
-            style={{ transformStyle: "preserve-3d" }}
-            className="md:col-span-8 bg-primary rounded-[2.5rem] p-10 flex flex-col justify-between text-on-primary relative overflow-hidden group shadow-xl hover:shadow-primary/20 transition-colors transition-shadow duration-500"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl group-hover:bg-white/10 transition-colors"></div>
-            <div className="relative z-10" style={{ transform: "translateZ(30px)" }}>
-              {(() => {
-                const iconName = whyChooseUs.cards?.[0]?.icon || "ShieldCheck";
-                const Icon = iconMap[iconName] || ShieldCheck;
-                return <Icon className="w-12 h-12 mb-6 opacity-80" />;
-              })()}
-              <h3 className="text-3xl font-headline font-bold mb-4">{whyChooseUs.cards?.[0]?.title || "A Decade of Trust"}</h3>
-              <p className="text-blue-100 text-lg max-w-md opacity-90 leading-relaxed">{whyChooseUs.cards?.[0]?.desc || ""}</p>
-            </div>
-            <div className="flex items-center gap-6 mt-8 relative z-10" style={{ transform: "translateZ(40px)" }}>
-              <div className="flex -space-x-3">
-                {[1, 2, 3].map((n) => (
-                  <img
-                    key={n}
-                    className="w-12 h-12 rounded-full border-2 border-primary"
-                    referrerPolicy="no-referrer"
-                    src={`https://picsum.photos/seed/user${n}/100/100`}
-                    alt="User"
-                  />
-                ))}
-                <div className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center text-xs font-bold border-2 border-primary">+497</div>
-              </div>
-              <span className="text-sm font-medium text-blue-100">{whyChooseUs.cards?.[0]?.trustedText || "Trusted by businesses"}</span>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Card 2: Swift Support */}
+          {/* LEFT: office image + floating stat card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            whileHover={{ rotateX: -2, rotateY: -2, y: -5 }}
-            viewport={{ once: true, margin: "-50px" }}
-            style={{ transformStyle: "preserve-3d" }}
-            className="md:col-span-4 bg-surface-container-highest rounded-[2.5rem] p-10 flex flex-col justify-center border border-outline-variant/30 hover:border-primary/30 transition-colors transition-shadow duration-500 shadow-lg hover:shadow-2xl"
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="relative"
           >
-            <div style={{ transform: "translateZ(30px)" }}>
-              {(() => {
-                const iconName = whyChooseUs.cards?.[1]?.icon || "Zap";
-                const Icon = iconMap[iconName] || Zap;
-                return <Icon className="w-10 h-10 mb-6 text-primary" />;
-              })()}
-              <h3 className="text-2xl font-headline font-bold mb-4 text-primary">{whyChooseUs.cards?.[1]?.title || "Swift Support"}</h3>
-              <p className="text-on-surface-variant leading-relaxed mb-8">{whyChooseUs.cards?.[1]?.desc || ""}</p>
-              <div className="text-primary font-bold flex items-center gap-2">
-                Learn More <ArrowRight className="w-4 h-4" />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 3: Friendly Language */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ rotateX: 1, y: -5 }}
-            viewport={{ once: true, margin: "-50px" }}
-            style={{ transformStyle: "preserve-3d" }}
-            className="md:col-span-12 bg-primary-fixed/20 rounded-[2.5rem] p-10 flex flex-col md:flex-row items-center gap-10 border border-primary-fixed/50 transition-colors transition-shadow duration-500 hover:bg-primary-fixed/30"
-          >
-            <div className="w-32 h-32 rounded-3xl overflow-hidden flex-shrink-0 shadow-xl" style={{ transform: "translateZ(20px)" }}>
+            <div className="rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: "4/5" }}>
               <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                alt="Modern office"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
-                src={whyChooseUs.cards?.[2]?.img || "https://picsum.photos/seed/team/300/300"}
-                alt="Team"
               />
             </div>
-            <div style={{ transform: "translateZ(30px)" }}>
-              <h3 className="text-2xl font-headline font-bold text-primary mb-3">{whyChooseUs.cards?.[2]?.title || "Friendly Language"}</h3>
-              <p className="text-on-surface-variant text-lg">{(whyChooseUs.cards?.[2]?.desc || "")} Understanding your obligations should be the easiest part of your day.</p>
-            </div>
-            <div className="flex-grow"></div>
-            {(() => {
-              const iconName = whyChooseUs.cards?.[2]?.icon || "CheckCircle2";
-              const Icon = iconMap[iconName] || CheckCircle2;
-              return <Icon className="w-16 h-16 text-primary/20 hidden lg:block" />;
-            })()}
+
+            {/* Floating stat card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              viewport={{ once: true }}
+              className="absolute bottom-8 left-6 bg-primary text-white px-8 py-6 rounded-2xl shadow-2xl"
+            >
+              <div className="text-5xl font-headline font-extrabold leading-none">10+</div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200 mt-2">Years of Professionalism</div>
+            </motion.div>
           </motion.div>
+
+          {/* RIGHT: title + feature list */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4 leading-tight">
+              {whyChooseUs.title || "Why Choose Us?"}
+            </h2>
+            <p className="text-on-surface-variant text-base leading-relaxed mb-10 max-w-lg">
+              {whyChooseUs.subtitle || "We are a team of highly qualified Chartered Accountants and Company Secretaries with over 10 years of experience dedicated to your success."}
+            </p>
+
+            <div className="space-y-6">
+              {allFeatures.map((f, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 + i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-4 items-start group"
+                >
+                  {/* Circular amber icon badge */}
+                  <div className="w-11 h-11 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors duration-300">
+                    <f.icon className="w-5 h-5 text-secondary" />
+                  </div>
+                  <div>
+                    <h3 className="font-headline font-bold text-primary mb-1">{f.title}</h3>
+                    <p className="text-on-surface-variant text-sm leading-relaxed">{f.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
@@ -606,8 +619,17 @@ const Testimonials = () => {
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center font-bold text-primary">
-                  {t.name.charAt(0)}
+                <div className="w-14 h-14 rounded-full ring-2 ring-primary/20 ring-offset-2 bg-primary-fixed flex items-center justify-center font-bold text-primary shadow-md relative overflow-hidden flex-shrink-0 group-hover:ring-primary/50 transition-all duration-300">
+                  {t.image ? (
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <span className="text-lg font-bold text-primary relative z-10">{t.name.charAt(0)}</span>
+                  )}
                 </div>
                 <div className="whitespace-normal">
                   <div className="font-bold text-primary">{t.name}</div>

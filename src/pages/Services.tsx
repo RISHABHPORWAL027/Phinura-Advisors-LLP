@@ -42,19 +42,60 @@ const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: num
 
 const Hero = ({ hero }: { hero: any }) => {
   return (
-    <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 mt-10 md:mt-0">
+    <section className="relative pt-32 pb-48 md:pt-48 md:pb-60 bg-[#0D1B2A] overflow-hidden">
+      {/* Immersive Architectural Background */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[#0D1B2A]/60 z-10"></div>
+        <img
+          src={hero.bgImage || "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"}
+          alt="Architectural Background"
+          className="w-full h-full object-cover opacity-30 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D1B2A] via-[#0D1B2A]/80 to-transparent"></div>
+        {/* Bottom fade that merges with the white section below */}
+        <div className="absolute bottom-0 left-0 w-full h-[10%] bg-gradient-to-t from-white via-white/80 to-transparent z-20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-30">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl"
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl"
         >
-          <h1 className="text-5xl md:text-6xl font-headline font-extrabold text-primary mb-8 leading-tight">
-            {hero.title.split('Services')[0]} <span className="text-secondary">Services</span>
+          {hero.badge && (
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center px-4 py-2 rounded-lg border border-orange-500/20 bg-orange-500/5 text-orange-400 text-xs font-bold uppercase tracking-[0.2em] mb-10"
+            >
+              {hero.badge}
+            </motion.span>
+          )}
+          <h1 className="text-6xl md:text-8xl font-headline font-extrabold text-white mb-8 leading-[0.95] tracking-tight whitespace-pre-line">
+            {hero.title}
           </h1>
-          <p className="text-xl text-on-surface-variant leading-relaxed">
+          <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-12 max-w-2xl font-light">
             {hero.subtitle}
           </p>
+
+          <div className="flex flex-wrap gap-6 mb-20">
+            <AppLink
+              to="/contact"
+              className="bg-secondary text-white px-12 py-5 rounded-2xl font-headline font-bold text-xl hover:scale-105 transition-transform flex items-center gap-2 group shadow-2xl shadow-secondary/20"
+            >
+              Start Your Project
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </AppLink>
+            <AppLink
+              to="/pricing"
+              className="bg-white/5 border border-white/10 backdrop-blur-md text-white px-12 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/10 transition-all text-center"
+            >
+              Fee Structure
+            </AppLink>
+          </div>
+
         </motion.div>
       </div>
     </section>
@@ -62,50 +103,74 @@ const Hero = ({ hero }: { hero: any }) => {
 };
 
 const ServiceGrid = ({ services }: { services: any[] }) => (
-  <section className="py-16 md:py-24 bg-white">
+  <section className="bg-white py-24 relative z-40">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Section Header */}
+      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="max-w-2xl">
+          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">Our Core Services</h2>
+          <p className="text-on-surface-variant text-lg opacity-70">A curated suite of professional solutions designed to maintain operational integrity.</p>
+        </div>
+        <div className="hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 border-b border-slate-200 pb-2 font-bold">
+          Strategic Divisions
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {services.map((service, i) => {
           const Icon = resolveLucideIcon(service.icon) || CheckCircle2;
           return (
             <AppLink
               to={`/services/${service.id}`}
               key={i}
-              className="group relative"
+              className="group h-full"
             >
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{
-                  y: -12,
-                  rotateX: 2,
-                  rotateY: 2,
-                  scale: 1.01,
+                  y: -10,
                   transition: { duration: 0.3 }
                 }}
                 viewport={{ once: true, margin: "-50px" }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-colors transition-shadow duration-500 h-full flex flex-col"
+                className="bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative h-full flex flex-col"
               >
-                <div
-                  className="w-14 h-14 rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary mb-8 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm"
-                  style={{ transform: "translateZ(30px)" }}
-                >
-                  <Icon className="w-7 h-7" />
+                {/* Image Section Wrapper */}
+                <div className="relative aspect-[16/10]">
+                  {/* Actual Image with its own overflow clipping */}
+                  <div className="absolute inset-0 rounded-t-[2.5rem] overflow-hidden">
+                    <img
+                      src={service.image || "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600"}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  </div>
+
+                  {/* Badge */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-primary px-4 py-1.5 rounded-xl text-[10px] font-extrabold uppercase tracking-[0.15em] shadow-sm z-20">
+                    {service.category}
+                  </div>
+
+                  {/* Floating Icon Box */}
+                  <div className="absolute -bottom-7 left-8 w-14 h-14 rounded-2xl bg-white shadow-xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 z-30 border border-slate-50">
+                    <Icon className="w-7 h-7" />
+                  </div>
                 </div>
-                <h3
-                  className="text-2xl font-headline font-bold text-primary mb-4"
-                  style={{ transform: "translateZ(20px)" }}
-                >
-                  {service.title}
-                </h3>
-                <p className="text-on-surface-variant leading-relaxed mb-8 flex-grow opacity-80">{service.description}</p>
-                <div
-                  className="inline-flex items-center font-bold text-primary group/link border-t border-outline-variant/30 pt-6"
-                  style={{ transform: "translateZ(10px)" }}
-                >
-                  Explore Service
-                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/link:translate-x-1" />
+
+                {/* Content Section */}
+                <div className="p-8 pt-12 flex flex-col flex-grow">
+                  <h3 className="text-2xl font-headline font-bold text-primary mb-4 leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-on-surface-variant text-base leading-relaxed mb-8 flex-grow opacity-70">
+                    {service.description}
+                  </p>
+
+                  <div className="pt-6 border-t border-outline-variant/30 flex justify-between items-center">
+                    <span className="font-bold text-primary flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
+                      View Details
+                      <ArrowRight className="w-5 h-5" />
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             </AppLink>
@@ -124,38 +189,43 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any, siteDetails: any }
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 text-white relative overflow-hidden"
+          className="bg-primary rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-24 text-white relative overflow-hidden"
         >
+          {/* Decorative mandala-like background */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-10 pointer-events-none">
+            <div className="w-[600px] h-[600px] border border-white rounded-full"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[400px] h-[400px] border border-white rounded-full rotate-45"></div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
             <div>
-              <span className="inline-block py-1 px-3 bg-secondary text-white rounded-full text-[10px] font-bold uppercase tracking-wider mb-6">
-                {statsCTA.badge}
-              </span>
-              <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8 leading-tight">
-                {statsCTA.title}
+              <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8 leading-[1.1]">
+                Ready to secure your fiscal future?
               </h2>
-              <p className="text-blue-100 text-lg mb-12 max-w-xl opacity-90">
-                {statsCTA.subtitle}
+              <p className="text-blue-100/80 text-xl mb-12 max-w-xl">
+                Speak with our senior partners to design a compliance framework that supports your vision.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-6 text-center">
                 <a
                   href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-50 transition-colors shadow-lg shadow-white/10 cursor-pointer inline-block"
+                  className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:scale-105 transition-transform shadow-xl shadow-secondary/20 inline-block"
                 >
-                  {statsCTA.buttonText}
+                  Schedule Discovery Call
                 </a>
-                <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-headline font-bold hover:bg-white/20 transition-colors cursor-pointer">
-                  {statsCTA.secondaryButtonText}
+                <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-all">
+                  Download Brochure
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 md:gap-8">
-              {statsCTA.stats.map((stat: any, i: number) => (
-                <div key={i} className="text-center p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                  <div className="text-3xl md:text-4xl font-headline font-extrabold mb-2 text-white tabular-nums">
+            <div className="grid grid-cols-2 gap-8 lg:pl-12">
+              {statsCTA.stats.slice(0, 2).map((stat: any, i: number) => (
+                <div key={i} className="text-left py-6 border-l border-white/20 pl-8">
+                  <div className="text-4xl md:text-5xl font-extrabold mb-2 text-white tabular-nums">
                     <Counter
                       value={stat.value}
                       prefix={stat.prefix}
@@ -163,7 +233,7 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any, siteDetails: any }
                       decimals={stat.decimals || 0}
                     />
                   </div>
-                  <p className="text-blue-100 text-sm font-medium opacity-80">{stat.label}</p>
+                  <p className="text-blue-100/60 font-bold uppercase tracking-widest text-xs">{stat.label}</p>
                 </div>
               ))}
             </div>

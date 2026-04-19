@@ -125,7 +125,7 @@
             "title": "Friendly Language",
             "icon": "CheckCircle2",
             "desc": "We explain compliance in plain English and Hindi, not legalese. Understanding your obligations should be the easiest part of your day.",
-            "img": "https://picsum.photos/seed/team/300/300"
+            "img": "/assets/Phinura_Advisors_logo-BuPvtfHK.png"
           }
         ]
       },
@@ -140,17 +140,20 @@
         {
           "name": "Ankit Sharma",
           "role": "Founder, TechSprint Solutions",
-          "quote": "They made my company registration so easy! I was worried about the paperwork, but they handled everything in just 10 days."
+          "quote": "They made my company registration so easy! I was worried about the paperwork, but they handled everything in just 10 days.",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
         },
         {
           "name": "Priya Verma",
           "role": "Owner, Bloom Boutique",
-          "quote": "GST filings used to be a headache every month. Now, it's just one text away."
+          "quote": "GST filings used to be a headache every month. Now, it's just one text away.",
+          "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
         },
         {
-          "name": "Rahul Mehta",
-          "role": "Director, GreenLeaf Exports",
-          "quote": "Their accounting services are top-notch. I can focus on my exports."
+          "name": "Rahul Desai",
+          "role": "CEO, Desai Enterprises",
+          "quote": "Their trademark registration service was flawless. We got our brand protected without any hassle and at a very reasonable cost.",
+          "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
         }
       ]
     },
@@ -158,8 +161,10 @@
       "serviceDetailCtaSubtitle": "Connect with our compliance architects today for a hassle-free filing experience.",
       "serviceDetailCallBackLinkText": "Request a Call Back",
       "hero": {
-        "title": "Our Professional Services",
-        "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises."
+        "title": "Precision Financial Architecture.",
+        "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises.",
+        "badge": "Excellence in Governance",
+        "bgImage": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"
       },
       "statsCTA": {
         "title": "Custom Solutions for Architects of Commerce.",
@@ -198,6 +203,7 @@
           "id": "mca-compliance",
           "title": "MCA Compliance",
           "icon": "Gavel",
+          "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600",
           "description": "Ministry of Corporate Affairs adherence including annual filings and Director KYC updates.",
           "category": "Regulatory Compliance",
           "heroTitle": "MCA Compliance Made Simple",
@@ -226,6 +232,7 @@
           "id": "company-registration",
           "title": "Company Registration",
           "icon": "Building2",
+          "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600",
           "description": "Incorporate your PVT LTD, LLP, or OPC with zero hassle.",
           "category": "Business Formation",
           "heroTitle": "Register Your Company in 10 Days",
@@ -254,6 +261,7 @@
           "id": "trademark-registration",
           "title": "Trademark Registration",
           "icon": "ShieldCheck",
+          "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600",
           "description": "Securing your intellectual property.",
           "category": "Intellectual Property",
           "heroTitle": "Protect Your Brand with a Trademark",
@@ -282,14 +290,26 @@
     },
     "about": {
       "hero": {
-        "title": "Partners in your financial legacy.",
-        "subtitle": "At Phinura Advisors, we've replaced complex jargon with clear paths forward. We're not just consultants; we're your dedicated financial growth partners.",
-        "badge": "Who We Are",
-        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c"
+        "title": "The Standard of Financial Integrity.",
+        "subtitle": "We don't just balance books; we build foundations. For over three decades, Phinura Advisors has been the architectural force behind global fiscal stability.",
+        "badge": "About Us",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+        "statNumber": "10+",
+        "statLabel": "YEARS EXCELLENCE"
       },
       "story": {
-        "title": "Our Story",
-        "content": "We started with a big idea: that financial clarity shouldn't be a luxury reserved for giant corporations."
+        "title": "Founded on a Singular Principle: Sovereignty.",
+        "content": "Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies. Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.",
+        "image": "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80&w=800"
+      },
+      "missionVision": {
+        "missions": [
+          "To architect the financial systems that empower corporations to lead with confidence, ensuring absolute precision in every audit, strategy, and projection.",
+          "Our dedication lies in transforming complex regulatory landscapes into clear, actionable roadmaps for global business expansion.",
+          "We strive to set the gold standard in corporate governance through innovative financial architecture and unwavering ethical standards."
+        ],
+        "vision": "Becoming global corporations' trust through architectural fiscal excellence.",
+        "visionImage": "https://images.unsplash.com/photo-1449156003053-919920dfcb54?auto=format&fit=crop&q=80&w=800"
       },
       "principles": {
         "title": "Our Core Principles",
@@ -297,50 +317,56 @@
       },
       "values": [
         {
-          "icon": "Heart",
-          "title": "Heart-Centered",
-          "desc": "We lead with empathy. Behind every ledger is a person with a dream."
-        },
-        {
-          "icon": "Lightbulb",
-          "title": "Forward Thinking",
-          "desc": "We don't just report history; we help you write it."
-        },
-        {
           "icon": "ShieldCheck",
-          "title": "Unwavering Trust",
-          "desc": "Integrity is our cornerstone."
+          "title": "Absolute Integrity",
+          "desc": "Honesty is not a legacy, it is our foundation. We operate with radical transparency in every engagement."
+        },
+        {
+          "icon": "LineChart",
+          "title": "Strategic Precision",
+          "desc": "Data is only valuable when it is accurate and actionable. We deliver insights with surgical precision."
+        },
+          {
+          "icon": "Rocket",
+          "title": "Total Sovereignty",
+          "desc": "We empower our clients to own their financial narrative, free from uncertainty or external shocks."
         }
       ],
       "people": {
-        "title": "Our People",
-        "subtitle": "A collective of specialists dedicated to your journey.",
+        "title": "The Architectural Board",
+        "subtitle": "Our experts represent the vanguard of corporate finance, combining decades of high-stakes experience with technical mastery.",
         "team": [
           {
-            "name": "Julian Thorne",
-            "role": "PRINCIPAL CHARTERED ACCOUNTANT",
-            "desc": "Julian founded the firm with a vision to humanize financial services. He specializes in wealth architecture for families.",
-            "img": "https://picsum.photos/seed/julian/400/500"
+            "name": "Marcus Vane",
+            "role": "CHIEF EXECUTIVE OFFICER",
+            "desc": "Marcus leads the firm with a vision for architectural fiscal stability across global markets.",
+            "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400"
           },
           {
             "name": "Elena Rodriguez",
-            "role": "SENIOR COMPANY SECRETARY",
-            "desc": "Elena ensures our clients stay ahead of the curve. She treats every client's business as if it were her own venture.",
-            "img": "https://picsum.photos/seed/elena/400/500"
+            "role": "HEAD OF CORPORATE STRATEGY",
+            "desc": "Elena specializes in building resilient financial frameworks for multinational enterprises.",
+            "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
           },
           {
-            "name": "Marcus Chen",
-            "role": "TAX STRATEGY LEAD",
-            "desc": "Marcus brings a calm, analytical approach to complex tax puzzles.",
-            "img": "https://picsum.photos/seed/marcus/400/500"
+            "name": "Julian Thorne",
+            "role": "MANAGING PARTNER, AUDIT",
+            "desc": "Julian ensures that every structural element of our clients' audits meets the highest standards of precision.",
+            "img": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+          },
+          {
+            "name": "Dr. Sarah Chen",
+            "role": "DIRECTOR OF FINANCIAL PLANNING",
+            "desc": "Sarah architects long-term fiscal strategies that provide stability in volatile economic landscapes.",
+            "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
           }
         ]
       },
       "cta": {
-        "title": "Ready to build your financial \nfuture with a partner who cares?",
-        "subtitle": "We're here to help you navigate the complexities of accounting and compliance with a human touch.",
-        "buttonText": "Schedule a Coffee Chat",
-        "secondaryButtonText": "Download Our Guide"
+        "title": "Ready to grow your business?",
+        "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free.",
+        "buttonText": "Schedule Free Call",
+        "secondaryButtonText": "View Pricing"
       }
     },
     "contact": {

@@ -577,6 +577,12 @@ export function AdminDashboard() {
                     </div>
                   </div>
 
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-primary uppercase">Hero Background Image URL</label>
+                    <input type="text" value={(formData.pages.home.hero as any).bgImage || ""} onChange={(e) => handleChange(["pages", "home", "hero", "bgImage"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="https://images.unsplash.com/..." />
+                    <p className="text-[10px] text-on-surface-variant italic">Used as fallback if video is missing or as main background in some layouts.</p>
+                  </div>
+
                   <div className="space-y-2 mt-6 pt-6 border-t border-outline-variant/30">
                     <label className="text-sm font-medium text-on-surface">Stats section label</label>
                     <p className="text-xs text-on-surface-variant">Small caps line above the statistics row on the home page.</p>
@@ -740,14 +746,31 @@ export function AdminDashboard() {
                 </h3>
                 <div className="space-y-6">
                   {/* Hero Section */}
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Hero Title</label>
-                    <input type="text" value={formData.pages.about.hero.title} onChange={(e) => handleChange(["pages", "about", "hero", "title"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Hero Title</label>
+                      <input type="text" value={formData.pages.about.hero.title} onChange={(e) => handleChange(["pages", "about", "hero", "title"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Hero Badge</label>
+                      <input type="text" value={formData.pages.about.hero.badge} onChange={(e) => handleChange(["pages", "about", "hero", "badge"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                    </div>
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-on-surface">Hero Subtitle</label>
                     <textarea rows={2} value={formData.pages.about.hero.subtitle} onChange={(e) => handleChange(["pages", "about", "hero", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
                   </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Hero Stat Number (e.g. 30+)</label>
+                      <input type="text" value={formData.pages.about.hero.statNumber} onChange={(e) => handleChange(["pages", "about", "hero", "statNumber"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Hero Stat Label</label>
+                      <input type="text" value={formData.pages.about.hero.statLabel} onChange={(e) => handleChange(["pages", "about", "hero", "statLabel"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                    </div>
+                  </div>
+
                   {/* Story Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Our Story</h3>
                   <div className="space-y-2">
@@ -758,6 +781,46 @@ export function AdminDashboard() {
                     <label className="text-sm font-medium text-on-surface">Story Content</label>
                     <textarea rows={6} value={formData.pages.about.story.content} onChange={(e) => handleChange(["pages", "about", "story", "content"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-y" />
                   </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Story Image URL</label>
+                    <input type="text" value={formData.pages.about.story.image} onChange={(e) => handleChange(["pages", "about", "story", "image"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                  </div>
+
+                  {/* Mission & Vision Section */}
+                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Mission & Vision</h3>
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Our Mission (Slider Items)</label>
+                      {(formData.pages.about.missionVision?.missions || []).map((m: string, i: number) => (
+                        <div key={i} className="flex gap-2 mb-2">
+                          <textarea 
+                            rows={2} 
+                            value={m} 
+                            onChange={(e) => handleChange(["pages", "about", "missionVision", "missions", i], e.target.value)} 
+                            className="flex-1 p-3 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" 
+                          />
+                          <button onClick={() => handleArrayRemove(["pages", "about", "missionVision", "missions"], i)} className="p-2 text-red-500 hover:bg-red-50 rounded-lg">
+                            <Trash2 size={18} />
+                          </button>
+                        </div>
+                      ))}
+                      <button 
+                        onClick={() => handleArrayAdd(["pages", "about", "missionVision", "missions"], "New mission statement...")} 
+                        className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mt-2"
+                      >
+                        <Plus size={16} /> Add Mission Slide
+                      </button>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Our Vision</label>
+                      <textarea rows={3} value={formData.pages.about.missionVision?.vision || ""} onChange={(e) => handleChange(["pages", "about", "missionVision", "vision"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Vision Image URL</label>
+                      <input type="text" value={formData.pages.about.missionVision?.visionImage || ""} onChange={(e) => handleChange(["pages", "about", "missionVision", "visionImage"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                    </div>
+                  </div>
+
                   {/* Principles Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Core Principles Section</h3>
                   <div className="space-y-4">
@@ -775,11 +838,19 @@ export function AdminDashboard() {
                   {formData.pages.about.values.map((v, i) => (
                     <div key={i} className="mb-4 p-4 border border-outline-variant rounded-xl relative space-y-2">
                       <button onClick={() => handleArrayRemove(["pages", "about", "values"], i)} className="absolute top-2 right-2 text-red-500 hover:text-red-700"><Trash2 size={16} /></button>
-                      <input type="text" value={v.title} onChange={(e) => handleChange(["pages", "about", "values", i, "title"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Value Title" />
+                      <div className="flex gap-2 items-center">
+                        <input type="text" value={v.title} onChange={(e) => handleChange(["pages", "about", "values", i, "title"], e.target.value)} className="flex-1 p-2 bg-surface-container rounded-lg border outline-none font-bold" placeholder="Value Title" />
+                        <div className="w-40">
+                          <LucideIconSelect 
+                            value={v.icon || "ShieldCheck"} 
+                            onChange={(val) => handleChange(["pages", "about", "values", i, "icon"], val)} 
+                          />
+                        </div>
+                      </div>
                       <textarea value={v.desc} onChange={(e) => handleChange(["pages", "about", "values", i, "desc"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Description" rows={2} />
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "about", "values"], {title: "", desc: "", icon: "Star"})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Value</button>
+                  <button onClick={() => handleArrayAdd(["pages", "about", "values"], {title: "", desc: "", icon: "ShieldCheck"})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Value</button>
                   
                   {/* People Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Our Team</h3>
@@ -794,10 +865,26 @@ export function AdminDashboard() {
                     </div>
                   </div>
                   {formData.pages.about.people.team.map((member, i) => (
-                    <div key={i} className="mb-4 p-4 border border-outline-variant rounded-xl relative space-y-2">
+                    <div key={i} className="mb-4 p-4 border border-outline-variant rounded-xl relative space-y-4">
                       <button onClick={() => handleArrayRemove(["pages", "about", "people", "team"], i)} className="absolute top-2 right-2 text-red-500 hover:text-red-700"><Trash2 size={16} /></button>
-                      <input type="text" value={member.name} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "name"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Name" />
-                      <input type="text" value={member.role} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Role" />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Name</label>
+                          <input type="text" value={member.name} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "name"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Name" />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Role</label>
+                          <input type="text" value={member.role} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Role" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                         <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Image URL</label>
+                         <input type="text" value={member.img || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "img"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Image URL" />
+                      </div>
+                      <div className="space-y-2">
+                         <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Short Bio</label>
+                         <textarea value={member.desc || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "desc"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Short Bio" rows={2} />
+                      </div>
                     </div>
                   ))}
                   <button onClick={() => handleArrayAdd(["pages", "about", "people", "team"], {name: "New Member", role: "Role", desc: "", img: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Team Member</button>
@@ -825,7 +912,7 @@ export function AdminDashboard() {
                     </div>
                   </div>
                   
-                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Background Images</h3>
+                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Hero Background Image</h3>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-on-surface">Hero Right Image (Unsplash URL)</label>
                     <input type="text" value={formData.pages.about.hero.image} onChange={(e) => handleChange(["pages", "about", "hero", "image"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none focus:border-primary transition-all" />
@@ -849,6 +936,16 @@ export function AdminDashboard() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-on-surface">Hero Subtitle</label>
                     <textarea rows={2} value={formData.pages.services.hero.subtitle} onChange={(e) => handleChange(["pages", "services", "hero", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Hero Badge Text</label>
+                      <input type="text" value={(formData.pages.services.hero as any).badge || ""} onChange={(e) => handleChange(["pages", "services", "hero", "badge"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="Excellence in Governance" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Hero Background Image URL</label>
+                      <input type="text" value={(formData.pages.services.hero as any).bgImage || ""} onChange={(e) => handleChange(["pages", "services", "hero", "bgImage"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="https://images.unsplash.com/..." />
+                    </div>
                   </div>
 
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Service detail pages — default CTA block</h3>
@@ -938,6 +1035,10 @@ export function AdminDashboard() {
                         <div className="space-y-1">
                           <label className="text-xs font-bold text-primary uppercase">Short Description</label>
                           <textarea rows={1} value={service.description} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "description"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Card Description" />
+                        </div>
+                        <div className="space-y-1 md:col-span-2">
+                          <label className="text-xs font-bold text-primary uppercase">Service Card Image URL</label>
+                          <input type="text" value={service.image || ""} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "image"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="https://images.unsplash.com/..." />
                         </div>
                       </div>
 

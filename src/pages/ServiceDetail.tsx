@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 import { DeveloperCredit } from "../components/DeveloperCredit";
+import detailsBg from "../Assets/details_page_bg.avif";
 
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -78,7 +79,7 @@ export const ServiceDetail = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070"
+            src={detailsBg}
             alt="Architectural Background"
             className="h-full w-full object-cover"
             referrerPolicy="no-referrer"
