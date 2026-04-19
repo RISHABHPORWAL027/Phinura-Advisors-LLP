@@ -15,7 +15,10 @@ import {
   BadgeCheck,
   Clock,
   UserSearch,
-  Tag
+  Tag,
+  Search,
+  FileStack,
+  Microscope
 } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
@@ -353,7 +356,7 @@ const CoreServices = () => {
                           <div className="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10" />
                         )}
                       </div>
-                      
+
                       {/* Category Badge */}
                       {service.category && (
                         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-primary px-4 py-1.5 rounded-xl text-[10px] font-extrabold uppercase tracking-[0.15em] shadow-sm z-20">
@@ -375,7 +378,7 @@ const CoreServices = () => {
                       <p className="text-on-surface-variant text-sm leading-relaxed mb-8 flex-grow opacity-70 line-clamp-3">
                         {service.description}
                       </p>
-                      
+
                       <div className="pt-6 border-t border-outline-variant/30 flex justify-between items-center">
                         <span className="font-bold text-primary text-sm flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
                           View Details
@@ -394,86 +397,130 @@ const CoreServices = () => {
   );
 };
 
-const SimpleSolutions = () => {
+const ProcessFlow = () => {
   const { data: siteDetails } = useCMS();
-  const { simpleSolutions } = siteDetails.pages.home;
+  const { process } = siteDetails.pages.home;
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const iconMap: { [key: string]: any } = {
-    Rocket,
-    Wallet,
-    LineChart
-  };
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const steps = process.steps || [];
+  
+  // Animation mapping: finish early (at 0.8) to hold the final state
+  const progressLineScale = useTransform(scrollYProgress, [0.1, 0.8], [0, 1]);
+  const logoPosition = useTransform(scrollYProgress, [0.1, 0.8], ["0%", "100%"]);
+  const logoRotation = useTransform(scrollYProgress, [0.1, 0.8], [0, 1440]);
+
+  const iconMap: { [key: string]: any } = { Search, FileStack, Microscope, Rocket };
 
   return (
-    <section className="py-16 md:py-24 bg-surface-container-low relative overflow-hidden">
-      {/* Decorative background effects */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[100px]"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-xl">
-            <h2 className="text-4xl font-headline font-extrabold text-primary tracking-tight mb-4">{simpleSolutions.title}</h2>
-            <p className="text-on-surface-variant">{simpleSolutions.subtitle}</p>
-          </div>
+    <section ref={containerRef} className="relative bg-[#F8F9FA] lg:h-[200vh]">
+      <div className="lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center items-center overflow-hidden">
+        {/* Background Watermark Logo - Inside Sticky Container */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none select-none z-0">
+          <img src={phinuraLogo} alt="" className="w-[500px] md:w-[800px] grayscale" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {(simpleSolutions.items || []).map((card: any, i: number) => {
-            const Icon = iconMap[card.icon] || Rocket;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{
-                  y: -12,
-                  rotateX: 2,
-                  rotateY: 2,
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                style={{ transformStyle: "preserve-3d" }}
-                className="bg-white p-10 rounded-[2.5rem] group border border-outline-variant/30 hover:border-primary/50 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-colors transition-shadow duration-500 relative overflow-hidden"
-              >
-                {/* Animated card background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
-                <div className="relative z-10">
-                  <div
-                    className={`w-14 h-14 rounded-xl ${card.color || 'bg-primary/10'} flex items-center justify-center ${card.text || 'text-primary'} mb-8 group-hover:scale-110 transition-transform shadow-lg`}
-                    style={{ transform: "translateZ(30px)" }}
-                  >
-                    <Icon className="w-7 h-7" />
-                  </div>
-                  <h3
-                    className="text-2xl font-headline font-bold text-primary mb-4"
-                    style={{ transform: "translateZ(20px)" }}
-                  >
-                    {card.title}
-                  </h3>
-                  <p className="text-on-surface-variant leading-relaxed mb-6">{card.desc}</p>
-                  <ul className="space-y-4 mb-8">
-                    {(card.features || []).map((item: string, j: number) => (
-                      <li key={j} className="flex items-center gap-3 text-sm font-medium text-on-surface">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-primary mb-4 tracking-tight">
+                {process.title}
+              </h2>
+              <p className="text-lg text-on-surface-variant opacity-80">
+                {process.subtitle}
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="relative pt-16">
+            {/* Desktop Horizontal Line */}
+            <div className="hidden lg:block absolute top-[2px] left-0 w-full h-[4px] bg-slate-200 z-0 rounded-full"></div>
+            <motion.div
+              style={{ scaleX: progressLineScale }}
+              className="hidden lg:block absolute top-[2px] left-0 w-full h-[4px] bg-primary z-10 origin-left rounded-full"
+            ></motion.div>
+
+            {/* Rolling Logo Follower */}
+            <motion.div
+              style={{ left: logoPosition, rotate: logoRotation }}
+              className="hidden lg:flex absolute top-[-22px] -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-2xl items-center justify-center p-2 z-30 border border-slate-100"
+            >
+              <img src={phinuraLogo} alt="Logo" className="w-full h-full object-contain" />
+            </motion.div>
+
+            {/* Mobile Vertical Line */}
+            <div className="lg:hidden absolute left-8 top-0 bottom-0 w-[4px] bg-slate-200 z-0 rounded-full"></div>
+            <motion.div
+              style={{ scaleY: progressLineScale }}
+              className="lg:hidden absolute left-8 top-0 bottom-0 w-[4px] bg-primary z-10 origin-top rounded-full"
+            ></motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-0 w-full relative z-20">
+              {steps.map((step: any, i: number) => {
+                const Icon = iconMap[step.icon] || Rocket;
+                
+                // Optimized thresholds for 200vh height
+                const stepStart = 0.1 + (i * 0.18);
+                
+                const boxBg = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#ffffff", "#001f49"]);
+                const iconColor = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#001f49", "#ffffff"]);
+                const opacity = useTransform(scrollYProgress, [stepStart, stepStart + 0.1], [0.6, 1]);
+                const contentScale = useTransform(scrollYProgress, [stepStart, stepStart + 0.08, stepStart + 0.16], [1, 1.05, 1]);
+
+                return (
                   <motion.div
-                    className="pt-6 border-t border-outline-variant/30 flex items-center justify-between"
-                    style={{ transform: "translateZ(10px)" }}
+                    key={i}
+                    style={{ opacity }}
+                    className="relative flex flex-col items-center text-center lg:px-6 pt-12"
                   >
-                    <span className="text-xs font-bold text-primary uppercase tracking-widest">{card.buttonText || 'Learn More'}</span>
-                    <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                    {/* The Dot/Marker */}
+                    <motion.div 
+                      style={{ backgroundColor: boxBg }}
+                      className="absolute w-6 h-6 rounded-full border-4 border-white shadow-md z-40 left-7 lg:left-1/2 lg:-translate-x-1/2 top-[-11px]"
+                    ></motion.div>
+
+                    {/* Step Card Content */}
+                    <motion.div 
+                      style={{ scale: contentScale }}
+                      className="pl-20 lg:pl-0 flex flex-col items-center group w-full"
+                    >
+                       <div className="relative mb-8">
+                         <div className="text-8xl font-black text-primary/10 absolute -top-12 -left-6 select-none transition-all group-hover:text-primary/20">
+                           0{i+1}
+                         </div>
+                         <motion.div 
+                           style={{ backgroundColor: boxBg, color: iconColor }}
+                           className="w-20 h-20 rounded-3xl shadow-2xl flex items-center justify-center transition-all duration-500 border border-slate-50 relative z-10"
+                         >
+                           <Icon size={32} />
+                         </motion.div>
+                       </div>
+                      
+                      <h3 className="text-2xl font-headline font-black text-primary mb-2 leading-tight">
+                        {step.title}
+                      </h3>
+                      <p className="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-[240px]">
+                        {step.desc}
+                      </p>
+                    </motion.div>
+
+                    {/* Vertical connecting line for mobile */}
+                    {i < steps.length - 1 && (
+                      <div className="lg:hidden absolute top-full left-8 h-12 w-[3px] bg-primary/20 mt-4"></div>
+                    )}
                   </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -489,9 +536,9 @@ const WhyChooseUs = () => {
 
   // Extra features to supplement CMS cards
   const extraFeatures = [
-    { icon: Tag,        title: "Transparent Pricing",     desc: "No hidden charges. Clear, upfront fee structures for all professional engagements." },
-    { icon: Clock,      title: "Timely Delivery",          desc: "We value your time. Strict adherence to deadlines for all compliance and advisory tasks." },
-    { icon: UserSearch, title: "Personalized Solutions",   desc: "Every business is unique. We tailor our services to meet your specific financial and legal needs." },
+    { icon: Tag, title: "Transparent Pricing", desc: "No hidden charges. Clear, upfront fee structures for all professional engagements." },
+    { icon: Clock, title: "Timely Delivery", desc: "We value your time. Strict adherence to deadlines for all compliance and advisory tasks." },
+    { icon: UserSearch, title: "Personalized Solutions", desc: "Every business is unique. We tailor our services to meet your specific financial and legal needs." },
   ];
 
   // CMS cards come first, extras fill up to 5 total
@@ -689,7 +736,7 @@ export const Home = () => {
       <Hero />
       <StatsBar />
       <CoreServices />
-      <SimpleSolutions />
+      <ProcessFlow />
       <WhyChooseUs />
       <Testimonials />
       <FinalCTA />

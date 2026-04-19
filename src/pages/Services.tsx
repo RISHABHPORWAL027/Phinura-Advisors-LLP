@@ -5,7 +5,8 @@ import {
   Send,
   CheckCircle2,
   TrendingUp,
-  Quote
+  Quote,
+  ShieldCheck
 } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
@@ -102,14 +103,77 @@ const Hero = ({ hero }: { hero: any }) => {
   );
 };
 
+/* ─── Service Intro ─────────────────────────────────────────────────────── */
+const ServiceIntro = ({ services }: { services: any }) => {
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-widest mb-8">
+              <ShieldCheck size={14} />
+              Operational Excellence
+            </span>
+            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-[#0D1B2A] mb-8 leading-tight">
+              {services.introTitle || "A Wide Range of Strategic Solutions."}
+            </h2>
+            <div className="space-y-6 text-on-surface-variant text-lg leading-relaxed opacity-80 mb-10">
+              <p>
+                {services.introContent1 || "At Phinura Advisors, we provide a comprehensive suite of financial architecture and compliance engineering services designed to navigate the complexities of modern global commerce."}
+              </p>
+              <p>
+                {services.introContent2 || "From meticulous statutory audits to complex cross-border taxation strategies, our approach is built on precision, integrity, and a deep understanding of regulatory frameworks. We don't just solve problems; we engineer systems that prevent them."}
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-8 py-8 border-y border-outline-variant/30">
+              <div>
+                <h4 className="text-3xl font-headline font-bold text-primary mb-1">100+</h4>
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-tighter">Global Clients</p>
+              </div>
+              <div>
+                <h4 className="text-3xl font-headline font-bold text-primary mb-1">98%</h4>
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-tighter">Compliance Accuracy</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl aspect-square relative z-10">
+              <img
+                src={services.introImage || "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000"}
+                alt="Architecture and Precision"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Decorative element */}
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply opacity-70 animate-pulse z-0"></div>
+            <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-100 rounded-full mix-blend-multiply opacity-70 animate-pulse delay-700 z-0"></div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const ServiceGrid = ({ services }: { services: any[] }) => (
-  <section className="bg-white py-24 relative z-40">
+  <section className="bg-white pb-32 relative z-40">
     <div className="max-w-7xl mx-auto px-6">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div className="max-w-2xl">
-          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">Our Core Services</h2>
-          <p className="text-on-surface-variant text-lg opacity-70">A curated suite of professional solutions designed to maintain operational integrity.</p>
+          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">Our Comprehensive Range of Services</h2>
+          <p className="text-on-surface-variant text-lg opacity-70">Expertly engineered financial solutions tailored to your unique corporate structure and growth trajectory.</p>
         </div>
         <div className="hidden md:block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 border-b border-slate-200 pb-2 font-bold">
           Strategic Divisions
@@ -304,6 +368,7 @@ export const Services = () => {
   return (
     <div className="min-h-screen">
       <Hero hero={data.pages.services.hero} />
+      <ServiceIntro services={data.pages.services} />
       <ServiceGrid services={data.pages.services.serviceList} />
       <StatsCTA statsCTA={data.pages.services.statsCTA} siteDetails={data} />
       <FooterCTA siteDetails={data} />

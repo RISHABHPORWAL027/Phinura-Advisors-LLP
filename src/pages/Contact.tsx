@@ -139,13 +139,13 @@ const ContactForm = () => {
           >
             <iframe
               title="Office Location"
-              className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full transition-all duration-700"
               src={`https://www.google.com/maps?q=${encodeURIComponent(siteDetails.address)}&output=embed`}
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
             ></iframe>
-            <div className="absolute inset-0 pointer-events-none bg-primary/5"></div>
+            <div className="absolute inset-0 pointer-events-none bg-primary/10 group-hover:opacity-0 transition-opacity duration-500"></div>
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-lg border border-white/20">
               <div className="pr-12">
                 <p className="font-bold text-primary mb-1">HQ Main Office</p>

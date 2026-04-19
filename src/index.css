@@ -32,6 +32,28 @@
   body {
     @apply bg-surface text-on-surface font-body;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0a346c;
+  }
 }
 
 .reveal-on-scroll {

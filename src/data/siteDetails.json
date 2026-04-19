@@ -63,45 +63,33 @@
         "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity.",
         "featuredServiceIds": ["mca-compliance", "company-registration", "trademark-registration"]
       },
-      "simpleSolutions": {
-        "title": "Simple Solutions for You",
-        "subtitle": "We cut through the legal jargon so you can focus on what matters—growing your dream business.",
-        "items": [
+      "process": {
+        "title": "Our Architectural Process.",
+        "subtitle": "How we transform complex requirements into streamlined financial structures.",
+        "steps": [
           {
-            "title": "Start Your Business",
-            "icon": "Rocket",
-            "color": "bg-primary-fixed",
-            "text": "text-primary",
-            "desc": "Full support for GST registration, PVT LTD incorporation, and shop licenses.",
-            "features": [
-              "Easy Documentation",
-              "Fast Turnaround"
-            ],
-            "buttonText": "Learn More"
+            "id": "01",
+            "title": "Analysis of Needs",
+            "desc": "Deep assessment of your requirements to identify core compliance and strategy goals.",
+            "icon": "Search"
           },
           {
-            "title": "Handle Your Taxes",
-            "icon": "Wallet",
-            "color": "bg-secondary-fixed",
-            "text": "text-secondary",
-            "desc": "Expert Income Tax and GST filing that keeps you on the right side of the law.",
-            "features": [
-              "Maximize Savings",
-              "Error-Free Filings"
-            ],
-            "buttonText": "Learn More"
+            "id": "02",
+            "title": "Data Engineering",
+            "desc": "Information architecture where we gather and structure all necessary corporate data.",
+            "icon": "FileStack"
           },
           {
-            "title": "Track Your Growth",
-            "icon": "LineChart",
-            "color": "bg-tertiary-fixed",
-            "text": "text-on-tertiary-fixed-variant",
-            "desc": "Monthly accounting and bookkeeping to help you understand your numbers better.",
-            "features": [
-              "Monthly Reports",
-              "24/7 Dashboard"
-            ],
-            "buttonText": "Learn More"
+            "id": "03",
+            "title": "Fiscal Research",
+            "desc": "Extensive investigation of regulatory frameworks to design the most efficient mapping.",
+            "icon": "Microscope"
+          },
+          {
+            "id": "04",
+            "title": "Strategic Delivery",
+            "desc": "Execution of the final structure with absolute precision and ongoing surveillance.",
+            "icon": "Rocket"
           }
         ]
       },
@@ -166,6 +154,10 @@
         "badge": "Excellence in Governance",
         "bgImage": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"
       },
+      "introTitle": "A Wide Range of Strategic Solutions.",
+      "introContent1": "At Phinura Advisors, we provide a comprehensive suite of financial architecture and compliance engineering services designed to navigate the complexities of modern global commerce.",
+      "introContent2": "From meticulous statutory audits to complex cross-border taxation strategies, our approach is built on precision, integrity, and a deep understanding of regulatory frameworks.",
+      "introImage": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000",
       "statsCTA": {
         "title": "Custom Solutions for Architects of Commerce.",
         "subtitle": "No two business structures are identical.",
