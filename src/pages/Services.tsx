@@ -46,7 +46,7 @@ const Hero = ({ hero }: { hero: any }) => {
     <section className="relative pt-32 pb-48 md:pt-48 md:pb-60 bg-[#0D1B2A] overflow-hidden">
       {/* Immersive Architectural Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[#0D1B2A]/60 z-10"></div>
+        <div className="absolute inset-0 z-10"></div>
         <img
           src={hero.bgImage || "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"}
           alt="Architectural Background"
