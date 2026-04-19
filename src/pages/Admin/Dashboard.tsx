@@ -1,6 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCMS } from "../../hooks/useCMS";
-import { Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, Settings, Phone, Info, Briefcase, Plus, Trash2, Shield, Eye } from "lucide-react";
+import { 
+  Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, 
+  Settings, Phone, Info, Briefcase, Plus, Trash2, Shield, Eye,
+  Camera, Upload, X, Image as ImageIcon, Search, Globe, User, 
+  Sparkles, History, HelpCircle
+} from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { SiteDetails } from "../../services/types";
 import { GitHubCMSService } from "../../services/githubService";
 import { normalizeSiteDetails } from "../../utils/normalizeSiteDetails";
@@ -13,10 +19,90 @@ import {
   HOMEPAGE_FEATURED_SERVICE_COUNT,
 } from "../../utils/homeFeaturedServices";
 
-/** Full clone so nested updates never mutate `prev` (React Strict Mode runs updaters twice in dev). */
+/** Full clone so nested updates never mutate prev (React Strict Mode runs updaters twice in dev). */
 function cloneFormState(prev: SiteDetails): SiteDetails {
   return structuredClone(prev);
 }
+
+// Reusable Image Upload component
+const ImageUploadField = ({ 
+  label, 
+  value, 
+  onChange,
+  className = "" 
+}: { 
+  label: string; 
+  value: string; 
+  onChange: (val: string) => void;
+  className?: string;
+}) => {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.size > 2 * 1024 * 1024) {
+      alert("Image is too large. Please keep it under 2MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      onChange(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  return (
+    <div className={`space-y-2 ${className}`}>
+      <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">{label}</label>
+      <div className="group relative flex flex-col gap-3 p-4 bg-white rounded-3xl border border-slate-200 hover:border-primary/30 transition-all shadow-sm">
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 rounded-2xl bg-slate-100 flex-shrink-0 overflow-hidden border border-slate-50 flex items-center justify-center relative group/preview">
+            {value ? (
+              <>
+                <img src={value} alt="Preview" className="w-full h-full object-cover" />
+                <button 
+                  onClick={() => onChange("")}
+                  className="absolute inset-0 bg-black/40 opacity-0 group-hover/preview:opacity-100 transition-opacity flex items-center justify-center text-white"
+                >
+                  <X size={16} />
+                </button>
+              </>
+            ) : (
+              <ImageIcon className="text-slate-300" size={24} />
+            )}
+          </div>
+          <div className="flex-grow space-y-2">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                placeholder="Paste Image URL or data:image..."
+                className="flex-grow bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+              />
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                className="hidden" 
+                accept="image/*"
+              />
+              <button 
+                onClick={() => fileInputRef.current?.click()}
+                className="p-2.5 bg-primary/10 text-primary rounded-xl hover:bg-primary hover:text-white transition-all shadow-sm flex items-center gap-2 text-xs font-bold whitespace-nowrap"
+              >
+                <Upload size={14} /> Upload
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export function AdminDashboard() {
   const { data, loading, updateData } = useCMS();
@@ -71,11 +157,7 @@ export function AdminDashboard() {
         setAuthStatus("error");
         return;
       }
-      try {
-        sessionStorage.setItem("adminPassword", authPassword);
-      } catch {
-        // ignore
-      }
+      try { sessionStorage.setItem("adminPassword", authPassword); } catch {}
       setAdminPassword(authPassword);
       setAuthPassword("");
       setAuthStatus("idle");
@@ -87,13 +169,8 @@ export function AdminDashboard() {
 
   const handlePreviewInNewTab = () => {
     if (!formData) return;
-    try {
-      storeAdminPreviewDraft(normalizeSiteDetails(formData));
-      window.open("/preview", "_blank", "noopener,noreferrer");
-    } catch (e) {
-      console.error(e);
-      alert("Could not open preview. Check that local storage is allowed for this site (private windows may block it).");
-    }
+    storeAdminPreviewDraft(normalizeSiteDetails(formData));
+    window.open("/preview", "_blank", "noopener,noreferrer");
   };
 
   const handleSave = async () => {
@@ -118,43 +195,16 @@ export function AdminDashboard() {
 
   const handleChange = (path: (string | number)[], value: any) => {
     if (!formData) return;
-    
     setFormData((prev) => {
       if (!prev) return prev;
       const newData = cloneFormState(prev);
       let current: any = newData;
-      let parent: any = null;
-      let parentKey: string | number | null = null;
-
       for (let i = 0; i < path.length - 1; i++) {
         const key = path[i];
-        const nextKey = path[i + 1];
-        const shouldBeArray = typeof nextKey === "number";
-
-        if (typeof key === "number") {
-          if (!Array.isArray(current)) {
-            if (parent && parentKey !== null) parent[parentKey] = [];
-            current = parent && parentKey !== null ? parent[parentKey] : [];
-          }
-          const existing = current[key];
-          if (existing === null || existing === undefined || (shouldBeArray ? !Array.isArray(existing) : typeof existing !== "object" || Array.isArray(existing))) {
-            current[key] = shouldBeArray ? [] : {};
-          }
-          parent = current;
-          parentKey = key;
-          current = current[key];
-        } else {
-          const existing = current[key];
-          if (existing === null || existing === undefined || (shouldBeArray ? !Array.isArray(existing) : typeof existing !== "object" || Array.isArray(existing))) {
-            current[key] = shouldBeArray ? [] : {};
-          }
-          parent = current;
-          parentKey = key;
-          current = current[key];
-        }
+        if (current[key] === undefined) current[key] = (typeof path[i+1] === 'number' ? [] : {});
+        current = current[key];
       }
       current[path[path.length - 1]] = value;
-      
       return newData;
     });
   };
@@ -166,19 +216,10 @@ export function AdminDashboard() {
       const newData = cloneFormState(prev);
       let current: any = newData;
       for (let i = 0; i < path.length - 1; i++) {
-        const key = path[i];
-        const nextKey = path[i + 1];
-        const shouldBeArray = typeof nextKey === "number";
-        const existing = current[key as any];
-        if (existing === null || existing === undefined || (shouldBeArray ? !Array.isArray(existing) : typeof existing !== "object" || Array.isArray(existing))) {
-          current[key as any] = shouldBeArray ? [] : {};
-        }
-        current = current[key as any];
+        current = current[path[i]];
       }
       const key = path[path.length - 1];
-      const existing = current[key];
-      const arr = Array.isArray(existing) ? existing : [];
-      current[key] = [...arr, newItem];
+      current[key] = [...(current[key] || []), newItem];
       return newData;
     });
   };
@@ -211,377 +252,243 @@ export function AdminDashboard() {
 
   if (loading || !formData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-surface">
-        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+        <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4" />
+        <p className="text-secondary font-headline font-bold">Synchronizing Architecture...</p>
       </div>
     );
   }
 
-  if (isGitHubMode && !isInsecureAdmin && !adminPassword) {
+  if (isGitHubMode && !adminPassword) {
     return (
-      <div className="min-h-screen pt-24 pb-12 bg-surface flex items-center justify-center px-6">
-        <div className="w-full max-w-md bg-surface-container-lowest border border-outline-variant rounded-3xl p-8 shadow-sm">
-          <h1 className="text-2xl font-bold text-on-surface">Admin Login</h1>
-          <p className="text-sm text-on-surface-variant mt-2">Enter the shared password to access the editor.</p>
-
-          <div className="mt-6 space-y-2">
-            <label className="text-sm font-medium text-on-surface">Password</label>
+      <div className="min-h-screen bg-[#001f49] flex items-center justify-center p-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <Sparkles className="absolute top-10 left-10 text-white w-24 h-24" />
+          <Shield className="absolute bottom-10 right-10 text-white w-32 h-32" />
+        </div>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-md w-full bg-white/10 backdrop-blur-3xl p-10 rounded-[3rem] border border-white/20 shadow-2xl text-center"
+        >
+          <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+            <Shield className="text-[#001f49]" size={40} />
+          </div>
+          <h2 className="text-3xl font-headline font-black text-white mb-2">Vault Access</h2>
+          <p className="text-white/60 mb-8 font-medium">Please enter your specialized administrative password to modify the financial architecture.</p>
+          <div className="space-y-4">
             <input
               type="password"
               value={authPassword}
               onChange={(e) => setAuthPassword(e.target.value)}
-              className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
               placeholder="••••••••"
+              className="w-full bg-white/5 border border-white/20 rounded-2xl px-6 py-4 text-white placeholder:text-white/30 outline-none focus:ring-2 focus:ring-white/50 transition-all font-mono"
+              onKeyDown={(e) => e.key === "Enter" && handleUnlock()}
             />
-            {authStatus === "error" && (
-              <p className="text-sm text-red-600">Wrong password or server not configured.</p>
-            )}
+            {authStatus === "error" && <p className="text-red-400 text-sm font-bold animate-shake">Incorrect Access Key</p>}
+            <button
+              onClick={handleUnlock}
+              disabled={authStatus === "checking"}
+              className="w-full bg-white text-[#001f49] py-4 rounded-2xl font-headline font-black text-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-xl"
+            >
+              {authStatus === "checking" ? "Authenticating..." : "Unlock Dashboard"}
+            </button>
           </div>
-
-          <button
-            onClick={handleUnlock}
-            disabled={!authPassword || authStatus === "checking"}
-            className="mt-6 w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-full font-medium shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
-          >
-            {authStatus === "checking" ? "Checking..." : "Unlock"}
-          </button>
-        </div>
+        </motion.div>
       </div>
     );
   }
 
+  const navItems = [
+    { id: 'general', label: 'Global Specs', icon: Globe },
+    { id: 'home', label: 'Lobby (Home)', icon: LayoutDashboard },
+    { id: 'about', label: 'Foundation (About)', icon: Info },
+    { id: 'services', label: 'Ventures (Services)', icon: Briefcase },
+    { id: 'contact', label: 'Connect (Social)', icon: Phone },
+    { id: 'legal', label: 'Protocols (Legal)', icon: Shield },
+  ];
+
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-surface flex flex-col md:flex-row">
-      {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-surface-container-lowest border-r border-outline-variant p-6 flex flex-col gap-8">
-        <div>
-          <h2 className="text-xl font-bold text-on-surface">Admin Portal</h2>
-          <p className="text-sm text-on-surface-variant mt-1">Content Management</p>
+    <div className="min-h-screen bg-slate-50 flex">
+      {/* Sidebar - Desktop Only */}
+      <aside className="hidden lg:flex w-80 bg-[#001f49] flex-col sticky top-0 h-screen overflow-hidden">
+        <div className="p-8 pb-10">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
+              <Sparkles className="text-[#001f49]" size={20} />
+            </div>
+            <h2 className="text-xl font-headline font-black text-white tracking-tight">PHINURA <span className="text-white/50">ADMIN</span></h2>
+          </div>
+          <p className="text-white/40 text-xs font-bold uppercase tracking-widest ml-1">Enterprise Console v2.0</p>
         </div>
 
-        <nav className="flex flex-col gap-2">
-          <button
-            onClick={() => setActiveTab("general")}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === "general" 
-                ? "bg-primary-fixed text-on-primary-fixed" 
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <Settings size={20} />
-            <span className="font-medium">General Details</span>
-          </button>
-          
-          <button
-            onClick={() => setActiveTab("home")}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === "home" 
-                ? "bg-secondary-fixed text-on-secondary-fixed" 
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <LayoutDashboard size={20} />
-            <span className="font-medium">Home Page</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("about")}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === "about" 
-                ? "bg-secondary-fixed text-on-secondary-fixed" 
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <Info size={20} />
-            <span className="font-medium">About Page</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("services")}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === "services" 
-                ? "bg-secondary-fixed text-on-secondary-fixed" 
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <Briefcase size={20} />
-            <span className="font-medium">Services Page</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("contact")}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === "contact" 
-                ? "bg-tertiary-fixed text-on-tertiary-fixed" 
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <Phone size={20} />
-            <span className="font-medium">Contact & Social</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab("legal")}
-            className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-              activeTab === "legal" 
-                ? "bg-red-100 text-red-900" 
-                : "text-on-surface-variant hover:bg-surface-container"
-            }`}
-          >
-            <Shield size={20} />
-            <span className="font-medium">Legal Pages</span>
-          </button>
+        <nav className="flex-grow px-4 space-y-1 overflow-y-auto">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(item.id as any)}
+              className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl transition-all group ${
+                activeTab === item.id 
+                  ? "bg-white/10 text-white shadow-lg shadow-black/20" 
+                  : "text-white/40 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              <item.icon size={20} className={activeTab === item.id ? "text-white" : "group-hover:text-white/70"} />
+              <span className="font-headline font-bold text-sm tracking-wide">{item.label}</span>
+              {activeTab === item.id && (
+                <motion.div layoutId="nav-pill" className="ml-auto w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_white]" />
+              )}
+            </button>
+          ))}
         </nav>
+
+        <div className="p-8 border-t border-white/5">
+          <div className="bg-white/5 rounded-2xl p-4 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold">A</div>
+            <div>
+              <p className="text-xs font-black text-white uppercase tracking-tighter">Administrator</p>
+              <p className="text-[10px] text-white/40 font-medium">Vault Secure</p>
+            </div>
+          </div>
+        </div>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 p-6 md:p-12 overflow-y-auto">
-        <div className="max-w-4xl mx-auto space-y-8">
-          
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Main Content Area */}
+      <main className="flex-1 h-screen overflow-y-auto custom-scrollbar">
+        <div className="max-w-6xl mx-auto p-8 lg:p-12">
+          {/* Top Action Bar */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div>
-              <h1 className="text-3xl font-bold text-on-surface">
-                {activeTab === "general" && "General Details"}
-                {activeTab === "home" && "Home Page Content"}
-                {activeTab === "about" && "About Page Content"}
-                {activeTab === "services" && "Services Page Content"}
-                {activeTab === "contact" && "Contact Information"}
-                {activeTab === "legal" && "Terms & Privacy Content"}
+              <h1 className="text-4xl font-headline font-black text-[#001f49] mb-2">
+                {navItems.find(n => n.id === activeTab)?.label}
               </h1>
-              <p className="text-on-surface-variant mt-2">
-                Make changes below and click save. The website will update instantly.
-              </p>
-              {isGitHubMode && (
-                <p className="text-xs text-on-surface-variant mt-2">
-                  GitHub CMS mode: saving updates `src/data/siteDetails.json` in your repo (then Vercel redeploys).
-                </p>
-              )}
+              <p className="text-slate-400 font-medium">Architecting the digital presence of Phinura Advisors</p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex items-center gap-3">
               <button
-                type="button"
                 onClick={handlePreviewInNewTab}
-                disabled={!formData}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-secondary/15 text-secondary rounded-full font-medium border border-secondary/30 hover:bg-secondary/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                title="Opens your current edits in a new tab (not saved to GitHub yet)"
+                className="flex items-center gap-2 px-6 py-4 bg-white text-[#001f49] rounded-2xl font-headline font-bold text-sm border border-slate-200 hover:border-[#001f49]/30 hover:bg-slate-50 transition-all shadow-sm group"
               >
-                <Eye size={20} />
-                Preview changes
+                <Eye size={18} className="text-slate-400 group-hover:text-[#001f49]" />
+                Preview Mode
               </button>
 
               <button
-                type="button"
                 onClick={handleSave}
                 disabled={isSaving}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-on-primary rounded-full font-medium shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                className={`flex items-center gap-3 px-8 py-4 rounded-2xl font-headline font-black text-sm transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98] ${
+                  isSaving 
+                    ? "bg-slate-100 text-slate-400 cursor-not-allowed" 
+                    : "bg-[#001f49] text-white"
+                }`}
               >
                 {isSaving ? (
-                  <div className="w-5 h-5 border-2 border-on-primary/30 border-t-on-primary rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-slate-300 border-t-slate-500 rounded-full animate-spin" />
                 ) : (
-                  <Save size={20} />
+                  <Save size={18} />
                 )}
-                {isSaving ? "Saving..." : "Save Changes"}
+                {isSaving ? "Synchronizing..." : "Commit Changes"}
               </button>
             </div>
           </div>
 
-          {saveStatus === "success" && (
-            <div className="flex items-center gap-3 p-4 bg-green-500/10 text-green-600 border border-green-500/20 rounded-2xl">
-              <CheckCircle2 size={24} />
-              <p className="font-medium">Changes saved successfully! Your website is updated.</p>
-            </div>
-          )}
+          <AnimatePresence mode="wait">
+            {saveStatus === "success" && (
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="mb-8 p-4 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center gap-4 text-emerald-700 shadow-sm"
+              >
+                <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-emerald-200">
+                  <CheckCircle2 size={20} />
+                </div>
+                <div>
+                  <p className="font-headline font-bold text-sm">Synchronized Successfully</p>
+                  <p className="text-xs text-emerald-600/70 font-medium">The digital architecture has been updated across the global network.</p>
+                </div>
+              </motion.div>
+            )}
 
-          {saveStatus === "error" && (
-            <div className="flex items-center gap-3 p-4 bg-red-500/10 text-red-600 border border-red-500/20 rounded-2xl">
-              <AlertCircle size={24} />
-              <p className="font-medium">Failed to save changes. Please try again.</p>
-            </div>
-          )}
+            {saveStatus === "error" && (
+              <motion.div 
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="mb-8 p-4 bg-rose-50 border border-rose-100 rounded-2xl flex items-center gap-4 text-rose-700 shadow-sm"
+              >
+                <div className="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-rose-200">
+                  <AlertCircle size={20} />
+                </div>
+                <div>
+                  <p className="font-headline font-bold text-sm">Synchronization Failed</p>
+                  <p className="text-xs text-rose-600/70 font-medium">A protocol error occurred. Please verify your connection or access token.</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Form Content based on Active Tab */}
           <div className="bg-surface-container-lowest p-6 md:p-8 rounded-3xl border border-outline-variant shadow-sm space-y-6">
             
             {activeTab === "general" && (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Company Name</label>
-                    <input
-                      type="text"
-                      value={formData.companyName}
-                      onChange={(e) => handleChange(["companyName"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Full Legal Name</label>
-                    <input
-                      type="text"
-                      value={formData.fullName}
-                      onChange={(e) => handleChange(["fullName"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="md:col-span-2">
+                   <ImageUploadField 
+                     label="Master Brand Logo"
+                     value={formData.logo}
+                     onChange={(val) => handleChange(["logo"], val)}
+                   />
                 </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-on-surface">Main Tagline (Shown across site)</label>
-                  <input
-                    type="text"
-                    value={formData.tagline}
-                    onChange={(e) => handleChange(["tagline"], e.target.value)}
-                    className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                  />
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Company Identity</label>
+                  <input type="text" value={formData.companyName} onChange={e => handleChange(["companyName"], e.target.value)} className="w-full p-4 bg-white rounded-2xl border border-slate-200 font-bold text-[#001f49] focus:ring-2 focus:ring-[#001f49]/10 outline-none" placeholder="Phinura Advisors" />
                 </div>
-                
-                <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Social Media Links</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Instagram URL</label>
-                    <input
-                      type="url"
-                      value={formData.socialMedia.instagram}
-                      onChange={(e) => handleChange(["socialMedia", "instagram"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Facebook URL</label>
-                    <input
-                      type="url"
-                      value={formData.socialMedia.facebook}
-                      onChange={(e) => handleChange(["socialMedia", "facebook"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">LinkedIn URL</label>
-                    <input
-                      type="url"
-                      value={formData.socialMedia.linkedin}
-                      onChange={(e) => handleChange(["socialMedia", "linkedin"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Legal Nomenclature</label>
+                  <input type="text" value={formData.fullName} onChange={e => handleChange(["fullName"], e.target.value)} className="w-full p-4 bg-white rounded-2xl border border-slate-200 font-bold text-[#001f49] focus:ring-2 focus:ring-[#001f49]/10 outline-none" placeholder="Phinura Advisors LLP" />
+                </div>
+                <div className="md:col-span-2 space-y-3">
+                  <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Brand Tagline</label>
+                  <input type="text" value={formData.tagline} onChange={e => handleChange(["tagline"], e.target.value)} className="w-full p-4 bg-white rounded-2xl border border-slate-200 font-bold text-[#001f49] focus:ring-2 focus:ring-[#001f49]/10 outline-none" placeholder="" />
                 </div>
 
-                <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Footer developer credit</h3>
-                <p className="text-xs text-on-surface-variant mb-3">
-                  Shown in the site footer and mini-footers (Privacy, Terms, Contact, Services, service detail). Empty fields fall back to the default Devyug line.
-                </p>
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Prefix (text before the link)</label>
-                    <input
-                      type="text"
-                      value={formData.developerCredit?.prefix ?? ""}
-                      onChange={(e) => handleChange(["developerCredit", "prefix"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
-                      placeholder="Design and Develop by "
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-on-surface">Link label</label>
-                      <input
-                        type="text"
-                        value={formData.developerCredit?.name ?? ""}
-                        onChange={(e) => handleChange(["developerCredit", "name"], e.target.value)}
-                        className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
-                        placeholder="Devyug Solution"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-on-surface">Link URL</label>
-                      <input
-                        type="url"
-                        value={formData.developerCredit?.url ?? ""}
-                        onChange={(e) => handleChange(["developerCredit", "url"], e.target.value)}
-                        className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all"
-                        placeholder="https://…"
-                      />
-                    </div>
+                <div className="md:col-span-2 mt-10">
+                  <h3 className="text-sm font-black text-[#001f49] uppercase tracking-widest mb-6 flex items-center gap-3">
+                    <Globe size={18} /> Social & Connectivity
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {Object.entries(formData.socialMedia).map(([key, value]) => (
+                      <div key={key} className="space-y-2">
+                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-tighter ml-1">{key}</label>
+                        <input type="text" value={value as string} onChange={e => handleChange(["socialMedia", key], e.target.value)} className="w-full p-3 bg-white rounded-xl border border-slate-100 text-sm font-medium" />
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </>
+              </motion.div>
             )}
 
             {activeTab === "home" && (
-              <>
-                <h3 className="text-lg font-bold text-on-surface mb-4 flex items-center gap-2">
-                  <FileText size={20} className="text-primary"/>
-                  Hero Section
-                </h3>
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Hero Title</label>
-                    <textarea
-                      rows={2}
-                      value={formData.pages.home.hero.title}
-                      onChange={(e) => handleChange(["pages", "home", "hero", "title"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Hero Subtitle</label>
-                    <textarea
-                      rows={3}
-                      value={formData.pages.home.hero.subtitle}
-                      onChange={(e) => handleChange(["pages", "home", "hero", "subtitle"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Badge Text (Above Title)</label>
-                    <input
-                      type="text"
-                      value={formData.pages.home.hero.badge}
-                      onChange={(e) => handleChange(["pages", "home", "hero", "badge"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
-
-                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Section Headlines</h3>
-                  <div className="space-y-4 p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-primary uppercase">Core Services Title</label>
-                      <input type="text" value={(formData.pages.home as any).coreServices?.title || ""} onChange={(e) => handleChange(["pages", "home", "coreServices", "title"], e.target.value)} className="w-full p-3 bg-white rounded-xl border" />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-16">
+                {/* Hero Section */}
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none"><LayoutDashboard size={120} /></div>
+                  <h3 className="text-sm font-black text-[#001f49] uppercase tracking-widest mb-8 flex items-center gap-3">
+                    <Sparkles size={18} /> Hero Visuals
+                  </h3>
+                  <div className="space-y-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <ImageUploadField label="Hero Background" value={(formData.pages.home.hero as any).bgImage || ""} onChange={val => handleChange(["pages", "home", "hero", "bgImage"], val)} />
+                      <ImageUploadField label="Hero Video Poster" value={formData.pages.home.hero.posterUrl} onChange={val => handleChange(["pages", "home", "hero", "posterUrl"], val)} />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-primary uppercase">Simple Solutions Title</label>
-                      <input type="text" value={(formData.pages.home as any).simpleSolutions?.title || ""} onChange={(e) => handleChange(["pages", "home", "simpleSolutions", "title"], e.target.value)} className="w-full p-3 bg-white rounded-xl border" />
+                    <div className="space-y-3">
+                      <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Hero Heading</label>
+                      <textarea rows={3} value={formData.pages.home.hero.title} onChange={e => handleChange(["pages", "home", "hero", "title"], e.target.value)} className="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-lg text-[#001f49] resize-none focus:ring-2 focus:ring-[#001f49]/10 outline-none" />
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-primary uppercase">Hero Button 1 Text</label>
-                      <input type="text" value={formData.pages.home.hero.buttonText} onChange={(e) => handleChange(["pages", "home", "hero", "buttonText"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-primary uppercase">Hero Button 2 Text</label>
-                      <input type="text" value={formData.pages.home.hero.secondaryButtonText} onChange={(e) => handleChange(["pages", "home", "hero", "secondaryButtonText"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-primary uppercase">Hero Video URL</label>
-                      <input type="text" value={formData.pages.home.hero.videoUrl} onChange={(e) => handleChange(["pages", "home", "hero", "videoUrl"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-xs font-bold text-primary uppercase">Hero Poster URL</label>
-                      <input type="text" value={formData.pages.home.hero.posterUrl} onChange={(e) => handleChange(["pages", "home", "hero", "posterUrl"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-primary uppercase">Hero Background Image URL</label>
-                    <input type="text" value={(formData.pages.home.hero as any).bgImage || ""} onChange={(e) => handleChange(["pages", "home", "hero", "bgImage"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="https://images.unsplash.com/..." />
-                    <p className="text-[10px] text-on-surface-variant italic">Used as fallback if video is missing or as main background in some layouts.</p>
-                  </div>
+                </div>
 
                   <div className="space-y-2 mt-6 pt-6 border-t border-outline-variant/30">
                     <label className="text-sm font-medium text-on-surface">Stats section label</label>
@@ -783,9 +690,12 @@ export function AdminDashboard() {
                     <label className="text-sm font-medium text-on-surface">Story Content</label>
                     <textarea rows={6} value={formData.pages.about.story.content} onChange={(e) => handleChange(["pages", "about", "story", "content"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-y" />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Story Image URL</label>
-                    <input type="text" value={formData.pages.about.story.image} onChange={(e) => handleChange(["pages", "about", "story", "image"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                  <div className="space-y-2 mt-6">
+                    <ImageUploadField 
+                      label="Foundation Visual (Story Image)"
+                      value={formData.pages.about.story.image}
+                      onChange={(val) => handleChange(["pages", "about", "story", "image"], val)}
+                    />
                   </div>
 
                   {/* Mission & Vision Section */}
@@ -1060,8 +970,11 @@ export function AdminDashboard() {
                           <textarea rows={1} value={service.description} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "description"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Card Description" />
                         </div>
                         <div className="space-y-1 md:col-span-2">
-                          <label className="text-xs font-bold text-primary uppercase">Service Card Image URL</label>
-                          <input type="text" value={service.image || ""} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "image"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="https://images.unsplash.com/..." />
+                          <ImageUploadField 
+                            label="Service Representation (Image)"
+                            value={service.image || ""}
+                            onChange={(val) => handleChange(["pages", "services", "serviceList", i, "image"], val)}
+                          />
                         </div>
                       </div>
 

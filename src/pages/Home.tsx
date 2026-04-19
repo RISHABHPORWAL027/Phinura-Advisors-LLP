@@ -408,7 +408,7 @@ const ProcessFlow = () => {
   });
 
   const steps = process.steps || [];
-  
+
   // Animation mapping: finish early (at 0.8) to hold the final state
   const progressLineScale = useTransform(scrollYProgress, [0.1, 0.8], [0, 1]);
   const logoPosition = useTransform(scrollYProgress, [0.1, 0.8], ["0%", "100%"]);
@@ -466,10 +466,10 @@ const ProcessFlow = () => {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-0 w-full relative z-20">
               {steps.map((step: any, i: number) => {
                 const Icon = iconMap[step.icon] || Rocket;
-                
+
                 // Optimized thresholds for 200vh height
                 const stepStart = 0.1 + (i * 0.18);
-                
+
                 const boxBg = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#ffffff", "#001f49"]);
                 const iconColor = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#001f49", "#ffffff"]);
                 const opacity = useTransform(scrollYProgress, [stepStart, stepStart + 0.1], [0.6, 1]);
@@ -482,28 +482,28 @@ const ProcessFlow = () => {
                     className="relative flex flex-col items-center text-center lg:px-6 pt-12"
                   >
                     {/* The Dot/Marker */}
-                    <motion.div 
+                    <motion.div
                       style={{ backgroundColor: boxBg }}
                       className="absolute w-6 h-6 rounded-full border-4 border-white shadow-md z-40 left-7 lg:left-1/2 lg:-translate-x-1/2 top-[-11px]"
                     ></motion.div>
 
                     {/* Step Card Content */}
-                    <motion.div 
+                    <motion.div
                       style={{ scale: contentScale }}
                       className="pl-20 lg:pl-0 flex flex-col items-center group w-full"
                     >
-                       <div className="relative mb-8">
-                         <div className="text-8xl font-black text-primary/10 absolute -top-12 -left-6 select-none transition-all group-hover:text-primary/20">
-                           0{i+1}
-                         </div>
-                         <motion.div 
-                           style={{ backgroundColor: boxBg, color: iconColor }}
-                           className="w-20 h-20 rounded-3xl shadow-2xl flex items-center justify-center transition-all duration-500 border border-slate-50 relative z-10"
-                         >
-                           <Icon size={32} />
-                         </motion.div>
-                       </div>
-                      
+                      <div className="relative mb-8">
+                        <div className="text-8xl font-black text-primary/10 absolute -top-12 -left-6 select-none transition-all group-hover:text-primary/20">
+                          0{i + 1}
+                        </div>
+                        <motion.div
+                          style={{ backgroundColor: boxBg, color: iconColor }}
+                          className="w-20 h-20 rounded-3xl shadow-2xl flex items-center justify-center transition-all duration-500 border border-slate-50 relative z-10"
+                        >
+                          <Icon size={32} />
+                        </motion.div>
+                      </div>
+
                       <h3 className="text-2xl font-headline font-black text-primary mb-2 leading-tight">
                         {step.title}
                       </h3>
@@ -696,7 +696,7 @@ const FinalCTA = () => {
 
   return (
     <section className="py-24 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

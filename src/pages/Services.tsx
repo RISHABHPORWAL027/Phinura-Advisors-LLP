@@ -368,7 +368,7 @@ export const Services = () => {
   return (
     <div className="min-h-screen">
       <Hero hero={data.pages.services.hero} />
-      <ServiceIntro services={data.pages.services} />
+      {/* <ServiceIntro services={data.pages.services} /> */}
       <ServiceGrid services={data.pages.services.serviceList} />
       <StatsCTA statsCTA={data.pages.services.statsCTA} siteDetails={data} />
       <FooterCTA siteDetails={data} />
