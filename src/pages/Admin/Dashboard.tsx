@@ -643,8 +643,7 @@ export function AdminDashboard() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </>
+              </motion.div>
             )}
 
             {activeTab === "about" && (
@@ -756,6 +755,7 @@ export function AdminDashboard() {
                           <LucideIconSelect 
                             value={v.icon || "ShieldCheck"} 
                             onChange={(val) => handleChange(["pages", "about", "values", i, "icon"], val)} 
+                            options={LUCIDE_SERVICE_ICON_OPTIONS_SORTED}
                           />
                         </div>
                       </div>
