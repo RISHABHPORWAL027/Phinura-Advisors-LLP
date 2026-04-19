@@ -281,26 +281,6 @@
             "Expert handling of objections and oppositions",
             "Peace of mind for your brand's future"
           ]
-        },
-        {
-          "id": "new-service",
-          "title": "New Rishbah",
-          "category": "Regulatory Compliance",
-          "heroTitle": "Hero Title",
-          "subtitle": "Subtitle",
-          "icon": "Globe",
-          "description": "Short desc",
-          "longDescription": "Long description",
-          "mainHeading": "Main heading",
-          "ctaTitle": "Ready to start?",
-          "deliverables": [
-            "New Deliverable",
-            "New Deliverable"
-          ],
-          "benefits": [
-            "Annual Return Filing (AOC-4 & MGT-7)",
-            "New Benefit"
-          ]
         }
       ]
     },
