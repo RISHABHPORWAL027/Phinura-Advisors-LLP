@@ -171,6 +171,14 @@ export interface SiteDetails {
           /** Longer profile for modal / detail view */
           bio?: string;
           img: string;
+          rolesList?: string[];
+          expertise?: string[];
+          trackRecord?: Array<{
+            stat: string;
+            title: string;
+            desc: string;
+          }>;
+          bioQuote?: string;
         }>;
       };
       cta: {

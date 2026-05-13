@@ -346,6 +346,14 @@
           {
             "name": "Ambuj Jain",
             "role": "Chartered Accountant (CA)",
+            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
+            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "trackRecord": [
+              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
+              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
+              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Guides tax, audit, and compliance with clear, practical advice for growing businesses.",
             "bio": "Ambuj Jain is a Chartered Accountant who leads accounting, tax, and audit engagements for a wide range of clients. He focuses on making statutory requirements understandable and ensuring filings are planned well in advance. Business owners appreciate his calm, solution-oriented approach when timelines are tight or rules change.",
             "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
@@ -353,6 +361,14 @@
           {
             "name": "Shivani Jain",
             "role": "Chartered Accountant (CA)",
+            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
+            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "trackRecord": [
+              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
+              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
+              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Experienced in financial reporting, assurance, and helping you make sense of the numbers.",
             "bio": "Shivani Jain is a Chartered Accountant with strong experience in financial statements, internal controls, and audit support. She helps leadership teams interpret results and stay audit-ready. Her communication style is straightforward, which helps non-finance founders feel confident about their books.",
             "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
@@ -360,6 +376,14 @@
           {
             "name": "Priya Porwal",
             "role": "Company Secretary (CS)",
+            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
+            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "trackRecord": [
+              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
+              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
+              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Handles company law, board matters, and MCA filings so your entity stays legally sound.",
             "bio": "Priya Porwal is a Company Secretary who supports companies with incorporation, annual compliance, board resolutions, and Ministry of Corporate Affairs filings. She ensures documents are correct the first time and keeps directors informed about what must be done each year.",
             "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
@@ -367,6 +391,14 @@
           {
             "name": "Shruti",
             "role": "Company Secretary (CS)",
+            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
+            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "trackRecord": [
+              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
+              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
+              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Supports secretarial work, filings, and coordination so MCA deadlines are never missed.",
             "bio": "Shruti is a Company Secretary focused on secretarial compliance and timely filings. She works closely with founders and directors on forms, disclosures, and routine MCA updates. Clients value her responsiveness and attention to detail when multiple filings need to move together.",
             "img": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&q=80&w=600"

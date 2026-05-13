@@ -19,7 +19,7 @@ import { TeamSection } from "../components/TeamSection";
 import missionCardBanner from "../Assets/genral_banner.jpg";
 import visionSectionImage from "../Assets/vision_2.jpg";
 import workingBanner from "../Assets/working.png";
-import ctaBackground from "../Assets/details_page_bg.avif";
+import ctaBackground from "../Assets/team_member.webp";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);

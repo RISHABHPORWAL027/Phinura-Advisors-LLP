@@ -175,7 +175,7 @@ export function TeamSection({ variant }: Props) {
                   <div className="w-full pl-4 md:pl-0 max-w-[280px]">
                     <h4 className="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase mb-4">Roles</h4>
                     <ul className="space-y-3 mb-8">
-                      {((selected as any).rolesList || ["Tax & Audit Lead", "Business Advisor"]).map((r: string, i: number) => (
+                      {(selected.rolesList || ["Tax & Audit Lead", "Business Advisor"]).map((r: string, i: number) => (
                         <li key={i} className="flex items-center gap-3 text-sm font-bold text-[#0D1B2A]">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#B45309]"></div>
                           {r}
@@ -185,7 +185,7 @@ export function TeamSection({ variant }: Props) {
 
                     <h4 className="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase mb-4">Core Expertise</h4>
                     <div className="flex flex-wrap gap-2">
-                      {((selected as any).expertise || ["Company Registration", "GST & Income Tax", "MCA Compliance"]).map((ex: string, i: number) => (
+                      {(selected.expertise || ["Company Registration", "GST & Income Tax", "MCA Compliance"]).map((ex: string, i: number) => (
                         <span key={i} className="px-3 py-1.5 bg-blue-100/50 text-[#0D1B2A] text-xs font-bold rounded-full border border-blue-200/50">
                           {ex}
                         </span>
@@ -206,7 +206,7 @@ export function TeamSection({ variant }: Props) {
                     </div>
 
                     <div className="space-y-4">
-                      {((selected as any).trackRecord || [
+                      {(selected.trackRecord || [
                         { stat: "10+", title: "Years of Experience", desc: "A decade of helping Indian businesses stay compliant and profitable." },
                         { stat: "500+", title: "Happy Clients", desc: "Successfully advised hundreds of startups and established firms." },
                         { stat: "100%", title: "Compliance Focus", desc: "Dedicated to keeping your business safe from penalties and notices." }
@@ -230,12 +230,12 @@ export function TeamSection({ variant }: Props) {
                       <div className="w-10 h-10 rounded-xl bg-[#0D1B2A] text-white flex items-center justify-center shadow-lg shadow-[#0D1B2A]/20">
                         <User className="w-6 h-6" />
                       </div>
-                      <h3 className="text-2xl font-headline font-extrabold text-[#0D1B2A]">Human-Centric Bio</h3>
+                      <h3 className="text-2xl font-headline font-extrabold text-[#0D1B2A]">About</h3>
                     </div>
 
                     <blockquote className="border-l-4 border-[#B45309] pl-6 py-1 mb-8">
                       <p className="text-base text-on-surface-variant italic font-medium leading-relaxed">
-                        "{((selected as any).bioQuote || "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.")}"
+                        "{(selected.bioQuote || "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.")}"
                       </p>
                     </blockquote>
 
