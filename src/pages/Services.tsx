@@ -2,7 +2,6 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from "moti
 import { useEffect, useRef } from "react";
 import {
   ArrowRight,
-  Send,
   CheckCircle2,
   TrendingUp,
   Quote,
@@ -11,8 +10,7 @@ import {
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
-import logo from "../Assets/Phinura_Advisors_logo.png";
-import { DeveloperCredit } from "../components/DeveloperCredit";
+import { CtaImageCard } from "../components/CtaImageCard";
 
 const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
   const ref = useRef(null);
@@ -253,10 +251,12 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any, siteDetails: any }
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-primary rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-24 text-white relative overflow-hidden"
+          className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/25 md:rounded-[4rem]"
         >
+          <CtaImageCard className="rounded-[2.5rem] text-white md:rounded-[4rem]" contentClassName="p-10 md:p-24">
+          <div className="relative">
           {/* Decorative mandala-like background */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-10 pointer-events-none">
+          <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-10">
             <div className="w-[600px] h-[600px] border border-white rounded-full"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[400px] h-[400px] border border-white rounded-full rotate-45"></div>
@@ -302,57 +302,13 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any, siteDetails: any }
               ))}
             </div>
           </div>
+          </div>
+          </CtaImageCard>
         </motion.div>
       </div>
     </section>
   );
 };
-
-const FooterCTA = ({ siteDetails }: { siteDetails: any }) => (
-  <footer className="bg-slate-50 py-16 md:py-20 px-6">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-      <div className="col-span-1 md:col-span-1">
-        <AppLink to="/" className="flex items-center gap-2 mb-6 group">
-          <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
-          <span className="text-lg font-bold text-primary">{siteDetails.companyName}</span>
-        </AppLink>
-        <p className="text-on-surface-variant text-sm leading-relaxed">{siteDetails.tagline}</p>
-      </div>
-      <div>
-        <h4 className="font-headline font-bold text-primary mb-6">Services</h4>
-        <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><AppLink to="/services" className="hover:text-primary transition-colors">Tax Preparation</AppLink></li>
-          <li><AppLink to="/services" className="hover:text-primary transition-colors">Audit & Assurance</AppLink></li>
-          <li><AppLink to="/services" className="hover:text-primary transition-colors">Corporate Strategy</AppLink></li>
-          <li><AppLink to="/services" className="hover:text-primary transition-colors">Financial Planning</AppLink></li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-headline font-bold text-primary mb-6">Company</h4>
-        <ul className="space-y-4 text-sm text-on-surface-variant">
-          <li><AppLink to="/about" className="hover:text-primary transition-colors">About</AppLink></li>
-          <li><AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink></li>
-          <li><AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink></li>
-          <li><AppLink to="/contact" className="hover:text-primary transition-colors">Contact</AppLink></li>
-        </ul>
-      </div>
-      <div>
-        <h4 className="font-headline font-bold text-primary mb-6">Newsletter</h4>
-        <p className="text-sm text-on-surface-variant mb-4">The Quarterly Ledger: Financial insights directly to your inbox.</p>
-        <div className="flex gap-2">
-          <input type="email" placeholder="Email address" className="bg-white border-0 rounded-xl px-4 py-3 w-full text-sm shadow-sm focus:ring-2 focus:ring-primary" />
-          <button className="bg-primary text-white p-3 rounded-xl hover:bg-primary-container transition-colors cursor-pointer">
-            <Send className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-    </div>
-    <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p className="text-slate-400 text-xs">© {new Date().getFullYear()} {siteDetails.fullName}. All rights reserved.</p>
-      <DeveloperCredit />
-    </div>
-  </footer>
-);
 
 export const Services = () => {
   const { data, loading } = useCMS();
@@ -371,7 +327,6 @@ export const Services = () => {
       {/* <ServiceIntro services={data.pages.services} /> */}
       <ServiceGrid services={data.pages.services.serviceList} />
       <StatsCTA statsCTA={data.pages.services.statsCTA} siteDetails={data} />
-      <FooterCTA siteDetails={data} />
     </div>
   );
 };

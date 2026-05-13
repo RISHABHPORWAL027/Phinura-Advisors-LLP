@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ChangeEvent } from "react";
 import { useCMS } from "../../hooks/useCMS";
 import { 
   Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, 
@@ -38,7 +38,7 @@ const ImageUploadField = ({
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -794,12 +794,16 @@ export function AdminDashboard() {
                          <input type="text" value={member.img || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "img"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Image URL" />
                       </div>
                       <div className="space-y-2">
-                         <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Short Bio</label>
+                         <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Short description (card)</label>
                          <textarea value={member.desc || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "desc"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Short Bio" rows={2} />
+                      </div>
+                      <div className="space-y-2">
+                         <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Full profile (modal)</label>
+                         <textarea value={member.bio || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "bio"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Longer bio shown when visitor clicks the card" rows={4} />
                       </div>
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "about", "people", "team"], {name: "New Member", role: "Role", desc: "", img: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Team Member</button>
+                  <button onClick={() => handleArrayAdd(["pages", "about", "people", "team"], {name: "New Member", role: "Role", desc: "", bio: "", img: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Team Member</button>
 
                   {/* Bottom CTA */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Bottom CTA Banner</h3>

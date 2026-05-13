@@ -6,12 +6,16 @@ const DEFAULT_URL = "https://www.devyugsolutions.com/";
 
 type Props = {
   className?: string;
+  linkClassName?: string;
 };
 
 /**
  * Site-wide footer credit line (editable via Admin → General).
  */
-export function DeveloperCredit({ className = "text-slate-400 text-xs" }: Props) {
+export function DeveloperCredit({
+  className = "text-slate-400 text-xs",
+  linkClassName = "text-primary hover:underline font-semibold",
+}: Props) {
   const { data } = useCMS();
   const dc = data?.developerCredit;
   const prefix = dc?.prefix ?? DEFAULT_PREFIX;
@@ -21,7 +25,7 @@ export function DeveloperCredit({ className = "text-slate-400 text-xs" }: Props)
   return (
     <p className={className}>
       {prefix}
-      <a href={url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
+      <a href={url} target="_blank" rel="noopener noreferrer" className={linkClassName}>
         {name}
       </a>
     </p>

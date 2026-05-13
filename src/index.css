@@ -37,6 +37,25 @@
     scroll-behavior: smooth;
   }
 
+  /* `/preview` only — see PreviewLayout mount effect */
+  html.phinura-preview-scroll {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  html.phinura-preview-scroll body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  html.phinura-preview-scroll #root {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

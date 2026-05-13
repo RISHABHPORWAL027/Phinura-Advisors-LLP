@@ -1,19 +1,25 @@
 import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { AppLink } from "../navigation/AppLink";
-import { 
-  Heart, 
-  Lightbulb, 
-  ShieldCheck, 
-  ArrowRight, 
-  Building2, 
-  Goal, 
-  Eye, 
-  LineChart, 
-  Rocket, 
-  Briefcase 
+import {
+  Heart,
+  Lightbulb,
+  ShieldCheck,
+  ArrowRight,
+  Building2,
+  Goal,
+  Eye,
+  LineChart,
+  Rocket,
+  Briefcase
 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
+import { CtaImageCard } from "../components/CtaImageCard";
+import { TeamSection } from "../components/TeamSection";
+import missionCardBanner from "../Assets/genral_banner.jpg";
+import visionSectionImage from "../Assets/vision_2.jpg";
+import workingBanner from "../Assets/working.png";
+import ctaBackground from "../Assets/details_page_bg.avif";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
@@ -39,24 +45,38 @@ const Hero = () => {
   const { data: siteDetails } = useCMS();
   const { hero } = siteDetails.pages.about;
   return (
-    <section className="pt-32 pb-20 md:pt-48 md:pb-32 bg-[#F8F9FA]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="relative min-h-screen overflow-hidden bg-[#F8F9FA] pt-36 pb-[clamp(3rem,10vw,5rem)]">
+      {/* Bottom band: working photo (left); no overlay so the asset stays fully visible */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden h-[clamp(168px,26vh,320px)] sm:block"
+        aria-hidden
+      >
+        <div className="relative flex h-full w-full items-end justify-start pl-6 pr-4 sm:pl-8">
+          <img
+            src={workingBanner}
+            alt=""
+            className="max-h-full w-auto max-w-[min(100%,520px)] object-contain object-left-bottom opacity-100 sm:max-w-[min(100%,580px)]"
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto h-full max-w-7xl px-6">
+        <div className="grid grid-cols-1 items-center gap-20 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative z-10"
           >
-            <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-[#0D1B2A] mb-8 leading-[1.1] tracking-tight">
+            <h1 className="mb-8 text-5xl font-headline font-extrabold leading-[1.1] tracking-tight text-[#0D1B2A] md:text-7xl">
               {hero.title}
             </h1>
-            <p className="text-lg md:text-xl text-on-surface-variant mb-12 leading-relaxed opacity-80 max-w-xl">
+
+            <p className="mb-12 max-w-xl text-lg leading-relaxed text-on-surface-variant opacity-80 md:text-xl">
               {hero.subtitle}
             </p>
             <AppLink
               to="/contact"
-              className="bg-[#0D1B2A] text-white px-12 py-5 rounded-lg font-headline font-bold text-lg hover:bg-opacity-90 transition-all text-center inline-block"
+              className="inline-block rounded-lg bg-[#0D1B2A] px-12 py-5 text-center font-headline text-lg font-bold text-white transition-all hover:bg-opacity-90"
             >
               Get Started
             </AppLink>
@@ -66,13 +86,14 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="relative flex items-center justify-center"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3]">
+            <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
               <img
                 src={hero.image}
                 alt="Architectural Building"
-                className="w-full h-full object-cover"
+                className="w-full object-cover"
+                style={{ height: "clamp(400px, 70vh, 750px)" }}
               />
             </div>
             {/* Floating stat card */}
@@ -101,42 +122,121 @@ const Story = () => {
   const { data: siteDetails } = useCMS();
   const { story } = siteDetails.pages.about;
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-24 bg-gradient-to-br from-blue-50 via-white to-orange-50/30 overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_70%_20%,rgba(13,27,42,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute -left-24 bottom-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute -right-24 top-0 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          {/* Image Side with Premium Border Treatment */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -60, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", bounce: 0.3, duration: 1.5 }}
+            className="relative order-2 lg:order-1"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-widest mb-8">
-              <Briefcase size={14} />
+            <div className="relative group p-4">
+              {/* Decorative Frame 1 - Auto Rotating */}
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 border border-primary/10 rounded-[2.5rem] pointer-events-none" 
+              />
+              {/* Decorative Frame 2 - Auto Rotating Opposite */}
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 border border-secondary/20 rounded-[2.5rem] pointer-events-none" 
+              />
+              
+              <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/20 aspect-[4/3] relative z-10 bg-white border-4 border-white">
+                <img
+                  src={story.image || "https://images.unsplash.com/photo-1556155092-490a1ba16284"}
+                  alt="Phinura Story"
+                  className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+              </div>
+            </div>
+
+            {/* Floating Achievement Card - Bigger & Auto Floating */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ 
+                y: [0, -12, 0],
+                rotate: [0, 1, -1, 0]
+              }}
+              transition={{ 
+                initial: { delay: 0.5 },
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="absolute -bottom-10 -right-4 bg-white p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(13,27,42,0.15)] z-20 border border-slate-50 hidden md:block min-w-[280px]"
+            >
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                  <ShieldCheck size={32} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-extrabold text-secondary uppercase tracking-[0.2em] mb-1">Built on</div>
+                  <div className="text-2xl font-headline font-bold text-primary">Absolute Clarity</div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Text Side */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ type: "spring", bounce: 0.3, duration: 1.5, delay: 0.2 }}
+            className="order-1 lg:order-2"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-primary/10 shadow-sm">
+              <Briefcase size={14} className="text-secondary" />
               Our Story
-            </span>
-            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-[#0D1B2A] mb-8 leading-tight">
-              {story.title}
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-8 leading-tight">
+              Founded on a Singular Principle: <span className="text-secondary">Sovereignty.</span>
             </h2>
-            <div className="space-y-6 text-on-surface-variant text-lg leading-relaxed opacity-80">
-              <p>{story.content}</p>
+            
+            <div className="space-y-6">
+              <p className="text-slate-700 text-xl font-medium leading-relaxed italic border-l-4 border-secondary/30 pl-6 py-2">
+                Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies.
+              </p>
+              
+              <div className="space-y-4 text-on-surface-variant text-lg leading-relaxed opacity-90">
+                <p>
+                  Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.
+                </p>
+                <p>
+                  Today, we continue that legacy, ensuring our clients don't just react to the market, but architect their future with precision and professional sovereignty.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 flex items-center gap-8">
+              <div className="flex -space-x-4">
+                {[1,2,3].map(i => (
+                  <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?u=${i+10}`} alt="Founder" />
+                  </div>
+                ))}
+              </div>
+              <div className="text-sm">
+                <div className="font-bold text-primary">Trusted by Global Entities</div>
+                <div className="text-slate-500">10+ Years of Fiscal Excellence</div>
+              </div>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-              <img
-                src={story.image || "https://images.unsplash.com/photo-1556155092-490a1ba16284"}
-                alt="Phinura Story"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
@@ -148,16 +248,20 @@ const MissionVision = () => {
   const { data: siteDetails } = useCMS();
   const { missionVision, values } = siteDetails.pages.about;
   const iconMap: { [key: string]: any } = { ShieldCheck, LineChart, Rocket, Heart, Lightbulb };
-  
+
   const [currentMission, setCurrentMission] = useState(0);
-  const missions = missionVision.missions || [missionVision.mission];
+  const missions =
+    missionVision.missions && missionVision.missions.length > 0
+      ? missionVision.missions
+      : [missionVision.mission ?? ""].filter(Boolean);
+  const safeMissions = missions.length > 0 ? missions : ["We help business owners with tax, MCA, and filings — explained in everyday language."];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentMission((prev: number) => (prev + 1) % missions.length);
+      setCurrentMission((prev: number) => (prev + 1) % safeMissions.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [missions.length]);
+  }, [safeMissions.length]);
 
   return (
     <section className="py-24 bg-[#F8F9FA]">
@@ -168,37 +272,45 @@ const MissionVision = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 bg-white p-12 md:p-16 rounded-[2rem] shadow-sm flex flex-col justify-center border border-slate-100 relative min-h-[400px]"
+            className="lg:col-span-2 relative flex min-h-[400px] flex-col justify-center overflow-hidden rounded-[2rem] border border-slate-100 shadow-sm"
           >
-            <Building2 className="w-10 h-10 text-primary mb-8" />
-            <h3 className="text-3xl font-headline font-bold text-primary mb-6">Our Mission</h3>
-            
-            <div className="relative overflow-hidden h-32 md:h-24">
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={currentMission}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="text-xl text-on-surface-variant leading-relaxed opacity-80 absolute"
-                >
-                  {missions[currentMission]}
-                </motion.p>
-              </AnimatePresence>
+            <div className="pointer-events-none absolute inset-0" aria-hidden>
+              <img src={missionCardBanner} alt="" className="h-full w-full object-cover" />
+              <div
+                className="absolute inset-0 bg-[linear-gradient(100deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.88)_28%,rgba(255,255,255,0.45)_48%,rgba(255,255,255,0.08)_68%,transparent_88%)]"
+                aria-hidden
+              />
             </div>
 
-            {/* Pagination dots */}
-            <div className="flex gap-2 mt-12">
-              {missions.map((_: any, i: number) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentMission(i)}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${
-                    currentMission === i ? "w-10 bg-slate-400" : "w-4 bg-slate-200"
-                  }`}
-                />
-              ))}
+            <div className="relative z-10 flex max-w-xl flex-col justify-center p-12 md:p-16">
+              <Building2 className="mb-8 h-10 w-10 text-primary" />
+              <h3 className="mb-6 font-headline text-3xl font-bold text-primary">Our Mission</h3>
+
+              <div className="relative h-32 overflow-hidden md:h-24">
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={currentMission}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute text-xl font-medium leading-relaxed text-[#0D1B2A]/90"
+                  >
+                    {safeMissions[currentMission]}
+                  </motion.p>
+                </AnimatePresence>
+              </div>
+
+              <div className="mt-12 flex gap-2">
+                {safeMissions.map((_: any, i: number) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setCurrentMission(i)}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${currentMission === i ? "w-10 bg-slate-400" : "w-4 bg-slate-200"}`}
+                  />
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -211,9 +323,9 @@ const MissionVision = () => {
             className="relative rounded-[2.5rem] overflow-hidden group min-h-[450px] bg-slate-900 shadow-2xl"
           >
             <div className="absolute inset-0">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-                alt="Our Vision" 
+              <img
+                src={missionVision.visionImage?.trim() ? missionVision.visionImage : visionSectionImage}
+                alt="Our Vision"
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60"
                 referrerPolicy="no-referrer"
               />
@@ -237,72 +349,32 @@ const MissionVision = () => {
           </motion.div>
         </div>
 
-        {/* Small Value Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Values: compact horizontal scroll on mobile (aligned with page gutter), grid from md */}
+        <div
+          className="flex snap-x snap-proximity gap-3 overflow-x-auto overscroll-x-contain py-1 pb-3 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:py-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
+          role="list"
+          aria-label="Our values"
+        >
           {values.map((v: any, i: number) => {
             const Icon = iconMap[v.icon] || ShieldCheck;
             return (
               <motion.div
                 key={i}
+                role="listitem"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 + i * 0.1 }}
-                className="bg-white p-10 rounded-[1.5rem] shadow-sm border border-slate-100 flex flex-col items-start"
+                className="flex w-[220px] shrink-0 snap-start flex-col items-start rounded-xl border border-slate-100 bg-white p-5 shadow-sm sm:w-[236px] sm:p-6 md:w-auto md:min-w-0 md:snap-none md:rounded-[1.5rem] md:p-10"
               >
-                <div className="mb-6 rounded-lg p-2 bg-[#F8F9FA]">
-                  <Icon className="w-6 h-6 text-orange-700" />
+                <div className="mb-6 rounded-lg bg-[#F8F9FA] p-2">
+                  <Icon className="h-6 w-6 text-orange-700" />
                 </div>
-                <h4 className="text-xl font-headline font-bold text-primary mb-3">{v.title}</h4>
-                <p className="text-on-surface-variant text-sm leading-relaxed opacity-70">
-                  {v.desc}
-                </p>
+                <h4 className="mb-3 font-headline text-xl font-bold text-primary">{v.title}</h4>
+                <p className="text-sm leading-relaxed text-on-surface-variant opacity-70">{v.desc}</p>
               </motion.div>
             );
           })}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-/* ─── Architectural Board (Team) ────────────────────────────────────────── */
-const People = () => {
-  const { data: siteDetails } = useCMS();
-  const { people } = siteDetails.pages.about;
-  return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-6">
-          {people.title}
-        </h2>
-        <p className="text-on-surface-variant text-lg max-w-3xl mx-auto mb-20 opacity-70">
-          {people.subtitle}
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {people.team.map((person: any, i: number) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-left group"
-            >
-              <div className="relative overflow-hidden rounded-xl aspect-[4/5] mb-6 shadow-lg">
-                <img 
-                  src={person.img} 
-                  alt={person.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-              </div>
-              <h3 className="text-lg font-headline font-bold text-primary mb-1">{person.name}</h3>
-              <p className="text-secondary text-[10px] font-bold tracking-widest uppercase opacity-80">
-                {person.role}
-              </p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
@@ -321,14 +393,14 @@ const CTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-primary rounded-[2.5rem] md:rounded-[4rem] p-10 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20"
+          className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/20 md:rounded-[4rem]"
         >
-          {/* Decorative gradients */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full -ml-20 -mb-20 blur-3xl"></div>
-          
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8 leading-[1.1]">
+          <CtaImageCard
+            backgroundImage={ctaBackground}
+            className="rounded-[2.5rem] text-center text-white md:rounded-[4rem]"
+            contentClassName="p-10 md:p-20"
+          >
+            <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8 leading-[1.1]">
               {cta.title}
             </h2>
             <p className="text-xl md:text-2xl text-on-primary-container/80 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -348,7 +420,7 @@ const CTA = () => {
                 {cta.secondaryButtonText}
               </AppLink>
             </div>
-          </div>
+          </CtaImageCard>
         </motion.div>
       </div>
     </section>
@@ -362,7 +434,7 @@ export const About = () => {
       <Hero />
       <Story />
       <MissionVision />
-      <People />
+      <TeamSection variant="about" />
       <CTA />
     </div>
   );

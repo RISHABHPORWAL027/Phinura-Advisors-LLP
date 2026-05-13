@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from "rea
 import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { FloatingWhatsAppButton } from "./components/FloatingWhatsAppButton";
+import { FloatingCallbackRequest } from "./components/FloatingCallbackRequest";
 import { PreviewLinkBaseProvider } from "./navigation/AppLink";
 
 /** Route-level lazy loading: each path downloads its own chunk (faster repeat visits / lighter bundles per URL). */
@@ -32,8 +34,8 @@ const PageLoading = () => (
 
 function MainFooterGate() {
   const { pathname } = useLocation();
-  if (pathname === "/" || pathname === "/about") return <Footer />;
-  return null;
+  if (pathname.startsWith("/admin")) return null;
+  return <Footer />;
 }
 
 function MainShell() {
@@ -45,6 +47,8 @@ function MainShell() {
           <Outlet />
         </main>
         <MainFooterGate />
+        <FloatingWhatsAppButton />
+        <FloatingCallbackRequest />
       </div>
     </PreviewLinkBaseProvider>
   );

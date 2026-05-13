@@ -13,6 +13,11 @@ function getAdminPassword(): string | null {
 
 export class GitHubCMSService implements ICMSService {
   async getSiteDetails(): Promise<SiteDetails> {
+    // In dev, read bundled JSON so `npm run dev` does not require the local API (avoids Vite proxy ECONNREFUSED spam).
+    // Admin saves still POST to `/api/site-details` — use `yarn dev:full` or `yarn dev:api` when testing saves.
+    if (import.meta.env.DEV) {
+      return siteDetails as SiteDetails;
+    }
     try {
       const res = await fetch("/api/site-details", { method: "GET" });
       if (!res.ok) throw new Error(`Failed to load: ${res.status}`);

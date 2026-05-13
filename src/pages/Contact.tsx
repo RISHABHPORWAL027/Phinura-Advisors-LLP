@@ -1,29 +1,41 @@
-import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin, Send, Globe, Users, Headset } from "lucide-react";
-import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "../components/SocialIcons";
+import { Phone, Mail, MapPin, Send } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
-import logo from "../Assets/Phinura_Advisors_logo.png";
-import { DeveloperCredit } from "../components/DeveloperCredit";
+import { CtaImageCard } from "../components/CtaImageCard";
+import contactHeroImage from "../Assets/contactus.svg";
 
 const Hero = () => {
   const { data: siteDetails } = useCMS();
   const { hero } = siteDetails.pages.contact;
   return (
-    <section className="pt-20 pb-12 md:pt-32 md:pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 mt-10 md:mt-0">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl"
-        >
-          <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-primary mb-8 leading-tight tracking-tighter">
-            {hero.title}
-          </h1>
-          <p className="text-xl text-on-surface-variant leading-relaxed">
-            {hero.subtitle}
-          </p>
-        </motion.div>
+    <section className="bg-white pt-20 md:pt-32">
+      <div className="mx-auto mt-10 max-w-7xl px-6 md:mt-0">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl lg:max-w-none"
+          >
+            <h1 className="mb-8 font-headline text-5xl font-extrabold leading-tight tracking-tighter text-primary md:text-7xl">
+              {hero.title}
+            </h1>
+            <p className="text-xl leading-relaxed text-on-surface-variant">{hero.subtitle}</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative m-0 flex w-full justify-center p-0 lg:justify-end"
+          >
+            <img
+              src={contactHeroImage}
+              alt=""
+              className="m-0 block h-[450px] w-auto max-w-full border-0 object-contain object-center p-0"
+              decoding="async"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -61,8 +73,18 @@ const ContactForm = () => {
               </div>
             </div>
 
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Mobile Number</label>
+              <input
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="+91 98765 43210"
+                className="w-full bg-surface-container-low border border-transparent rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
+              />
+            </div>
+
             <div className="space-y-4">
-              <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Business Need</label>
               <div className="flex flex-wrap gap-3">
                 {["Audit", "Taxation", "Company Secretarial", "Advisory"].map((need) => (
                   <button
@@ -101,7 +123,9 @@ const ContactForm = () => {
               rel="noopener noreferrer"
               className="w-full bg-emerald-500 text-white py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20 cursor-pointer"
             >
-              <Headset className="w-6 h-6" />
+              <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="currentColor" aria-hidden>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
               {siteDetails.pages.contact.form.whatsappButtonText}
             </a>
           </form>
@@ -148,8 +172,8 @@ const ContactForm = () => {
             <div className="absolute inset-0 pointer-events-none bg-primary/10 group-hover:opacity-0 transition-opacity duration-500"></div>
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-lg border border-white/20">
               <div className="pr-12">
-                <p className="font-bold text-primary mb-1">HQ Main Office</p>
-                <p className="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">{siteDetails.address}</p>
+                <p className="font-bold text-primary mb-3">HQ Main Office</p>
+                <p className="text-xs text-on-surface-variant leading-relaxed whitespace-pre-line">{siteDetails.address}</p>
               </div>
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteDetails.fullName + " " + siteDetails.address)}`}
@@ -175,13 +199,15 @@ const Newsletter = () => (
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden"
+        className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/25 md:rounded-[3rem]"
       >
-        <div className="max-w-xl relative z-10">
-          <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white mb-6">Stay Informed.</h2>
+        <CtaImageCard className="rounded-[2.5rem] text-white md:rounded-[3rem]" contentClassName="p-8 md:p-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
+        <div className="max-w-xl">
+          <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">Stay Informed.</h2>
           <p className="text-xl text-on-primary-container">Join 5,000+ business owners receiving our monthly regulatory insights and financial strategy guide.</p>
         </div>
-        <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4 relative z-10">
+        <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
           <input
             type="email"
             placeholder="Enter your work email"
@@ -191,62 +217,12 @@ const Newsletter = () => (
             Subscribe
           </button>
         </div>
+        </div>
+        </CtaImageCard>
       </motion.div>
     </div>
   </section>
 );
-
-const Footer = () => {
-  const { data: siteDetails } = useCMS();
-
-  return (
-    <footer className="py-16 md:py-20 px-6 bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="col-span-1 md:col-span-1">
-          <AppLink to="/" className="flex items-center gap-2 mb-6 group">
-            <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img" />
-            <span className="text-lg font-bold text-primary">{siteDetails.companyName}</span>
-          </AppLink>
-          <p className="text-on-surface-variant text-sm leading-relaxed mb-8">{siteDetails.tagline}</p>
-          <div className="flex gap-4">
-            <a href={siteDetails.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all cursor-pointer">
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a href={siteDetails.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all cursor-pointer">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href={siteDetails.socialMedia.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white transition-all cursor-pointer">
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4 className="font-headline font-bold text-primary mb-6 uppercase tracking-widest text-xs">Navigation</h4>
-          <ul className="space-y-4 text-sm text-on-surface-variant">
-            <li><AppLink to="/" className="hover:text-primary transition-colors">Home</AppLink></li>
-            <li><AppLink to="/services" className="hover:text-primary transition-colors">Services</AppLink></li>
-            <li><AppLink to="/about" className="hover:text-primary transition-colors">About</AppLink></li>
-            <li><AppLink to="/contact" className="hover:text-primary transition-colors font-bold text-primary">Contact</AppLink></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-headline font-bold text-primary mb-6 uppercase tracking-widest text-xs">Resources</h4>
-          <ul className="space-y-4 text-sm text-on-surface-variant">
-            <li><a href="#" className="hover:text-primary transition-colors">Insights</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Newsletter</a></li>
-            <li><AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink></li>
-            <li><AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="font-headline font-bold text-primary mb-6 uppercase tracking-widest text-xs">Connect</h4>
-          <p className="text-xs text-on-surface-variant leading-relaxed opacity-60 mb-2">© {new Date().getFullYear()} {siteDetails.fullName}. {siteDetails.tagline}</p>
-          <DeveloperCredit className="text-[10px] text-on-surface-variant opacity-60" />
-        </div>
-      </div>
-    </footer>
-  );
-};
 
 export const Contact = () => {
   return (
@@ -254,7 +230,6 @@ export const Contact = () => {
       <Hero />
       <ContactForm />
       <Newsletter />
-      <Footer />
     </div>
   );
 };

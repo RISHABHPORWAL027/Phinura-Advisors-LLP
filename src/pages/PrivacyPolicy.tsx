@@ -1,8 +1,6 @@
-import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { Shield, Lock, Eye, FileText } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
-import { DeveloperCredit } from "../components/DeveloperCredit";
 
 export const PrivacyPolicy = () => {
   const { data: siteDetails, loading } = useCMS();
@@ -103,24 +101,6 @@ export const PrivacyPolicy = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer Branding */}
-      <footer className="bg-slate-50 py-12 px-6 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div>
-            <h4 className="font-bold text-primary mb-2">{siteDetails.companyName}</h4>
-            <p className="text-xs text-on-surface-variant max-w-xs">
-              © {new Date().getFullYear()} {siteDetails.fullName}. All rights reserved. {siteDetails.tagline}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
-            <AppLink to="/privacy" className="text-primary font-bold">Privacy Policy</AppLink>
-            <AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink>
-
-          </div>
-          <DeveloperCredit />
-        </div>
-      </footer>
     </div>
   );
 };

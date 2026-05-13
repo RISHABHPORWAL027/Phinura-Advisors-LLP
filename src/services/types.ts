@@ -33,6 +33,8 @@ export interface SiteDetails {
         label: string;
         value: string | number;
         suffix: string;
+        prefix?: string;
+        decimals?: number;
       }>;
       coreServices: {
         badge: string;
@@ -40,7 +42,7 @@ export interface SiteDetails {
         subtitle: string;
         featuredServiceIds: string[];
       };
-      simpleSolutions: {
+      simpleSolutions?: {
         title: string;
         subtitle: string;
         items: Array<{
@@ -70,6 +72,12 @@ export interface SiteDetails {
         subtitle: string;
         buttonText: string;
         secondaryButtonText: string;
+      };
+      /** Optional homepage-only headings; team list still comes from `pages.about.people.team`. */
+      team?: {
+        title: string;
+        subtitle: string;
+        aboutLinkText?: string;
       };
       testimonials: Array<{
         name: string;
@@ -146,6 +154,13 @@ export interface SiteDetails {
         title: string;
         desc: string;
       }>;
+      missionVision: {
+        missions: string[];
+        vision: string;
+        visionImage?: string;
+        /** @deprecated optional single-line fallback if missions missing */
+        mission?: string;
+      };
       people: {
         title: string;
         subtitle: string;
@@ -153,6 +168,8 @@ export interface SiteDetails {
           name: string;
           role: string;
           desc: string;
+          /** Longer profile for modal / detail view */
+          bio?: string;
           img: string;
         }>;
       };

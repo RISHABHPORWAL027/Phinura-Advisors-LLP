@@ -185,19 +185,25 @@ export function LegalPageLayout({
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-slate-50 px-6 py-12">
+      <footer className="border-t border-white/15 bg-primary px-6 py-12 text-on-primary">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
           <div>
-            <h4 className="mb-2 font-bold text-primary">{companyName}</h4>
-            <p className="max-w-xs text-xs text-on-surface-variant">
+            <h4 className="mb-2 font-bold text-white">{companyName}</h4>
+            <p className="max-w-xs text-xs text-white/75">
               © {new Date().getFullYear()} {fullName}. All rights reserved. {tagline}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-8 text-xs font-medium text-on-surface-variant">
-            <AppLink to="/privacy" className={activePage === "privacy" ? "font-bold text-primary" : "transition-colors hover:text-primary"}>
+          <div className="flex flex-wrap items-center gap-8 text-xs font-medium text-white/75">
+            <AppLink
+              to="/privacy"
+              className={activePage === "privacy" ? "font-bold text-secondary-fixed" : "transition-colors hover:text-white"}
+            >
               Privacy Policy
             </AppLink>
-            <AppLink to="/terms" className={activePage === "terms" ? "font-bold text-primary" : "transition-colors hover:text-primary"}>
+            <AppLink
+              to="/terms"
+              className={activePage === "terms" ? "font-bold text-secondary-fixed" : "transition-colors hover:text-white"}
+            >
               Terms of Service
             </AppLink>
           </div>

@@ -1,58 +1,143 @@
-import { motion, useInView, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
+import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import {
   Rocket,
-  Wallet,
-  LineChart,
   CheckCircle2,
   ShieldCheck,
   Zap,
   Quote,
   ArrowRight,
-  ArrowRightLeft,
-  Headset,
-  User,
-  BadgeCheck,
-  Clock,
   UserSearch,
-  Tag,
   Search,
   FileStack,
-  Microscope
+  Microscope,
+  PenTool
 } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
+import { CtaImageCard } from "../components/CtaImageCard";
+import { TeamSection } from "../components/TeamSection";
 import { getHomepageFeaturedServices } from "../utils/homeFeaturedServices";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
 import bundledHomeBannerWebm from "../Assets/homebanner.webm";
 import bundledHomeBannerMp4 from "../Assets/homebanner.mp4";
-import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.png";
+import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.webp";
 import phinuraLogo from "../Assets/Phinura_Advisors_logo.png";
+import whyChooseUsSectionImage from "../Assets/team_member.webp";
+import ctaBackground from "../Assets/details_page_bg.avif";
+import goelLogo from "../Assets/client_logo/goel-logo.jpg";
+import rochanaIntLogo from "../Assets/client_logo/rochanainternational_logo.png";
+import rochanaIndLogo from "../Assets/client_logo/Rochana_Logo.png";
+import omShreeLogo from "../Assets/client_logo/om_shree_logo.jpg";
 
-const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
-  // ...
+const ScrollTypewriterText = ({ text, className }: { text: string; className?: string }) => {
+  const [displayedText, setDisplayedText] = useState("");
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 30,
-    stiffness: 60,
-  });
-  const displayValue = useTransform(springValue, (latest) => Math.floor(latest).toLocaleString());
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
+    if (!isInView) return;
+    
+    let currentText = "";
+    let currentIndex = 0;
+    
+    setDisplayedText("");
+
+    const interval = setInterval(() => {
+      if (currentIndex < text.length) {
+        currentText += text[currentIndex];
+        setDisplayedText(currentText);
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [text, isInView]);
 
   return (
-    <span ref={ref} className="tabular-nums">
-      <motion.span>{displayValue}</motion.span>
-      {suffix}
-    </span>
+    <h2 ref={ref} className={className} style={{ whiteSpace: "pre-wrap" }}>
+      {displayedText}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+        className="inline-block w-[0.05em] h-[1em] bg-primary align-baseline ml-1 translate-y-[0.1em]"
+      />
+    </h2>
   );
 };
+
+const TypewriterText = ({ text, className }: { text: string; className?: string }) => {
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let currentText = "";
+    let currentIndex = 0;
+    
+    setDisplayedText("");
+
+    const interval = setInterval(() => {
+      if (currentIndex < text.length) {
+        currentText += text[currentIndex];
+        setDisplayedText(currentText);
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return (
+    <h1 className={className} style={{ whiteSpace: "pre-wrap" }}>
+      {displayedText}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+        className="inline-block w-[0.05em] h-[1em] bg-white align-baseline ml-1 translate-y-[0.1em]"
+      />
+    </h1>
+  );
+};
+
+export const FadeInStagger = ({ children, className }: { children: ReactNode; className?: string }) => (
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-50px" }}
+    variants={{
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.15,
+        },
+      },
+    }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
+
+export const FadeInItem = ({ children, className }: { children: ReactNode; className?: string }) => (
+  <motion.div
+    variants={{
+      hidden: { opacity: 0, y: 30 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] } },
+    }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
 
 const resolveBundledMedia = (value: string | undefined, fallback: string, aliases: string[]) => {
   if (!value) return fallback;
@@ -66,9 +151,24 @@ const Hero = () => {
   const { data: siteDetails } = useCMS();
   const heroMedia = siteDetails.pages.home.hero;
 
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
+  const bgBlur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(12px)"]);
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   const posterSrc = resolveBundledMedia(heroMedia.posterUrl, bundledHomeBannerPoster, [
     "/BANNERPREVIEW.png",
     "BANNERPREVIEW.png",
+    "/BANNERPREVIEW.webp",
+    "BANNERPREVIEW.webp",
   ]);
 
   const webmSrc = resolveBundledMedia(heroMedia.videoUrl, bundledHomeBannerWebm, [
@@ -78,224 +178,244 @@ const Hero = () => {
 
   const mp4FallbackSrc = bundledHomeBannerMp4;
 
+  const titleText = siteDetails.pages.home.hero.title || "Architectural Authority in Global Finance.";
+
   return (
-    <section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-40 bg-white ">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 rounded-l-[10rem] -z-10 blur-3xl opacity-50"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full -z-10 blur-3xl opacity-50"></div>
-
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative mt-10 md:mt-0">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative z-20"
+    <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16 bg-primary">
+      {/* Dynamic Background with Scroll Transform */}
+      <motion.div 
+        className="absolute inset-0 z-0 origin-center"
+        style={{ scale: bgScale, filter: bgBlur, opacity: bgOpacity }}
+      >
+        <motion.img
+          src={hasPosterError ? bundledHomeBannerPoster : posterSrc}
+          alt="Background"
+          initial={{ opacity: 1, scale: 1.05 }}
+          animate={{ opacity: isVideoLoaded && !hasVideoError ? 0 : 0.6, scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full object-cover z-0 mix-blend-luminosity"
+          onError={() => setHasPosterError(true)}
+        />
+        <video
+          key={webmSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={posterSrc}
+          onLoadedData={() => {
+            setHasVideoError(false);
+            setIsVideoLoaded(true);
+          }}
+          onError={() => {
+            setHasVideoError(true);
+            setIsVideoLoaded(false);
+          }}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ${isVideoLoaded && !hasVideoError ? "opacity-60 scale-100" : "opacity-0 scale-105"}`}
         >
-          <div className="inline-flex items-center gap-2 py-2 px-4 bg-primary/5 border border-primary/10 rounded-full text-primary text-xs font-bold uppercase tracking-widest mb-8">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-            {siteDetails.pages.home.hero.badge}
-          </div>
+          <source src={webmSrc} type="video/webm" />
+          <source src={mp4FallbackSrc} type="video/mp4" />
+        </video>
+        
+        {/* Layered Gradient Overlays for Depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-blue-900/40 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10 h-full"></div>
+        
+        {/* Animated Light Orbs */}
+        <motion.div 
+          animate={{ x: [0, 50, 0], y: [0, -50, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] mix-blend-screen z-10"
+        />
+        <motion.div 
+          animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 1 }}
+          className="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-[100px] mix-blend-screen z-10"
+        />
+      </motion.div>
 
-          <h1 className="text-6xl lg:text-8xl font-headline font-extrabold text-primary leading-[1.05] tracking-tight mb-8">
-            {siteDetails.pages.home.hero.title.split('Integrity')[0]} <br />
-            <span className="text-secondary italic">Integrity.</span>
-          </h1>
+      <motion.div 
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="max-w-7xl mx-auto px-6 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+      >
+        
+        {/* Left Column - Content */}
+        <div className="lg:col-span-7 flex flex-col justify-center">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="inline-flex items-center gap-2 py-1.5 px-3 bg-blue-500/10 border border-blue-400/20 backdrop-blur-md rounded-full text-blue-300 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 sm:mb-8 w-fit shadow-[0_0_15px_rgba(59,130,246,0.15)]"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+            {siteDetails.pages.home.hero.badge || "Excellence in Finance"}
+          </motion.div>
 
-          <p className="text-xl text-on-surface-variant leading-relaxed mb-12 max-w-xl opacity-90">
+          <TypewriterText 
+            text={titleText} 
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-blue-400 leading-[1.05] tracking-tight mb-6 sm:mb-8"
+          />
+
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (titleText.length * 0.05) + 0.2, duration: 0.8 }}
+            className="text-base sm:text-lg md:text-xl text-blue-100/70 leading-relaxed mb-10 max-w-2xl font-light"
+          >
             {siteDetails.pages.home.hero.subtitle}
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap gap-6 mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: (titleText.length * 0.05) + 0.5, duration: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
             <a
               href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white px-10 py-5 rounded-2xl font-headline font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-[1.05] transition-all cursor-pointer text-center group"
+              className="relative overflow-hidden group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 sm:py-5 rounded-xl font-headline font-bold text-sm sm:text-base transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] flex items-center justify-center gap-3"
             >
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
               {siteDetails.pages.home.hero.buttonText}
-              <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-primary border border-outline-variant/30 px-10 py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-slate-50 transition-all cursor-pointer shadow-sm"
+            <AppLink
+              to="/services"
+              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white px-8 py-4 sm:py-5 rounded-xl font-headline font-bold text-sm sm:text-base transition-all flex items-center justify-center"
             >
-              <Headset className="w-6 h-6" />
-              {siteDetails.pages.home.hero.secondaryButtonText}
-            </a>
-          </div>
+              {siteDetails.pages.home.hero.secondaryButtonText || "View Services"}
+            </AppLink>
+          </motion.div>
+        </div>
 
-          {/* Trust Badges / Social Proof */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10 border-t border-outline-variant/30">
-            <div className="flex -space-x-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="w-12 h-12 rounded-full border-2 border-white overflow-hidden bg-slate-100">
-                  <img src={`https://i.pravatar.cc/150?u=${i + 10}`} alt="avatar" />
+        {/* Right Column - Premium Glassmorphism Card */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+          transition={{ delay: 0.5, duration: 1, type: "spring", stiffness: 50 }}
+          className="lg:col-span-5 relative mt-12 lg:mt-0 perspective-1000 hidden md:block"
+        >
+          <div className="relative z-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] transform-style-3d overflow-hidden group">
+            {/* Ambient inner glow */}
+            <div className="absolute -inset-24 bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl pointer-events-none" />
+            
+            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10 relative z-20">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#001430] overflow-hidden">
+                    <img src={`https://i.pravatar.cc/150?u=${i + 20}`} alt="avatar" className="w-full h-full object-cover" />
+                  </div>
+                ))}
+              </div>
+              <div className="text-right">
+                <div className="text-2xl font-black text-white">500+</div>
+                <div className="text-[10px] text-blue-200/60 uppercase tracking-widest">Global Clients</div>
+              </div>
+            </div>
+
+            <div className="space-y-6 relative z-20">
+              {[
+                { icon: ShieldCheck, title: "Tax & Audit Defense", desc: "Expert representation & legal protection." },
+                { icon: Zap, title: "Fast Incorporation", desc: "Start your company within 7 days." },
+                { icon: CheckCircle2, title: "100% Compliance", desc: "Timely filings & zero penalty guarantee." }
+              ].map((feature, idx) => (
+                <div key={idx} className="flex gap-4 items-center group/item hover:bg-white/5 p-3 -mx-3 rounded-xl transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover/item:scale-110 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all duration-300">
+                    <feature.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-sm mb-0.5">{feature.title}</h4>
+                    <p className="text-blue-200/50 text-xs">{feature.desc}</p>
+                  </div>
                 </div>
               ))}
-              <div className="w-12 h-12 rounded-full border-2 border-white bg-primary flex items-center justify-center text-white text-xs font-bold">
-                500+
-              </div>
             </div>
-            <div className="space-y-1">
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <div key={s} className="w-3.5 h-3.5 text-yellow-500 fill-current">★</div>
-                ))}
-                <span className="text-xs font-bold text-primary ml-1.5">4.9/5</span>
-              </div>
-              <p className="text-[11px] md:text-sm text-on-surface-variant font-medium leading-tight">
-                Trusted by 500+ Indian <br className="sm:hidden" /> Businesses & Startups
-              </p>
-            </div>
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative"
-        >
-          <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/20 aspect-square bg-slate-100">
-            {/* Poster Image (shown while video is loading) */}
-            <motion.img
-              src={hasPosterError ? bundledHomeBannerPoster : posterSrc}
-              alt="Loading Banner"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: isVideoLoaded && !hasVideoError ? 0 : 1 }}
-              transition={{ duration: 0.8 }}
-              className="absolute inset-0 w-full h-full object-cover z-20"
-              onError={() => setHasPosterError(true)}
-            />
-
-            {/* Background Video */}
-            <video
-              key={webmSrc}
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster={posterSrc}
-              onLoadedData={() => {
-                setHasVideoError(false);
-                setIsVideoLoaded(true);
-              }}
-              onError={() => {
-                setHasVideoError(true);
-                setIsVideoLoaded(false);
-              }}
-              className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoLoaded && !hasVideoError ? "opacity-100" : "opacity-0"}`}
-            >
-              <source src={webmSrc} type="video/webm" />
-              <source src={mp4FallbackSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent mix-blend-multiply z-10"></div>
+            {/* Floating decorative elements inside card */}
+            <div className="absolute bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full blur-[30px] opacity-20 group-hover:opacity-40 transition-opacity" />
           </div>
 
-          {/* Futuristic Floating Trust Badges */}
+          {/* External Floating Elements */}
           <motion.div
-            animate={{
-              y: [0, -12, 0]
-            }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-8 -right-4 md:-right-8 bg-white/95 backdrop-blur-xl px-4 py-3 rounded-2xl shadow-xl border border-primary/5 z-30 flex items-center gap-3 transition-all hover:scale-105"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-6 -right-6 bg-white/10 backdrop-blur-xl border border-white/20 p-3 rounded-2xl shadow-xl z-30"
           >
-            <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-600 shrink-0">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-[10px] font-black text-primary uppercase tracking-tight leading-none mb-0.5">Government Authorized</p>
-              <p className="text-[9px] font-bold text-on-surface-variant/60 uppercase tracking-widest leading-none">Regulatory Verified</p>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-[10px] text-white font-bold tracking-wider uppercase">Active Compliance Monitoring</span>
             </div>
           </motion.div>
-
-          <motion.div
-            animate={{
-              y: [0, 12, 0]
-            }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -bottom-8 -left-4 md:-left-8 bg-white/95 backdrop-blur-xl p-5 rounded-3xl shadow-xl border border-primary/5 z-30 flex flex-col items-center transition-all hover:scale-105"
-          >
-            <div className="flex items-baseline gap-0.5 mb-1.5">
-              <span className="text-3xl font-headline font-black text-primary tracking-tighter">99.9</span>
-              <span className="text-secondary text-lg font-black">%</span>
-            </div>
-            <div className="h-0.5 w-12 bg-secondary/30 rounded-full mb-2 overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: "95%" }}
-                transition={{ duration: 2 }}
-                className="h-full bg-secondary"
-              />
-            </div>
-            <p className="text-[9px] text-primary font-black uppercase tracking-[0.2em] leading-none opacity-60">Compliance Success</p>
-          </motion.div>
-
-          {/* Decorative Circle */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-primary/5 rounded-full -z-10 animate-[spin_30s_linear_infinite]"></div>
         </motion.div>
-      </div>
+
+      </motion.div>
     </section>
   );
 };
 
 const StatsBar = () => {
   const { data: siteDetails } = useCMS();
-  const { stats } = siteDetails.pages.home;
   return (
-    <div className="bg-white py-16 md:py-24 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-primary/20 to-transparent"></div>
+    <div className="relative overflow-hidden bg-gradient-to-b from-surface-container-low via-white to-surface py-16 md:py-24">
+      <div
+        className="pointer-events-none absolute top-1/2 right-0 h-[min(28rem,90vw)] w-[min(28rem,90vw)] translate-x-1/4 -translate-y-1/2 rounded-full bg-secondary/5 blur-3xl"
+        aria-hidden
+      />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-6">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="text-center group"
-            >
-              <div className="text-4xl md:text-6xl lg:text-5xl font-headline font-extrabold text-primary mb-3 tabular-nums group-hover:scale-105 transition-transform duration-500">
-                {typeof stat.value === 'number' ? (
-                  <Counter value={stat.value} suffix={stat.suffix} />
-                ) : (
-                  <span className="text-2xl md:text-3xl lg:text-2xl xl:text-3xl">{stat.value}</span>
-                )}
-              </div>
-              <p className="text-on-surface-variant font-bold text-xs lg:text-[10px] uppercase tracking-[0.2em] opacity-60 leading-tight">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Industry Trust Logos */}
-        <div className="mt-24 pt-16 border-t border-outline-variant/30 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12">
-            {siteDetails.pages.home.statsTitle || "Strategic Industry Partners"}
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Client Logos */}
+        <div className="border-t border-outline-variant/30 pt-12 md:pt-16 text-center">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12"
+          >
+            {siteDetails.pages.home.statsTitle || "Our Trusted Clients"}
+          </motion.p>
+          <FadeInStagger className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
             {[
-              "FINANCE.CO",
-              "CAPITAL_ONE",
-              "GLOBAL_AUDIT",
-              "TRUST_BANK",
-              "VENTURE_X"
-            ].map((logo) => (
-              <motion.div
-                key={logo}
-                whileHover={{ scale: 1.1 }}
-                className="text-xl md:text-2xl font-headline font-black tracking-tighter text-slate-300 hover:text-primary transition-colors duration-300 cursor-pointer"
+              { name: "Goel Distributors", url: "https://goel-distributors-react.vercel.app/", logo: goelLogo },
+              { name: "Rochana International Trading", url: "https://rochanainternationaltrading.com/", logo: rochanaIntLogo },
+              { name: "Shree Om Pharmacy", url: "https://www.instagram.com/shreeompharmacy/", logo: omShreeLogo },
+              { name: "Rochana Industries", url: "https://rochanaindustries.com/", logo: rochanaIndLogo }
+            ].map((client, idx) => (
+              <motion.a
+                href={client.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={client.name}
+                className="group flex flex-col items-center gap-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: idx * 0.15, type: "spring", stiffness: 100 }}
               >
-                {logo}
-              </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.08, y: -8 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center p-6 overflow-hidden group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] group-hover:border-primary/30 relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <img 
+                    src={client.logo} 
+                    alt={client.name} 
+                    className="max-w-full max-h-full object-contain relative z-10 transition-all duration-700 ease-out"
+                    onError={(e) => {
+                      // Fallback if image is not yet uploaded by user
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${client.name.replace(/ /g, '+')}&background=f8f9fa&color=001f49&size=200`;
+                    }}
+                  />
+                </motion.div>
+                <span className="text-sm font-bold text-slate-500 group-hover:text-primary transition-colors text-center max-w-[150px]">
+                  {client.name}
+                </span>
+              </motion.a>
             ))}
-          </div>
+          </FadeInStagger>
         </div>
       </div>
     </div>
@@ -305,16 +425,42 @@ const StatsBar = () => {
 const CoreServices = () => {
   const { data: siteDetails } = useCMS();
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative overflow-x-hidden bg-surface py-16 md:py-24">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_0%,rgba(0,31,73,0.06),transparent_65%)]"
+        aria-hidden
+      />
+
+      {/* Decorative rope + pen — wide layout only (SVG stretches badly on narrow viewports) */}
+      <div className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block" aria-hidden>
+        <svg className="absolute w-full h-full left-0 top-0 opacity-20 text-primary" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M-100,600 C300,1000 700,-100 1100,400 Q1200,550 1280,300" stroke="currentColor" strokeWidth="4" strokeDasharray="12 12" strokeLinecap="round" />
+        </svg>
+        <motion.div
+          animate={{ x: [0, 5, 0], y: [0, -5, 0], rotate: [0, 15, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute z-30 text-primary opacity-100"
+          style={{ left: "88.88%", top: "37.5%", transform: "translate(-10%, -90%)" }}
+        >
+          <PenTool size={56} className="drop-shadow-2xl" />
+        </motion.div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="max-w-2xl">
-            <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">{(siteDetails.pages.home as any).coreServices?.badge || "Comprehensive Expertise"}</span>
-            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-6">{(siteDetails.pages.home as any).coreServices?.title || "Our Core Services"}</h2>
-            <p className="text-on-surface-variant text-lg leading-relaxed">
-              {(siteDetails.pages.home as any).coreServices?.subtitle || "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity."}
-            </p>
-          </div>
+          <FadeInStagger className="max-w-2xl">
+            <FadeInItem>
+              <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">{(siteDetails.pages.home as any).coreServices?.badge || "Comprehensive Expertise"}</span>
+            </FadeInItem>
+            <FadeInItem>
+              <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-6">{(siteDetails.pages.home as any).coreServices?.title || "Our Core Services"}</h2>
+            </FadeInItem>
+            <FadeInItem>
+              <p className="text-on-surface-variant text-lg leading-relaxed">
+                {(siteDetails.pages.home as any).coreServices?.subtitle || "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity."}
+              </p>
+            </FadeInItem>
+          </FadeInStagger>
           <AppLink to="/services" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl font-headline font-bold text-base shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shrink-0 group">
             View All Services
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -397,6 +543,58 @@ const CoreServices = () => {
   );
 };
 
+function ProcessFlowStep({
+  scrollYProgress,
+  step,
+  i,
+  isLast,
+}: {
+  scrollYProgress: MotionValue<number>;
+  step: { title: string; desc: string; icon: string };
+  i: number;
+  isLast: boolean;
+}) {
+  const stepStart = 0.1 + i * 0.18;
+  const iconMap: { [key: string]: typeof Rocket } = { Search, FileStack, Microscope, Rocket };
+  const Icon = iconMap[step.icon] || Rocket;
+
+  const boxBg = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#ffffff", "#001f49"]);
+  const iconColor = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#001f49", "#ffffff"]);
+  const opacity = useTransform(scrollYProgress, [stepStart, stepStart + 0.1], [0.6, 1]);
+  const contentScale = useTransform(scrollYProgress, [stepStart, stepStart + 0.08, stepStart + 0.16], [1, 1.05, 1]);
+
+  return (
+    <motion.div style={{ opacity }} className="relative flex flex-col items-center pt-12 text-center lg:px-6">
+      <motion.div
+        style={{ backgroundColor: boxBg }}
+        className="mb-4 lg:absolute lg:left-1/2 lg:top-[-11px] lg:-translate-x-1/2 z-40 h-6 w-6 rounded-full border-4 border-white shadow-md"
+      />
+
+      <motion.div style={{ scale: contentScale }} className="group flex w-full flex-col items-center">
+        <div className="relative mb-8">
+          <div className="pointer-events-none absolute -left-6 -top-12 select-none text-8xl font-black text-primary/10 transition-all group-hover:text-primary/20">
+            0{i + 1}
+          </div>
+          <motion.div
+            style={{ backgroundColor: boxBg, color: iconColor }}
+            className="relative z-10 flex h-20 w-20 items-center justify-center rounded-3xl border border-slate-50 shadow-2xl transition-all duration-500"
+          >
+            <Icon className="h-8 w-8" strokeWidth={1.75} />
+          </motion.div>
+        </div>
+
+        <h3 className="mb-2 font-headline text-2xl font-black leading-tight text-primary">{step.title}</h3>
+        <p className="max-w-[240px] text-sm leading-relaxed text-on-surface-variant opacity-80">{step.desc}</p>
+      </motion.div>
+
+      {/* Optional: Add a subtle separator for mobile instead of the vertical line */}
+      {!isLast && (
+        <div className="mt-8 h-[2px] w-12 bg-primary/20 lg:hidden" aria-hidden />
+      )}
+    </motion.div>
+  );
+}
+
 const ProcessFlow = () => {
   const { data: siteDetails } = useCMS();
   const { process } = siteDetails.pages.home;
@@ -404,124 +602,175 @@ const ProcessFlow = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end end"]
+    offset: ["start end", "end end"],
   });
 
   const steps = process.steps || [];
 
-  // Animation mapping: finish early (at 0.8) to hold the final state
   const progressLineScale = useTransform(scrollYProgress, [0.1, 0.8], [0, 1]);
   const logoPosition = useTransform(scrollYProgress, [0.1, 0.8], ["0%", "100%"]);
   const logoRotation = useTransform(scrollYProgress, [0.1, 0.8], [0, 1440]);
 
-  const iconMap: { [key: string]: any } = { Search, FileStack, Microscope, Rocket };
-
   return (
     <section ref={containerRef} className="relative bg-[#F8F9FA] lg:h-[200vh]">
-      <div className="lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center items-center overflow-hidden">
-        {/* Background Watermark Logo - Inside Sticky Container */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none select-none z-0">
-          <img src={phinuraLogo} alt="" className="w-[500px] md:w-[800px] grayscale" />
+      <div className="flex flex-col items-center justify-center overflow-hidden lg:sticky lg:top-0 lg:h-screen">
+        <div className="pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center opacity-[0.05]">
+          <img src={phinuraLogo} alt="" className="w-[500px] grayscale md:w-[800px]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-primary mb-4 tracking-tight">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          {/* Indian Court-Style Ink Stamp Seal - Top Right (10px above heading) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
+            whileInView={{ opacity: 0.85, scale: 1, rotate: -6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, type: "spring", stiffness: 60 }}
+            className="absolute -top-[10px] right-6 z-20 pointer-events-none select-none scale-75 md:scale-100 origin-top-right opacity-60 md:opacity-100"
+            style={{ filter: "saturate(1.2) contrast(1.1)" }}
+          >
+            <svg width="200" height="200" viewBox="0 0 240 240" className="drop-shadow-[0_2px_6px_rgba(0,31,73,0.15)]" style={{ filter: "url(#inkTexture)" }}>
+              <defs>
+                {/* Ink texture filter for rough stamp edges */}
+                <filter id="inkTexture" x="-5%" y="-5%" width="110%" height="110%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise" />
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+                {/* Clip for center logo */}
+                <clipPath id="logoClip">
+                  <circle cx="120" cy="120" r="38" />
+                </clipPath>
+                {/* Curved text paths */}
+                <path id="sealTopArc" d="M 38,120 a 82,82 0 0,1 164,0" fill="none" />
+                <path id="sealBottomArc" d="M 202,120 a 82,82 0 0,1 -164,0" fill="none" />
+                <path id="sealEstArc" d="M 60,120 a 60,60 0 0,0 120,0" fill="none" />
+              </defs>
+
+              {/* Outermost ring — thick ink border */}
+              <circle cx="120" cy="120" r="116" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="4" opacity="0.9" />
+              <circle cx="120" cy="120" r="110" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="1.5" opacity="0.7" />
+
+              {/* Decorative dots ring — between outer and inner rings */}
+              {Array.from({ length: 48 }).map((_, i) => {
+                const angle = (i * 7.5 * Math.PI) / 180;
+                const r = 103;
+                const cx = 120 + r * Math.cos(angle);
+                const cy = 120 + r * Math.sin(angle);
+                const size = i % 4 === 0 ? 2.2 : i % 2 === 0 ? 1.5 : 0.9;
+                return <circle key={`od-${i}`} cx={cx} cy={cy} r={size} fill="var(--color-primary, #001f49)" opacity={0.6 + (i % 3) * 0.15} />;
+              })}
+
+              {/* Inner ring */}
+              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="2" opacity="0.85" />
+
+              {/* Star/diamond decorations at 8 positions */}
+              {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
+                const angle = (deg * Math.PI) / 180;
+                const cx = 120 + 95 * Math.cos(angle);
+                const cy = 120 + 95 * Math.sin(angle);
+                return (
+                  <g key={`s8-${deg}`} transform={`translate(${cx},${cy}) rotate(${deg})`}>
+                    <polygon points="0,-3.5 1,-1 3.5,0 1,1 0,3.5 -1,1 -3.5,0 -1,-1" fill="var(--color-primary, #001f49)" opacity="0.8" />
+                  </g>
+                );
+              })}
+
+              {/* Curved text — PHINURA ADVISORS on top */}
+              <text fontSize="13" fontWeight="900" fill="var(--color-primary, #001f49)" letterSpacing="4" fontFamily="'Georgia', 'Times New Roman', serif" opacity="0.9">
+                <textPath href="#sealTopArc" startOffset="50%" textAnchor="middle">
+                  PHINURA ADVISORS
+                </textPath>
+              </text>
+
+              {/* Curved text — ★ LLP ★ on bottom */}
+              <text fontSize="12" fontWeight="900" fill="var(--color-primary, #001f49)" letterSpacing="5" fontFamily="'Georgia', 'Times New Roman', serif" opacity="0.9">
+                <textPath href="#sealBottomArc" startOffset="50%" textAnchor="middle">
+                  ★ LLP ★
+                </textPath>
+              </text>
+
+              {/* Est date curved below center */}
+              <text fontSize="8" fontWeight="bold" fill="var(--color-primary, #001f49)" letterSpacing="3" fontFamily="'Georgia', serif" opacity="0.7">
+                <textPath href="#sealEstArc" startOffset="50%" textAnchor="middle">
+                  EST. 2015
+                </textPath>
+              </text>
+
+              {/* Inner decorative ring around logo */}
+              <circle cx="120" cy="120" r="48" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="1.5" opacity="0.6" strokeDasharray="3 3" />
+              <circle cx="120" cy="120" r="42" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="0.8" opacity="0.5" />
+
+              {/* Center logo image */}
+              <image
+                href={phinuraLogo}
+                x="82"
+                y="82"
+                width="76"
+                height="76"
+                clipPath="url(#logoClip)"
+                preserveAspectRatio="xMidYMid meet"
+                opacity="0.85"
+              />
+
+              {/* Scattered ink splatter dots — random positions for authentic ink stamp feel */}
+              {[
+                { x: 25, y: 30, r: 1.5 }, { x: 210, y: 45, r: 1 }, { x: 40, y: 200, r: 2 },
+                { x: 195, y: 190, r: 1.2 }, { x: 15, y: 100, r: 0.8 }, { x: 225, y: 120, r: 1.5 },
+                { x: 50, y: 55, r: 0.6 }, { x: 185, y: 30, r: 1.8 }, { x: 30, y: 170, r: 1 },
+                { x: 210, y: 170, r: 0.7 }, { x: 100, y: 15, r: 1.3 }, { x: 140, y: 225, r: 1.1 },
+                { x: 60, y: 20, r: 0.5 }, { x: 175, y: 215, r: 0.9 }, { x: 18, y: 140, r: 1.4 },
+                { x: 222, y: 80, r: 0.6 }, { x: 70, y: 215, r: 1.6 }, { x: 160, y: 18, r: 0.8 },
+                { x: 35, y: 85, r: 1.1 }, { x: 205, y: 155, r: 0.7 },
+              ].map((dot, i) => (
+                <circle key={`ink-${i}`} cx={dot.x} cy={dot.y} r={dot.r} fill="var(--color-primary, #001f49)" opacity={0.2 + (i % 4) * 0.1} />
+              ))}
+
+              {/* Additional tiny ink spray dots */}
+              {Array.from({ length: 16 }).map((_, i) => {
+                const angle = ((i * 22.5 + 11) * Math.PI) / 180;
+                const r = 108 + (i % 3) * 4;
+                const cx = 120 + r * Math.cos(angle);
+                const cy = 120 + r * Math.sin(angle);
+                return <circle key={`spray-${i}`} cx={cx} cy={cy} r={0.5 + (i % 2) * 0.4} fill="var(--color-primary, #001f49)" opacity={0.3} />;
+              })}
+            </svg>
+          </motion.div>
+
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-primary md:text-6xl relative z-10">
                 {process.title}
               </h2>
-              <p className="text-lg text-on-surface-variant opacity-80">
-                {process.subtitle}
-              </p>
+              <p className="text-lg text-on-surface-variant opacity-80">{process.subtitle}</p>
             </motion.div>
           </div>
 
           <div className="relative pt-16">
-            {/* Desktop Horizontal Line */}
-            <div className="hidden lg:block absolute top-[2px] left-0 w-full h-[4px] bg-slate-200 z-0 rounded-full"></div>
+            <div className="absolute left-0 top-[2px] z-0 hidden h-[4px] w-full rounded-full bg-slate-200 lg:block" />
             <motion.div
               style={{ scaleX: progressLineScale }}
-              className="hidden lg:block absolute top-[2px] left-0 w-full h-[4px] bg-primary z-10 origin-left rounded-full"
-            ></motion.div>
+              className="absolute left-0 top-[2px] z-10 hidden h-[4px] w-full origin-left rounded-full bg-primary lg:block"
+            />
 
-            {/* Rolling Logo Follower */}
             <motion.div
               style={{ left: logoPosition, rotate: logoRotation }}
-              className="hidden lg:flex absolute top-[-22px] -translate-x-1/2 w-12 h-12 bg-white rounded-full shadow-2xl items-center justify-center p-2 z-30 border border-slate-100"
+              className="absolute top-[-22px] z-30 hidden h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border border-slate-100 bg-white p-2 shadow-2xl lg:flex"
             >
-              <img src={phinuraLogo} alt="Logo" className="w-full h-full object-contain" />
+              <img src={phinuraLogo} alt="Logo" className="h-full w-full object-contain" />
             </motion.div>
 
-            {/* Mobile Vertical Line */}
-            <div className="lg:hidden absolute left-8 top-0 bottom-0 w-[4px] bg-slate-200 z-0 rounded-full"></div>
-            <motion.div
-              style={{ scaleY: progressLineScale }}
-              className="lg:hidden absolute left-8 top-0 bottom-0 w-[4px] bg-primary z-10 origin-top rounded-full"
-            ></motion.div>
+            {/* Mobile progress line removed as layout is now centered */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-0 w-full relative z-20">
-              {steps.map((step: any, i: number) => {
-                const Icon = iconMap[step.icon] || Rocket;
-
-                // Optimized thresholds for 200vh height
-                const stepStart = 0.1 + (i * 0.18);
-
-                const boxBg = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#ffffff", "#001f49"]);
-                const iconColor = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#001f49", "#ffffff"]);
-                const opacity = useTransform(scrollYProgress, [stepStart, stepStart + 0.1], [0.6, 1]);
-                const contentScale = useTransform(scrollYProgress, [stepStart, stepStart + 0.08, stepStart + 0.16], [1, 1.05, 1]);
-
-                return (
-                  <motion.div
-                    key={i}
-                    style={{ opacity }}
-                    className="relative flex flex-col items-center text-center lg:px-6 pt-12"
-                  >
-                    {/* The Dot/Marker */}
-                    <motion.div
-                      style={{ backgroundColor: boxBg }}
-                      className="absolute w-6 h-6 rounded-full border-4 border-white shadow-md z-40 left-7 lg:left-1/2 lg:-translate-x-1/2 top-[-11px]"
-                    ></motion.div>
-
-                    {/* Step Card Content */}
-                    <motion.div
-                      style={{ scale: contentScale }}
-                      className="pl-20 lg:pl-0 flex flex-col items-center group w-full"
-                    >
-                      <div className="relative mb-8">
-                        <div className="text-8xl font-black text-primary/10 absolute -top-12 -left-6 select-none transition-all group-hover:text-primary/20">
-                          0{i + 1}
-                        </div>
-                        <motion.div
-                          style={{ backgroundColor: boxBg, color: iconColor }}
-                          className="w-20 h-20 rounded-3xl shadow-2xl flex items-center justify-center transition-all duration-500 border border-slate-50 relative z-10"
-                        >
-                          <Icon size={32} />
-                        </motion.div>
-                      </div>
-
-                      <h3 className="text-2xl font-headline font-black text-primary mb-2 leading-tight">
-                        {step.title}
-                      </h3>
-                      <p className="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-[240px]">
-                        {step.desc}
-                      </p>
-                    </motion.div>
-
-                    {/* Vertical connecting line for mobile */}
-                    {i < steps.length - 1 && (
-                      <div className="lg:hidden absolute top-full left-8 h-12 w-[3px] bg-primary/20 mt-4"></div>
-                    )}
-                  </motion.div>
-                );
-              })}
+            <div className="relative z-20 grid w-full grid-cols-1 gap-12 lg:grid-cols-4 lg:gap-0">
+              {steps.map((step: { id?: string; title: string; desc: string; icon: string }, i: number) => (
+                <Fragment key={step.id ?? i}>
+                  <ProcessFlowStep scrollYProgress={scrollYProgress} step={step} i={i} isLast={i === steps.length - 1} />
+                </Fragment>
+              ))}
             </div>
           </div>
         </div>
+
+
       </div>
     </section>
   );
@@ -532,40 +781,34 @@ const WhyChooseUs = () => {
   const { whyChooseUs } = siteDetails.pages.home;
   const cards = whyChooseUs.cards || [];
 
-  const iconMap: { [key: string]: any } = { ShieldCheck, Zap, CheckCircle2 };
-
-  // Extra features to supplement CMS cards
-  const extraFeatures = [
-    { icon: Tag, title: "Transparent Pricing", desc: "No hidden charges. Clear, upfront fee structures for all professional engagements." },
-    { icon: Clock, title: "Timely Delivery", desc: "We value your time. Strict adherence to deadlines for all compliance and advisory tasks." },
-    { icon: UserSearch, title: "Personalized Solutions", desc: "Every business is unique. We tailor our services to meet your specific financial and legal needs." },
-  ];
-
-  // CMS cards come first, extras fill up to 5 total
-  const allFeatures = [
-    ...cards.map((c: any) => ({ icon: iconMap[c.icon] || CheckCircle2, title: c.title, desc: c.desc })),
-    ...extraFeatures,
-  ].slice(0, 5);
+  const iconMap: { [key: string]: any } = { ShieldCheck, Zap, CheckCircle2, Rocket, UserSearch };
 
   return (
-    <section className="py-16 md:py-24 bg-slate-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-primary/[0.04]">
+      <div
+        className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[80px]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-primary/5 blur-[80px]"
+        aria-hidden
+      />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT: office image + floating stat card */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="relative"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: "spring", bounce: 0.35, duration: 1.5 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="relative order-2 lg:order-1 mt-6 lg:mt-0"
           >
-            <div className="rounded-2xl overflow-hidden shadow-lg" style={{ aspectRatio: "4/5" }}>
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 mx-auto max-w-sm lg:max-w-none" style={{ aspectRatio: "4/5" }}>
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
-                alt="Modern office"
+                src={whyChooseUsSectionImage}
+                alt="Phinura Advisors team"
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
               />
             </div>
 
@@ -575,47 +818,56 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
-              className="absolute bottom-8 left-6 bg-primary text-white px-8 py-6 rounded-2xl shadow-2xl"
+              className="absolute -bottom-4 lg:bottom-8 left-4 lg:left-6 bg-primary text-white px-6 py-4 lg:px-8 lg:py-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] z-10"
             >
-              <div className="text-5xl font-headline font-extrabold leading-none">10+</div>
-              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200 mt-2">Years of Professionalism</div>
+              <div className="text-4xl lg:text-5xl font-headline font-extrabold leading-none">{cards.length}+</div>
+              <div className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200 mt-2">Reasons to Trust Us</div>
             </motion.div>
           </motion.div>
 
           {/* RIGHT: title + feature list */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
+            className="order-1 lg:order-2"
           >
-            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4 leading-tight">
-              {whyChooseUs.title || "Why Choose Us?"}
-            </h2>
-            <p className="text-on-surface-variant text-base leading-relaxed mb-10 max-w-lg">
-              {whyChooseUs.subtitle || "We are a team of highly qualified Chartered Accountants and Company Secretaries with over 10 years of experience dedicated to your success."}
-            </p>
+            <FadeInStagger>
+              <ScrollTypewriterText
+                text={whyChooseUs.title || "Why Choose Us?"}
+                className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4 leading-tight text-center lg:text-left"
+              />
+              <FadeInItem>
+                <p className="text-on-surface-variant text-base leading-relaxed mb-10 max-w-lg font-medium mx-auto lg:mx-0 text-center lg:text-left">
+                  {whyChooseUs.subtitle || "We are a team of highly qualified Chartered Accountants and Company Secretaries with over 10 years of experience dedicated to your success."}
+                </p>
+              </FadeInItem>
+            </FadeInStagger>
 
-            <div className="space-y-6">
-              {allFeatures.map((f, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 + i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex gap-4 items-start group"
-                >
-                  {/* Circular amber icon badge */}
-                  <div className="w-11 h-11 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors duration-300">
-                    <f.icon className="w-5 h-5 text-secondary" />
-                  </div>
-                  <div>
-                    <h3 className="font-headline font-bold text-primary mb-1">{f.title}</h3>
-                    <p className="text-on-surface-variant text-sm leading-relaxed">{f.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="space-y-6 mt-6">
+              {cards.map((c: any, i: number) => {
+                const IconComponent = typeof c.icon === 'string' ? iconMap[c.icon] || ShieldCheck : c.icon || ShieldCheck;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 + i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex gap-4 md:gap-5 items-start group"
+                  >
+                    {/* Circular icon badge with semantic icon */}
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-secondary/5 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/10 group-hover:shadow-md transition-all duration-300 border border-secondary/10">
+                      <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-secondary group-hover:scale-110 group-hover:text-primary transition-all duration-300" strokeWidth={1.5} />
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="font-headline font-bold text-primary mb-1 md:mb-1.5 text-base md:text-lg">{c.title}</h3>
+                      <p className="text-on-surface-variant text-sm leading-relaxed opacity-90">{c.desc}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -631,15 +883,23 @@ const Testimonials = () => {
   const reviews = testimonials;
 
   return (
-    <section className="py-16 md:py-24 bg-surface-container-low overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16">
-        <div className="text-center">
-          <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">{(siteDetails.pages.home as any).testimonialsTitle || "Trusted by Businesses Like Yours"}</h2>
-          <p className="text-on-surface-variant">Real stories from entrepreneurs who grow with us.</p>
-        </div>
+    <section className="relative overflow-hidden bg-[#dfebf7] py-16 md:py-24">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(0,31,73,0.04),transparent_60%)]"
+        aria-hidden
+      />
+      <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
+        <FadeInStagger className="text-center">
+          <FadeInItem>
+            <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">{(siteDetails.pages.home as any).testimonialsTitle || "Trusted by Businesses Like Yours"}</h2>
+          </FadeInItem>
+          <FadeInItem>
+            <p className="text-on-surface-variant">Real stories from entrepreneurs who grow with us.</p>
+          </FadeInItem>
+        </FadeInStagger>
       </div>
 
-      <div className="relative flex overflow-hidden">
+      <div className="relative z-10 flex overflow-hidden">
         <motion.div
           animate={{
             x: ["0%", "-50%"],
@@ -695,23 +955,36 @@ const FinalCTA = () => {
   const { data: siteDetails } = useCMS();
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative overflow-hidden bg-surface py-24">
+      <div
+        className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[min(56rem,100%)] -translate-x-1/2 bg-gradient-to-t from-primary/[0.04] to-transparent"
+        aria-hidden
+      />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-primary-container rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/30"
+          className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/30 md:rounded-[3rem]"
         >
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary rounded-full blur-[100px] opacity-50"></div>
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary rounded-full blur-[100px] opacity-20"></div>
-          <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white mb-6 relative z-10">
-            {siteDetails.pages.home.cta.title}
-          </h2>
-          <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto relative z-10">
-            {siteDetails.pages.home.cta.subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<CtaImageCard
+             backgroundImage={ctaBackground}
+             className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
+             contentClassName="p-8 md:p-20"
+           >
+          <FadeInStagger>
+            <FadeInItem>
+              <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">
+                {siteDetails.pages.home.cta.title}
+              </h2>
+            </FadeInItem>
+            <FadeInItem>
+              <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto">
+                {siteDetails.pages.home.cta.subtitle}
+              </p>
+            </FadeInItem>
+          </FadeInStagger>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
               target="_blank"
@@ -724,6 +997,7 @@ const FinalCTA = () => {
               {siteDetails.pages.home.cta.secondaryButtonText}
             </AppLink>
           </div>
+          </CtaImageCard>
         </motion.div>
       </div>
     </section>
@@ -734,11 +1008,12 @@ export const Home = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <StatsBar />
       <CoreServices />
-      <ProcessFlow />
       <WhyChooseUs />
+      <ProcessFlow />
+      <StatsBar />
       <Testimonials />
+      <TeamSection variant="home" />
       <FinalCTA />
     </div>
   );

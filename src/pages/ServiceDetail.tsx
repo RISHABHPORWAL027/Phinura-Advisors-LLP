@@ -3,7 +3,7 @@ import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
-import { DeveloperCredit } from "../components/DeveloperCredit";
+import { CtaImageCard } from "../components/CtaImageCard";
 import detailsBg from "../Assets/details_page_bg.avif";
 
 export const ServiceDetail = () => {
@@ -200,16 +200,16 @@ export const ServiceDetail = () => {
             whileHover={{ rotateX: 1, rotateY: 1, scale: 1.01 }}
             viewport={{ once: true }}
             style={{ transformStyle: "preserve-3d" }}
-            className="bg-primary rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20 transition-all duration-500"
+            className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/20 transition-all duration-500 md:rounded-[3rem]"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
-            <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8 relative z-10">
+            <CtaImageCard className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]" contentClassName="p-8 md:p-20">
+            <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8">
               {ctaTitle}
             </h2>
-            <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto relative z-10">
+            <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto">
               {ctaBlockSubtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               {whatsappPhone ? (
                 <a 
                   href={`https://wa.me/${whatsappPhone}`}
@@ -226,26 +226,10 @@ export const ServiceDetail = () => {
                 {callBackLinkLabel}
               </AppLink>
             </div>
+            </CtaImageCard>
           </motion.div>
         </div>
       </section>
-
-      {/* Specific Footer */}
-      <footer className="bg-slate-50 py-12 px-6 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div>
-            <h4 className="font-bold text-primary mb-2">{data.companyName}</h4>
-            <p className="text-xs text-on-surface-variant max-w-xs">
-              © {new Date().getFullYear()} {data.fullName}. All rights reserved. {data.tagline}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-8 text-xs text-on-surface-variant font-medium items-center">
-            <AppLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</AppLink>
-            <AppLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</AppLink>
-            <DeveloperCredit />
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

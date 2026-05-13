@@ -2,10 +2,10 @@
   "companyName": "Phinura Advisors",
   "fullName": "Phinura Advisors LLP",
   "tagline": "Your Trusted Partner for Taxes and Business Growth.",
-  "address": "Phinura Advisors LLP 15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
+  "address": "Phinura Advisors LLP\n15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
   "shortAddress": "Gowliguda, Hyderabad",
   "mobile": "+91 8318697595",
-  "email": "partners@phinura.com",
+  "email": "info@phinura.com",
   "logo": "/logo.png",
   "developerCredit": {
     "prefix": "Design and Develop by ",
@@ -20,13 +20,13 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "Architects of Financial Integrity.",
-        "subtitle": "We help you handle company registration, tax filings, and accounting with ease. Over 10 years of experience making compliance simple for business owners.",
-        "badge": "Expert Financial Guidance",
+        "title": "You run the business. We handle the compliance.",
+        "subtitle": "GST, income tax, company registration, MCA filings, and books — explained in simple words and filed on time. 10+ years helping Indian owners and MSMEs stay on track without the stress.",
+        "badge": "CA & CS support for growing businesses",
         "buttonText": "Get Free Quote",
         "secondaryButtonText": "Talk to Expert",
         "videoUrl": "/homebanner.webm",
-        "posterUrl": "/BANNERPREVIEW.png"
+        "posterUrl": "/BANNERPREVIEW.webp"
       },
       "statsTitle": "Strategic Industry Partners",
       "stats": [
@@ -68,59 +68,66 @@
         ]
       },
       "process": {
-        "title": "Our Architectural Process.",
-        "subtitle": "How we transform complex requirements into streamlined financial structures.",
+        "title": "Our Simple 4-Step Process.",
+        "subtitle": "How we take the complexity out of compliance, taxes, and business registration.",
         "steps": [
           {
             "id": "01",
-            "title": "Analysis of Needs",
-            "desc": "Deep assessment of your requirements to identify core compliance and strategy goals.",
-            "icon": "Search"
+            "title": "Initial Consultation",
+            "desc": "We evaluate your business structure and specific compliance needs to create a tailored strategy.",
+            "icon": "UserSearch"
           },
           {
             "id": "02",
-            "title": "Data Engineering",
-            "desc": "Information architecture where we gather and structure all necessary corporate data.",
+            "title": "Document Preparation",
+            "desc": "Our team drafts and organizes all necessary legal, financial, and regulatory paperwork with precision.",
             "icon": "FileStack"
           },
           {
             "id": "03",
-            "title": "Fiscal Research",
-            "desc": "Extensive investigation of regulatory frameworks to design the most efficient mapping.",
-            "icon": "Microscope"
+            "title": "Regulatory Filing",
+            "desc": "We submit your applications to the MCA, Income Tax, or GST portals and track them to completion.",
+            "icon": "Rocket"
           },
           {
             "id": "04",
-            "title": "Strategic Delivery",
-            "desc": "Execution of the final structure with absolute precision and ongoing surveillance.",
-            "icon": "Rocket"
+            "title": "Ongoing Compliance",
+            "desc": "Continuous monitoring of your deadlines and statutory audits so you stay penalty-free.",
+            "icon": "ShieldCheck"
           }
         ]
       },
-      "whyChooseUs": {
-        "title": "Why Business Owners Choose Us",
-        "subtitle": "We're more than just consultants; we're your growth partners.",
-        "cards": [
-          {
-            "title": "A Decade of Trust",
-            "icon": "ShieldCheck",
-            "desc": "10 years of handling complex Indian regulations for startups and legacy brands alike. We've seen it all and solved it all.",
-            "trustedText": "Trusted by 500+ businesses"
-          },
-          {
-            "title": "Swift Support",
-            "icon": "Zap",
-            "desc": "Instant WhatsApp and email updates on your application status.",
-            "badge": "Efficiency Redefined"
-          },
-          {
-            "title": "Friendly Language",
-            "icon": "CheckCircle2",
-            "desc": "We explain compliance in plain English and Hindi, not legalese. Understanding your obligations should be the easiest part of your day.",
-            "img": "/assets/Phinura_Advisors_logo-BuPvtfHK.png"
-          }
-        ]
-      },
+"whyChooseUs": {
+         "title": "Why Business Owners Choose Us",
+         "subtitle": "We're more than just consultants; we're your growth partners.",
+         "cards": [
+           {
+             "title": "99% Compliance Success",
+             "icon": "ShieldCheck",
+             "desc": "Proven track record of flawless regulatory compliance and zero penalty cases across diverse industries."
+           },
+           {
+             "title": "14+ Years Experience",
+             "icon": "Zap",
+             "desc": "Over 14 years of handling complex Indian regulations for startups and legacy brands alike."
+           },
+           {
+             "title": "499+ Happy Clients",
+             "icon": "CheckCircle2",
+             "desc": "Trusted by businesses nationwide for reliable, transparent, and timely financial advisory services."
+           },
+           {
+             "title": "999+ Annual Filings",
+             "icon": "Rocket",
+             "desc": "Thousands of successful filings every year — from GST to MCA — delivered with precision."
+           },
+           {
+             "title": "Pan-India Presence",
+             "icon": "UserSearch",
+             "desc": "Serving clients across all states and union territories with a deep understanding of regional regulations."
+           }
+         ]
+       },
       "testimonialsTitle": "Trusted by Businesses Like Yours",
       "cta": {
         "title": "Ready to grow your business?",
@@ -147,7 +154,12 @@
           "quote": "Their trademark registration service was flawless. We got our brand protected without any hassle and at a very reasonable cost.",
           "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
         }
-      ]
+      ],
+      "team": {
+        "title": "Meet Our Team",
+        "subtitle": "Chartered Accountants and Company Secretaries who keep compliance simple — tap a photo to read more.",
+        "aboutLinkText": "About us"
+      }
     },
     "services": {
       "serviceDetailCtaSubtitle": "Connect with our compliance architects today for a hassle-free filing experience.",
@@ -300,12 +312,11 @@
       },
       "missionVision": {
         "missions": [
-          "To architect the financial systems that empower corporations to lead with confidence, ensuring absolute precision in every audit, strategy, and projection.",
-          "Our dedication lies in transforming complex regulatory landscapes into clear, actionable roadmaps for global business expansion.",
-          "We strive to set the gold standard in corporate governance through innovative financial architecture and unwavering ethical standards."
+          "We help business owners complete registrations, GST, income tax, and MCA filings on time — and we explain what matters in plain language, not dense legal wording.",
+          "We stay reachable: you can ask doubts, get status updates, and plan ahead so surprises and penalties are avoided."
         ],
-        "vision": "Becoming global corporations' trust through architectural fiscal excellence.",
-        "visionImage": "https://images.unsplash.com/photo-1449156003053-919920dfcb54?auto=format&fit=crop&q=80&w=800"
+        "vision": "To be the firm people happily recommend when they want dependable, easy-to-understand support for taxes, company law, and day-to-day compliance.",
+        "visionImage": ""
       },
       "principles": {
         "title": "Our Core Principles",
@@ -329,38 +340,36 @@
         }
       ],
       "people": {
-        "title": "The Architectural Board",
-        "subtitle": "Our experts represent the vanguard of corporate finance, combining decades of high-stakes experience with technical mastery.",
+        "title": "Our Team",
+        "subtitle": "Meet the qualified CAs and CS professionals who work with you at Phinura Advisors.",
         "team": [
           {
-            "name": "Marcus Vane",
-            "role": "CHIEF EXECUTIVE OFFICER",
-            "desc": "Marcus leads the firm with a vision for architectural fiscal stability across global markets.",
-            "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400"
+            "name": "Ambuj Jain",
+            "role": "Chartered Accountant (CA)",
+            "desc": "Guides tax, audit, and compliance with clear, practical advice for growing businesses.",
+            "bio": "Ambuj Jain is a Chartered Accountant who leads accounting, tax, and audit engagements for a wide range of clients. He focuses on making statutory requirements understandable and ensuring filings are planned well in advance. Business owners appreciate his calm, solution-oriented approach when timelines are tight or rules change.",
+            "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
           },
           {
-            "name": "Elena Rodriguez",
-            "role": "HEAD OF CORPORATE STRATEGY",
-            "desc": "Elena specializes in building resilient financial frameworks for multinational enterprises.",
-            "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400"
+            "name": "Shivani Jain",
+            "role": "Chartered Accountant (CA)",
+            "desc": "Experienced in financial reporting, assurance, and helping you make sense of the numbers.",
+            "bio": "Shivani Jain is a Chartered Accountant with strong experience in financial statements, internal controls, and audit support. She helps leadership teams interpret results and stay audit-ready. Her communication style is straightforward, which helps non-finance founders feel confident about their books.",
+            "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
           },
           {
-            "name": "Julian Thorne",
-            "role": "MANAGING PARTNER, AUDIT",
-            "desc": "Julian ensures that every structural element of our clients' audits meets the highest standards of precision.",
-            "img": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+            "name": "Priya Porwal",
+            "role": "Company Secretary (CS)",
+            "desc": "Handles company law, board matters, and MCA filings so your entity stays legally sound.",
+            "bio": "Priya Porwal is a Company Secretary who supports companies with incorporation, annual compliance, board resolutions, and Ministry of Corporate Affairs filings. She ensures documents are correct the first time and keeps directors informed about what must be done each year.",
+            "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
           },
           {
-            "name": "Dr. Sarah Chen",
-            "role": "DIRECTOR OF FINANCIAL PLANNING",
-            "desc": "Sarah architects long-term fiscal strategies that provide stability in volatile economic landscapes.",
-            "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
-          },
-          {
-            "name": "Dr. Sarah Chen",
-            "role": "DIRECTOR OF FINANCIAL PLANNING",
-            "desc": "Sarah architects long-term fiscal strategies that provide stability in volatile economic landscapes.",
-            "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400"
+            "name": "Shruti",
+            "role": "Company Secretary (CS)",
+            "desc": "Supports secretarial work, filings, and coordination so MCA deadlines are never missed.",
+            "bio": "Shruti is a Company Secretary focused on secretarial compliance and timely filings. She works closely with founders and directors on forms, disclosures, and routine MCA updates. Clients value her responsiveness and attention to detail when multiple filings need to move together.",
+            "img": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&q=80&w=600"
           }
         ]
       },
