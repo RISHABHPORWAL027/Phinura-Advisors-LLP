@@ -36,16 +36,24 @@ export function TeamSection({ variant }: Props) {
   const subtitle = variant === "home" && homeTeam?.subtitle ? homeTeam.subtitle : people.subtitle;
   const aboutLinkText = homeTeam?.aboutLinkText ?? "About us";
 
-  const sectionBg = "bg-white";
+  const sectionBg = "bg-[#18335c]";
 
   return (
     <>
       <section className={`relative overflow-hidden py-16 md:py-24 px-6 ${sectionBg}`}>
-        {/* Background Rotating Logo */}
+        {/* Background Patterns */}
+        <div 
+          className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+          style={{ 
+            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}
+        />
+        
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 -translate-y-1/2 -right-[300px] md:-right-[400px] w-[600px] md:w-[800px] h-[600px] md:h-[800px] opacity-[0.1] pointer-events-none bg-primary"
+          className="absolute top-1/2 -translate-y-1/2 -right-[300px] md:-right-[400px] w-[600px] md:w-[800px] h-[600px] md:h-[800px] opacity-[0.05] pointer-events-none bg-white"
           style={{
             WebkitMaskImage: `url(${logo})`,
             WebkitMaskSize: "contain",
@@ -61,13 +69,13 @@ export function TeamSection({ variant }: Props) {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16 text-center md:text-left">
             <div className="max-w-3xl mx-auto md:mx-0">
-              <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4">{title}</h2>
-              <p className="text-on-surface-variant text-lg opacity-80 leading-relaxed">{subtitle}</p>
+              <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white mb-4">{title}</h2>
+              <p className="text-blue-100/70 text-lg leading-relaxed">{subtitle}</p>
             </div>
             {variant === "home" ? (
               <AppLink
                 to="/about"
-                className="shrink-0 inline-flex items-center justify-center gap-2 text-primary font-headline font-bold border-2 border-primary px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-colors"
+                className="shrink-0 inline-flex items-center justify-center gap-2 text-white font-headline font-bold border-2 border-white/20 px-8 py-4 rounded-2xl hover:bg-white hover:text-[#18335c] transition-all"
               >
                 {aboutLinkText}
               </AppLink>
