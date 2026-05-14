@@ -97,37 +97,37 @@
           }
         ]
       },
-"whyChooseUs": {
-         "title": "Why Business Owners Choose Us",
-         "subtitle": "We're more than just consultants; we're your growth partners.",
-         "cards": [
-           {
-             "title": "99% Compliance Success",
-             "icon": "ShieldCheck",
-             "desc": "Proven track record of flawless regulatory compliance and zero penalty cases across diverse industries."
-           },
-           {
-             "title": "14+ Years Experience",
-             "icon": "Zap",
-             "desc": "Over 14 years of handling complex Indian regulations for startups and legacy brands alike."
-           },
-           {
-             "title": "499+ Happy Clients",
-             "icon": "CheckCircle2",
-             "desc": "Trusted by businesses nationwide for reliable, transparent, and timely financial advisory services."
-           },
-           {
-             "title": "999+ Annual Filings",
-             "icon": "Rocket",
-             "desc": "Thousands of successful filings every year — from GST to MCA — delivered with precision."
-           },
-           {
-             "title": "Pan-India Presence",
-             "icon": "UserSearch",
-             "desc": "Serving clients across all states and union territories with a deep understanding of regional regulations."
-           }
-         ]
-       },
+      "whyChooseUs": {
+        "title": "Why Business Owners Choose Us",
+        "subtitle": "We're more than just consultants; we're your growth partners.",
+        "cards": [
+          {
+            "title": "99% Compliance Success",
+            "icon": "ShieldCheck",
+            "desc": "Proven track record of flawless regulatory compliance and zero penalty cases across diverse industries."
+          },
+          {
+            "title": "14+ Years Experience",
+            "icon": "Zap",
+            "desc": "Over 14 years of handling complex Indian regulations for startups and legacy brands alike."
+          },
+          {
+            "title": "499+ Happy Clients",
+            "icon": "CheckCircle2",
+            "desc": "Trusted by businesses nationwide for reliable, transparent, and timely financial advisory services."
+          },
+          {
+            "title": "999+ Annual Filings",
+            "icon": "Rocket",
+            "desc": "Thousands of successful filings every year — from GST to MCA — delivered with precision."
+          },
+          {
+            "title": "Pan-India Presence",
+            "icon": "UserSearch",
+            "desc": "Serving clients across all states and union territories with a deep understanding of regional regulations."
+          }
+        ]
+      },
       "testimonialsTitle": "Trusted by Businesses Like Yours",
       "cta": {
         "title": "Ready to grow your business?",
@@ -346,12 +346,31 @@
           {
             "name": "Ambuj Jain",
             "role": "Chartered Accountant (CA)",
-            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
-            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
             "trackRecord": [
-              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
-              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
-              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+              {
+                "stat": "10+",
+                "title": "Years of Experience",
+                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+              },
+              {
+                "stat": "500+",
+                "title": "Happy Clients",
+                "desc": "Successfully advised hundreds of startups and established firms."
+              },
+              {
+                "stat": "100%",
+                "title": "Compliance Focus",
+                "desc": "Dedicated to keeping your business safe from penalties and notices."
+              }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Guides tax, audit, and compliance with clear, practical advice for growing businesses.",
@@ -361,12 +380,31 @@
           {
             "name": "Shivani Jain",
             "role": "Chartered Accountant (CA)",
-            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
-            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
             "trackRecord": [
-              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
-              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
-              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+              {
+                "stat": "10+",
+                "title": "Years of Experience",
+                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+              },
+              {
+                "stat": "500+",
+                "title": "Happy Clients",
+                "desc": "Successfully advised hundreds of startups and established firms."
+              },
+              {
+                "stat": "100%",
+                "title": "Compliance Focus",
+                "desc": "Dedicated to keeping your business safe from penalties and notices."
+              }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Experienced in financial reporting, assurance, and helping you make sense of the numbers.",
@@ -376,12 +414,31 @@
           {
             "name": "Priya Porwal",
             "role": "Company Secretary (CS)",
-            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
-            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
             "trackRecord": [
-              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
-              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
-              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+              {
+                "stat": "10+",
+                "title": "Years of Experience",
+                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+              },
+              {
+                "stat": "500+",
+                "title": "Happy Clients",
+                "desc": "Successfully advised hundreds of startups and established firms."
+              },
+              {
+                "stat": "100%",
+                "title": "Compliance Focus",
+                "desc": "Dedicated to keeping your business safe from penalties and notices."
+              }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Handles company law, board matters, and MCA filings so your entity stays legally sound.",
@@ -391,12 +448,31 @@
           {
             "name": "Shruti",
             "role": "Company Secretary (CS)",
-            "rolesList": ["Tax & Audit Lead", "Business Advisor"],
-            "expertise": ["Company Registration", "GST & Income Tax", "MCA Compliance"],
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
             "trackRecord": [
-              { "stat": "10+", "title": "Years of Experience", "desc": "A decade of helping Indian businesses stay compliant and profitable." },
-              { "stat": "500+", "title": "Happy Clients", "desc": "Successfully advised hundreds of startups and established firms." },
-              { "stat": "100%", "title": "Compliance Focus", "desc": "Dedicated to keeping your business safe from penalties and notices." }
+              {
+                "stat": "10+",
+                "title": "Years of Experience",
+                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+              },
+              {
+                "stat": "500+",
+                "title": "Happy Clients",
+                "desc": "Successfully advised hundreds of startups and established firms."
+              },
+              {
+                "stat": "100%",
+                "title": "Compliance Focus",
+                "desc": "Dedicated to keeping your business safe from penalties and notices."
+              }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Supports secretarial work, filings, and coordination so MCA deadlines are never missed.",
