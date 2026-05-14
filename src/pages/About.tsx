@@ -130,7 +130,7 @@ const Story = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          
+
           {/* Image Side with Premium Border Treatment */}
           <motion.div
             initial={{ opacity: 0, x: -60, scale: 0.95 }}
@@ -141,18 +141,18 @@ const Story = () => {
           >
             <div className="relative group p-4">
               {/* Decorative Frame 1 - Auto Rotating */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border border-primary/10 rounded-[2.5rem] pointer-events-none" 
+                className="absolute inset-0 border border-primary/10 rounded-[2.5rem] pointer-events-none"
               />
               {/* Decorative Frame 2 - Auto Rotating Opposite */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border border-secondary/20 rounded-[2.5rem] pointer-events-none" 
+                className="absolute inset-0 border border-secondary/20 rounded-[2.5rem] pointer-events-none"
               />
-              
+
               <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/20 aspect-[4/3] relative z-10 bg-white border-4 border-white">
                 <img
                   src={story.image || "https://images.unsplash.com/photo-1556155092-490a1ba16284"}
@@ -167,11 +167,11 @@ const Story = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              animate={{ 
+              animate={{
                 y: [0, -12, 0],
                 rotate: [0, 1, -1, 0]
               }}
-              transition={{ 
+              transition={{
                 initial: { delay: 0.5 },
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                 rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
@@ -202,16 +202,16 @@ const Story = () => {
               <Briefcase size={14} className="text-secondary" />
               Our Story
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-8 leading-tight">
               Founded on a Singular Principle: <span className="text-secondary">Sovereignty.</span>
             </h2>
-            
+
             <div className="space-y-6">
               <p className="text-slate-700 text-xl font-medium leading-relaxed italic border-l-4 border-secondary/30 pl-6 py-2">
                 Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies.
               </p>
-              
+
               <div className="space-y-4 text-on-surface-variant text-lg leading-relaxed opacity-90">
                 <p>
                   Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.
@@ -224,9 +224,9 @@ const Story = () => {
 
             <div className="mt-12 flex items-center gap-8">
               <div className="flex -space-x-4">
-                {[1,2,3].map(i => (
+                {[1, 2, 3].map(i => (
                   <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?u=${i+10}`} alt="Founder" />
+                    <img src={`https://i.pravatar.cc/100?u=${i + 10}`} alt="Founder" />
                   </div>
                 ))}
               </div>

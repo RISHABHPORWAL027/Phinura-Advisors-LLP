@@ -43,10 +43,10 @@ const ScrollTypewriterText = ({ text, className }: { text: string; className?: s
 
   useEffect(() => {
     if (!isInView) return;
-    
+
     let currentText = "";
     let currentIndex = 0;
-    
+
     setDisplayedText("");
 
     const interval = setInterval(() => {
@@ -80,7 +80,7 @@ const TypewriterText = ({ text, className }: { text: string; className?: string 
   useEffect(() => {
     let currentText = "";
     let currentIndex = 0;
-    
+
     setDisplayedText("");
 
     const interval = setInterval(() => {
@@ -160,7 +160,7 @@ const Hero = () => {
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.3]);
   const bgBlur = useTransform(scrollYProgress, [0, 1], ["blur(0px)", "blur(12px)"]);
   const bgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  
+
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -183,7 +183,7 @@ const Hero = () => {
   return (
     <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16 bg-primary">
       {/* Dynamic Background with Scroll Transform */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0 origin-center"
         style={{ scale: bgScale, filter: bgBlur, opacity: bgOpacity }}
       >
@@ -216,32 +216,32 @@ const Hero = () => {
           <source src={webmSrc} type="video/webm" />
           <source src={mp4FallbackSrc} type="video/mp4" />
         </video>
-        
+
         {/* Layered Gradient Overlays for Depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-blue-900/40 z-10"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-10 h-full"></div>
-        
+
         {/* Animated Light Orbs */}
-        <motion.div 
+        <motion.div
           animate={{ x: [0, 50, 0], y: [0, -50, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] mix-blend-screen z-10"
         />
-        <motion.div 
+        <motion.div
           animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 1 }}
           className="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-[100px] mix-blend-screen z-10"
         />
       </motion.div>
 
-      <motion.div 
+      <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
         className="max-w-7xl mx-auto px-6 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
       >
-        
+
         {/* Left Column - Content */}
         <div className="lg:col-span-7 flex flex-col justify-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -251,12 +251,12 @@ const Hero = () => {
             {siteDetails.pages.home.hero.badge || "Excellence in Finance"}
           </motion.div>
 
-          <TypewriterText 
-            text={titleText} 
+          <TypewriterText
+            text={titleText}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-blue-400 leading-[1.05] tracking-tight mb-6 sm:mb-8"
           />
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: (titleText.length * 0.05) + 0.2, duration: 0.8 }}
@@ -265,7 +265,7 @@ const Hero = () => {
             {siteDetails.pages.home.hero.subtitle}
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: (titleText.length * 0.05) + 0.5, duration: 0.8 }}
@@ -291,7 +291,7 @@ const Hero = () => {
         </div>
 
         {/* Right Column - Premium Glassmorphism Card */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ delay: 0.5, duration: 1, type: "spring", stiffness: 50 }}
@@ -300,7 +300,7 @@ const Hero = () => {
           <div className="relative z-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] transform-style-3d overflow-hidden group">
             {/* Ambient inner glow */}
             <div className="absolute -inset-24 bg-gradient-to-br from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl pointer-events-none" />
-            
+
             <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10 relative z-20">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
@@ -367,7 +367,7 @@ const StatsBar = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Client Logos */}
         <div className="border-t border-outline-variant/30 pt-12 md:pt-16 text-center">
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -400,9 +400,9 @@ const StatsBar = () => {
                   className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center p-6 overflow-hidden group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] group-hover:border-primary/30 relative"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <img 
-                    src={client.logo} 
-                    alt={client.name} 
+                  <img
+                    src={client.logo}
+                    alt={client.name}
                     className="max-w-full max-h-full object-contain relative z-10 transition-all duration-700 ease-out"
                     onError={(e) => {
                       // Fallback if image is not yet uploaded by user
@@ -967,36 +967,36 @@ const FinalCTA = () => {
           viewport={{ once: true }}
           className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/30 md:rounded-[3rem]"
         >
-<CtaImageCard
-             backgroundImage={ctaBackground}
-             className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
-             contentClassName="p-8 md:p-20"
-           >
-          <FadeInStagger>
-            <FadeInItem>
-              <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">
-                {siteDetails.pages.home.cta.title}
-              </h2>
-            </FadeInItem>
-            <FadeInItem>
-              <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto">
-                {siteDetails.pages.home.cta.subtitle}
-              </p>
-            </FadeInItem>
-          </FadeInStagger>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl shadow-xl shadow-secondary/20 hover:scale-105 transition-transform cursor-pointer text-center"
-            >
-              {siteDetails.pages.home.cta.buttonText}
-            </a>
-            <AppLink to="/services" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
-              {siteDetails.pages.home.cta.secondaryButtonText}
-            </AppLink>
-          </div>
+          <CtaImageCard
+            backgroundImage={ctaBackground}
+            className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
+            contentClassName="p-8 md:p-20"
+          >
+            <FadeInStagger>
+              <FadeInItem>
+                <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">
+                  {siteDetails.pages.home.cta.title}
+                </h2>
+              </FadeInItem>
+              <FadeInItem>
+                <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto">
+                  {siteDetails.pages.home.cta.subtitle}
+                </p>
+              </FadeInItem>
+            </FadeInStagger>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl shadow-xl shadow-secondary/20 hover:scale-105 transition-transform cursor-pointer text-center"
+              >
+                {siteDetails.pages.home.cta.buttonText}
+              </a>
+              <AppLink to="/services" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
+                {siteDetails.pages.home.cta.secondaryButtonText}
+              </AppLink>
+            </div>
           </CtaImageCard>
         </motion.div>
       </div>
