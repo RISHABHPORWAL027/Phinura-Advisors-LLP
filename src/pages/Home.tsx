@@ -425,7 +425,7 @@ const StatsBar = () => {
 const CoreServices = () => {
   const { data: siteDetails } = useCMS();
   return (
-    <section className="relative overflow-x-hidden bg-surface py-16 md:py-24">
+    <section className="relative overflow-x-hidden bg-white py-16 md:py-24">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_0%,rgba(0,31,73,0.06),transparent_65%)]"
         aria-hidden
@@ -784,13 +784,22 @@ const WhyChooseUs = () => {
   const iconMap: { [key: string]: any } = { ShieldCheck, Zap, CheckCircle2, Rocket, UserSearch };
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 bg-primary/[0.04]">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-[#18335c]">
+      {/* Decorative background map-like pattern */}
+      <div 
+        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+        style={{ 
+          backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }}
+      />
+      
       <div
-        className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-primary/10 blur-[80px]"
+        className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-blue-400/10 blur-[80px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-primary/5 blur-[80px]"
+        className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-[80px]"
         aria-hidden
       />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -804,7 +813,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true, margin: "-50px" }}
             className="relative order-2 lg:order-1 mt-6 lg:mt-0"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 mx-auto max-w-sm lg:max-w-none" style={{ aspectRatio: "4/5" }}>
+            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/40 mx-auto max-w-sm lg:max-w-none border border-white/10" style={{ aspectRatio: "4/5" }}>
               <img
                 src={whyChooseUsSectionImage}
                 alt="Phinura Advisors team"
@@ -818,10 +827,10 @@ const WhyChooseUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               viewport={{ once: true }}
-              className="absolute -bottom-4 lg:bottom-8 left-4 lg:left-6 bg-primary text-white px-6 py-4 lg:px-8 lg:py-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] z-10"
+              className="absolute -bottom-4 lg:bottom-8 left-4 lg:left-6 bg-white text-[#18335c] px-6 py-4 lg:px-8 lg:py-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] z-10"
             >
               <div className="text-4xl lg:text-5xl font-headline font-extrabold leading-none">{cards.length}+</div>
-              <div className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200 mt-2">Reasons to Trust Us</div>
+              <div className="text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] text-[#18335c]/60 mt-2">Reasons to Trust Us</div>
             </motion.div>
           </motion.div>
 
@@ -836,10 +845,10 @@ const WhyChooseUs = () => {
             <FadeInStagger>
               <ScrollTypewriterText
                 text={whyChooseUs.title || "Why Choose Us?"}
-                className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4 leading-tight text-center lg:text-left"
+                className="text-4xl md:text-5xl font-headline font-extrabold text-white mb-4 leading-tight text-center lg:text-left"
               />
               <FadeInItem>
-                <p className="text-on-surface-variant text-base leading-relaxed mb-10 max-w-lg font-medium mx-auto lg:mx-0 text-center lg:text-left">
+                <p className="text-blue-100 text-base leading-relaxed mb-10 max-w-lg font-medium mx-auto lg:mx-0 text-center lg:text-left">
                   {whyChooseUs.subtitle || "We are a team of highly qualified Chartered Accountants and Company Secretaries with over 10 years of experience dedicated to your success."}
                 </p>
               </FadeInItem>
@@ -858,12 +867,12 @@ const WhyChooseUs = () => {
                     className="flex gap-4 md:gap-5 items-start group"
                   >
                     {/* Circular icon badge with semantic icon */}
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-secondary/5 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/10 group-hover:shadow-md transition-all duration-300 border border-secondary/10">
-                      <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-secondary group-hover:scale-110 group-hover:text-primary transition-all duration-300" strokeWidth={1.5} />
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/10 shadow-sm flex items-center justify-center flex-shrink-0 group-hover:bg-white/20 transition-all duration-300 border border-white/10">
+                      <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white transition-all duration-300" strokeWidth={1.5} />
                     </div>
                     <div className="pt-1">
-                      <h3 className="font-headline font-bold text-primary mb-1 md:mb-1.5 text-base md:text-lg">{c.title}</h3>
-                      <p className="text-on-surface-variant text-sm leading-relaxed opacity-90">{c.desc}</p>
+                      <h3 className="font-headline font-bold text-white mb-1 md:mb-1.5 text-base md:text-lg">{c.title}</h3>
+                      <p className="text-blue-100 text-sm leading-relaxed opacity-90">{c.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -883,7 +892,7 @@ const Testimonials = () => {
   const reviews = testimonials;
 
   return (
-    <section className="relative overflow-hidden bg-[#dfebf7] py-16 md:py-24">
+    <section className="relative overflow-hidden bg-[#dfe9f5] py-16 md:py-24">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(0,31,73,0.04),transparent_60%)]"
         aria-hidden

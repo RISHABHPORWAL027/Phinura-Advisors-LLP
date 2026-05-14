@@ -322,23 +322,7 @@
         "title": "Our Core Principles",
         "subtitle": "These aren't just words on a wall; they are the gears that drive every interaction."
       },
-      "values": [
-        {
-          "icon": "ShieldCheck",
-          "title": "Absolute Integrity",
-          "desc": "Honesty is not a legacy, it is our foundation. We operate with radical transparency in every engagement."
-        },
-        {
-          "icon": "LineChart",
-          "title": "Strategic Precision",
-          "desc": "Data is only valuable when it is accurate and actionable. We deliver insights with surgical precision."
-        },
-        {
-          "icon": "Rocket",
-          "title": "Total Sovereignty",
-          "desc": "We empower our clients to own their financial narrative, free from uncertainty or external shocks."
-        }
-      ],
+      "values": [],
       "people": {
         "title": "Our Team",
         "subtitle": "Meet the qualified CAs and CS professionals who work with you at Phinura Advisors.",

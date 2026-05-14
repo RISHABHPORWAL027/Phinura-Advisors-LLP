@@ -51,7 +51,7 @@ const ContactForm = () => {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="lg:col-span-7 bg-surface-container-lowest p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-all duration-500"
+          className="lg:col-span-7 bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-all duration-500"
         >
           <form className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -60,7 +60,7 @@ const ContactForm = () => {
                 <input
                   type="text"
                   placeholder="John Doe"
-                  className="w-full bg-surface-container-low border border-transparent rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
                 />
               </div>
               <div className="space-y-2">
@@ -68,7 +68,7 @@ const ContactForm = () => {
                 <input
                   type="email"
                   placeholder="john@company.com"
-                  className="w-full bg-surface-container-low border border-transparent rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
                 />
               </div>
             </div>
@@ -80,7 +80,7 @@ const ContactForm = () => {
                 inputMode="tel"
                 autoComplete="tel"
                 placeholder="+91 98765 43210"
-                className="w-full bg-surface-container-low border border-transparent rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
               />
             </div>
 
@@ -90,7 +90,7 @@ const ContactForm = () => {
                   <button
                     key={need}
                     type="button"
-                    className="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant font-semibold text-sm hover:bg-primary hover:text-white transition-all cursor-pointer"
+                    className="px-6 py-2.5 rounded-full bg-slate-100 text-on-surface-variant font-semibold text-sm hover:bg-primary hover:text-white transition-all cursor-pointer"
                   >
                     {need}
                   </button>
@@ -103,7 +103,7 @@ const ContactForm = () => {
               <textarea
                 rows={5}
                 placeholder="Tell us a little about your business goals..."
-                className="w-full bg-surface-container-low border border-transparent rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all resize-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all resize-none"
               ></textarea>
             </div>
 
@@ -143,7 +143,7 @@ const ContactForm = () => {
               { icon: Mail, label: "Email Our Partners", value: siteDetails.email, color: "bg-primary" },
               { icon: MapPin, label: "Visit Headquarters", value: siteDetails.shortAddress, color: "bg-primary" },
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-6 p-6 bg-surface-container-low rounded-3xl border border-outline-variant/5 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 group">
+              <div key={i} className="flex items-center gap-6 p-6 bg-slate-50 rounded-3xl border border-outline-variant/5 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 group">
                 <div className={`w-12 h-12 rounded-2xl ${item.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
                   <item.icon className="w-6 h-6" />
                 </div>
@@ -202,22 +202,22 @@ const Newsletter = () => (
         className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/25 md:rounded-[3rem]"
       >
         <CtaImageCard className="rounded-[2.5rem] text-white md:rounded-[3rem]" contentClassName="p-8 md:p-20">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
-        <div className="max-w-xl">
-          <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">Stay Informed.</h2>
-          <p className="text-xl text-on-primary-container">Join 5,000+ business owners receiving our monthly regulatory insights and financial strategy guide.</p>
-        </div>
-        <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
-          <input
-            type="email"
-            placeholder="Enter your work email"
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-5 text-white placeholder:text-white/50 focus:ring-2 focus:ring-secondary hover:bg-white/20 transition-all w-full lg:w-80"
-          />
-          <button className="bg-secondary-fixed text-on-secondary-fixed-variant px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:scale-105 transition-transform cursor-pointer">
-            Subscribe
-          </button>
-        </div>
-        </div>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
+            <div className="max-w-xl">
+              <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">Stay Informed.</h2>
+              <p className="text-xl text-on-primary-container">Join 5,000+ business owners receiving our monthly regulatory insights and financial strategy guide.</p>
+            </div>
+            <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
+              <input
+                type="email"
+                placeholder="Enter your work email"
+                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-5 text-white placeholder:text-white/50 focus:ring-2 focus:ring-secondary hover:bg-white/20 transition-all w-full lg:w-80"
+              />
+              <button className="bg-secondary-fixed text-on-secondary-fixed-variant px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:scale-105 transition-transform cursor-pointer">
+                Subscribe
+              </button>
+            </div>
+          </div>
         </CtaImageCard>
       </motion.div>
     </div>

@@ -11,7 +11,8 @@ import {
   Eye,
   LineChart,
   Rocket,
-  Briefcase
+  Briefcase,
+  CheckCircle2
 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
@@ -122,71 +123,67 @@ const Story = () => {
   const { data: siteDetails } = useCMS();
   const { story } = siteDetails.pages.about;
   return (
-    <section className="relative py-24 bg-gradient-to-br from-blue-50 via-white to-orange-50/30 overflow-hidden">
+    <section className="relative py-24 bg-[#18335c] overflow-hidden">
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_70%_20%,rgba(13,27,42,0.03)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute -left-24 bottom-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -right-24 top-0 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
-
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute -left-24 bottom-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+      
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-          {/* Image Side with Premium Border Treatment */}
+          
+          {/* Visual Side */}
           <motion.div
-            initial={{ opacity: 0, x: -60, scale: 0.95 }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ type: "spring", bounce: 0.3, duration: 1.5 }}
+            transition={{ duration: 0.8 }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative group p-4">
-              {/* Decorative Frame 1 - Auto Rotating */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border border-primary/10 rounded-[2.5rem] pointer-events-none"
-              />
-              {/* Decorative Frame 2 - Auto Rotating Opposite */}
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border border-secondary/20 rounded-[2.5rem] pointer-events-none"
-              />
+            {/* Architectural Frame Effect */}
+            <div className="absolute -inset-4 border border-white/10 rounded-[2.5rem] pointer-events-none" />
+            
+            <motion.div
+              style={{ rotate: 2 }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 border border-white/20 rounded-[2.5rem] pointer-events-none" />
 
-              <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/20 aspect-[4/3] relative z-10 bg-white border-4 border-white">
+              <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40 aspect-[4/3] relative z-10 bg-[#18335c] border-4 border-[#18335c]">
                 <img
                   src={story.image || "https://images.unsplash.com/photo-1556155092-490a1ba16284"}
                   alt="Phinura Story"
                   className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                  referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
-            </div>
 
-            {/* Floating Achievement Card - Bigger & Auto Floating */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              animate={{
-                y: [0, -12, 0],
-                rotate: [0, 1, -1, 0]
-              }}
-              transition={{
-                initial: { delay: 0.5 },
-                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-              }}
-              className="absolute -bottom-10 -right-4 bg-white p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(13,27,42,0.15)] z-20 border border-slate-50 hidden md:block min-w-[280px]"
-            >
-              <div className="flex items-center gap-5">
-                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/20">
-                  <ShieldCheck size={32} />
+              {/* Achievement Badge */}
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotate: [0, 2, 0]
+                }}
+                transition={{ 
+                  x: { delay: 0.6 },
+                  y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute -bottom-10 -right-4 bg-white p-8 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-20 border border-slate-50 hidden md:block min-w-[280px]"
+              >
+                <div className="flex items-center gap-5">
+                  <div className="w-16 h-16 rounded-2xl bg-[#18335c] flex items-center justify-center text-white shadow-lg shadow-black/20">
+                    <CheckCircle2 size={32} />
+                  </div>
+                  <div>
+                    <div className="text-3xl font-headline font-extrabold text-[#18335c]">100%</div>
+                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Compliance Guaranteed</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-[10px] font-extrabold text-secondary uppercase tracking-[0.2em] mb-1">Built on</div>
-                  <div className="text-2xl font-headline font-bold text-primary">Absolute Clarity</div>
-                </div>
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
 
@@ -198,21 +195,21 @@ const Story = () => {
             transition={{ type: "spring", bounce: 0.3, duration: 1.5, delay: 0.2 }}
             className="order-1 lg:order-2"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-primary/10 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-blue-200 text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-white/10 shadow-sm">
               <Briefcase size={14} className="text-secondary" />
               Our Story
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-8 leading-tight">
-              Founded on a Singular Principle: <span className="text-secondary">Sovereignty.</span>
+            <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white mb-8 leading-tight">
+              Founded on a Singular Principle: <span className="text-secondary-fixed">Sovereignty.</span>
             </h2>
 
             <div className="space-y-6">
-              <p className="text-slate-700 text-xl font-medium leading-relaxed italic border-l-4 border-secondary/30 pl-6 py-2">
+              <p className="text-blue-100/90 text-xl font-medium leading-relaxed italic border-l-4 border-secondary/30 pl-6 py-2">
                 Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies.
               </p>
 
-              <div className="space-y-4 text-on-surface-variant text-lg leading-relaxed opacity-90">
+              <div className="space-y-4 text-blue-100/80 text-lg leading-relaxed">
                 <p>
                   Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.
                 </p>
@@ -225,14 +222,14 @@ const Story = () => {
             <div className="mt-12 flex items-center gap-8">
               <div className="flex -space-x-4">
                 {[1, 2, 3].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden">
+                  <div key={i} className="w-12 h-12 rounded-full border-4 border-[#18335c] bg-slate-200 overflow-hidden shadow-lg">
                     <img src={`https://i.pravatar.cc/100?u=${i + 10}`} alt="Founder" />
                   </div>
                 ))}
               </div>
               <div className="text-sm">
-                <div className="font-bold text-primary">Trusted by Global Entities</div>
-                <div className="text-slate-500">10+ Years of Fiscal Excellence</div>
+                <div className="font-bold text-white">Trusted by Global Entities</div>
+                <div className="text-blue-200/60">10+ Years of Fiscal Excellence</div>
               </div>
             </div>
           </motion.div>
@@ -367,7 +364,7 @@ const MissionVision = () => {
                 transition={{ delay: 0.4 + i * 0.1 }}
                 className="flex w-[220px] shrink-0 snap-start flex-col items-start rounded-xl border border-slate-100 bg-white p-5 shadow-sm sm:w-[236px] sm:p-6 md:w-auto md:min-w-0 md:snap-none md:rounded-[1.5rem] md:p-10"
               >
-                <div className="mb-6 rounded-lg bg-[#F8F9FA] p-2">
+                <div className="mb-6 rounded-lg bg-slate-50 p-2">
                   <Icon className="h-6 w-6 text-orange-700" />
                 </div>
                 <h4 className="mb-3 font-headline text-xl font-bold text-primary">{v.title}</h4>
