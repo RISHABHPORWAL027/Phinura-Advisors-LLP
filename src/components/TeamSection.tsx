@@ -36,7 +36,7 @@ export function TeamSection({ variant }: Props) {
   const subtitle = variant === "home" && homeTeam?.subtitle ? homeTeam.subtitle : people.subtitle;
   const aboutLinkText = homeTeam?.aboutLinkText ?? "About us";
 
-  const sectionBg = "bg-surface-container-lowest";
+  const sectionBg = "bg-white";
 
   return (
     <>
