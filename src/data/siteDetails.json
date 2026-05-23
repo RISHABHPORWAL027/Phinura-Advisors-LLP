@@ -29,6 +29,28 @@
         "posterUrl": "/BANNERPREVIEW.webp"
       },
       "statsTitle": "Strategic Industry Partners",
+      "statsPartners": [
+        {
+          "name": "Goel Distributors",
+          "url": "https://goel-distributors-react.vercel.app/",
+          "logo": "/client_logo/goel-logo.jpg"
+        },
+        {
+          "name": "Rochana International Trading",
+          "url": "https://rochanainternationaltrading.com/",
+          "logo": "/client_logo/rochanainternational_logo.png"
+        },
+        {
+          "name": "Shree Om Pharmacy",
+          "url": "https://www.instagram.com/shreeompharmacy/",
+          "logo": "/client_logo/om_shree_logo.jpg"
+        },
+        {
+          "name": "Rochana Industries",
+          "url": "https://rochanaindustries.com/",
+          "logo": "/client_logo/Rochana_Logo.png"
+        }
+      ],
       "stats": [
         {
           "label": "Years Experience",

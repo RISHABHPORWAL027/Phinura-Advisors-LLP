@@ -454,6 +454,30 @@ export function AdminDashboard() {
                   <input type="text" value={formData.tagline} onChange={e => handleChange(["tagline"], e.target.value)} className="w-full p-4 bg-white rounded-2xl border border-slate-200 font-bold text-[#001f49] focus:ring-2 focus:ring-[#001f49]/10 outline-none" placeholder="" />
                 </div>
 
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Short Address (header / compact)</label>
+                  <input type="text" value={formData.shortAddress} onChange={e => handleChange(["shortAddress"], e.target.value)} className="w-full p-4 bg-white rounded-2xl border border-slate-200 font-bold text-[#001f49] focus:ring-2 focus:ring-[#001f49]/10 outline-none" placeholder="Gowliguda, Hyderabad" />
+                </div>
+
+                <div className="md:col-span-2 space-y-4 p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                  <h4 className="text-xs font-black text-primary/60 uppercase tracking-widest">Footer developer credit</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="space-y-2 md:col-span-1">
+                      <label className="text-[10px] font-bold text-slate-500 uppercase">Prefix</label>
+                      <input type="text" value={formData.developerCredit?.prefix ?? ""} onChange={e => handleChange(["developerCredit", "prefix"], e.target.value)} className="w-full p-3 bg-white rounded-xl border border-slate-200 text-sm" placeholder="Design and Develop by " />
+                    </div>
+                    <div className="space-y-2 md:col-span-1">
+                      <label className="text-[10px] font-bold text-slate-500 uppercase">Name</label>
+                      <input type="text" value={formData.developerCredit?.name ?? ""} onChange={e => handleChange(["developerCredit", "name"], e.target.value)} className="w-full p-3 bg-white rounded-xl border border-slate-200 text-sm" placeholder="Devyug Solution" />
+                    </div>
+                    <div className="space-y-2 md:col-span-1">
+                      <label className="text-[10px] font-bold text-slate-500 uppercase">URL</label>
+                      <input type="text" value={formData.developerCredit?.url ?? ""} onChange={e => handleChange(["developerCredit", "url"], e.target.value)} className="w-full p-3 bg-white rounded-xl border border-slate-200 text-sm" placeholder="https://…" />
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-slate-500">If prefix is empty, the footer line still shows when name or URL is set (uses defaults from bundle when missing).</p>
+                </div>
+
                 <div className="md:col-span-2 mt-10">
                   <h3 className="text-sm font-black text-[#001f49] uppercase tracking-widest mb-6 flex items-center gap-3">
                     <Globe size={18} /> Social & Connectivity
@@ -476,15 +500,63 @@ export function AdminDashboard() {
                 <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none"><LayoutDashboard size={120} /></div>
                   <h3 className="text-sm font-black text-[#001f49] uppercase tracking-widest mb-8 flex items-center gap-3">
-                    <Sparkles size={18} /> Hero Visuals
+                    <Sparkles size={18} /> Home Hero (video band)
                   </h3>
                   <div className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <ImageUploadField label="Hero Background" value={(formData.pages.home.hero as any).bgImage || ""} onChange={val => handleChange(["pages", "home", "hero", "bgImage"], val)} />
-                      <ImageUploadField label="Hero Video Poster" value={formData.pages.home.hero.posterUrl} onChange={val => handleChange(["pages", "home", "hero", "posterUrl"], val)} />
+                      <div className="space-y-2">
+                        <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Hero video URL</label>
+                        <p className="text-[11px] text-slate-500 mb-1">Paths like /homebanner.webm use bundled video; paste a URL to override.</p>
+                        <input
+                          type="text"
+                          value={formData.pages.home.hero.videoUrl}
+                          onChange={(e) => handleChange(["pages", "home", "hero", "videoUrl"], e.target.value)}
+                          className="w-full p-4 bg-slate-50 rounded-2xl border border-slate-100 font-mono text-sm text-[#001f49]"
+                          placeholder="/homebanner.webm"
+                        />
+                      </div>
+                      <ImageUploadField label="Hero video poster (image)" value={formData.pages.home.hero.posterUrl} onChange={(val) => handleChange(["pages", "home", "hero", "posterUrl"], val)} />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Hero badge</label>
+                        <input
+                          type="text"
+                          value={formData.pages.home.hero.badge}
+                          onChange={(e) => handleChange(["pages", "home", "hero", "badge"], e.target.value)}
+                          className="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-[#001f49] focus:ring-2 focus:ring-[#001f49]/10 outline-none"
+                        />
+                      </div>
+                      <div className="space-y-3 md:col-span-2">
+                        <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Hero subtitle</label>
+                        <textarea
+                          rows={3}
+                          value={formData.pages.home.hero.subtitle}
+                          onChange={(e) => handleChange(["pages", "home", "hero", "subtitle"], e.target.value)}
+                          className="w-full p-4 bg-slate-50 rounded-2xl border-none text-[#001f49] resize-none focus:ring-2 focus:ring-[#001f49]/10 outline-none"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Primary button</label>
+                        <input
+                          type="text"
+                          value={formData.pages.home.hero.buttonText}
+                          onChange={(e) => handleChange(["pages", "home", "hero", "buttonText"], e.target.value)}
+                          className="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-[#001f49]"
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Secondary button</label>
+                        <input
+                          type="text"
+                          value={formData.pages.home.hero.secondaryButtonText}
+                          onChange={(e) => handleChange(["pages", "home", "hero", "secondaryButtonText"], e.target.value)}
+                          className="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-[#001f49]"
+                        />
+                      </div>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Hero Heading</label>
+                      <label className="text-xs font-black text-primary/60 uppercase tracking-widest block ml-1">Hero heading</label>
                       <textarea rows={3} value={formData.pages.home.hero.title} onChange={e => handleChange(["pages", "home", "hero", "title"], e.target.value)} className="w-full p-4 bg-slate-50 rounded-2xl border-none font-bold text-lg text-[#001f49] resize-none focus:ring-2 focus:ring-[#001f49]/10 outline-none" />
                     </div>
                   </div>
@@ -501,23 +573,107 @@ export function AdminDashboard() {
                       placeholder="Strategic Industry Partners"
                     />
                   </div>
+
+                  <div className="space-y-3 mt-4 pt-4 border-t border-outline-variant/20">
+                    <label className="text-sm font-medium text-on-surface">Partner / client logos (under the label)</label>
+                    <p className="text-xs text-on-surface-variant">
+                      Display name, website URL, and logo image for each tile in this strip. Paths like{" "}
+                      <code className="text-[10px] bg-surface-container px-1 rounded">/client_logo/your-file.png</code> work for files in{" "}
+                      <code className="text-[10px] bg-surface-container px-1 rounded">public/client_logo/</code>.
+                    </p>
+                    {(formData.pages.home.statsPartners ?? []).map((p, index) => (
+                      <div key={index} className="p-4 border border-outline-variant rounded-xl relative space-y-3 bg-surface-container-lowest">
+                        <button onClick={() => handleArrayRemove(["pages", "home", "statsPartners"], index)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                          <Trash2 size={16} />
+                        </button>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold uppercase text-on-surface-variant">Company name</label>
+                            <input
+                              type="text"
+                              value={p.name}
+                              onChange={(e) => handleChange(["pages", "home", "statsPartners", index, "name"], e.target.value)}
+                              className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm"
+                              placeholder="Display name under logo"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-bold uppercase text-on-surface-variant">Website URL</label>
+                            <input
+                              type="text"
+                              value={p.url}
+                              onChange={(e) => handleChange(["pages", "home", "statsPartners", index, "url"], e.target.value)}
+                              className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm font-mono"
+                              placeholder="https://…"
+                            />
+                          </div>
+                        </div>
+                        <ImageUploadField label="Logo image" value={p.logo ?? ""} onChange={(val) => handleChange(["pages", "home", "statsPartners", index, "logo"], val)} />
+                      </div>
+                    ))}
+                    <button
+                      onClick={() =>
+                        handleArrayAdd(["pages", "home", "statsPartners"], {
+                          name: "New partner",
+                          url: "https://",
+                          logo: "",
+                        })
+                      }
+                      className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+                    >
+                      <Plus size={16} /> Add partner
+                    </button>
+                  </div>
                   
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Home Page Stats</h3>
                   {formData.pages.home.stats.map((stat, index) => (
-                    <div key={index} className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 p-4 border border-outline-variant rounded-xl relative">
+                    <div key={index} className="mb-4 p-4 border border-outline-variant rounded-xl relative space-y-3">
                       <button onClick={() => handleArrayRemove(["pages", "home", "stats"], index)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">
                         <Trash2 size={16} />
                       </button>
-                      <input type="text" value={stat.label} onChange={(e) => handleChange(["pages", "home", "stats", index, "label"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Label" />
-                      <input type="text" value={stat.value} onChange={(e) => handleChange(["pages", "home", "stats", index, "value"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Value" />
-                      <input type="text" value={stat.suffix} onChange={(e) => handleChange(["pages", "home", "stats", index, "suffix"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Suffix" />
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <input type="text" value={stat.label} onChange={(e) => handleChange(["pages", "home", "stats", index, "label"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Label" />
+                        <input type="text" value={stat.value as string | number} onChange={(e) => handleChange(["pages", "home", "stats", index, "value"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Value (number or short text)" />
+                        <input type="text" value={stat.suffix} onChange={(e) => handleChange(["pages", "home", "stats", index, "suffix"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Suffix" />
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <label className="text-[10px] font-bold uppercase text-on-surface-variant">Prefix (optional)</label>
+                          <input type="text" value={stat.prefix ?? ""} onChange={(e) => handleChange(["pages", "home", "stats", index, "prefix"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="₹ · $ · etc." />
+                        </div>
+                        <div className="space-y-1">
+                          <label className="text-[10px] font-bold uppercase text-on-surface-variant">Decimal places (optional)</label>
+                          <input
+                            type="number"
+                            min={0}
+                            step={1}
+                            value={stat.decimals ?? ""}
+                            onChange={(e) => {
+                              const raw = e.target.value;
+                              handleChange(["pages", "home", "stats", index, "decimals"], raw === "" ? undefined : Number(raw));
+                            }}
+                            className="w-full p-2 bg-surface-container rounded-lg border outline-none"
+                            placeholder="e.g. 1"
+                          />
+                        </div>
+                      </div>
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "home", "stats"], {label: "New Stat", value: "0", suffix: "+"})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline">
+                  <button onClick={() => handleArrayAdd(["pages", "home", "stats"], {label: "New Stat", value: "0", suffix: "+", prefix: "", decimals: undefined})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline">
                     <Plus size={16} /> Add Stat
                   </button>
 
                    <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Services Preview Teaser</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Section badge</label>
+                      <input type="text" value={formData.pages.home.coreServices.badge} onChange={(e) => handleChange(["pages", "home", "coreServices", "badge"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Section heading</label>
+                      <input type="text" value={formData.pages.home.coreServices.title} onChange={(e) => handleChange(["pages", "home", "coreServices", "title"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none" />
+                    </div>
+                  </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-on-surface">Core Services Section Subtitle</label>
                     <textarea rows={2} value={formData.pages.home.coreServices.subtitle} onChange={(e) => handleChange(["pages", "home", "coreServices", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
@@ -569,6 +725,39 @@ export function AdminDashboard() {
                     </p>
                   </div>
 
+                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Homepage team teaser</h3>
+                  <p className="text-xs text-on-surface-variant mb-3">Shown on the home page when that section references team copy (team bios still live under About).</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">Title</label>
+                      <input
+                        type="text"
+                        value={formData.pages.home.team?.title ?? ""}
+                        onChange={(e) => handleChange(["pages", "home", "team", "title"], e.target.value)}
+                        className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-on-surface">“Meet the team” link label</label>
+                      <input
+                        type="text"
+                        value={formData.pages.home.team?.aboutLinkText ?? ""}
+                        onChange={(e) => handleChange(["pages", "home", "team", "aboutLinkText"], e.target.value)}
+                        className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
+                        placeholder="Our Leadership"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2 mb-4">
+                    <label className="text-sm font-medium text-on-surface">Subtitle</label>
+                    <textarea
+                      rows={2}
+                      value={formData.pages.home.team?.subtitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "home", "team", "subtitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none resize-none"
+                    />
+                  </div>
+
                   {/* Company Process */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Company Process</h3>
                   <div className="space-y-4 mb-4">
@@ -605,15 +794,30 @@ export function AdminDashboard() {
                       </button>
                       <input type="text" value={card.title} onChange={(e) => handleChange(["pages", "home", "whyChooseUs", "cards", index, "title"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Card Title" />
                       <textarea rows={2} value={card.desc} onChange={(e) => handleChange(["pages", "home", "whyChooseUs", "cards", index, "desc"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Description" />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <input type="text" value={card.badge ?? ""} onChange={(e) => handleChange(["pages", "home", "whyChooseUs", "cards", index, "badge"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm" placeholder="Badge (optional)" />
+                        <input type="text" value={card.trustedText ?? ""} onChange={(e) => handleChange(["pages", "home", "whyChooseUs", "cards", index, "trustedText"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm" placeholder="Trusted line (optional)" />
+                      </div>
                       <input type="text" value={card.icon} onChange={(e) => handleChange(["pages", "home", "whyChooseUs", "cards", index, "icon"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Icon Name" />
+                      <ImageUploadField label="Card image (optional)" value={card.img ?? ""} onChange={(val) => handleChange(["pages", "home", "whyChooseUs", "cards", index, "img"], val)} />
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "home", "whyChooseUs", "cards"], {title: "New Reason", icon: "CheckCircle", desc: "Description"})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6">
+                  <button onClick={() => handleArrayAdd(["pages", "home", "whyChooseUs", "cards"], {title: "New Reason", icon: "CheckCircle", desc: "Description", badge: "", trustedText: "", img: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6">
                     <Plus size={16} /> Add Reason Card
                   </button>
 
                   {/* Testimonials */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Testimonials</h3>
+                  <div className="space-y-2 mb-4">
+                    <label className="text-sm font-medium text-on-surface">Section heading</label>
+                    <input
+                      type="text"
+                      value={formData.pages.home.testimonialsTitle}
+                      onChange={(e) => handleChange(["pages", "home", "testimonialsTitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
+                      placeholder="Trusted by Businesses Like Yours"
+                    />
+                  </div>
                   {formData.pages.home.testimonials.map((test, index) => (
                     <div key={index} className="p-4 border border-outline-variant rounded-xl relative space-y-2 mb-4 bg-surface-container-lowest">
                       <button onClick={() => handleArrayRemove(["pages", "home", "testimonials"], index)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">
@@ -622,9 +826,10 @@ export function AdminDashboard() {
                       <input type="text" value={test.name} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "name"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Author Name" />
                       <input type="text" value={test.role} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Author Role" />
                       <textarea rows={3} value={test.quote} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "quote"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Quote Text" />
+                      <ImageUploadField label="Photo (optional)" value={test.image ?? ""} onChange={(val) => handleChange(["pages", "home", "testimonials", index, "image"], val)} />
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "home", "testimonials"], {name: "John Doe", role: "CEO", quote: "Great service!"})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6">
+                  <button onClick={() => handleArrayAdd(["pages", "home", "testimonials"], {name: "John Doe", role: "CEO", quote: "Great service!", image: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6">
                     <Plus size={16} /> Add Testimonial
                   </button>
 
@@ -671,11 +876,11 @@ export function AdminDashboard() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Hero Stat Number (e.g. 30+)</label>
-                      <input type="text" value={formData.pages.about.hero.statNumber} onChange={(e) => handleChange(["pages", "about", "hero", "statNumber"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                      <input type="text" value={formData.pages.about.hero.statNumber ?? ""} onChange={(e) => handleChange(["pages", "about", "hero", "statNumber"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Hero Stat Label</label>
-                      <input type="text" value={formData.pages.about.hero.statLabel} onChange={(e) => handleChange(["pages", "about", "hero", "statLabel"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
+                      <input type="text" value={formData.pages.about.hero.statLabel ?? ""} onChange={(e) => handleChange(["pages", "about", "hero", "statLabel"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
                     </div>
                   </div>
 
@@ -726,10 +931,11 @@ export function AdminDashboard() {
                       <label className="text-sm font-medium text-on-surface">Our Vision</label>
                       <textarea rows={3} value={formData.pages.about.missionVision?.vision || ""} onChange={(e) => handleChange(["pages", "about", "missionVision", "vision"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-on-surface">Vision Image URL</label>
-                      <input type="text" value={formData.pages.about.missionVision?.visionImage || ""} onChange={(e) => handleChange(["pages", "about", "missionVision", "visionImage"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all" />
-                    </div>
+                    <ImageUploadField
+                      label="Vision image"
+                      value={formData.pages.about.missionVision?.visionImage ?? ""}
+                      onChange={(val) => handleChange(["pages", "about", "missionVision", "visionImage"], val)}
+                    />
                   </div>
 
                   {/* Principles Section */}
@@ -789,10 +995,11 @@ export function AdminDashboard() {
                           <input type="text" value={member.role} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Role" />
                         </div>
                       </div>
-                      <div className="space-y-2">
-                         <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Image URL</label>
-                         <input type="text" value={member.img || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "img"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Image URL" />
-                      </div>
+                      <ImageUploadField
+                        label="Team member photo"
+                        value={member.img ?? ""}
+                        onChange={(val) => handleChange(["pages", "about", "people", "team", i, "img"], val)}
+                      />
                       <div className="space-y-2">
                          <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Short description (card)</label>
                          <textarea value={member.desc || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "desc"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Short Bio" rows={2} />
@@ -801,9 +1008,51 @@ export function AdminDashboard() {
                          <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Full profile (modal)</label>
                          <textarea value={member.bio || ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "bio"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Longer bio shown when visitor clicks the card" rows={4} />
                       </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Pull quote</label>
+                        <textarea value={member.bioQuote ?? ""} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "bioQuote"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Short quote highlight" rows={2} />
+                      </div>
+                      <div className="space-y-2 border-t border-outline-variant/30 pt-3">
+                        <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant flex justify-between items-center">
+                          Roles (bullet list)
+                          <button type="button" onClick={() => handleArrayAdd(["pages", "about", "people", "team", i, "rolesList"], "New role")} className="text-primary hover:underline"><Plus size={14} /></button>
+                        </label>
+                        {(member.rolesList ?? []).map((roleStr, ri) => (
+                          <div key={ri} className="flex gap-2">
+                            <input type="text" value={roleStr} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "rolesList", ri], e.target.value)} className="flex-1 p-2 bg-surface-container rounded-lg border outline-none text-sm" />
+                            <button type="button" onClick={() => handleArrayRemove(["pages", "about", "people", "team", i, "rolesList"], ri)} className="text-red-500 p-2"><Trash2 size={14} /></button>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant flex justify-between items-center">
+                          Expertise tags
+                          <button type="button" onClick={() => handleArrayAdd(["pages", "about", "people", "team", i, "expertise"], "Area of expertise")} className="text-primary hover:underline"><Plus size={14} /></button>
+                        </label>
+                        {(member.expertise ?? []).map((tag, ei) => (
+                          <div key={ei} className="flex gap-2">
+                            <input type="text" value={tag} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "expertise", ei], e.target.value)} className="flex-1 p-2 bg-surface-container rounded-lg border outline-none text-sm" />
+                            <button type="button" onClick={() => handleArrayRemove(["pages", "about", "people", "team", i, "expertise"], ei)} className="text-red-500 p-2"><Trash2 size={14} /></button>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="space-y-3 border-t border-outline-variant/30 pt-3">
+                        <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant flex justify-between items-center">
+                          Track record (stats blocks)
+                          <button type="button" onClick={() => handleArrayAdd(["pages", "about", "people", "team", i, "trackRecord"], {stat: "0+", title: "Label", desc: "Short detail"})} className="text-primary hover:underline"><Plus size={14} /></button>
+                        </label>
+                        {(member.trackRecord ?? []).map((tr, tri) => (
+                          <div key={tri} className="grid grid-cols-1 md:grid-cols-4 gap-2 p-3 bg-surface-container-low rounded-lg border border-outline-variant/40 relative">
+                            <button type="button" onClick={() => handleArrayRemove(["pages", "about", "people", "team", i, "trackRecord"], tri)} className="absolute top-1 right-1 text-red-500 md:col-span-4"><Trash2 size={14} /></button>
+                            <input type="text" value={tr.stat} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "trackRecord", tri, "stat"], e.target.value)} className="p-2 bg-surface-container rounded-lg border outline-none text-sm" placeholder="30+" />
+                            <input type="text" value={tr.title} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "trackRecord", tri, "title"], e.target.value)} className="md:col-span-2 p-2 bg-surface-container rounded-lg border outline-none text-sm" placeholder="Title" />
+                            <textarea value={tr.desc} onChange={(e) => handleChange(["pages", "about", "people", "team", i, "trackRecord", tri, "desc"], e.target.value)} className="md:col-span-4 p-2 bg-surface-container rounded-lg border outline-none resize-none text-sm min-h-[60px]" placeholder="Description" rows={2} />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "about", "people", "team"], {name: "New Member", role: "Role", desc: "", bio: "", img: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Team Member</button>
+                  <button onClick={() => handleArrayAdd(["pages", "about", "people", "team"], {name: "New Member", role: "Role", desc: "", bio: "", img: "", bioQuote: "", rolesList: [], expertise: [], trackRecord: []})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Team Member</button>
 
                   {/* Bottom CTA */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Bottom CTA Banner</h3>
@@ -856,11 +1105,11 @@ export function AdminDashboard() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Hero Badge Text</label>
-                      <input type="text" value={(formData.pages.services.hero as any).badge || ""} onChange={(e) => handleChange(["pages", "services", "hero", "badge"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="Excellence in Governance" />
+                      <input type="text" value={formData.pages.services.hero.badge ?? ""} onChange={(e) => handleChange(["pages", "services", "hero", "badge"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="Excellence in Governance" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Hero Background Image URL</label>
-                      <input type="text" value={(formData.pages.services.hero as any).bgImage || ""} onChange={(e) => handleChange(["pages", "services", "hero", "bgImage"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="https://images.unsplash.com/..." />
+                      <input type="text" value={formData.pages.services.hero.bgImage ?? ""} onChange={(e) => handleChange(["pages", "services", "hero", "bgImage"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="https://images.unsplash.com/..." />
                     </div>
                   </div>
 
@@ -869,20 +1118,17 @@ export function AdminDashboard() {
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Intro Title</label>
-                      <input type="text" value={(formData.pages.services as any).introTitle || "A Wide Range of Strategic Solutions."} onChange={(e) => handleChange(["pages", "services", "introTitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none" />
+                      <input type="text" value={formData.pages.services.introTitle ?? ""} onChange={(e) => handleChange(["pages", "services", "introTitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Intro Content Paragraph 1</label>
-                      <textarea rows={3} value={(formData.pages.services as any).introContent1 || ""} onChange={(e) => handleChange(["pages", "services", "introContent1"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none resize-none" />
+                      <textarea rows={3} value={formData.pages.services.introContent1 ?? ""} onChange={(e) => handleChange(["pages", "services", "introContent1"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none resize-none" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-on-surface">Intro Content Paragraph 2</label>
-                      <textarea rows={3} value={(formData.pages.services as any).introContent2 || ""} onChange={(e) => handleChange(["pages", "services", "introContent2"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none resize-none" />
+                      <textarea rows={3} value={formData.pages.services.introContent2 ?? ""} onChange={(e) => handleChange(["pages", "services", "introContent2"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none resize-none" />
                     </div>
-                    <div className="space-y-2">
-                       <label className="text-sm font-medium text-on-surface">Intro Image URL</label>
-                       <input type="text" value={(formData.pages.services as any).introImage || ""} onChange={(e) => handleChange(["pages", "services", "introImage"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant outline-none" placeholder="https://unsplash.com/..." />
-                    </div>
+                    <ImageUploadField label="Intro image" value={formData.pages.services.introImage ?? ""} onChange={(val) => handleChange(["pages", "services", "introImage"], val)} />
                   </div>
 
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Service detail pages — default CTA block</h3>
@@ -911,9 +1157,13 @@ export function AdminDashboard() {
                   
                   {/* Stats CTA Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Bottom CTA Stats Region</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <input type="text" value={formData.pages.services.statsCTA.title} onChange={(e) => handleChange(["pages", "services", "statsCTA", "title"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border outline-none" placeholder="CTA Title" />
-                    <input type="text" value={formData.pages.services.statsCTA.subtitle} onChange={(e) => handleChange(["pages", "services", "statsCTA", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border outline-none" placeholder="CTA Subtitle" />
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <input type="text" value={formData.pages.services.statsCTA.title} onChange={(e) => handleChange(["pages", "services", "statsCTA", "title"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border outline-none md:col-span-3" placeholder="CTA Title" />
+                    <input type="text" value={formData.pages.services.statsCTA.subtitle} onChange={(e) => handleChange(["pages", "services", "statsCTA", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border outline-none md:col-span-3" placeholder="CTA Subtitle" />
+                    <div className="space-y-1 md:col-span-3">
+                      <label className="text-xs font-bold text-primary uppercase">Section badge (small label above headline)</label>
+                      <input type="text" value={formData.pages.services.statsCTA.badge} onChange={(e) => handleChange(["pages", "services", "statsCTA", "badge"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border outline-none" placeholder="Partnership Highlights" />
+                    </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="space-y-1">
@@ -926,14 +1176,37 @@ export function AdminDashboard() {
                     </div>
                   </div>
                   {formData.pages.services.statsCTA.stats.map((stat, i) => (
-                    <div key={i} className="mb-4 p-4 border border-outline-variant rounded-xl relative grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div key={i} className="mb-4 p-4 border border-outline-variant rounded-xl relative space-y-3">
                       <button onClick={() => handleArrayRemove(["pages", "services", "statsCTA", "stats"], i)} className="absolute top-2 right-2 text-red-500 hover:text-red-700 z-10"><Trash2 size={16} /></button>
-                      <input type="text" value={stat.label} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "label"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Stat Label" />
-                      <input type="number" value={stat.value} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "value"], Number(e.target.value))} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Value" />
-                      <input type="text" value={stat.suffix} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "suffix"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Suffix" />
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <input type="text" value={stat.label} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "label"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Stat Label" />
+                        <input type="number" value={stat.value} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "value"], Number(e.target.value))} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Value" />
+                        <input type="text" value={stat.suffix} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "suffix"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Suffix" />
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div className="space-y-1">
+                          <label className="text-[10px] font-bold uppercase text-on-surface-variant">Prefix (optional)</label>
+                          <input type="text" value={stat.prefix ?? ""} onChange={(e) => handleChange(["pages", "services", "statsCTA", "stats", i, "prefix"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Currency / symbol" />
+                        </div>
+                        <div className="space-y-1">
+                          <label className="text-[10px] font-bold uppercase text-on-surface-variant">Decimal places</label>
+                          <input
+                            type="number"
+                            min={0}
+                            step={1}
+                            value={stat.decimals ?? ""}
+                            onChange={(e) => {
+                              const raw = e.target.value;
+                              handleChange(["pages", "services", "statsCTA", "stats", i, "decimals"], raw === "" ? undefined : Number(raw));
+                            }}
+                            className="w-full p-2 bg-surface-container rounded-lg border outline-none"
+                            placeholder="0"
+                          />
+                        </div>
+                      </div>
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "services", "statsCTA", "stats"], {label: "New Stat", value: 0, suffix: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Stat</button>
+                  <button onClick={() => handleArrayAdd(["pages", "services", "statsCTA", "stats"], {label: "New Stat", value: 0, suffix: "", prefix: "", decimals: undefined})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"><Plus size={16} /> Add Stat</button>
                   
                   {/* Service List Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Service Details Pages</h3>

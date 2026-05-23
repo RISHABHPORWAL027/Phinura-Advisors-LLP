@@ -31,11 +31,6 @@ import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.webp";
 import phinuraLogo from "../Assets/Phinura_Advisors_logo.png";
 import whyChooseUsSectionImage from "../Assets/team_member.webp";
 import ctaBackground from "../Assets/details_page_bg.avif";
-import goelLogo from "../Assets/client_logo/goel-logo.jpg";
-import rochanaIntLogo from "../Assets/client_logo/rochanainternational_logo.png";
-import rochanaIndLogo from "../Assets/client_logo/Rochana_Logo.png";
-import omShreeLogo from "../Assets/client_logo/om_shree_logo.jpg";
-
 const ScrollTypewriterText = ({ text, className }: { text: string; className?: string }) => {
   const [displayedText, setDisplayedText] = useState("");
   const ref = useRef(null);
@@ -357,6 +352,7 @@ const Hero = () => {
 
 const StatsBar = () => {
   const { data: siteDetails } = useCMS();
+  const partners = siteDetails.pages.home.statsPartners ?? [];
 
   return (
     <div className="relative overflow-hidden bg-white py-16 md:py-24">
@@ -378,17 +374,12 @@ const StatsBar = () => {
             {siteDetails.pages.home.statsTitle || "Our Trusted Clients"}
           </motion.p>
           <FadeInStagger className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {[
-              { name: "Goel Distributors", url: "https://goel-distributors-react.vercel.app/", logo: goelLogo },
-              { name: "Rochana International Trading", url: "https://rochanainternationaltrading.com/", logo: rochanaIntLogo },
-              { name: "Shree Om Pharmacy", url: "https://www.instagram.com/shreeompharmacy/", logo: omShreeLogo },
-              { name: "Rochana Industries", url: "https://rochanaindustries.com/", logo: rochanaIndLogo }
-            ].map((client, idx) => (
+            {partners.map((client, idx) => (
               <motion.a
-                href={client.url}
+                href={client.url || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={client.name}
+                key={`${client.name}-${idx}`}
                 className="group flex flex-col items-center gap-4"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

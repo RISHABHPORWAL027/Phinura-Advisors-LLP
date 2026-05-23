@@ -29,6 +29,16 @@ export interface SiteDetails {
         videoUrl: string;
         posterUrl: string;
       };
+      process: {
+        title: string;
+        subtitle: string;
+        steps: Array<{
+          id: string;
+          title: string;
+          desc: string;
+          icon: string;
+        }>;
+      };
       stats: Array<{
         label: string;
         value: string | number;
@@ -88,6 +98,14 @@ export interface SiteDetails {
       testimonialsTitle: string;
       /** Label above the stats row on the home page */
       statsTitle?: string;
+      /** Client / partner logos in the row directly under `statsTitle` */
+      statsPartners?: Array<{
+        name: string;
+        /** External link when the logo is clicked */
+        url: string;
+        /** Image URL or path (e.g. `/client_logo/...` or pasted upload URL) */
+        logo: string;
+      }>;
     };
     services: {
       serviceList: Array<{
@@ -115,9 +133,15 @@ export interface SiteDetails {
       serviceDetailCtaSubtitle?: string;
       /** Default “Request a call back” link label on service detail pages */
       serviceDetailCallBackLinkText?: string;
+      introTitle?: string;
+      introContent1?: string;
+      introContent2?: string;
+      introImage?: string;
       hero: {
         title: string;
         subtitle: string;
+        badge?: string;
+        bgImage?: string;
       };
       statsCTA: {
         title: string;
@@ -140,10 +164,13 @@ export interface SiteDetails {
         subtitle: string;
         badge: string;
         image: string;
+        statNumber?: string;
+        statLabel?: string;
       };
       story: {
         title: string;
         content: string;
+        image?: string;
       };
       principles: {
         title: string;

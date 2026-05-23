@@ -38,11 +38,17 @@ function MainFooterGate() {
   return <Footer />;
 }
 
+function MainNavbarGate() {
+  const { pathname } = useLocation();
+  if (pathname.startsWith("/admin")) return null;
+  return <Navbar />;
+}
+
 function MainShell() {
   return (
     <PreviewLinkBaseProvider base="">
       <div className="min-h-screen bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
-        <Navbar />
+        <MainNavbarGate />
         <main>
           <Outlet />
         </main>
