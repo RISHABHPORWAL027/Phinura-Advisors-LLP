@@ -2,10 +2,10 @@
   "companyName": "Phinura Advisors",
   "fullName": "Phinura Advisors LLP",
   "tagline": "Your Trusted Partner for Taxes and Business Growth.",
-  "address": "Phinura Advisors LLP 15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
+  "address": "Phinura Advisors LLP\n15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
   "shortAddress": "Gowliguda, Hyderabad",
   "mobile": "+91 8318697595",
-  "email": "partners@phinura.com",
+  "email": "info@phinura.com",
   "logo": "/logo.png",
   "developerCredit": {
     "prefix": "Design and Develop by ",
@@ -20,41 +20,57 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "Architects of Financial Integrity Demo.",
-        "subtitle": "We help you handle company registration, tax filings, and accounting with ease. Over 10 years of experience making compliance simple for business owners.",
-        "badge": "Expert Financial Guidance",
+        "title": "You run the business. We handle the compliance.",
+        "subtitle": "GST, income tax, company registration, MCA filings, and books — explained in simple words and filed on time. 5+ years helping Indian owners and MSMEs stay on track without the stress.",
+        "badge": "CA & CS support for growing businesses",
         "buttonText": "Get Free Quote",
         "secondaryButtonText": "Talk to Expert",
         "videoUrl": "/homebanner.webm",
-        "posterUrl": "/BANNERPREVIEW.png"
+        "posterUrl": "/BANNERPREVIEW.webp"
       },
       "statsTitle": "Strategic Industry Partners",
-      "stats": [
+      "statsPartners": [
         {
-          "label": "Compliance Success",
-          "value": 99.9,
-          "suffix": "%",
-          "decimals": 1
+          "name": "Goel Distributors",
+          "url": "https://goel-distributors-react.vercel.app/",
+          "logo": "/client_logo/goel-logo.jpg"
         },
         {
+          "name": "Rochana International Trading",
+          "url": "https://rochanainternationaltrading.com/",
+          "logo": "/client_logo/rochanainternational_logo.png"
+        },
+        {
+          "name": "Shree Om Pharmacy",
+          "url": "https://www.instagram.com/shreeompharmacy/",
+          "logo": "/client_logo/om_shree_logo.jpg"
+        },
+        {
+          "name": "Rochana Industries",
+          "url": "https://rochanaindustries.com/",
+          "logo": "/client_logo/Rochana_Logo.png"
+        },
+        {
+          "name": "Homes and Beyond",
+          "url": "https://homesandbeyond.in/",
+          "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABYCAYAAACwPrjdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA+dpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDUtMjZUMjA6MzI6NDMrMDU6MzAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTA1LTI2VDIwOjMzOjMzKzA1OjMwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTA1LTI2VDIwOjMzOjMzKzA1OjMwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkFCMkU0MUZCRDYxMUVEOEYxREI5NjNGRDRBQjc0NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkFCMkU0MkZCRDYxMUVEOEYxREI5NjNGRDRBQjc0NSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjpp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"
+        }
+      ],
+      "stats": [
+        {
           "label": "Years Experience",
-          "value": 14,
+          "value": 5,
           "suffix": "+"
         },
         {
           "label": "Happy Clients",
-          "value": 499,
+          "value": 100,
           "suffix": "+"
         },
         {
           "label": "Annual Filings",
-          "value": 999,
+          "value": 99,
           "suffix": "+"
-        },
-        {
-          "label": "Pan-India Reach",
-          "value": "Presence",
-          "suffix": ""
         }
       ],
       "coreServices": {
@@ -67,45 +83,33 @@
           "trademark-registration"
         ]
       },
-      "simpleSolutions": {
-        "title": "Simple Solutions for You",
-        "subtitle": "We cut through the legal jargon so you can focus on what matters—growing your dream business.",
-        "items": [
+      "process": {
+        "title": "Our Simple 4-Step Process.",
+        "subtitle": "How we take the complexity out of compliance, taxes, and business registration.",
+        "steps": [
           {
-            "title": "Start Your Business",
-            "icon": "Rocket",
-            "color": "bg-primary-fixed",
-            "text": "text-primary",
-            "desc": "Full support for GST registration, PVT LTD incorporation, and shop licenses.",
-            "features": [
-              "Easy Documentation",
-              "Fast Turnaround"
-            ],
-            "buttonText": "Learn More"
+            "id": "01",
+            "title": "Initial Consultation",
+            "desc": "We evaluate your business structure and specific compliance needs to create a tailored strategy.",
+            "icon": "UserSearch"
           },
           {
-            "title": "Handle Your Taxes",
-            "icon": "Wallet",
-            "color": "bg-secondary-fixed",
-            "text": "text-secondary",
-            "desc": "Expert Income Tax and GST filing that keeps you on the right side of the law.",
-            "features": [
-              "Maximize Savings",
-              "Error-Free Filings"
-            ],
-            "buttonText": "Learn More"
+            "id": "02",
+            "title": "Document Preparation",
+            "desc": "Our team drafts and organizes all necessary legal, financial, and regulatory paperwork with precision.",
+            "icon": "FileStack"
           },
           {
-            "title": "Track Your Growth",
-            "icon": "LineChart",
-            "color": "bg-tertiary-fixed",
-            "text": "text-on-tertiary-fixed-variant",
-            "desc": "Monthly accounting and bookkeeping to help you understand your numbers better.",
-            "features": [
-              "Monthly Reports",
-              "24/7 Dashboard"
-            ],
-            "buttonText": "Learn More"
+            "id": "03",
+            "title": "Regulatory Filing",
+            "desc": "We submit your applications to the MCA, Income Tax, or GST portals and track them to completion.",
+            "icon": "Rocket"
+          },
+          {
+            "id": "04",
+            "title": "Ongoing Compliance",
+            "desc": "Continuous monitoring of your deadlines and statutory audits so you stay penalty-free.",
+            "icon": "ShieldCheck"
           }
         ]
       },
@@ -114,22 +118,29 @@
         "subtitle": "We're more than just consultants; we're your growth partners.",
         "cards": [
           {
-            "title": "A Decade of Trust",
+            "title": "99% Compliance Success",
             "icon": "ShieldCheck",
-            "desc": "10 years of handling complex Indian regulations for startups and legacy brands alike. We've seen it all and solved it all.",
-            "trustedText": "Trusted by 500+ businesses"
+            "desc": "Proven track record of timely filings, clear documentation, and practical guidance so penalties and surprises stay rare across diverse industries."
           },
           {
-            "title": "Swift Support",
+            "title": "5+ Years Experience",
             "icon": "Zap",
-            "desc": "Instant WhatsApp and email updates on your application status.",
-            "badge": "Efficiency Redefined"
+            "desc": "Hands-on support with GST, income tax, MCA, and books for startups and established businesses alike."
           },
           {
-            "title": "Results-Focused",
+            "title": "100+ Happy Clients",
             "icon": "CheckCircle2",
-            "desc": "Every project we deliver is designed to generate leads, improve user experience, and boost your online presence — because your success is our priority.",
-            "img": "/logo.png"
+            "desc": "Trusted by owners and teams who want reliable books, filings on time, and advice in plain language."
+          },
+          {
+            "title": "99+ Annual Filings",
+            "icon": "Rocket",
+            "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+          },
+          {
+            "title": "Pan-India Presence",
+            "icon": "UserSearch",
+            "desc": "Serving clients across states and union territories with practical support wherever you operate."
           }
         ]
       },
@@ -142,29 +153,49 @@
       },
       "testimonials": [
         {
-          "name": "Ankit Sharma",
-          "role": "Founder, TechSprint Solutions",
-          "quote": "They made my company registration so easy! I was worried about the paperwork, but they handled everything in just 10 days."
+          "name": "Vikram Malhotra",
+          "role": "Operations Lead, Goel Distributors",
+          "quote": "GST and bookkeeping used to stall our ops every quarter. Phinura keeps timelines visible and filings on track—no surprises.",
+          "image": ""
         },
         {
-          "name": "Priya Verma",
-          "role": "Owner, Bloom Boutique",
-          "quote": "GST filings used to be a headache every month. Now, it's just one text away."
+          "name": "Neha Iyer",
+          "role": "Finance Manager, Rochana International Trading",
+          "quote": "Cross-border paperwork and MCA updates felt overwhelming until their team took ownership. Responses are fast and jargon-free.",
+          "image": ""
         },
         {
-          "name": "Rahul Mehta",
-          "role": "Director, GreenLeaf Exports",
-          "quote": "Their accounting services are top-notch. I can focus on my exports."
+          "name": "Arjun Patel",
+          "role": "Owner, Shree Om Pharmacy",
+          "quote": "We needed someone who respects retail hours and still hits every deadline. They've been dependable for filings and reminders.",
+          "image": ""
+        },
+        {
+          "name": "Sanjay Kulkarni",
+          "role": "CFO, Rochana Industries",
+          "quote": "From MCA compliances to tax planning clarity, they've scaled with our manufacturing roadmap—solid partner for compliance.",
+          "image": ""
         }
-      ]
+      ],
+      "team": {
+        "title": "Meet Our Team",
+        "subtitle": "Chartered Accountants and Company Secretaries who keep compliance simple — tap a photo to read more.",
+        "aboutLinkText": "About us"
+      }
     },
     "services": {
       "serviceDetailCtaSubtitle": "Connect with our compliance architects today for a hassle-free filing experience.",
       "serviceDetailCallBackLinkText": "Request a Call Back",
       "hero": {
-        "title": "Our Professional Services",
-        "subtitle": "Comprehensive financial architecture and compliance engineering for modern enterprises."
+        "title": "Our Service Offerings",
+        "subtitle": "Explore the complete range of accounting, tax, and compliance services we provide.",
+        "badge": "All Services",
+        "bgImage": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"
       },
+      "introTitle": "A Wide Range of Strategic Solutions.",
+      "introContent1": "At Phinura Advisors, we provide a comprehensive suite of financial architecture and compliance engineering services designed to navigate the complexities of modern global commerce.",
+      "introContent2": "From meticulous statutory audits to complex cross-border taxation strategies, our approach is built on precision, integrity, and a deep understanding of regulatory frameworks.",
+      "introImage": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000",
       "statsCTA": {
         "title": "Custom Solutions for Architects of Commerce.",
         "subtitle": "No two business structures are identical.",
@@ -202,6 +233,7 @@
           "id": "mca-compliance",
           "title": "MCA Compliance",
           "icon": "Gavel",
+          "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600",
           "description": "Ministry of Corporate Affairs adherence including annual filings and Director KYC updates.",
           "category": "Regulatory Compliance",
           "heroTitle": "MCA Compliance Made Simple",
@@ -230,6 +262,7 @@
           "id": "company-registration",
           "title": "Company Registration",
           "icon": "Building2",
+          "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600",
           "description": "Incorporate your PVT LTD, LLP, or OPC with zero hassle.",
           "category": "Business Formation",
           "heroTitle": "Register Your Company in 10 Days",
@@ -258,6 +291,7 @@
           "id": "trademark-registration",
           "title": "Trademark Registration",
           "icon": "ShieldCheck",
+          "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600",
           "description": "Securing your intellectual property.",
           "category": "Intellectual Property",
           "heroTitle": "Protect Your Brand with a Trademark",
@@ -286,65 +320,178 @@
     },
     "about": {
       "hero": {
-        "title": "Partners in your financial legacy.",
-        "subtitle": "At Phinura Advisors, we've replaced complex jargon with clear paths forward. We're not just consultants; we're your dedicated financial growth partners.",
-        "badge": "Who We Are",
-        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c"
+        "title": "The Standard of Financial Integrity.",
+        "subtitle": "We don't just balance books; we build foundations. For over three decades, Phinura Advisors has been the architectural force behind global fiscal stability.",
+        "badge": "About Us",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+        "statNumber": "5",
+        "statLabel": "YEARS EXPERIENCE"
       },
       "story": {
-        "title": "Our Story",
-        "content": "We started with a big idea: that financial clarity shouldn't be a luxury reserved for giant corporations."
+        "title": "Founded on a Singular Principle: Sovereignty.",
+        "content": "Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies. Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.",
+        "image": "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80&w=800"
+      },
+      "missionVision": {
+        "missions": [
+          "We help business owners complete registrations, GST, income tax, and MCA filings on time — and we explain what matters in plain language, not dense legal wording.",
+          "We stay reachable: you can ask doubts, get status updates, and plan ahead so surprises and penalties are avoided."
+        ],
+        "vision": "To be the firm people happily recommend when they want dependable, easy-to-understand support for taxes, company law, and day-to-day compliance.",
+        "visionImage": ""
       },
       "principles": {
         "title": "Our Core Principles",
         "subtitle": "These aren't just words on a wall; they are the gears that drive every interaction."
       },
-      "values": [
-        {
-          "icon": "Heart",
-          "title": "Heart-Centered",
-          "desc": "We lead with empathy. Behind every ledger is a person with a dream."
-        },
-        {
-          "icon": "Lightbulb",
-          "title": "Forward Thinking",
-          "desc": "We don't just report history; we help you write it."
-        },
-        {
-          "icon": "ShieldCheck",
-          "title": "Unwavering Trust",
-          "desc": "Integrity is our cornerstone."
-        }
-      ],
+      "values": [],
       "people": {
-        "title": "Our People",
-        "subtitle": "A collective of specialists dedicated to your journey.",
+        "title": "Our Team",
+        "subtitle": "Meet the qualified CAs and CS professionals who work with you at Phinura Advisors.",
         "team": [
           {
-            "name": "Julian Thorne",
-            "role": "PRINCIPAL CHARTERED ACCOUNTANT",
-            "desc": "Julian founded the firm with a vision to humanize financial services. He specializes in wealth architecture for families.",
-            "img": "https://picsum.photos/seed/julian/400/500"
+            "name": "Ambuj Jain",
+            "role": "Chartered Accountant (CA)",
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
+            "trackRecord": [
+              {
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+              },
+              {
+                "stat": "100+",
+                "title": "Happy Clients",
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+              },
+              {
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+              }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
+            "desc": "Guides tax, audit, and compliance with clear, practical advice for growing businesses.",
+            "bio": "Ambuj Jain is a Chartered Accountant who leads accounting, tax, and audit engagements for a wide range of clients. He focuses on making statutory requirements understandable and ensuring filings are planned well in advance. Business owners appreciate his calm, solution-oriented approach when timelines are tight or rules change.",
+            "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
           },
           {
-            "name": "Elena Rodriguez",
-            "role": "SENIOR COMPANY SECRETARY",
-            "desc": "Elena ensures our clients stay ahead of the curve. She treats every client's business as if it were her own venture.",
-            "img": "https://picsum.photos/seed/elena/400/500"
+            "name": "Shivani Jain",
+            "role": "Chartered Accountant (CA)",
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
+            "trackRecord": [
+              {
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+              },
+              {
+                "stat": "100+",
+                "title": "Happy Clients",
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+              },
+              {
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+              }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
+            "desc": "Experienced in financial reporting, assurance, and helping you make sense of the numbers.",
+            "bio": "Shivani Jain is a Chartered Accountant with strong experience in financial statements, internal controls, and audit support. She helps leadership teams interpret results and stay audit-ready. Her communication style is straightforward, which helps non-finance founders feel confident about their books.",
+            "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
           },
           {
-            "name": "Marcus Chen",
-            "role": "TAX STRATEGY LEAD",
-            "desc": "Marcus brings a calm, analytical approach to complex tax puzzles.",
-            "img": "https://picsum.photos/seed/marcus/400/500"
+            "name": "Priya Porwal",
+            "role": "Company Secretary (CS)",
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
+            "trackRecord": [
+              {
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+              },
+              {
+                "stat": "100+",
+                "title": "Happy Clients",
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+              },
+              {
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+              }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
+            "desc": "Handles company law, board matters, and MCA filings so your entity stays legally sound.",
+            "bio": "Priya Porwal is a Company Secretary who supports companies with incorporation, annual compliance, board resolutions, and Ministry of Corporate Affairs filings. She ensures documents are correct the first time and keeps directors informed about what must be done each year.",
+            "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
+          },
+          {
+            "name": "Shruti",
+            "role": "Company Secretary (CS)",
+            "rolesList": [
+              "Tax & Audit Lead",
+              "Business Advisor"
+            ],
+            "expertise": [
+              "Company Registration",
+              "GST & Income Tax",
+              "MCA Compliance"
+            ],
+            "trackRecord": [
+              {
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+              },
+              {
+                "stat": "100+",
+                "title": "Happy Clients",
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+              },
+              {
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+              }
+            ],
+            "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
+            "desc": "Supports secretarial work, filings, and coordination so MCA deadlines are never missed.",
+            "bio": "Shruti is a Company Secretary focused on secretarial compliance and timely filings. She works closely with founders and directors on forms, disclosures, and routine MCA updates. Clients value her responsiveness and attention to detail when multiple filings need to move together.",
+            "img": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&q=80&w=600"
           }
         ]
       },
       "cta": {
-        "title": "Ready to build your financial \nfuture with a partner who cares?",
-        "subtitle": "We're here to help you navigate the complexities of accounting and compliance with a human touch.",
-        "buttonText": "Schedule a Coffee Chat",
-        "secondaryButtonText": "Download Our Guide"
+        "title": "Ready to grow your business?",
+        "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free.",
+        "buttonText": "Schedule Free Call",
+        "secondaryButtonText": "View Pricing"
       }
     },
     "contact": {
