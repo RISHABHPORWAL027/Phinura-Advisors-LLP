@@ -13,11 +13,9 @@ function getAdminPassword(): string | null {
 
 export class GitHubCMSService implements ICMSService {
   async getSiteDetails(): Promise<SiteDetails> {
-    // In dev, read bundled JSON so `npm run dev` does not require the local API (avoids Vite proxy ECONNREFUSED spam).
-    // Admin saves still POST to `/api/site-details` — use `yarn dev:full` or `yarn dev:api` when testing saves.
-    if (import.meta.env.DEV) {
-      return siteDetails as SiteDetails;
-    }
+    // Prefer live JSON from GitHub via GET `/api/site-details` (dev + prod).
+    // In dev without `npm run dev:api`: fetch fails quietly and we fall back to bundled JSON (avoid noisy console spam).
+    // With `npm run dev:full` / `dev:api`, you see the same content as production after saves.
     try {
       const res = await fetch("/api/site-details", { method: "GET" });
       if (!res.ok) throw new Error(`Failed to load: ${res.status}`);
@@ -25,7 +23,9 @@ export class GitHubCMSService implements ICMSService {
       if (!json?.ok || !json?.data) throw new Error("Invalid response");
       return json.data as SiteDetails;
     } catch (e) {
-      console.warn("GitHub CMS fetch failed, falling back to local data:", e);
+      if (!import.meta.env.DEV) {
+        console.warn("GitHub CMS fetch failed, falling back to local data:", e);
+      }
       return siteDetails as SiteDetails;
     }
   }
