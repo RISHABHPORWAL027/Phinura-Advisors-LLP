@@ -310,8 +310,8 @@ const Hero = () => {
                 ))}
               </div>
               <div className="text-right">
-                <div className="text-2xl font-black text-white">500+</div>
-                <div className="text-[10px] text-blue-200/60 uppercase tracking-widest">Global Clients</div>
+                <div className="text-2xl font-black text-white">100+</div>
+                <div className="text-[10px] text-blue-200/60 uppercase tracking-widest">Happy Clients</div>
               </div>
             </div>
 
@@ -357,8 +357,9 @@ const Hero = () => {
 
 const StatsBar = () => {
   const { data: siteDetails } = useCMS();
+
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-surface-container-low via-white to-surface py-16 md:py-24">
+    <div className="relative overflow-hidden bg-white py-16 md:py-24">
       <div
         className="pointer-events-none absolute top-1/2 right-0 h-[min(28rem,90vw)] w-[min(28rem,90vw)] translate-x-1/4 -translate-y-1/2 rounded-full bg-secondary/5 blur-3xl"
         aria-hidden
@@ -612,7 +613,7 @@ const ProcessFlow = () => {
   const logoRotation = useTransform(scrollYProgress, [0.1, 0.8], [0, 1440]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#F8F9FA] lg:h-[200vh]">
+    <section ref={containerRef} className="relative bg-white lg:h-[200vh]">
       <div className="flex flex-col items-center justify-center overflow-hidden lg:sticky lg:top-0 lg:h-screen">
         <div className="pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center opacity-[0.05]">
           <img src={phinuraLogo} alt="" className="w-[500px] grayscale md:w-[800px]" />
@@ -889,7 +890,7 @@ const WhyChooseUs = () => {
 const Testimonials = () => {
   const { data: siteDetails } = useCMS();
   const { testimonials } = siteDetails.pages.home;
-  const reviews = testimonials;
+  const reviews = testimonials ?? [];
 
   return (
     <section className="relative overflow-hidden bg-[#dfe9f5] py-16 md:py-24">
@@ -900,7 +901,9 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
         <FadeInStagger className="text-center">
           <FadeInItem>
-            <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">{(siteDetails.pages.home as any).testimonialsTitle || "Trusted by Businesses Like Yours"}</h2>
+            <h2 className="text-4xl font-headline font-extrabold text-primary mb-4">
+              {(siteDetails.pages.home as any).testimonialsTitle || "Trusted by Businesses Like Yours"}
+            </h2>
           </FadeInItem>
           <FadeInItem>
             <p className="text-on-surface-variant">Real stories from entrepreneurs who grow with us.</p>
@@ -964,11 +967,8 @@ const FinalCTA = () => {
   const { data: siteDetails } = useCMS();
 
   return (
-    <section className="relative overflow-hidden bg-surface py-24">
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/2 h-48 w-[min(56rem,100%)] -translate-x-1/2 bg-gradient-to-t from-primary/[0.04] to-transparent"
-        aria-hidden
-      />
+    <section className="relative overflow-hidden bg-white py-24">
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

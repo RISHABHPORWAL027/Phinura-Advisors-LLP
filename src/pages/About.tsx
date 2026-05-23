@@ -229,7 +229,7 @@ const Story = () => {
               </div>
               <div className="text-sm">
                 <div className="font-bold text-white">Trusted by Global Entities</div>
-                <div className="text-blue-200/60">10+ Years of Fiscal Excellence</div>
+                <div className="text-blue-200/60">5+ Years of Fiscal Excellence</div>
               </div>
             </div>
           </motion.div>

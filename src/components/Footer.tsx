@@ -6,9 +6,10 @@ import { useCMS } from "../hooks/useCMS";
 
 export const Footer = () => {
   const { data: siteDetails } = useCMS();
-  
+  const taglineLine = siteDetails.tagline.replace(/\.\s*$/, "");
+
   return (
-  <footer className="w-full bg-primary text-on-primary mt-20">
+  <footer className="w-full bg-primary text-on-primary">
     <div className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
         <AppLink to="/" className="flex items-center gap-2 mb-4 group">
@@ -42,8 +43,6 @@ export const Footer = () => {
         <ul className="space-y-4">
           <li><AppLink className="text-white/75 hover:text-white transition-all text-sm" to="/privacy">Privacy Policy</AppLink></li>
           <li><AppLink className="text-white/75 hover:text-white transition-all text-sm" to="/terms">Terms of Service</AppLink></li>
-          <li><a className="text-white/75 hover:text-white transition-all text-sm" href="#">Newsletter</a></li>
-          <li><a className="text-white/75 hover:text-white transition-all text-sm" href="#">Tax Calendar</a></li>
         </ul>
       </div>
       <div>
@@ -53,7 +52,7 @@ export const Footer = () => {
       </div>
     </div>
     <div className="max-w-7xl mx-auto px-8 py-8 border-t border-white/15 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p className="text-white/50 text-xs">© {new Date().getFullYear()} {siteDetails.fullName}. {siteDetails.tagline}. All rights reserved.</p>
+      <p className="text-white/50 text-xs">© {new Date().getFullYear()} {siteDetails.fullName}. {taglineLine}. All rights reserved.</p>
       <DeveloperCredit
         className="text-white/50 text-xs"
         linkClassName="text-secondary-fixed hover:text-white font-semibold hover:underline underline-offset-2"

@@ -21,7 +21,7 @@
     "home": {
       "hero": {
         "title": "You run the business. We handle the compliance.",
-        "subtitle": "GST, income tax, company registration, MCA filings, and books — explained in simple words and filed on time. 10+ years helping Indian owners and MSMEs stay on track without the stress.",
+        "subtitle": "GST, income tax, company registration, MCA filings, and books — explained in simple words and filed on time. 5+ years helping Indian owners and MSMEs stay on track without the stress.",
         "badge": "CA & CS support for growing businesses",
         "buttonText": "Get Free Quote",
         "secondaryButtonText": "Talk to Expert",
@@ -31,30 +31,19 @@
       "statsTitle": "Strategic Industry Partners",
       "stats": [
         {
-          "label": "Compliance Success",
-          "value": 99.9,
-          "suffix": "%",
-          "decimals": 1
-        },
-        {
           "label": "Years Experience",
-          "value": 14,
+          "value": 5,
           "suffix": "+"
         },
         {
           "label": "Happy Clients",
-          "value": 499,
+          "value": 100,
           "suffix": "+"
         },
         {
           "label": "Annual Filings",
-          "value": 999,
+          "value": 99,
           "suffix": "+"
-        },
-        {
-          "label": "Pan-India Reach",
-          "value": "Presence",
-          "suffix": ""
         }
       ],
       "coreServices": {
@@ -104,27 +93,27 @@
           {
             "title": "99% Compliance Success",
             "icon": "ShieldCheck",
-            "desc": "Proven track record of flawless regulatory compliance and zero penalty cases across diverse industries."
+            "desc": "Proven track record of timely filings, clear documentation, and practical guidance so penalties and surprises stay rare across diverse industries."
           },
           {
-            "title": "14+ Years Experience",
+            "title": "5+ Years Experience",
             "icon": "Zap",
-            "desc": "Over 14 years of handling complex Indian regulations for startups and legacy brands alike."
+            "desc": "Hands-on support with GST, income tax, MCA, and books for startups and established businesses alike."
           },
           {
-            "title": "499+ Happy Clients",
+            "title": "100+ Happy Clients",
             "icon": "CheckCircle2",
-            "desc": "Trusted by businesses nationwide for reliable, transparent, and timely financial advisory services."
+            "desc": "Trusted by owners and teams who want reliable books, filings on time, and advice in plain language."
           },
           {
-            "title": "999+ Annual Filings",
+            "title": "99+ Annual Filings",
             "icon": "Rocket",
-            "desc": "Thousands of successful filings every year — from GST to MCA — delivered with precision."
+            "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
           },
           {
             "title": "Pan-India Presence",
             "icon": "UserSearch",
-            "desc": "Serving clients across all states and union territories with a deep understanding of regional regulations."
+            "desc": "Serving clients across states and union territories with practical support wherever you operate."
           }
         ]
       },
@@ -137,22 +126,28 @@
       },
       "testimonials": [
         {
-          "name": "Ankit Sharma",
-          "role": "Founder, TechSprint Solutions",
-          "quote": "They made my company registration so easy! I was worried about the paperwork, but they handled everything in just 10 days.",
-          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150"
+          "name": "Vikram Malhotra",
+          "role": "Operations Lead, Goel Distributors",
+          "quote": "GST and bookkeeping used to stall our ops every quarter. Phinura keeps timelines visible and filings on track—no surprises.",
+          "image": ""
         },
         {
-          "name": "Priya Verma",
-          "role": "Owner, Bloom Boutique",
-          "quote": "GST filings used to be a headache every month. Now, it's just one text away.",
-          "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150"
+          "name": "Neha Iyer",
+          "role": "Finance Manager, Rochana International Trading",
+          "quote": "Cross-border paperwork and MCA updates felt overwhelming until their team took ownership. Responses are fast and jargon-free.",
+          "image": ""
         },
         {
-          "name": "Rahul Desai",
-          "role": "CEO, Desai Enterprises",
-          "quote": "Their trademark registration service was flawless. We got our brand protected without any hassle and at a very reasonable cost.",
-          "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150"
+          "name": "Arjun Patel",
+          "role": "Owner, Shree Om Pharmacy",
+          "quote": "We needed someone who respects retail hours and still hits every deadline. They've been dependable for filings and reminders.",
+          "image": ""
+        },
+        {
+          "name": "Sanjay Kulkarni",
+          "role": "CFO, Rochana Industries",
+          "quote": "From MCA compliances to tax planning clarity, they've scaled with our manufacturing roadmap—solid partner for compliance.",
+          "image": ""
         }
       ],
       "team": {
@@ -302,8 +297,8 @@
         "subtitle": "We don't just balance books; we build foundations. For over three decades, Phinura Advisors has been the architectural force behind global fiscal stability.",
         "badge": "About Us",
         "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
-        "statNumber": "10+",
-        "statLabel": "YEARS EXCELLENCE"
+        "statNumber": "5",
+        "statLabel": "YEARS EXPERIENCE"
       },
       "story": {
         "title": "Founded on a Singular Principle: Sovereignty.",
@@ -341,19 +336,19 @@
             ],
             "trackRecord": [
               {
-                "stat": "10+",
-                "title": "Years of Experience",
-                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
               },
               {
-                "stat": "500+",
+                "stat": "100+",
                 "title": "Happy Clients",
-                "desc": "Successfully advised hundreds of startups and established firms."
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
               },
               {
-                "stat": "100%",
-                "title": "Compliance Focus",
-                "desc": "Dedicated to keeping your business safe from penalties and notices."
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
@@ -375,19 +370,19 @@
             ],
             "trackRecord": [
               {
-                "stat": "10+",
-                "title": "Years of Experience",
-                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
               },
               {
-                "stat": "500+",
+                "stat": "100+",
                 "title": "Happy Clients",
-                "desc": "Successfully advised hundreds of startups and established firms."
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
               },
               {
-                "stat": "100%",
-                "title": "Compliance Focus",
-                "desc": "Dedicated to keeping your business safe from penalties and notices."
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
@@ -409,19 +404,19 @@
             ],
             "trackRecord": [
               {
-                "stat": "10+",
-                "title": "Years of Experience",
-                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
               },
               {
-                "stat": "500+",
+                "stat": "100+",
                 "title": "Happy Clients",
-                "desc": "Successfully advised hundreds of startups and established firms."
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
               },
               {
-                "stat": "100%",
-                "title": "Compliance Focus",
-                "desc": "Dedicated to keeping your business safe from penalties and notices."
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
@@ -443,19 +438,19 @@
             ],
             "trackRecord": [
               {
-                "stat": "10+",
-                "title": "Years of Experience",
-                "desc": "A decade of helping Indian businesses stay compliant and profitable."
+                "stat": "5+",
+                "title": "Years Experience",
+                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
               },
               {
-                "stat": "500+",
+                "stat": "100+",
                 "title": "Happy Clients",
-                "desc": "Successfully advised hundreds of startups and established firms."
+                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
               },
               {
-                "stat": "100%",
-                "title": "Compliance Focus",
-                "desc": "Dedicated to keeping your business safe from penalties and notices."
+                "stat": "99+",
+                "title": "Annual Filings",
+                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
