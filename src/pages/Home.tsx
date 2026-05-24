@@ -5,7 +5,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
-import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import {
   Rocket,
   CheckCircle2,
@@ -420,20 +420,14 @@ const StatsBar = () => {
             <div
               role="region"
               aria-label="Strategic Industry Partners — logos scroll horizontally left to right"
-              className="relative left-1/2 w-[100vw] -translate-x-1/2 overflow-hidden pb-4 pt-1"
+              className="relative left-1/2 w-[min(100vw,100dvw)] max-w-[min(100vw,100dvw)] -translate-x-1/2 overflow-x-hidden pb-4 pt-1"
             >
-              <motion.div
-                className="flex w-max flex-nowrap gap-6 px-5 sm:px-8 md:gap-10"
-                initial={false}
-                animate={prefersReducedMotion ? { x: 0 } : { x: ["-50%", "0%"] }}
-                transition={
+              <div
+                className={`flex w-max flex-nowrap gap-6 px-5 sm:px-8 md:gap-10${prefersReducedMotion ? "" : " partners-marquee-track"}`}
+                style={
                   prefersReducedMotion
                     ? undefined
-                    : {
-                        duration: marqueeDurationSec,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }
+                    : ({ "--partners-marquee-duration": `${marqueeDurationSec}s` } as CSSProperties)
                 }
               >
                 {marqueeItems.map((client, idx) => {
@@ -511,7 +505,7 @@ const StatsBar = () => {
                     </div>
                   );
                 })}
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
