@@ -275,9 +275,8 @@ const Hero = () => {
               href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative inline-flex min-h-12 flex-1 items-center justify-center gap-3 rounded-2xl bg-blue-600 px-8 py-3.5 text-center font-headline text-sm font-bold text-white shadow-[0_0_34px_-4px_rgba(37,99,235,0.45)] transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_44px_-4px_rgba(37,99,235,0.55)] active:translate-y-[1px] sm:min-h-[3.125rem] sm:flex-initial sm:py-4 sm:text-base"
+              className="group relative inline-flex min-h-12 flex-1 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-blue-600 px-8 py-3.5 text-center font-headline text-sm font-bold text-white shadow-[0_0_34px_-4px_rgba(37,99,235,0.45)] transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_44px_-4px_rgba(37,99,235,0.55)] active:translate-y-[1px] sm:min-h-[3.125rem] sm:flex-initial sm:py-4 sm:text-base"
             >
-              <div className="pointer-events-none absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
               {siteDetails.pages.home.hero.buttonText}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
