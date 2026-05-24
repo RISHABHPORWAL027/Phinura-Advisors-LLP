@@ -577,9 +577,8 @@ export function AdminDashboard() {
                   <div className="space-y-3 mt-4 pt-4 border-t border-outline-variant/20">
                     <label className="text-sm font-medium text-on-surface">Partner / client logos (under the label)</label>
                     <p className="text-xs text-on-surface-variant">
-                      Display name, website URL, and logo image for each tile in this strip. Paths like{" "}
-                      <code className="text-[10px] bg-surface-container px-1 rounded">/client_logo/your-file.png</code> work for files in{" "}
-                      <code className="text-[10px] bg-surface-container px-1 rounded">public/client_logo/</code>.
+                      Landmark partners (featured) appear first with a badge. Rows without logos are grouped at the end. Only{" "}
+                      <code className="text-[10px] bg-surface-container px-1 rounded">https://…</code> links open in a new tab.
                     </p>
                     {(formData.pages.home.statsPartners ?? []).map((p, index) => (
                       <div key={index} className="p-4 border border-outline-variant rounded-xl relative space-y-3 bg-surface-container-lowest">
@@ -596,12 +595,22 @@ export function AdminDashboard() {
                               className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm"
                               placeholder="Display name under logo"
                             />
+                            <label className="flex cursor-pointer items-center gap-2 text-[11px] font-semibold text-primary">
+                              <input
+                                type="checkbox"
+                                checked={Boolean((p as { featured?: boolean }).featured)}
+                                onChange={(e) =>
+                                  handleChange(["pages", "home", "statsPartners", index, "featured"], e.target.checked)
+                                }
+                              />
+                              Highlight as landmark partner
+                            </label>
                           </div>
                           <div className="space-y-1">
                             <label className="text-[10px] font-bold uppercase text-on-surface-variant">Website URL</label>
                             <input
                               type="text"
-                              value={p.url}
+                              value={p.url ?? ""}
                               onChange={(e) => handleChange(["pages", "home", "statsPartners", index, "url"], e.target.value)}
                               className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm font-mono"
                               placeholder="https://…"
@@ -617,6 +626,7 @@ export function AdminDashboard() {
                           name: "New partner",
                           url: "https://",
                           logo: "",
+                          featured: false,
                         })
                       }
                       className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"
@@ -818,6 +828,16 @@ export function AdminDashboard() {
                       placeholder="Trusted by Businesses Like Yours"
                     />
                   </div>
+                  <div className="space-y-2 mb-4">
+                    <label className="text-sm font-medium text-on-surface">Section subtitle</label>
+                    <input
+                      type="text"
+                      value={formData.pages.home.testimonialsSubtitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "home", "testimonialsSubtitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
+                      placeholder="Real stories from entrepreneurs who grow with us."
+                    />
+                  </div>
                   {formData.pages.home.testimonials.map((test, index) => (
                     <div key={index} className="p-4 border border-outline-variant rounded-xl relative space-y-2 mb-4 bg-surface-container-lowest">
                       <button onClick={() => handleArrayRemove(["pages", "home", "testimonials"], index)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">
@@ -827,9 +847,25 @@ export function AdminDashboard() {
                       <input type="text" value={test.role} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Author Role" />
                       <textarea rows={3} value={test.quote} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "quote"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Quote Text" />
                       <ImageUploadField label="Photo (optional)" value={test.image ?? ""} onChange={(val) => handleChange(["pages", "home", "testimonials", index, "image"], val)} />
+                      <ImageUploadField
+                        label="Company logo (optional)"
+                        value={test.companyLogo ?? ""}
+                        onChange={(val) => handleChange(["pages", "home", "testimonials", index, "companyLogo"], val)}
+                      />
                     </div>
                   ))}
-                  <button onClick={() => handleArrayAdd(["pages", "home", "testimonials"], {name: "John Doe", role: "CEO", quote: "Great service!", image: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6">
+                  <button
+                    onClick={() =>
+                      handleArrayAdd(["pages", "home", "testimonials"], {
+                        name: "John Doe",
+                        role: "CEO",
+                        quote: "Great service!",
+                        image: "",
+                        companyLogo: "",
+                      })
+                    }
+                    className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6"
+                  >
                     <Plus size={16} /> Add Testimonial
                   </button>
 
@@ -872,6 +908,52 @@ export function AdminDashboard() {
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-on-surface">Hero Subtitle</label>
                     <textarea rows={2} value={formData.pages.about.hero.subtitle} onChange={(e) => handleChange(["pages", "about", "hero", "subtitle"], e.target.value)} className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Hero Supporting Paragraph</label>
+                    <p className="text-xs text-on-surface-variant/80">Shown under the subtitle—wider audiences, bookkeeping, notices, board context.</p>
+                    <textarea
+                      rows={3}
+                      value={formData.pages.about.hero.body ?? ""}
+                      onChange={(e) => handleChange(["pages", "about", "hero", "body"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-y"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Hero Highlights (checklist tiles)</label>
+                    <p className="text-xs text-on-surface-variant/80">Short lines; appears as two columns on larger screens.</p>
+                    {(formData.pages.about.hero.highlights ?? []).map((item: string, i: number) => (
+                      <div key={i} className="flex gap-2 mb-2">
+                        <textarea
+                          rows={2}
+                          value={item}
+                          onChange={(e) => handleChange(["pages", "about", "hero", "highlights", i], e.target.value)}
+                          className="flex-1 p-3 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none"
+                        />
+                        <button type="button" onClick={() => handleArrayRemove(["pages", "about", "hero", "highlights"], i)} className="p-2 text-red-500 hover:bg-red-50 rounded-lg self-start">
+                          <Trash2 size={18} />
+                        </button>
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleArrayAdd(["pages", "about", "hero", "highlights"], "New highlight…")
+                      }
+                      className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mt-2"
+                    >
+                      <Plus size={16} /> Add Highlight
+                    </button>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Hero Photo Caption</label>
+                    <p className="text-xs text-on-surface-variant/80">Muted line under Get Started—the team/context under the immersive photo.</p>
+                    <textarea
+                      rows={2}
+                      value={formData.pages.about.hero.photoCaption ?? ""}
+                      onChange={(e) => handleChange(["pages", "about", "hero", "photoCaption"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none transition-all resize-none"
+                    />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -1113,6 +1195,30 @@ export function AdminDashboard() {
                     </div>
                   </div>
 
+                  <h3 className="mt-6 border-t border-outline-variant/30 pt-6 text-lg font-bold text-on-surface">
+                    Heading above service cards (/services grid)
+                  </h3>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Grid headline</label>
+                    <input
+                      type="text"
+                      value={formData.pages.services.gridTitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "services", "gridTitle"], e.target.value)}
+                      className="w-full rounded-xl border border-outline-variant bg-surface-container p-4 outline-none transition-all focus:border-primary"
+                      placeholder="What we help you with"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Grid supporting line</label>
+                    <textarea
+                      rows={2}
+                      value={formData.pages.services.gridSubtitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "services", "gridSubtitle"], e.target.value)}
+                      className="w-full resize-none rounded-xl border border-outline-variant bg-surface-container p-4 outline-none transition-all focus:border-primary"
+                      placeholder="Short description under the headline"
+                    />
+                  </div>
+
                   {/* Intro Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Intro Section (Below Hero)</h3>
                   <div className="space-y-4">
@@ -1154,7 +1260,31 @@ export function AdminDashboard() {
                       placeholder="Request a Call Back"
                     />
                   </div>
-                  
+                  <p className="text-sm font-medium text-on-surface">
+                    Consultation block (shown below deliverables/benefits on each{" "}
+                    <code className="text-xs rounded bg-surface-container px-1">/services/…</code> route). Preferred: tailor headline + paragraphs per service entry below—the site-wide fields here are backups for new routes or blanks.
+                  </p>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Default consultation headline</label>
+                    <input
+                      type="text"
+                      value={formData.pages.services.serviceDetailConsultationHeading ?? ""}
+                      onChange={(e) => handleChange(["pages", "services", "serviceDetailConsultationHeading"], e.target.value)}
+                      className="w-full rounded-xl border border-outline-variant bg-surface-container p-4 outline-none transition-all focus:border-primary"
+                      placeholder="Consultation — how we can help"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Default consultation paragraphs</label>
+                    <textarea
+                      rows={8}
+                      value={formData.pages.services.serviceDetailConsultationClosing ?? ""}
+                      onChange={(e) => handleChange(["pages", "services", "serviceDetailConsultationClosing"], e.target.value)}
+                      className="w-full resize-y rounded-xl border border-outline-variant bg-surface-container p-4 outline-none transition-all focus:border-primary"
+                      placeholder="How consultation works across services (use blank lines between paragraphs)."
+                    />
+                  </div>
+
                   {/* Stats CTA Section */}
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Bottom CTA Stats Region</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
@@ -1310,7 +1440,30 @@ export function AdminDashboard() {
                         </div>
                       </div>
 
-                      <div className="space-y-1 mt-4 pt-4 border-t border-outline-variant/20">
+                      <div className="mt-4 space-y-2 border-t border-outline-variant/20 pt-4">
+                        <label className="text-xs font-bold uppercase text-primary">
+                          Consultation headline (topic-specific; blank inherits Services default above)
+                        </label>
+                        <input
+                          type="text"
+                          value={service.consultationHeading ?? ""}
+                          onChange={(e) => handleChange(["pages", "services", "serviceList", i, "consultationHeading"], e.target.value)}
+                          className="w-full rounded-lg border bg-surface-container p-2 outline-none"
+                          placeholder="Consultation: how we can help"
+                        />
+                        <label className="text-xs font-bold uppercase text-on-surface-variant">
+                          Consultation paragraphs (topic-specific – blank inherits Services default; use blank lines between paragraphs)
+                        </label>
+                        <textarea
+                          rows={5}
+                          value={service.consultationClosing ?? ""}
+                          onChange={(e) => handleChange(["pages", "services", "serviceList", i, "consultationClosing"], e.target.value)}
+                          className="w-full resize-y rounded-lg border bg-surface-container p-2 outline-none"
+                          placeholder="Optional: how consultation works and how you help—shown under Key Deliverables / Strategic Benefits."
+                        />
+                      </div>
+
+                      <div className="mt-4 space-y-1 border-t border-outline-variant/20 pt-4">
                         <label className="text-xs font-bold text-primary uppercase">Detail Page: CTA Title</label>
                         <input type="text" value={service.ctaTitle} onChange={(e) => handleChange(["pages", "services", "serviceList", i, "ctaTitle"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="CTA Block Title" />
                       </div>
@@ -1351,6 +1504,8 @@ export function AdminDashboard() {
                       ctaTitle: "Ready to start?",
                       ctaSubtitle: "",
                       callBackLinkText: "",
+                      consultationHeading: "",
+                      consultationClosing: "",
                       deliverables: [],
                       benefits: [],
                     })} 

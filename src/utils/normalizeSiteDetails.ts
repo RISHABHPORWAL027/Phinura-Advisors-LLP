@@ -54,6 +54,8 @@ function coerceServiceRow(raw: unknown): UnknownRecord {
   if (out.longDescription == null && s.long_description != null) out.longDescription = s.long_description;
   if (out.ctaTitle == null && s.cta_title != null) out.ctaTitle = s.cta_title;
   if (out.subtitle == null && s.hero_subtitle != null) out.subtitle = s.hero_subtitle;
+  if (out.consultationClosing == null && s.consultation_closing != null) out.consultationClosing = s.consultation_closing;
+  if (out.consultationHeading == null && s.consultation_heading != null) out.consultationHeading = s.consultation_heading;
   if ((out.id == null || out.id === "") && s.slug != null) out.id = s.slug;
 
   for (const key of ["deliverables", "benefits"] as const) {
@@ -74,6 +76,8 @@ function coerceServiceRow(raw: unknown): UnknownRecord {
   delete out.long_description;
   delete out.cta_title;
   delete out.hero_subtitle;
+  delete out.consultation_closing;
+  delete out.consultation_heading;
 
   const detailStringKeys = [
     "heroTitle",
@@ -84,6 +88,8 @@ function coerceServiceRow(raw: unknown): UnknownRecord {
     "category",
     "ctaSubtitle",
     "callBackLinkText",
+    "consultationHeading",
+    "consultationClosing",
   ] as const;
   for (const k of detailStringKeys) {
     const v = out[k];
@@ -135,6 +141,8 @@ function mergeServiceLists(defaultList: unknown[], incomingList: unknown[]): unk
       "category",
       "ctaSubtitle",
       "callBackLinkText",
+      "consultationHeading",
+      "consultationClosing",
     ] as const;
     for (const k of detailKeys) {
       const m = merged[k];

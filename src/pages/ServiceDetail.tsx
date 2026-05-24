@@ -6,6 +6,17 @@ import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import detailsBg from "../Assets/details_page_bg.avif";
 
+const SERVICE_DETAIL_FALLBACK_CONSULTATION_HEADING = "Consultation — how we can help";
+
+/** Topic-neutral prose when CMS has no usable consultation body. */
+const SERVICE_DETAIL_FALLBACK_CONSULTATION_CLOSING = [
+  "We start from how your business runs day to day—that tells us which MCA, GST, tax, trademark, or allied obligations actually apply.",
+  "",
+  "On consultation we listen first: what deadlines worry you and what paperwork you already have. Then we map a sensible sequence—what we prepare, what you submit on government portals—and we explain steps in ordinary language before you authorise filings.",
+  "",
+  "MCA, GST, and income-tax cycles often overlap; we keep work coordinated instead of reinventing data in isolation. Reach us on WhatsApp or call for a clear next step, not jargon.",
+].join("\n");
+
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const { data, loading } = useCMS();
@@ -71,37 +82,56 @@ export const ServiceDetail = () => {
     data.pages.services.serviceDetailCallBackLinkText ||
     "Request a Call Back";
   const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
+  const servicesPage = data.pages.services;
+  const globalConsultationHeading =
+    typeof servicesPage.serviceDetailConsultationHeading === "string"
+      ? servicesPage.serviceDetailConsultationHeading.trim()
+      : "";
+  const globalConsultationClosing =
+    typeof servicesPage.serviceDetailConsultationClosing === "string"
+      ? servicesPage.serviceDetailConsultationClosing.trim()
+      : "";
+  const perConsultationHeading =
+    typeof service.consultationHeading === "string" ? service.consultationHeading.trim() : "";
+  const perConsultationClosing =
+    typeof service.consultationClosing === "string" ? service.consultationClosing.trim() : "";
+
+  /** Prefer per-service (topic-specific copy in bundled JSON/CMS), then site-wide defaults, then app fallback. */
+  const consultationHeading =
+    perConsultationHeading || globalConsultationHeading || SERVICE_DETAIL_FALLBACK_CONSULTATION_HEADING;
+  const consultationClosing =
+    perConsultationClosing || globalConsultationClosing || SERVICE_DETAIL_FALLBACK_CONSULTATION_CLOSING;
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section — mobile: extra top padding, taller banner, bottom padding below CTA */}
-      <section className="relative flex min-h-[min(82vh,760px)] flex-col justify-start pt-28 pb-16 md:min-h-[600px] md:justify-center md:pt-20 md:pb-0 overflow-hidden">
+      {/* Hero — fluid padding so long subtitles (e.g. Allied compliance) don’t sit flush to edges */}
+      <section className="relative overflow-hidden pt-[7.25rem] pb-20 sm:pb-24 md:pt-28 md:pb-28 lg:pt-32 lg:pb-32">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 min-h-[100%]">
           <img
             src={detailsBg}
             alt="Architectural Background"
-            className="h-full w-full object-cover"
+            className="h-full min-h-[520px] w-full object-cover md:min-h-full"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/40"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl pb-4"
           >
-            <span className="inline-block py-1 px-3 bg-secondary text-white rounded-full text-[10px] font-bold uppercase tracking-widest mb-6">
+            <span className="mb-6 inline-block rounded-full bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
               {category}
             </span>
-            <h1 className="text-5xl md:text-7xl font-headline font-extrabold text-white mb-8 leading-tight tracking-tighter">
+            <h1 className="mb-6 font-headline text-5xl font-extrabold leading-tight tracking-tighter text-white md:mb-8 md:text-7xl">
               {heroTitle}
             </h1>
-            <p className="text-xl text-white/80 leading-relaxed mb-10">
+            <p className="mb-10 text-xl leading-relaxed text-white/85 md:mb-12 md:max-w-2xl">
               {subtitle}
             </p>
             {whatsappPhone ? (
@@ -109,14 +139,14 @@ export const ServiceDetail = () => {
                 href={`https://wa.me/${whatsappPhone}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
+                className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl bg-white px-8 py-4 font-headline font-bold text-primary transition-colors hover:bg-slate-100"
               >
                 {data.pages.home.hero.buttonText}
               </a>
             ) : (
               <AppLink
                 to="/contact"
-                className="inline-block bg-white text-primary px-8 py-4 rounded-xl font-headline font-bold hover:bg-slate-100 transition-colors cursor-pointer"
+                className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl bg-white px-8 py-4 font-headline font-bold text-primary transition-colors hover:bg-slate-100"
               >
                 Contact Us
               </AppLink>
@@ -126,7 +156,7 @@ export const ServiceDetail = () => {
       </section>
 
       {/* Content Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="bg-white pb-14 pt-14 md:pb-20 md:pt-16 lg:pt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl">
             <motion.div
@@ -137,14 +167,14 @@ export const ServiceDetail = () => {
               <h2 className="text-4xl font-headline font-extrabold text-primary mb-2">
                 {mainHeading}
               </h2>
-              <div className="w-20 h-1.5 bg-secondary mb-12 rounded-full"></div>
+              <div className="w-20 h-1.5 bg-secondary mb-10 md:mb-12 rounded-full"></div>
 
-              <div className="space-y-8 text-on-surface-variant text-lg leading-relaxed mb-16 whitespace-pre-line">
+              <div className="space-y-8 text-on-surface-variant text-lg leading-relaxed mb-12 md:mb-16 whitespace-pre-line">
                 {longDescription}
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -187,12 +217,32 @@ export const ServiceDetail = () => {
                 </ul>
               </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mt-14 border-t border-outline-variant/25 pt-12 md:mt-16 md:pt-14"
+              aria-labelledby="service-consultation-heading"
+            >
+              <h3
+                id="service-consultation-heading"
+                className="mb-8 flex items-center gap-3 font-headline text-xl font-bold text-primary"
+              >
+                <MessageSquare className="h-6 w-6 shrink-0 text-secondary" aria-hidden />
+                {consultationHeading}
+              </h3>
+              <div className="space-y-6 text-lg leading-relaxed text-on-surface-variant whitespace-pre-line">
+                {consultationClosing}
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 px-6 bg-surface-container-lowest">
+      {/* CTA Section — generous vertical rhythm above/below the card */}
+      <section className="bg-surface-container-lowest px-6 py-14 md:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -202,11 +252,14 @@ export const ServiceDetail = () => {
             style={{ transformStyle: "preserve-3d" }}
             className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/20 transition-all duration-500 md:rounded-[3rem]"
           >
-            <CtaImageCard className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]" contentClassName="p-8 md:p-20">
-            <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8">
+            <CtaImageCard
+              className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
+              contentClassName="px-8 py-14 md:px-14 md:py-20 lg:px-16 lg:py-24"
+            >
+            <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-6 md:mb-8 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">
               {ctaTitle}
             </h2>
-            <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto">
+            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-on-primary/90 md:mb-12 md:text-xl font-normal tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
               {ctaBlockSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

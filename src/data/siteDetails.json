@@ -20,9 +20,9 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "You run the business. We handle the compliance.",
-        "subtitle": "GST, income tax, company registration, MCA filings, and books — explained in simple words and filed on time. 5+ years helping Indian owners and MSMEs stay on track without the stress.",
-        "badge": "CA & CS support for growing businesses",
+        "title": "The Standard of Financial Integrity.",
+        "subtitle": "Hands-on support with MCA filings, GST, and income tax for startups and established businesses.",
+        "badge": "CA & CS Support for Growing Businesses",
         "buttonText": "Get Free Quote",
         "secondaryButtonText": "Talk to Expert",
         "videoUrl": "/homebanner.webm",
@@ -31,19 +31,15 @@
       "statsTitle": "Strategic Industry Partners",
       "statsPartners": [
         {
+          "name": "Kamal Watch & Company",
+          "url": "https://www.kamalwatch.com/",
+          "logo": "/client_logo/kamal_watch_company.jpeg",
+          "featured": true
+        },
+        {
           "name": "Goel Distributors",
           "url": "https://goel-distributors-react.vercel.app/",
           "logo": "/client_logo/goel-logo.jpg"
-        },
-        {
-          "name": "Rochana International Trading",
-          "url": "https://rochanainternationaltrading.com/",
-          "logo": "/client_logo/rochanainternational_logo.png"
-        },
-        {
-          "name": "Shree Om Pharmacy",
-          "url": "https://www.instagram.com/shreeompharmacy/",
-          "logo": "/client_logo/om_shree_logo.jpg"
         },
         {
           "name": "Rochana Industries",
@@ -51,9 +47,74 @@
           "logo": "/client_logo/Rochana_Logo.png"
         },
         {
-          "name": "Homes and Beyond",
+          "name": "Shree Om Pharmacy",
+          "url": "https://www.instagram.com/shreeompharmacy/",
+          "logo": "/client_logo/om_shree_logo.jpg"
+        },
+        {
+          "name": "Shri Gupta Drug Mart",
+          "url": "",
+          "logo": "/client_logo/gupta_durg_mart.jpeg"
+        },
+        {
+          "name": "Telangana Drug Mart",
+          "url": "",
+          "logo": "/client_logo/telangana-drug-mart.jpeg"
+        },
+        {
+          "name": "Liberty 21",
+          "url": "",
+          "logo": "/client_logo/liberty_21.jpeg"
+        },
+        {
+          "name": "Nikansh Infratech",
+          "url": "",
+          "logo": "/client_logo/nikansh-infratech.png"
+        },
+        {
+          "name": "Synergy Rail",
+          "url": "",
+          "logo": "/client_logo/synergy-rail.jpeg"
+        },
+        {
+          "name": "Tomato Tailored Furniture",
+          "url": "",
+          "logo": "/client_logo/tomato-tailored-furniture.webp"
+        },
+        {
+          "name": "Dstar Properties",
+          "url": "",
+          "logo": "/client_logo/dstar-properties.jpeg"
+        },
+        {
+          "name": "Lovevision Matrimony",
+          "url": "https://lovevisionmatrimony.com/",
+          "logo": "/client_logo/lovevision-matrimony.avif"
+        },
+        {
+          "name": "Cozy Cups LLP",
+          "url": "",
+          "logo": "/client_logo/cozy-cups-llp.avif"
+        },
+        {
+          "name": "Sindoor Infra",
+          "url": "",
+          "logo": "/client_logo/sindoor-infra.jpeg"
+        },
+        {
+          "name": "Homes & Beyond Aesthetic Tiles",
           "url": "https://homesandbeyond.in/",
-          "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABYCAYAAACwPrjdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA+dpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDUtMjZUMjA6MzI6NDMrMDU6MzAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTA1LTI2VDIwOjMzOjMzKzA1OjMwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTA1LTI2VDIwOjMzOjMzKzA1OjMwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3QkFCMkU0MUZCRDYxMUVEOEYxREI5NjNGRDRBQjc0NSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3QkFCMkU0MkZCRDYxMUVEOEYxREI5NjNGRDRBQjc0NSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdCQUIyRTNGRkJENjExRUQ4RjFEQjk2M0ZENEFCNzQ1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdCQUIyRTQwRkJENjExRUQ4RjFEQjk2M0ZENEFCNzQ1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+6McROgAAVQpJREFUeNrsfQV4VEfX/1333ezG3d1dkOAe3LVIi7QvxVpoqSCFFim0BVpKkUJb3N2DBQlxd/dkN+su/5kbYRM2IQTS7/v+b+ZhH7L33p07cux35swZjE6nQ3pLb+kthgu2dwh6S2/pZZDe0lt6GaS39JZeBuktveVfLPj/jY1qrMjy1KqVBGOHgDT4XadVY3MfHF0k5VVZqNVKjXPU1HPGdr45vdPXW/5rNEjyuc3fvfxn3U/w77g/lp2OP7H+15Z7GrWSlHP34BockSKisS2r8ASysv3vC5+fnVCafGtw75T2lv/TDAI0A7Y+/3morLHaTP+6hFvhkvfw6Ed1eS+CyAzjcq1KQVQrpGR4D4PBIngSVc2vzAkR1BSE4Ml0fvt685+cWKoUc61avtcXp/jUFSYG9E5xb/k/Y2JJG6ssXhxZcQiwiUbaWO0UMuuHxeYe/eLgPbatd6Kwttgi685vn1LYliVarYYk4VXYsyzdcjVqBRGLIyjdoufupRhZ8MgMjli/XpVcTJEJuSbmbhGPW669PLPpZ41KTolZfz2q6OWlEba+Qx4RyDRp75T3lv+1GqTw4bFPqMY2JQNXnR3rMWzZD6kXvt+m02rQNlCNrMroJnblClGDrVohNqNyrAr5VfkuTVpHrdFqVIq0q7u/ff7PFz9WZjzsp18vtyzDH4PF6himdmXwu6iu2J5fne+MxZP4NXnPQhLO/7BDp9Ngeqe7t/yv0iClLy+PMHEJS6CxLRqQJltJi8VgUEK1DR5zIffu/nVqhYRKoDDFbDufFEF1nov7oPl71EoZk23jnYojNmENMp0jHrbm3FCgSegquQRPZpjw9N+jlDQaWXn0u47B4rXwe3bsn0vsA4ZfQrA4RfzZLZscgkZdIFKYEnivIv1+X0FtkYv3kEV/9k5/b3lTwfREqAnAGYBWibrE41/8qJIJOREL981HJXttkePDn2fedew36xd+RZYPFnBL5IJ9HwLGeW+N0Om0mNjfPjoUOHbVtvynpxekXv3586nb4p1Ylq7F8L6wrsT27r4FpwHgF/aZtXW1iYN/Ri8Z9JZ/TYPIBLWc538s/Tts/i8fMCycs5L+/uygQ8SUoxbeAx4wzJ2K+yz+fUL+w6MLWdae6e6DF+03xByQweT8Wgs5v9pGLqy1VMlEJkoJn4rotFg8ha7AkWgCEt2kjsQ0qwKYpIrEMBa2cjwGqxuweP9CLA6v49j6JDiFTTjewhywEKksAPAxOGM7n6SCFxfH9TJIb/l3NYhOh0k9u3Fb8bPT0y19hlw3svOJL3hw5PPBn13qS2aZNXQI4BtKbbj5T/tz854PFlXnBssFtY5quYipUatgpQhsJvpB+QkDaRwBWkqDp7FqqWybPLZ9wAsT17BYY8fgZySmqVBPo6BesJZyf//io3giVdx/we6Pe6e/t/z7GARoBO+YNd9Upt4cb+k/9JpdcMwVoBEo0NMEGKTNo2q5mFSXfmd0deKlD3hFL4crRXVELeACDJYAiR9BcHgAI5qaCFA6UC3a5lcABsFCotfhVJJGK56g3qq+MH5AfuzBtWSmeYWJa+R1u/CJf1t6Rz/WZ466wkT/hpI0v3Hf3Oiv346SxOvDE6/s/mzYJ4fnMExsq3vJorf0KAaBpSrt9vCcW3vXDFh5ZiQWT1K3Ywxy1fOTi0oeHF4jrsmzx1NZCMXEKYdu4ZJCM3fOIRtZlRLpnHoI3iFvgDbilVI+QyluNJU2VtpK6ktcxfWlnlJepYtKymdqAeNgAENh8QREq1EjGqUcMBAOYTsEPHAdsGC3bXDMZQxgKOgQkIsbaXRjm/qWtjSUpPrc2DXjjkvU1L01eU+HRUzb+Lmle+SLXtLoLT3KILDIBXUcMsu0Eb6mlXFenJlReGPX98CEsmW7RNwx9RtxmuMS/ohm4lCEJZC0XXYEAEaQNVZZCyoyAupy4gbVF7wYIqop8NMCTQNMKGCKYQBDyIDSUSMmLmF3fGPWfGXm3idev47Gqjzn2D8+/gtoKYmVe9+HJg5+8WqVjOIWNfVSL2n0lh5nkDYYo67QMfv0+r2S2gJfi5CJR6wiph6hm7uUvK/6NSo5DjBKv5KnJz+syYqdpFbJSTgiDYG9UyulwGzDq1wGzN/uF7NmE55ERd3HGXf+WJh0edfGSZvu+6ffOfCxQ9DosxYuIVm9ZNFb/lUGqY4/M730/u+fAW1x0S564S8EGlvQk+/jFiX45N7747Oq1NtztDotsL4oCNQscqkQMXEKeRwx98f5RtYehfDZ9Fv7l2Q9+GvRyJXHRzPN7Gtb6pDwa4yxOIKKouch6y29DPJ+HVpaDb7oxu4Vcl6Fq9PIFVsoJg5l/2bnqjPuR6dd/GFbY3l6OJ7MQLTA7FLJxAiBxqmK+uCnGTZ+gx/B54oTrw82snQtZFu5ohqtpuBl4L39i4+zLFyzR686PgmDxfXuS+5lkPdb1HIRrfzR0ZkUI8t6i7BJFw09I+JVm+Tf3vsfz8GLDlFMHXuEeQAwJ2Zc/XF97r1DX+mwoOCIiEopAyCeIAmbtX26a9Skq3q4Bpf14Ni8h4dXHOwz6/slMlGDFZ5AUoZOXLf1bd/bWJzoLxfUmOEIZA0GaCKkZZx1WqxaKSPhSFShiUtkgrAyy1PWWG0OF1axeIKy2YkN3dPwOTLAU0Jj14gEUI/qNQGk0yK8khR/fklylKS+1FmrUWGxBLKSZuqQx3EMesa2883uaG4AZgvSqhQ0HJEqxWAwTa0D9YH3SUxcI5Le1L/6/OfBaoWUinoJMagwxGqUchKewmw0dghI5ZYkB6ikQg6ORJFjMDhNE7WBMVYpSaCdBLSfGKwOi8OpYZwd9ODDR0ydQ5MIZLqk/fvEDaXWpQlXJnPLMv01aiWeaeZQbB885pyJY2CaUiqkVGU97OsQEnPnfdNPj4SaaBRSQl36fW8zvxG3aBYuBgmfV5njfOO3jw8QatMGKXLvL7AdvW6ZTci4K++9gySaMmDSN98aOwY/jz++7ohCzDfHAZNLrVbSnhxZfgYQ5gTnsJib8NmK9AeROQ//XhQ1a+uShtK0SDLTpKI2P35YdxgET6IrlFIRK+/6hp+UwjprgIFQAgTvk7uN+Ww52yHwJXSJ40D7ACNQcy99v13WUOIOmAl9Djyo8oj57D/GTiHxkJDa11+ZfH1Ewb39X/CKEvvDRVOb0AlHWdaeBcKaApec67u+V4q5ZiYuEXdchy7dauEz+EEbqYjFaQlkhqK2MDki986vP+h0aixcV9LpNKBJONWQddd8WDbeeR31jVeW7nn/xykJ6HIUYBCdVg2jraV+47/4mMOxroEaFxC5gl+eaZ9+ddePoH80+Bx0rDAtXfPpxjaFoEMYpVRAkzZW24vrS21Bo1Av5KivbgaybX1T9N9X8OTE7PjjX+6hsi0rnaOm/UWksfi8sgzvB78tOs2x9c4Cv5XR2Ja8nmCQHtEgaqmAACYaTD5Vbeh+VU5cRMb9P+ey7fySq+/t2c8m4bF8qRSxipy1w3/il19Bou4RbFKW7vH498XnRPUlXngyHVGpFJAQhUOX/z3Y0j0yAQB9olarBYJZTTz5RVSOmVPQ7dDxn+8wtvPp9uas/Ou71+fd/Ok7aOJpFBLEzHfo6ZBFB6a1f67owaFPMs9u2AMkMKJVShG2W78bUR8fG2XAbEUyzm3aWvTwzy80GiVi7BT6NOzDA2MpRhbcV97DWuPnBz68yC143hdLoOjchi37xnvs2u8MtS92x7g4Xnm6Hw5HoCPQBJWKENeBC34MmLZ5TUd9Sj759fbi56c/0iEYFhT8QJMglj6DLvX/+Oj49s8+3DvnQlXmg/HQs6iSCZGQGVs/dRs4/5eW+0qZiFKd9TA65fyWfRJepdPI9TcCYBxey/3SxKujH+ybfxVgxszhay+HkulsWasFUl9qFbvvg4tVWY9CQ6du/Cl48lcr3zfN9Eg0L57KUnXEHKWJ10Zk3D6wpN+sLV9buATn6tRKLJSacADzYg9/dm3bhPt1RcnePdEuuAtxyIoTQ9k2XikQi+DwRESjUjAfHFh2WtxQYQ7MGCWBRFU9PLL6Jwf/YedHLD+28F2YAxYSy4yrR97wndIONJ0KaYrjROBiKYnKqjP0XObFLVsK7x/4AkckQywlCpi1c7Y+c8BCZplzg+funkVmWQiAVMbk3Phpc9bVH9cZqo9AYcgtfQYfg4GkTe2gIBXJ1+coRA1Ghp4H19kNRQl97cMm/qNVy18REhYnMyiBsTg9OsBALULQv0+kMGTAVLoZtWDPRAysQ6fDtQpapYyYdnnnNq1ahdj4DbmmzxywMEztq4asODXUyNqzSiFpZPQEzfyr4e4Fj/+ZUZp4ZXz0wp+XUwDhSPl1bHQ9vPlDANITSPk+57dNfJJw8/f5PdEGOhjU/ksOjaYZ2+aACUCgh0vSWOX46Ojqg9BUgCVi2rfr+83b+WkrUUgEtGenNn1ZV9wNxsXi2uEGncGwexhk2R5ftC816XcHFt4/+CWBagTd2ggwnc6yrNyKDdXHMHcus/QbelqrViIEMhPJvbl3S33e87DXtD0wf6wDRlxjWbolAHwA3eGIjF9tVpZwaaqhekuen53NsvZIM7L1SdeolF3oV/vrrywWoFFo/MpslybsEZJq6hp+H2DGVkIH5qIr0BLegIkQXmlqiP5vWwrVyEzgNXzZ93JhA/X/NIPk3Nq3rKEoMbTP/J+Wk2hGwqbJkRLbdxpqEo1aZXT7yGeHz/00/4iIV2P8vtvCNLOvGrD04Hg8iVGvQQmIjpSn3R2TfuePpShxGdvUwZV3CHqzHxybffbbIXHc8iw/MtXo7d3TrSasrlUQdNMliBTc+/0b2C5U04B6gVlztVON6RL+AGU0FCdosHl3f/vKgMmGJTNMGu3CJx+ATIcSBZ6ElDw7sxT0H9fuWUxJ/MWZLv3n7gffCN3oRJtv/Mocn/KkazNavjuGTfxLf7co0PJMKLSgtgRYcNDTP1fvVUj4tPa12gcMu0kzti75P8sg6Re2rpcL680j5u5chdPbT47FYolYjCGhi0dIQJukxf79QWnWk349Ym7Z++ZGztk+V6dRaSGxQSZJvLxrq6Cm0LZFgt8/uHxP2p0/Pu43Z+uqMWtOTmeaO1b8K9LEABcJqvJc+WVpfXEESpOpRqJqmJZunS5qUtjWJSjobzaduIUvh4jrSqxfc6qo5DSb4LGnSIBREADUsQQSwq/ICqjNfjRA/7m6nCf9sRiMjuMYmKJRyijv2s26goQIaOK2fHeOmnpKH3/QTe1KCGSGRIdGR1CQwrgTH1/fOio+98GxuaDNrQzKsnAuDJr4xdbOvapiqoRbbvW/ikF0GjUu5cS67YApZAFTNnyLYNq+TqNUkLGoNOzAfqcyEDqr7eao91mcQmNueg5e9INSLgJMSQCmFN8o/vw2FMxCr0vQmOW7J2+419fOf+j990X5cEXf0B0cgSTrTL8IKzODNUopHmoPnVYLpCpVSKRxGjrFP3Q2H2AeUGmTFoEBo4KqbP/XGEQNoBfNSGzlN/QUDM9paWvR43/aRDwXPPp7sV3o+OOGTMKu9h/0E1VTchGPmv/w6MdAW6k6eprGsa62DRxxDIJ7GDoEHStSXqXXi38+P3pj6+j4/CfHZ4O2Q1+aDjCSuKN6Sp6emhZ/ZPnBrOs/r3h6+D+/qqRC+v+om7eZY2mpJ9btNHIIeuk8cMFhQ88oZUIiptn0MDSYgGh1AKzyepKJQyas21iV/WQUrzIngAgmoDDx6izv3Ge7rdwjUzjWngUtzzWUpXsVPL8wicoyr/MePP8gIDzNW0sjIP0FpSkDk458cqR5uaOl7zpZY6UHIPoOfwtwgU3rQKHrFTQpjkSTdfY+SIzQbQskMLFprUKLKAR1Nh1pLKe+M38vi7/wEbiAhaZuXe6T0fyKbFcjG898KbfCSlid5xsy6/uPu6j0DLSHjFRnPRgiE9YblyXfmAjqc8URSZ3mCQic8OUXvNL04IbSlDAilYVGecMPvzo/IO7Iyr/yHx9fGDZ983ITx8B0Q7/nl6X6p5z88q/o1edD2Pb+afd+mnGpJP7CTNcB8w78j2kQhbDONOXYit/MvAfd6Yg5Wkys5h24bQYaup51KBGQ5WS6UY+GesC4rLDJX32qQ/3dgF2B3Z12+4/P9Z8pfHlpzPVdM68AsG5WmnZ31NOT3/zQPQUCNAgOryHSjJTgo9D7KHFEiroFrxgiNqBt8fpjhMXhNHBTWOevQ5G+th2OwHdE3hzH4BSOc0gsGg0NXb5yCbHwyfEP0TF4cmK+iXNwHGqGdXdNAYtDJLwql5rsx0OkDWVeYCzeyFhkpolg4PK/RtmHjPsLajeNStbC/AiRykQaipMH3P5xyqOK9Hv9Dbr2i1NCwTAQgLlZ0UTwOsD7TOH/mAaR1hU5Zp/f+L19vw9+N/UeGPsG4EnBIk06pD2AhfRKIJLFQKqLetrkt/Ed9MghcMSZosRrU4GtgZRn3J/Aq8x14li7F6Gu1ft/ftpv7raljkGjbkOaO7thyDO5mMck0zldHOimnkG3KMvW56HP1O8Wt3+i4uX5eQ25j/visIaxL4lhzENaZAkgXmC7E7RqBR4uenbyWji/rUAbCiMClcXtTPbbR0z9tT4nbnALbqlOuzVbMnTJ9pqs2DHBM7YsfRfzUq2QIC59Zux3HfDBvrr8+MA7OyfG6TSaN4J9qpEFd8DSg3PLkm8eS7/+8wZucXIfuL0BMgmeTEM0CpnR06NrToz+8logjWPVxj3OtHDJ1qrkSF32gyFifj0bmKWVJs6hscBUM9dq1UQsjqiksi1r/xUNIixL8c8+9+12p+HLt72ROVD3aSMRwXTEO1qESKaJiCSq5N/AxQGjl2/GNdvDCqmQnPv0zOzWCWKalQlri13lIi475dreVTgcUQUYSf42zKF7tQ5ANPQUTFHUbHUZHBKGuXM2uhrfjI8AsTGBbd6pLa2SixgwQyWKW4DAAeBbx7R07RTY2waMuE43dyrUalSoy1cpabR8fviTI2SWeSXHITDlHREYxDtorjMz17Bk1/6z94N+0Dp6Xi6sZ8sEdZyW73aBI+6OXHupf9QHu2ezLFxSAKZCN9FBAC8GALzw+fnp7etgO/jHk5hm/JQzG34lkqniPh/++pFczDW68cOY+Pu/LT7Mrymy+1dMLF7Ow+ii67vWe0z45gu2Y3Byl1SuTkfEdsAhUFKTKAwBgURR/hsMYuoYmGHtPeBKy9pIcfKtqUBK45twymebihOvTbrw3ei7JSm3Rg5YsPsjIL2U3aCQjsfiDQ8b2fkmw/33MFwDPg2IgybhVnY6uXJBrRVcB2liTBVCN3XIYli6dbrwCYCwHADxQxqlrNUsqsuLG+MYMenP9z3mtoGjLmCxuDYYpL4o0a8q80Gf5r8j8x78ubANweKJWpe+M/4Zue5KuPfwpRvBHKHWMYyxE1TntkkUKK4vsUk/u+kHwNg3gcY3phrbVDV5MP1zgalYFTVn2yorzz4ve5xB6pMuT6h6cmyxx7Qf/kOzcC3oMmjFYigoBNEZtJ8RIoXJa+/56sniNWDOr9DYgzFB/JoCr7qSVF+UOC1cSsd+cXnwmM/OjJzw1bWhHBvPHskL3FnUD4FqJLYMHP0nNFNQSxoQPL80JbKz+vhlacEtC45wT4xd2KTfDAU9vrauED75GBG8DzoDtBolwrbxzrX0GXy7G3zfaeHY+WRY+w5pE39X+PTUfGA6oq5fmGK2PPX2NMTAoimBTFOGTP5mg0vfmXtU6Jjo4Gp+66q9uK7I/slP02JN3CKfhn+4fyaVY13+8u/Pj0L3cHnKzSGWnv2vmjj4p/c4SK+JO7aQl3l7jMfM3YvJbKvat/mtSiYiAiYxOMDQxKLQ2TzkXyzWXv0esS3dcmFoA5BMmNLMR0NaBwoAYoaJbd1bA9OWSNkumB9vKs4DF/1I4diUaQFQhZ6cquTrMwytuDe52FXY6rQ7U+CaBoyVYtv6Jjv1n3Podc2Fec2NSDe1r7TwGngealM1AOx2oeMOAayjbNex7gF1vcBLEp3TaOIc0irBGyuyXcqTb85gWbpmN3n9yNKGkuTggmfnJnZUn0PYuJPoQijQrCZOwU9armdd+G43hcGR2oZOOAeEgi5g8rdLxHUltk8OLD1Snfkw2mfkf/b2uBer8t7e1eKKDH+3mbuW4KnMtwbTWgA0MXqEoQ/W4cRT6EYN/yaDANNKZes76CJgDnSxsrYgodUzotVqcMBeta/IeBCdcffQh3f2L/21Jj8+6I1CQCHD6YtZIOW0HRCOut331xwoMO1q8OydMwDhCODiGdAQocWP/5pjqL68e38sE1Tl+kBmJ9I5FeB3MwnAfHptDtQqvCFz0anfzN/g/0QaWwLjrgwwvrqtNdBBv9Drr6IJNBqVQc7iV+Y4Pf5jyVnwPI7MNGtJnKHD4UhI4pkN+xuKk30N4t6aAg8gaIGW88x2DB17vqlPCpKgPH0IEA6KVkdM0JjrLgPm7S94+OcsYEYqSbSmqAiFhE+V8KpM3rsXq/bxkWUqYZ2Fy7Tty7tbBw6LpahbGeJ1E4vKMPlXGQS1i30GXE+7/ftaIKKBmVXoA2x9MiQsmO8r9o9lR2RCriWRyhKBSSwqT78/wsI1LMmwk0GDgWtB3NxHIyAO0GBkqLkiqskPUgjrjYl0diPMBNn8HLU262E0jIXSYGUoXmgsTekjbawyp7DM6lsyRqJYyaPf04glh4eknf76d355RlDa6W+OadVqol34xDMEClMIgDuj+Ompuennv9sDkAdi7BLxIHDG9x+xrD3z2zKGEl+b/bgPtyQpqPTlpXkcp5AEGALUsjnM1C3iOdPCNZtm5pBDM7Gr0u+XUiqk1+bERcF+QS0D/xfWFgYAUM0hof3C6eBzclGDiaim0B99DmlyFBTGnVxIN7HLJZBofPAiIsRJ1TlPBpYnXZ8lFdSSLL36JwDzSaEnmKCjwPTWjgnPA8avW+PSZ9o/JBpbCC2M8rS7Q+NPfruHyraqipq3ayaYF3GTtieo6GbOL6oz7w8penjkQ3PvQbcEVXleGrkUbxM46mH6td2bFGKelbXfkCtFL6+MDIxZtQsudXWAk7tnQZZe/f47jufA2wzniEfdJca4A0tOavLvT9PgyYhEqUakavBRaRCJSo3wBTxk0Jytn0bG/Kc1NLok7X6fvCcnPrCxdipzHfbxj4Ag3nsyaqmwgXHq64H5ANSZI2Cgp2245cmxci+EG5iAttPWFad4Zdw9uNK934yDGfcOLR/+yZFZhuopf3ZyOr88LUhaXxICmE3XAsQByMZSjW2zKBzbLMfoeQerU2+ObSxODpHUl4Ri9NY1YBwYMKeyaca2mY795x0mUFltFgUBFiGVx5+fXpF0bYagIjMYSPoGIpXJV8qELKWUb8y29XthEzz2L9vQ8Wex6Gq6vneozrQg9siH/IqscEC8DK1WjQNMkGLiHPrAMWr6hZbnip+dmQwYtM7CK/rRq2unpzQUvIwQc8sCodnZqhtAv+gm9ul0M8d0h/BJJ4qfn50lqi0IkHArPcBz2ibbAAOZiajVaKDKgVgIC35HBmOLA9pbptGo1eauEbH+4z7bDOuszno4MO36ns+CJn75Jbc0Najo+bmZQDvQSHRjLsxQI26osDd3j4z1j1m9mWXhXNoGoNcW2qac/GoPrzQlmmxkUUq38njpPWrFNrqpQ3HC6W93grrmYwjkRlD3Ore+M0514kjqHoPUPftnIZAUGtPw6d32bjzcM+cstjx+khqo0dcYRNiIjPv0zwk+URMvliZeG16R9XiABoMXFMQd/8IEq2CSzFzT3UYs/8oxfOLl980kl7ZPugPeN0SrwyDj1pwcaOc78AG8nv/8wtjMewc/FvOqofdI7Rk9+2jw2FU7O3BT4zFYGEKO0XagYfAwFBwQBx6DefNznbUXSFiGXFBnBTQUDUhPCZllUUmkGYk7dSACk7FdveAaEAJYrKZzRwLaXo1+phoD7dUYqP+tC9DedGC6KfXxj5hbYSUX1VtisQQlDFAE2qRT0x5ofjaMegACpM2aFdAgDCA4lHBjV48sFBLAJEgrM9/p/A0cDktuE3DRqlZ1CBaDQ3j5T/skliaG4mns+oBRn+zV4YjS8vizXxCJJETKLfN9dvg/lwpfXDgTOH7t18Z2Prnvi0E41u6pZekPhkCKlfBrLV9NmJDpHDbunGPQqIsAW9DYVq7FHVIgFtspcbQQT3vs0dFznRUw+SLweZv+6wzUq3sTc7xNe9+VOZo8VfTXmJxubFNFb3bXdqVQWOYGV/5JdE6XMHO3GYQEGESYH/duJzpptaT2bk4IkMlaJWLn6ptqbulUYh8+6QyZZY56j8qzn4brlFIGhsxAQ7IJGDxSkXZ3SnnO0xGu/ebsCIn5dBeZzn7nhUUjC5eclgbJJXzjV27geX8jveW/qnRfgzDNarVKGa3bPn9oo8iFOCLcC416tOQIDoBUR0evBNeB83+2Cow5g2un/sS8Kmsces4HRt8fjihUKkbStZ835SVcmxY24bOvfPpOvfgug0LnWJWj+y6ArQxs+jYRhHChriUdam/5/790282Lh1G2Og1Wq5R2a18ApslVSILBZzqFFLFw9HsaNf/nqQPWXIqwjZzxN86AbSjiVtjh9Uyy1vgtLA5mbUcE9WXel/d+dOH4lonnqouSvbrbNzKNzYXh77qmjNmt3AgAut/13TNPVWXHBZz5ZvDDR3+t+6HlAKDe0qtB2hI4jqgGZo5cLeGZEInU8rf9vaKx0hIv41kxHYMfm0fO3WkaMPIKTPTQ2W/EvEp7PA7blOXdwPIiGuGJJSBFafcmlmY9HjZp1bEJbsEj7761dqQwJDgcAUAQKeATciujZt0/vNg5ZPT1osSrM208o57za4tdeZU57sa23q+l16nNuDtYWJntrdOomRAMIs1eHI1aQdGqFCRgpGvxZHojkW5SR+FYFRvZeKcS29nF1Wm3o0U1BV5AuxpjCaAOXauHi6DW094AF2hB3xUYHF4JXcVWASOvsWy8MmCsVnHciRkqqcAKAF2Zvv4GgFwHTNdim6Ax10B/W+9B13Jp/IUJGqXMBIcnKQFQptJN7bMdo6adNpQfDJ43WZV+fzS3JCUC1IoFbdFAjx/DwjXD0iv6urXPoFgsnvCaA6IqMzayvuBlP1AnAbpl4TW4t8PEIfCFtV/bLCyoBzPh6mB+VU4gkFYk6AQA/ccZO/gnmTmHPC1LuT1cLqxzgMgHrru0pE5SKSR0oPHhOo+UbmxbwjBzyjK2884iUhjyHmcQdGJIDL5CUGdOZNt0mUHk9SX23OSLsyQ1BU6eMWv/w/EbdbWrq7Kyxmo7Av7NIdJwX4cS9YDguwUU8QSSGotDF76wLQtK6HUSTVRblOJbX5w8KGDUp19V58dHgcE2CPbYDoEpBApTkHZi3Z/CikxvuKINmAMxdo16zLLzj5c2lLg15D6JQZNHEKkImWVW7DFm9Trb8CmnW50FTsFpJKYZL+XEusONxUkhEHfpNEqEaeVRauE/HOIhjFatJEsayhwaihKiZbwKYx0wCykcay5kEDyJKjNxjYrLurpzc2XipYlAK6PCRa0QI27D/rPdIXLqX+AZRVvwasw394x+lHll55aiJ8fHuw1aeMwhYvJf8Ig7/ecElTmuKec3b6/OfDAeum3dBn+4wy549CUsjiivy3/eJ/vWvq9z7+5fZeoc9sInZtUXNn7D2gSvcmx9c9UKKefZ0VUn5CIuA9XYwHyFCcuHrDzVx9QlJE3/eTOX0FQ8iaKN+3PFCVljjXn47G0fmDgEpJBobAmMxq7KfoyP+3PlP3ANqXmLMeIcMfk0mWlawa/K80y/tX+dSiqkGVm65tsHjfnLZ8SSXyhME0GPMgiRaVqnFtdbduVZSVWOW0PShdlKXoUVx2/ENavBn2yDeyO6jFm0Wui/t6YD+1/7xmc1CI1l1mju4JvenX7BBHJa6PIE+IjKNGkNn/EdtvTnZ8fX73KJmPA3iW5U7z140S8MEzuD23CJdGMuB3ysgseeEtcWbIJpf3RyHWLhN/yky5Al6BHXgooMj5cHl1wBQsZFIeI6Jv+1+hR4TmjpP+JmM7E2wo9VwIiTwoqMEFgHJG5j59DHPuO//Kqt27KRln1t58a82/tXw0RsTZ4kvIZj75sVvnDvrPv1xSlSXqU7DBMHchamFmJR2FY1BrSwgmPnk0VimtZa+w97Erlo37z28XBVmQ8GPD/8yWmFmGcKtIymz4d7xtkGj7nWct/EKSjRNnDk2difZjzilqaEP/p1wZ3ASV8v9xy6uPVobzLThGcXNPqaRqOZGndw2Q08GraPRTQqKf3x4eUnh39+IYpmZN66P51qZN4APrEeA+b/DN4/ynPQgqMt92gc6xqXyKnH02/88q2YW+kGMaJGqYTztcvYMQDN1C+oKbJ5cmT58Zq8F/1Sb/y8qST56vToRftmmDkHp/UIBkG5i2FWJefXWHRqFpWn+xSf/2Z79f1fP2c6BL9wmb1nkXFAzIW3YQ5U88iENJWEZ47rggaBh+4Ymdnl0Y3MuN3pFwDmFCDtgWVERujG1q3akWVmVz1ixV8zAkd/usvOd+BL9z5TzrwR5OHwOH3kpVUryK312fjkOA9ZugkNbUEJF4vk3z3wJRAGbTOcoKlyMK/qaJc6p4mZ2BL/qd+tYTsEZMDFtLbuUobcY/Sa1Ro0sleHRitXJl6exy/PdDU4Z/WltsC8Gxs8a/vC9szBLU1zf3Zw6XnAqKawvfbhE//QZ46WwjBzrPIbv3YljAYGTIdLOrNhX/HzsxPaP8c0Q7P6K7TNByXB/S3i+iJPoFkOQ0H3mtuWaVJJNbJ4zc2rVkrxOm3bRT2VUto6DiwLp4roj/ZPpnKsq6BjR1Rf6nVv3wfXhHXFNj3GIGQYfi1tNO3ofu2TPz+sebB/Lcs9+o7L7F8WsX2GXUO9Q90oMhHXWKcQG2PhhOl0rxC6zpAGUCGm1h4pmG5GAgMG4UBiItPZDUxjm/J3GaM3LcRyHPxT4FZUuPEPmlCyxnIPlYxPN+j2M6Tt1Ep8VerN4U1YBIPYBMcch6vM7Z+zC4m5Zure55ZGKUVP51KrZOScW3u+NVRn8rkt39uFjDvGtvXKa8eomNRzm/eo5EI2bCtcIXfuM73Drau2QaOuM82d89E99OD55PNb98FwlDaELRezgKkUZx867gDce97M0EhV+p0JKRe3ffv63Gp0OAKxW6vbdGObOrd+s/bA4E3IJBJ+jU38me+296AGMa1RSgXMDom6Js/NZuSabzjeg985JaSEX2eOUcnpXQl/h0Rp6RyY0N13ibiV1nB7J8vMIYfCNOb3pJcEYBBaUz4uDJr6E0egSPQzv3TkIm/VrMJ606qUm605rKwDRp5lOwQ9fA0vAubxGrn8G+gcQPe0k2hIRfKNmTVZj9uEzMMct4Ly9BCfsWs2t6+jLu9ZJADlQ/EkOhpuT+PYlLBtvDM7aic0v1hW7ikwBg1qSAmv0rIg7uTctnOlBcYEAQmbufU/xo6BT9VyCRopDJkk4+beDcXxF8a/rdDprDgEjrgEcBeMYABYlYGUp96Z2lCc4t0jDEJkGDcAlEiE7l6DIB5PkgM1SXgfhCRC10DUb0Tz0LsFQDZiZu/d7d1v/Joid6iFzJ2CnuqvuTRW5bkqpcJuZfDTvSLUNrNbmXBpBjQlIJOAuhGrwNEHAWhXdLXehsLEMKWE12omMK3c842dgg0KB1O3qHgr36FnoARtnnpM1vVd28C7Mc2mKRZoiF0AVG8gNB+b3YZ50u6Mh0zcsh5EM7YtwDWftdJRobKtynQabTPDEJHK9Hvj20emAm1NhPs7+i7aO53EMK7Woilh0TMokRf/fHGYV5bu0QVl+toDhp5jWToXUtmW5S0bz4BphitNvT2+RxgES6RJEehykwmZnYjz9yJpxXANBPtmbxckNjLDuJ5j4ZLf3XfxKnP94WRae/Zp3SRUknxzxP39Sw6rFBJSbcHLwIIX58d01+SCe8lF1QUO6Wc3fVf+4uwnMMcVgcYp8xi9+huPUSt+eNPsA9NG1ezVM865sWsDsPO7PI+eIz/dAIE41CLQ3m8ojO9X+vzcFHgv9+4fy0hUpsghYspJQ78VVOcFtEThQwmsF5besZUBN701EyvciCblVrgrJO1MyGafPTDHyiPm/jgTfFVBbxxkEGCCsR8f+s9JGDvVHYH0WnuIVCWVZV6BCqUmjIjwyjNCeoRBUKlApEjgWkhPL9gA9WxPhGsgnfAhJD4I0DkWjjk0lkm3DumByZR5FVmhLHOnOhuPyGct10uTb43zGDDnQNHLyxNkwgajjHtHlsN8Um9lkkKz5sW55Y+2j0l+uG1EYf7tPevhHDAsXO/6Tds6w2vs2s3Atu/UeQFTB3EL46Of/jr3euy2UXmiyuwAYJJ1ObzGyNYnxzZk/BF0PzeQoBAb5Nz9fUNDcapbwaOjnwZM3rCiA8kDzEGBcQuuQ5NqkGlvjGciUfT2oMC99EopQykTsDqiZFv/oQ8Cx69bAb11cFKB8IB7RfyfHltzoMnpgdO+Ky3hiWRBq5kG2qSUisx6jEHwVA5PKaw372kGQddAmkM8dO0/On3QqkLMbL2SEaR7O97qStJ9GmsKzRwChp0m6oXTO4WMOZV59+B/ch8f/+jl+e+/41i6ZeFwBPXbSDOY2tPUs995/xnbFgTP3zvWqf+8P1DzsTp3ePKxT2+++H3hSVFNgX3nGkgLt99y4bHXwJxKbibWt+qsx/CPtxJpRkJo1kEpLeNVeD7eOyvWNmDUKY69X3onxoCuXae6tFlS99pwYDr9nffwZb+69J35GwraISNSGDDL+/TMW78tAwJZiOnm3OopLG27lmN6ZB0E9TjQjWtVPcwgWtAfhbDOhozHI9o3mGxwDs0c/LoN0CszH4yGo+XRb8bBNpLNb/ADC7eIaAwWowYmVoSpQ0AKgsG8lf2Imn9sq1K2YxC6zdTSf8Q1PM2krOj+b5txRAyjJu3WNH5ZWnjU8pPRMPm0Ya+VAp6xkeE5etVGyCyPdk+5p1HK6G/TDrqZY7l95PRf8u8fgEdNNOUgw+EoXiM+3tHhj4CkJdLZDS1bfDGoa1X+xlg8tUJG1tdCBDJdQKKx3+j4CJvx3Qp+db5XQ3FSNMyoCBNYp137+Ue2jfclloWT9K1tq7YERdX/AdCE9T2mQYhGFtUqcYNBFQUBKYFElb3yVctw3XmHQiqiqiWN5rguJBoD79NZOvqldec9EKQWxF+abeM98IGlS0jqa3WTaTJgw6qsvaIfw12F3ZJeGnUboeQ+YtmPFI51OZp/lsICmrLSofDegc87nd/mdRBo7niMWL4JwWKlhty/ndXhGDnpODDN0LzEaIIMqhEPT6F3ugGNZQk9UupmfsHChds3LhID7GCsB8bh+kgWkfrmjW7wjJh+i/bNpBpZlMFAVvSAH42KXJUVOw2Dw2u7gz9anAsyEde0Jes+/M629kzpQQ1iWquWvuhj6J5cKmLkxl8ZwRcLWTXluS50YWmog7kFX2dkl0MydcwimzjmUE3si8EgVOvHA71mXqFrICJjLBUPT03vtPNUhkk1x9yxoDt9qcl7FtlYmeMcM/uHea2TqlIQXp797htueZa3Q9Coq54D5hzFdiPtaIfjR2HKGBZuabLGKlsoACBw5gMMBCV1+3UcQz1n2/umUtnWbdYrBFW5rrWZsQPchi75o0OFgMHq9BMoQHfrmwIvrf2GXs6LPbS2CQsQ4IKiK9BeeDQrZEfex4YyZ0wLMQLz19p3yNmujg08/yNy3u4ZsXvn3YM7DzHNni3kLU3KNrQkrDeR8mvssWibYCYUAmLjM+hyjzEIxcSuBIto0RGQcMut64tS/BrKMwIEtcUOKqWMRtGQrE0d/FOcQ2MuZh1bfk9Q+CJIon42SKZSIwogB1R4shxDMarB0c2KAbPkMi1csoytXHJs3SMSqcymxNVifq05Vi2nYzDQWabpUG5oNAB/WDhnd3dPSOrN/WvtA4betPcbGNfqvUq8GiMXNVh4DZp3+O6vH55sKEsP6DdvxypsF/FHl0xI1BWOabZCoBlCk3SFOVANTmULXAYs+EX/Wln8+ZmkN5wk3B63dMUyMXUNf2biHPqwPv9FNDTNJNwKRwCgvYwdA9MMm1cSkqAqJwh6BOG+dLqJXbljxMTXPWSdkLu1d/TT4MlffxJ//MuDeMq7n5FTnfusD3SywGz+KrkI1D/oioV7eGKPMIikvsSOW5wcWJZ6f3BpWZ69DtqpLKtSjp1Pqlvf6f8wzV4dzCmTyxClQq7AAgmJw2GAzatB1GoNolKryJLGagdZTYmDOCtuoEKpQpRKGTJpxZ+z/AfORjOJi3nV1jjklXTr6JwNdO3CwSepO33hlmd6Vee/6Dfxq+ttXH50Y9syYAv7yh42cgLGrPi6tjBpgFzE5QCt16UUQO1zD8PI2zZall/DFlZkBqOSsRnIW7xByrYJHARmLN3cqXU/tqim0K7o0bFPwxf+OvUNDXvtO+YNQaMwmtd//LoV93dPewYlOiB6XOHTUwsAgxj0fJUnXR8rbii3g6EtarkU8R/72UoSve2x2mhfdNpO+dNz8MJD/Mpc39yHRz/tOLAVY1BLtvfE5cQeXgVduzBPGBng58gZmz7tLOKi6wwC7FRpfbFjY2mqv7AyKwDYytaAIbQkI5sS5xErNzOt3XNpxraVHUpJtZyAMST94eGNQF3jiIC5sCTQInRDP0KisVoloJhXaUfAvFnKwdxSZnY+3QLoL85u2eQ3bPEPbGv3Qv3r5q5hCVFzti8BE+0ItIczuJ9BYZrVd107tA0o0iilrYBaLReT0s58u1sp4RlDBlGKeYi575BrDn1mtXEQgPHRtCYvBeOlEDcaBOUN+c9Dk46vOwSYjE3l2BR36p7HExUwizuaGQumJgWCCmnHvIYK0CApobO2zYn/+/O/wQ9Jxc/OLrYJGHnCyjv6hf5z0sYqs/Sru36AdKOSSxD/8WvXOkVNPfeallHKGRJelfWbQfumNfyafK+KtLtDDTEJnkhWY5q9JtDLBTGdVqPU6mEyTPzpjVurc5/2h0+wLN0yohf+MtuogxO6uswgWpWMWHr/wEppbb4bPHmVwLIu4jiFPmXazk+nsK2qu0oosNFYDBbTPoyqaf2i2RfY7EeEHE6hG7V6OqS8CnsiDtfpmiP8JZFE1ZjZe791BG9J8q0hYDSRkHGrt7cF7Uo8ICS1mVNQCvzY+g0hA/OnS3sJFIJac6hhKxMuTkPT3gB1Diet+NFf67UaDQ1gG1J12u2Jopo8e+jGBCC50q7P7CMeo1ZuaUlSIBfUmkp5ldaVKTemoYGGciEKqGsz7o9J+vuz/VRjm1JwASvj11o0lqWFcYuTwmCCbCrbRkRimBjUcLBOpVTAyr9/cDnQhJimODAdopAUWuXe+WOJbfDoKwQqU0hmdHwui2PklLNwkTDlwpadvJLkiEf75j3yGbPqC0vvgXcAoSoaipP90y/v2CaoznM0svHK841Z9aVTxJQ2zAFjsgQ1hc5pV37czCvLcE48s3Gjc9TU43QT+3J4Yu5rDE0gq/st3DP78sahqfrHtMFMiZLGGsuqnKeRgtoiNyiPoBCB4xV/auNuu4ARF0B/jSqzHgzjlWf6sCxcCpzCJx71HvrRLxSG8RuTj78xq4lOrSSmH1xw3nncNytolm7dAr8okUsEhKc7xmSx1AIXqRaDyIF5ZeijAB8YzjBv400/C6emMx9u/DLvNLns6RQskYooNeAZjRb8r0VUzf/Dj0wpR0hM87J5Pzx2JxpIkNZRkYsbmQ8Orfixz6zNGxgmdq0asODpmcnpt377mGZsUxs6af369prlje7ilxcmCqtyPAFTMPQ3TAHmIAD1TsXAHAl4kpjMtiqnmznmGtn5J5EYbeO+yl+cixHVFngDBjOCdbSkzkHPWgdEomuRNkAFwL0vWAJJBsC2FhB3revgD/cailsrfXFunKSh1EEpFVqhm8EwrzAJANFYAoVZzbJyz7EJfPNGM8Dk2Iq0O8OqM+6P41dkhsDfA+0PjwnGMc2ccq18h1yyDRhx1VCGlfLkGwPrCl72AXPNxOFJCngmPBAU1Y5h4y+zOqGzitS7g2oLXgwKnrT+qybcW2FS8PzsVKVEYAEGAR5njSaqg1oRaCcqdLLAcWGa2hUb2/kksW28M4idOITemkFgKbqydaup/6hzDLuAxHdgEOKzHWMyGZBBgMGgAIQuU2tRhmjLJGqAUfCKBVtiPThWLiVwDeTKltFxxuKSKA2WgDKDPoPAeuDfEqkEsfTsd2PqF+dGvUWzMClXf/kAmFGplu4RSXrrFbgrW0Y9iZixeVldUVJU9v2jS4b858gktrVHHtJbOmEYOR6mDsKjCccxPfYeQx6+nipdegvd0j1TVJoc8q4vwxhYAm2/Ko6GFwCOJ1Cajj1QSEUUjaTRAl0DaTXFXplVbQG671sxcFX2Y09TR/9kfeZoBqMaC7fIuy9Obdht4dbnjomj38uK9NjBvSzQeYFmEB4NXsT06Hsw/2JC8y69iWrplSyqKXB7p04hXct33HyylIRAbFpglIp4TWsgbxgUOGjmjv5dZhC5mE8g0zl11t7RBheJwqZt+NohdNzfj/9ceUCtUpKdIyae7mWB/77SJS8WxdSxAKA4BgDsFGCkyt6FTZpMOkwrKG9aydXTJjoUbIsJRDL6Hgm/1hynljMRDKNjb31T4JzK2Nojo6stIdFYKvIbkmO7D1h4yHfY4oO9ZPLfW7qkQXBEspJAM+JKqvPeRYtgMF3QvehCGYkuAmYW6h6VNFZb4xFNpz/VaNQInWNZZmTuUNr1xnTelLhLJ6ee2vHV96kP7wzrJZNeDfLGQrP0yJJUZfsz7PxTu80dXTJNdQiJTBe0MISYV2lLxBrQHXruYRjCwDZ3TicQKar3NTBMjimPQCDo8hKfRfn1G3yvK2k52xd4/JlCWGeBxRNVJKZZa4IElaSRgx49hm4f1mKIdE49rtmklDVWm4hq8nzILLMqppUn6hRQyYQs+Gla+EI1sA7cr8ZgcBoZv9oaeqNgIKGsscYKg8Npyc3vUogaTAFwJqPrHDqYKMG0FrZFxq+xhI4IdELA+/FEqhi0gaeSi+hKCZ9DYZmB55qODgDvpfJKU0OwWLyK4xCQgGs3xjAFkVxQZ/FKmeswRCqrkUBhiJRSPlslE9EpRhbVMPJALRfTFWIeB7S9Vj+dErymVkhpTe0B88/gNOCbx0PCqzIVVOV6U40sKuFpu+3HGKYlAr83gVnw4XHjLdeVUgEbZqGHYUxY/KuoB7mw3kwN0y4hOgwQxHwSnS18LwxCt/VNqXt5Zu47eR/USpgMAdFoMUDqw9AQDfqBaWM0avBRaRHQeHh4ZKtbUMqrdKTgcQjcK9XyaWK2piNn0IzpWhVi5Rb2+H1KDt9+g+9aODgXEClUcXeYA3X1Jl0Zn37i82MUI8uGqFUX/EkMU3RtIffqzq3lL87MAZ2gqqRCJOiDPVNswiefFVZkeL3YP/8mmERbGDnjPfHrT5wGLtxfcHf/qtwbP31DZllItGoFATokBn55x5XMMKl8uD3mpal7n+eBs3dOfLR74hMK25rbf+XZUPiepH8+O1ifGzdUq9VQtEoFEr36fDjbISDl/vYxKWqZiAWYUiUX1tFsQ8cfCl+wb1FJ3Mk5KWc27By45vwwE5fwOIWYy36yb96NhoL4cMiW5h797vddengcofmYAVgEVTmud74fnYknM+SQOaWN1dTASV9/7jVy+Y7sm/u+zb73x4cj1t/yNLJyLyt5cW7Oi78/3zlo1emhlp7RT1vqSD6/dQe4Nx3MJlUpEyL9Fh8YB5OSNxSn+MbunXdDIay3BmOlDpm+aanHoIVtTN6cZ2fGJPy19sjw1aemWXkPvNpyPePmvq/TbuxbHPPVbW9je++SluuPj6w8Xp0TFwWwLoVAolVGzNyyzCl8wrvHYlHMnPJxJHqdTqvGwXQyb23LYXE6hqVHEkEpsMVrAcmJBVisWoXBqbWgNg2WAP4naMDfUiGOY+HU6k4V1JXYiQRiBCfTIGotoBq4KQr8/+pv6PJFkLL8RF/J6S0rkVe2mA7p2C5DFZJaqcC4h46+a+MebjCWyNTWoeRdmExYltpPp1aRZI1VNqLqfA/AIE+b3KEyOtAuVO/JG+fgKcxGjmMQuq+jJv3uNHFtsW3wwt9HFj84tKky8dIHkEEs/YafBgQizL+9byfbIfCJXeT0n0l04wa4VRVIXiZgABJciYdh70BjtG6BVculRjAZX9C0LRPBnKno5k75GBxe7Tv+yw+L406srM9/Fu0+bNnn5p7RD5o0nooIEz7AzPRoezIfDqnJehjuNWb1D3giRZzw97rvnPrOHG0fPqn1uAAq27oiZOb307Lv7N8iE9Q5Bk3ZuMjCq39cc31k0D4qDIRsNoVJKrT+tkdRg/FgaNQqaujMLfCQH6GpczDqVSxNuDxT0lBqPeCTo8PSrv60vTj+0rz2DAIjm1VyCVXbrk74bvRdOm0bGKFSiDl4ElUQMPbzDxLPbjqacefAeqew8Zc7Mm+6zCAAnMvtRqze0d2jt4hkujJ4yZ9jmmkTo1HKMc0Bc+hH1/Q/Fl7D4V4lfIuc8tU6sfiTzS3ZUDAt/1qoH9O0Sq9WyqhgkImd8IOesffKNUxnW9QjPVQEZWmRbMegR+K64kDwd5iJW9TTZj+yFk2XyjCWAqaRkJimaAZyHJlZAyOSK5MuLfWa+PUihrkTunBpZO+fSWRwRLk3f95JN3fOsY+cdrbZhKIBxpDLBbUW1Sk3Y9BjjbE4pR7O0mCA6CEyTSVAWkphiD6MBbMLm3iJV5oyojb7YbR9xJQzTEu3kuYfaJvDwHVN5k2FPRq+4x4Vy7b2SgLagYau3us7O+gcoVPfWadL4i8sU4h4Vu6DF8Fo55aYeC0G3SatbWmQFo3s1bXdRwPbBNNAkeF40E3EFKYZOh7A1KpRq5VI0fOzS8JmbJnDsnSuMmC765qihdvtzWl512vWOUaHJ9EkNj7Rt9KuM4UajYrUmSR9u2BFzPvwbzcl1wW2bJc2G5naeReZ/h8Ed4B4jYQASzgPXrJeq71H45emwi0BPzUTjgYyQsIfi89B8zB63S0/oBnS7SKmHOaXJEWWPj0+R1iZHRA875fJZJY5t0kbAMyig3m19HNiYaADRcotehkEiP0ykIwwWVwrRsDgcSqlhMd8tHvKLXBPO3JTnA2FY1PdLGHRCOLOjmHWKKVYgD2A9geIwNimIfyDn77s0HzWaHBNmEXEIDGMG/X8km3llKFZx2DVwPTGPdi74CIUWjEbH3gZO/hnuw2Yd4Bbkhpe8OTEjMaKrMC+i36dRGGZv9O5lQALyaX8av/z3w5oAKYsPiTyy72dOWx6Ey/3UJHUFbmpZWKyuKYgBJg+DHFNvi88hanZVYeHAZrhSw4PjF5304dp5ZHbRJASM+chS3Z4TfhqlVxQY5t1+fu9SLN5YtjDrYOr1zRgoiWEf3RgFI5M5wNCJbwyMzREAL75A9ZcDBn42SWflmMkOq6vHd3iSDoY2wTMFAW/Mtsl4fi6ndzipMiOdLSug2u6dteaAiX1vfRaPA5H0gxa/nf/Md/e9TGyago1UYp4pr6jPv0+eMq3n4sayh2Tzn63x3BAng7USVAaahSOQJK3fxfgd7H34AXfDvv0nwmBMau3vrObt7d0w7yqyEQP+KzPfjhSzq+ylQnrbKWNlZattImB+/mNlASqkQrulEPB+42fv33847gk66CYf5jWnhlKcaMdMDk7nSMgcfEUjnWNbciEGziYZkmnxbWTztAMUhAoTKC1VKSODE9DBE1hmTXAfeto7t+C+KjU89tWN5ZneL/JPGjzDVpXmjbmFCKoKfDmlaX7KySNRs1Ui/6OSGMpiDQjFdCu6HgkXfzhu5vbxyU4RUz8k23tkSMX8+wM7r9vqtOdW5oW0LKDUdds8TRWZAdywbuUMhG1STapCQQqszF08jdbAfa4CDSwppdB/gcKN/fpYI1KiUStvODpNGTZOlFVLpVfmoYyjValxAN7HXmye3LcrXWBuVUp10fC6xynkJsqmRD/cEdMeWNJmq+53/ADMOylWetg4QYfmBFRj6QxSmB6QVcqTF8KiICuUrw6jkKrUeIk9aVGt78bnH71i5BcblFia7iQWiUnw9Nh9XcRQrc09KqhLmDotXKPusewcK5LOvX1geQzG/40svPkm7n1MRjECMA4BbQPvPtV2lSNUkFSSuE7mq4BcxIPXfIv/ll7+MKX4SllCVfQuDmNWomTiRpwN7aNfXF6lW9uWcrNofC6pWf0DZmwgXhl07CKhtIMD7vgMQfaJ9GGEdcwMd3Tv9ftPrM2LLn45aVZTcBfidcopEjs/g+vnVkXkVKd88yvCaRLKaBNYJwkXaJ9jO495a3qLW1LbfqdgYAAWTZhEy/KGqvMazPu9uU4h6YwrTwLuQXxIeK6QnuAF7BomlS3yGc0U8cKaD5UJl8bzStOjGCYu+bYhk8+3pJmUyXlMyqTrw+jmzmWmrhGJjQRgRxfkXh1FNXIgmviFhlXnnBpNJ5EV1r5D7vT5IWK7Svj15jDKFe4AGvpMygWmFlo9EBD4ctgYVWug3XAyDuk5rBvfkW2M8AzAdb+Ix6SgfZocuPmupQlXJqk0agJdsExFzl2vgajFSrT7kTDtQdAxNdwBDKKg4A5Fsgrz3KyDRp9g0xnSwXVuc51BQkBWBweZqXHmLtFPWdaOJfX5j4LFdYV2bWMh6VH3ziGmUOVFrS5NPFKTH1hYhjLyj3Lpc/Uk7h2R2RwK3NtuYUvw2Cd8PgEC/eoJJaFS2F9cbI/rzzTBVzHatRquK32Ht3YileWemcwECREp9CxN7F6h6b2Mkhv6S3dAfW9Q9Bbeksvg/SW3tLLIF0tckENG4BhSgdeIeS1cyl0WvS6wXsI0rz/uel+RwV6gzq731IUYi5DLmpgvU0d+u1qaUv7trckfNPp9cVwn3RobFvL84b62N4shzsLW/JltbRHq1YYpC34WwmviqOSS0ht3tmuTfr1NQF+OQH8zlitlBHaVdjp3Gibx6yjZwBOpEj5NeyO5uO/6rhWuA866a/VR7kFz4fgSPQGt6FLvncZ/FHrqUcVCZfGZl7+4VsAZPkRiw9PgKvE8HpV+t3+6ec378JgcGSY6IBp6ZbqFfPZ18zmraFJJ9b90pAfH6VDdDQChdXgGDX9d6d+s1qPjJbyKi2e/r7ovEoqIAVO37LKwnvgw9cJR4ukX9j6XdGTf5aCL3gL36Fng2d+/wmBTEcD8MT1JdZPf//onEohJYTM/H65uWc/NJwD7rd+vG/uJbVChh+w4uTwrOs/ba7LfxEI/h5JorFl5cnXxyScWL/Re9SKX9wGzj9aHHdqVuqlbV+TGSZSuAoNmJHq0m/2Qd+Y1T+ifTn33Tdl8RfHmblHvYxasGdJS/syrv+yvPj5mbmAlulYIllm5hL2KGDCF+uJVKb4xd9rf6rJeRw1YNmR+eKGMrv4419ucuo765+gCWt36fdR3FBu+eTgJ381lCT3Be+v8huz8lu36Dl/SbgVDnd+mnENg8GocXiSCnrDKGyrgmErT42DITQFT89MSLu88wdAyE4UI/PC4Mlff+4QEoPGT1Vmxg5/cfyrLRgslgJ3UbCtvZIDJ6xdz2rOTPno4CcHeGXpQYAxaSqZGAN+dzFi5pZ18F7Ow2Nzky/t+E4lFZmaOAY+7Dt/9wKmmUPVf60GKY07vrgy8fIYh76zf4bn3aWd27hPLqhtTbxdm/NklLA6P4hbmDBIVJPvoSdlOIKyjGAilaUhM83rSp6dnp5z45dvWu7LeJXewurcYDDpfHFdUWjK6a+PimoKnFru88szAnhFSZEwR1R9/rMhhtrWUJgQknntp/UmrhGPTT363cq+uXdBdfrd1lD7xvLMoIaSlHB+ZVZQbd6zwXqSnSCqKwlvKHoZVZf3rL9MxHUW1hREtrhvlTKhuaAiO0gh4tqiEpFCV9CMbRoBUQaKaguDqEbmYiKNLW2qS4upyXo0SdRQEgQIfrJ+FnaZsNaBV54ZzLBwLtVp1NTMG3uWl8RfgAGGiKlTUCogwuCi52fnliRcmSWsKw4yc4uIb9/HjFu/rqnOfjjYc8hH24E0N3p56uvDMHcWjDCmG9twgSay4pZnBGNwRAKNbSnA4PAwg4tRwpmNh2SiBgenqKm/yoQNzvEnvjqkEPOYTf0TmXLBu3FEqpRI4whyHx6bnXHzt7WtTFlfGiCoyg+mMEwlDDMHLplpggZaSgV1nJenN/9KppuIXPvN/LXg2cXh2fcPf/JfrUHAoFrCRSWqmXNK4OwfL/IKXw5uDbwEElxYlRXOsPLIVgjqnPmlaWEmLuHoJMOTW6HL0TZ84hELr4HHar58wFWIGlqTTIM60FVcoB1mFccd/zT75p7l/Mpsb4aFSxG8zitNjSTS2WI8mVHHLUk1mIUSZk6HySqweArXb/y69WwbrwS66av9LbyS5CgwuUI8idbYWJYWpa98AIFJwYdUlXFvLBZPaITxWa1tw2BhMge4jRi1u+yCY87Cz41Ng3NlgjrzwSvP9MVTGOjKNjzhVtpY6cyx838BNFaoqLbAjeQUktTcR2hbIYGTvvqUV5LqE7t37hkpvxodA7uQmNNsO98tRc/PLdBpVEQz974JVh594l7X4A2WMKbOxDHgmaVn3weA6cOBZMdTWOaVQ1ac7J98cdu2xLObPg8cv3aZffAYdL1FWF9qJxPWs628+j2MmrvjU35Vfkh94YsoSWO1DdDwWU2n6qoRh9Bx+6x9B90/lxlbKhXU6s+NCmaIj17821Aa26rxlckmo2nVcpoOg5V6D/1oK93EtpJp5pjzXjBI4b39y5/9MvVS+qkvflSKGthAWmGyL27Z+GjbyNjKl+fRsybSTq7bXplwMSbt5Jc7K5OujEj+e9UeQXmGR9mzk9Oe7J546ekv064rxVx2TdrtIXG7J194eXDxMV5RYiD8beqJtbsf7xx3Lfnv1WjsUvblbV8/2jXxcvq5zZvg/oSWdpS/ODPh8U+TzyceW/mblFtmXZFweWT62Y0bC2IPz8u8sOW1uCFz74Hn8GSqLvXE5ycqEi5Mcxu6dEtL3JCMX2sqrC7wNnPvcweo9/KGosQ2hIwjUYAJdmViypkNf0A/v1XAiL9eWdBN++OBmUQiM81qEa0OaVkdb14P6EM3d8ozdYt4KKzKCdbvQ0vh2AfEs6y9ikuenlwQf3TFP3ZhE09wYILsFg0D2sO0cMk2dQl9BDRSqFouJuu763EkmoRblBStlAgp8CjkNubb66AF0xRhC7ccKFuxgKAyx0ch5tOs/YZehIeYNpSktclDAI/ZTru849u8B0fXQC1k7TPoErwOTDmRXcDI44ABOFDrOIZPPGBojcE+cNRJqHEe/f7R9cqshwO8hi/7HpiQEj1tiEfjzeChTC1NVcupCBQcOAIq+cl0phgecQH3gbS2i0hFylNuzk46u3kvkURX2geO/EdPQGjgdopbP057dGZdWEJJ4jV0cZJubF1p4dH3Wl3+s5Bbu6fFmdj7PbMPHHH9vTAIvzRlBOgOiZv/fEzZizPzRFU57uXPT68wcev7IPvy9t3QngZ2nW1tZmxMbcadD6tTbk3h5j0fC1R5I78svb9SxPWyDh53BnRMLqzMDgOAzFwlFRoXNud9rc95PJ1sZNFo7j3oHkpghS/G4vFEbGXChaX1OY9azQ5BVW6oUsJ3F1Rkhla8vDSXbe+fWRZ/fkn21V07qKb2r53gau414GHk0qMDKEaWVQX3Dqx4vGfWTQj+muvyAu0iGDuFPKAa2+UKKrPDW2OnkKZctOBaVG1W7EQckaJgmLu0zb/16hyGNoQBCRkQXhB4Po3jEPhYxq9mAtPmtcMzyUzTxgErTkeYe0Xfrc6MHXR3+9hEYU0+aqYB7EIDfwcwLVxTQB1PpI3VHFF9qdMrelcTmUArwoU6wIzB+hqkA6CMeZWX7FXoBrc0NRxqWDO3yLvwCOuG4uQ2QgKaPNXZj6c0lKaEw4VEmol9Scs9p4hJx/BEMtzIxbMPHn3e0HsdIyZcjl56aDSom5d6ecfXsb/OP6k/xoju1bZr/bcietd0rY4G/bkhwjNEoquyHsXgiDQpy9K1zbFwMBYRT6QAuUYjwAXFZs2iHfLJnzEeA+cfaKzMcb++Y9KTspTbw94Lg+BJVKGMV2UDJCGTyrEthrvaiHRjnoXvkGtalZyqVcqopp79bgkqsvyAVJALKzKCSUyTCiCZa3F4glwuqDOuTLwyGahbFZ5ME0obSu3EdYWexk5Bj5vsZGYjr+hlWEP+s6hmPak2dg5/zLB0zQWA17a1HUSqGLTDQtZY7Ugzc0inmdqXASZJxBEIeOvgsSfat7vo0dGPqjPuDQ9d9NtAI/vAnPrcuOH8qlwUawgqMkIweAKSfeOXH/jlaZEKUb0NsNOt9QgdcRm0YHvQnN1jAdinl8WfW9K+fhwArzDso5lXUCkuqi92BqCTXZfzeHT+/YPr4XzzyjIC2/+2NieuT9rFrav9xq9d7thv1mGAZUwrkq+jR4MJAUMBickAjDM+L/bwWh2MMQK4ppWuAINQONalNFPHLNA2J7i5SI88kPYhgx0tDQNbHt1olXjqm0Nwd6GoJg/OXysDqZUyJGr+zxM8hy7eyitJc61MuxvTco/KtqoGWlZNorJ4FKbhpHOpV35cAbBKyKDl//RnW3tWVKXfnwYY3bazdmGxWFlzXBWuqQ0KHDypikhlyvUwIuLab843wASbLhVUGxU9P79Iz/mBh2HvI1afDhu/IdbfLmD4taYxLXJ4fGTlToegUf+ETd2wSiWXYPPiTs5/LwyiVWvw8Aw7/1k751gFjbkEwBUZpvWHsTzo6ShAfTOtvRPFtfmBJJZ5nkJYZ0/l2JRCVlYrZDSmlUeOx5jVG+AeAPhbMLlVNDPHghabFm4TtQ4Zd8ahz6yWs7AxGrWCAKQ9CQA45at2qEiAaXKMHAIfVaXcmo6aKo6Bz1hWHglECvO15BJ12Y9icm/8/KWUW+0ImLUIZlPE/T/Ori6mzTIKj78WSn+/UkqhtOWnBQodf8JAZGZckWWJQ+fidjN1RhNvTIwxwSwmC14NIxiUC+ediTFKVHBjKGyyi7lJZR2F0lGgfxTaQtuvpd8KLdB6zkdLKxAv9iVckH55+/a873nPc857znPi5Zg+65NWjJgAljaABbGCc5gFTrUmGS6MIq1NmCiu0iOOhjmmtJ2DUxgWwa4d6XKbHnQi5s8RSOjuuH77XAMuIPgjSzyp+iluWBJ8ksNzC7rNKuPY4MfOuXuXCal6Bk9JOBlpv4HEMUBBcQw+jIH1Lx5zMqsWIAkYNQ4lUbffjrdTTkudW2yfsTLtkBlJi0WT7+2GQ0w4SRuZbIGfUNQusnhi16bbosLGm4k1wHSVbLaQ5InLDZjlCwrDTc5hLwOLk+i/eC7X4WfN8OfFmZHPr0con5DFL3REAYoe5JoltPlQCBks6wYy3oMiVYGFOBVct1SkZzJjsL6e1HkhOZyotEGP1mQr6OWmKB3N/jo93NutHer5yKIdpiEWQEH+3Pg3Hxonv+uG32Ok21UfQ0j+nAoSZnCKqnT56jO0I8Urqp4FLLur//HaV7zimr8zmewQWyRfBki1LZDV/ZOZzd7JLajQx6HKNkCVSsPPPTciFClAeQAcMoOFmKRcy3SmKNZDgz/xuml88IM4xqRsD394J+RbExMlDX+lmPzIs3VrGeUyaXIlqicpYj6WYxYUrh8UNTj17Xtjrtm7Zwsbz/3ElShNsNkZfsd8czavwHXq6uCr5R1Xe7AFGNJqJsSMBgEjQ9G9aDpS5sPmUUT3duLmHxxlEPD8aN8XoBB1sqau74XxKsEN83Qrxt8157vfb3lr4Dw42bukbfY/8A2fQk3HqKT6tMEw2n9NN3T9S15RzXJR/dlf6JPd+rgNN0H9a5++23Kl7wL29fCvzLbgF9N16jHkU9xlFNZ03ErPYmA0KpXoO07omtx5aScSnbSTmxGsVBm1bpGKypvvtb09cKFA/fKvIb+L5V81nkzcN9D9FUEZURZYQxFwLiqPXHL8T+aS8vSVXizNHe+/fN+58KBF3vTKTXYKmyWm/sYOLR187lC2XRoIOJfkd250PQJFkSrb3ugDp3oteROCc0MFxcLVjBNbAXdJwvLBYbKHdyHzEzc/0Q591mvWjtBWQiBVG8pfvDhsn/m9c+LrN+8wWPxN5UuXjrS0fq5cLMq1VAUS2mGLyw4oIgMrs2pwQGvzKtoncvj7VXp+u76ByRE5w0GPBE5UO5OT5wE4pQCYBJYixiBKm+6HKW8ewBcuwDYqHPSK+DKNDqBZXeQZKQRFCwoUdVNBp0mNVXNgjVa4EtViSni1iNqwqmDDUAR2bYJFQwi2ux3kgpU6tj0xnN4a3PhZ2RwSNuBv6E9gnbfPpm/GOfCl1TORkJ8fcBg1yG8LCrQA8yc210zVAOFsABWdJLwLGyQqkJ3UYvUc+i87IT+B4oTxfGApjOnxnhgYzQIoKiDktfhuBCxVMy4p/n+4EQzMXeQ0THYiLMivbP+Dm69Y3Q8TGzRgQXhwsk8h+YEXxsDvF4JsMArkteiaGSyehyMuNXmtulZ0TMESTiPpNZIUBJymCjiwLLmE1JHYUhiWRcIFQg6/Ad4Diynwr87XYAktJ19hQVZ2ymOTcwvKllh8iTO4blWEyNViQqbRA/7PAMxfjX4KIauhDz4s/6XJHTKywjDm4yPM6vHHZXrUSDoMYKmEblld563MlHRzymMvCXpWpEgQns3JI1PviBz6u2fgcxUnv2RBqumYPIiMUV4R6XhaCYpkzuEIPV6b/oU0kFGeAuQN8vWB7CIgO2zmhGFsgH9uXrzBa2QryLTpxs7B+hBCRf1DcVnDkUTMfwUYADIGvNvaHyDxAAAAAElFTkSuQmCC"
+          "logo": ""
+        },
+        {
+          "name": "Top Hybrid",
+          "url": "",
+          "logo": ""
+        },
+        {
+          "name": "Kalangi Estate",
+          "url": "",
+          "logo": ""
         }
       ],
       "stats": [
@@ -64,12 +125,12 @@
         },
         {
           "label": "Happy Clients",
-          "value": 100,
+          "value": 500,
           "suffix": "+"
         },
         {
           "label": "Annual Filings",
-          "value": 99,
+          "value": 500,
           "suffix": "+"
         }
       ],
@@ -79,13 +140,13 @@
         "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity.",
         "featuredServiceIds": [
           "mca-compliance",
-          "company-registration",
+          "gst-compliance",
           "trademark-registration"
         ]
       },
       "process": {
         "title": "Our Simple 4-Step Process.",
-        "subtitle": "How we take the complexity out of compliance, taxes, and business registration.",
+        "subtitle": "How we take the complexity out of compliance, taxes, and business incorporation.",
         "steps": [
           {
             "id": "01",
@@ -118,22 +179,22 @@
         "subtitle": "We're more than just consultants; we're your growth partners.",
         "cards": [
           {
-            "title": "99% Compliance Success",
+            "title": "100% Customer Oriented",
             "icon": "ShieldCheck",
-            "desc": "Proven track record of timely filings, clear documentation, and practical guidance so penalties and surprises stay rare across diverse industries."
+            "desc": "We put your business first—clear communication, practical advice, and filings built around how you actually operate."
           },
           {
             "title": "5+ Years Experience",
             "icon": "Zap",
-            "desc": "Hands-on support with GST, income tax, MCA, and books for startups and established businesses alike."
+            "desc": "Hands-on support with MCA filings, GST, and income tax for startups and established businesses."
           },
           {
-            "title": "100+ Happy Clients",
+            "title": "500+ Happy Clients",
             "icon": "CheckCircle2",
             "desc": "Trusted by owners and teams who want reliable books, filings on time, and advice in plain language."
           },
           {
-            "title": "99+ Annual Filings",
+            "title": "500+ Annual Filings",
             "icon": "Rocket",
             "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
           },
@@ -153,188 +214,365 @@
       },
       "testimonials": [
         {
-          "name": "Vikram Malhotra",
-          "role": "Operations Lead, Goel Distributors",
-          "quote": "GST and bookkeeping used to stall our ops every quarter. Phinura keeps timelines visible and filings on track—no surprises.",
-          "image": ""
+          "name": "Venu Gopal Totla",
+          "role": "MD & CEO, Kamal Watch & Company",
+          "quote": "Kamal Watch is one of India's most recognised names in fine timepieces, rooted in Hyderabad. Phinura keeps our MCA and corporate compliance orderly so leadership can stay focused on brands, retail, and customers—not statutory firefighting.",
+          "companyLogo": "/client_logo/kamal_watch_company.jpeg"
         },
         {
-          "name": "Neha Iyer",
-          "role": "Finance Manager, Rochana International Trading",
-          "quote": "Cross-border paperwork and MCA updates felt overwhelming until their team took ownership. Responses are fast and jargon-free.",
-          "image": ""
+          "name": "Lalit Sarda",
+          "role": "Homes & Beyond Aesthetic Tiles",
+          "quote": "We carry a five-decade legacy in premium tiles, sanitaryware, and bath environments. Phinura supports us with clear GST and accounting discipline so showroom and project teams meet deadlines calmly."
         },
         {
-          "name": "Arjun Patel",
+          "name": "Vikas Gupta",
+          "role": "CFO, Goel Distributors",
+          "quote": "GST and income-tax cycles used to collide with quarterly closes. Today we receive practical checklists, filings on schedule, and quick clarity when notices appear—precisely what finance leadership expects.",
+          "companyLogo": "/client_logo/goel-logo.jpg"
+        },
+        {
+          "name": "Venu Gopal",
+          "role": "MD & CEO, Rochana Industries",
+          "quote": "Managing GST, income tax, and MCA work for an expanding industrial footprint needs one accountable partner. Phinura owns the filings, documentation, and follow-ups alongside our internal teams.",
+          "companyLogo": "/client_logo/Rochana_Logo.png"
+        },
+        {
+          "name": "Navneet Agarwal",
           "role": "Owner, Shree Om Pharmacy",
-          "quote": "We needed someone who respects retail hours and still hits every deadline. They've been dependable for filings and reminders.",
-          "image": ""
+          "quote": "Retail hours never pause. Their help with GST, income tax, bookkeeping, and accounts means we operate with filings aligned to how the shop actually buys and sells.",
+          "companyLogo": "/client_logo/om_shree_logo.jpg"
         },
         {
-          "name": "Sanjay Kulkarni",
-          "role": "CFO, Rochana Industries",
-          "quote": "From MCA compliances to tax planning clarity, they've scaled with our manufacturing roadmap—solid partner for compliance.",
-          "image": ""
+          "name": "Management",
+          "role": "Shri Gupta Drug Mart",
+          "quote": "Trademark protection mattered before we scaled packaging further. Search, drafting, Registry coordination—they handled every milestone with pragmatic communication.",
+          "companyLogo": "/client_logo/gupta_durg_mart.jpeg"
+        },
+        {
+          "name": "Vishwas Agarwal",
+          "role": "Partner, Telangana Drug Mart",
+          "quote": "Wholesale pharma moves volume daily. Reliable GST filings and bookkeeping from Phinura keeps our portals, books, and counter reality in sync.",
+          "companyLogo": "/client_logo/telangana-drug-mart.jpeg"
+        },
+        {
+          "name": "Leadership",
+          "role": "Top Hybrid",
+          "quote": "MCA compliances, bank coordination, and event-based ROC work intersect for us regularly. Their team is well versed across departments and noticeably quick whenever deadlines compress."
+        },
+        {
+          "name": "Leadership",
+          "role": "Liberty 21",
+          "quote": "We prize responsiveness. ROC expectations and MCA compliances stay current without us chasing weekly status—we hear from them before items slip.",
+          "companyLogo": "/client_logo/liberty_21.jpeg"
+        },
+        {
+          "name": "Hemant Jain",
+          "role": "Director, Nikansh Infratech",
+          "quote": "Project-led companies accumulate MCA touchpoints quietly. Expert handling of company-law filings frees our site teams to concentrate on execution.",
+          "companyLogo": "/client_logo/nikansh-infratech.png"
+        },
+        {
+          "name": "Vaibhav Jain",
+          "role": "Synergy Rail",
+          "quote": "GST, income tax, and MCA updates no longer bounce between disparate advisors—the same disciplined team aligns filings with how contracts and invoices actually behave.",
+          "companyLogo": "/client_logo/synergy-rail.jpeg"
+        },
+        {
+          "name": "Venu Gopal",
+          "role": "Tomato Tailored Furniture",
+          "quote": "From GST and income tax disciplines to ROC housekeeping, operations stay transparent for our owners. Guidance arrives in straightforward language ahead of portals.",
+          "companyLogo": "/client_logo/tomato-tailored-furniture.webp"
+        },
+        {
+          "name": "Sikander Darediya",
+          "role": "Dstar Properties",
+          "quote": "We spin up entities around projects often. MCA hygiene and brisk incorporation timelines from an expert squad keep legal vehicles ready when capital calls.",
+          "companyLogo": "/client_logo/dstar-properties.jpeg"
+        },
+        {
+          "name": "Abdul Tayeb",
+          "role": "Kalangi Estate",
+          "quote": "Land-heavy structures demand crisp corporate hygiene. MCA compliances, incorporations when needed, and a responsive team underpin how we cooperate with JV partners."
+        },
+        {
+          "name": "Anshul",
+          "role": "Lovevision Matrimony",
+          "quote": "Launching Lovevision demanded fast MCA steps, disciplined records, and instant responses when registrations changed. Their team behaved like our in-house company secretarial desk.",
+          "companyLogo": "/client_logo/lovevision-matrimony.avif"
+        },
+        {
+          "name": "Sathwik Reddy",
+          "role": "Cozy Cups LLP",
+          "quote": "We needed trademark coverage before widening distribution. They guided search, filings, objections if any—all without slowing product momentum.",
+          "companyLogo": "/client_logo/cozy-cups-llp.avif"
+        },
+        {
+          "name": "Madhavi Peechara",
+          "role": "Partner, Sindoor Infra",
+          "quote": "LLP statutes touch everything from filings to deed updates. Phinura makes each obligation understandable and executes without needless legal theatre.",
+          "companyLogo": "/client_logo/sindoor-infra.jpeg"
         }
       ],
       "team": {
         "title": "Meet Our Team",
         "subtitle": "Chartered Accountants and Company Secretaries who keep compliance simple — tap a photo to read more.",
         "aboutLinkText": "About us"
-      }
+      },
+      "testimonialsSubtitle": "Real stories from entrepreneurs who grow with us."
     },
     "services": {
-      "serviceDetailCtaSubtitle": "Connect with our compliance architects today for a hassle-free filing experience.",
+      "serviceDetailCtaSubtitle": "Ask us about MCA, GST, income tax, trademark filings, bookkeeping, or any related business compliance—we respond with clear steps and timelines.",
       "serviceDetailCallBackLinkText": "Request a Call Back",
+      "serviceDetailConsultationHeading": "Consultation — how we can help",
+      "serviceDetailConsultationClosing": "We start from how your business runs day to day—that tells us which MCA, GST, tax, trademark, or allied obligations actually apply.\n\nOn consultation we listen first: what deadlines worry you and what paperwork you already have. Then we map a sensible sequence—what we prepare, what you submit on government portals—and we explain steps in ordinary language before you authorise filings.\n\nMCA, GST, and income-tax cycles often overlap; we keep work coordinated instead of reinventing data in isolation. Reach us on WhatsApp or call for a clear next step, not jargon.",
+      "gridTitle": "What we help you with",
+      "gridSubtitle": "Company and LLP MCA compliances, trademark protection, accounting, taxation, GST, and other related business compliances—explained simply and tracked to due dates.",
       "hero": {
-        "title": "Our Service Offerings",
-        "subtitle": "Explore the complete range of accounting, tax, and compliance services we provide.",
-        "badge": "All Services",
+        "title": "MCA, tax, GST & business compliance",
+        "subtitle": "Practical support for companies and LLPs: ROC filings, accounts, trademarks, income tax, GST, and allied statutory work—aligned to how SMEs actually operate.",
+        "badge": "Compliance & advisory",
         "bgImage": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"
       },
-      "introTitle": "A Wide Range of Strategic Solutions.",
-      "introContent1": "At Phinura Advisors, we provide a comprehensive suite of financial architecture and compliance engineering services designed to navigate the complexities of modern global commerce.",
-      "introContent2": "From meticulous statutory audits to complex cross-border taxation strategies, our approach is built on precision, integrity, and a deep understanding of regulatory frameworks.",
+      "introTitle": "Compliance that matches your entity",
+      "introContent1": "Whether you operate as a private limited company, LLP, or proprietor, timelines with the MCA, GST portal, and income tax department do not pause for busy seasons—and neither do we.",
+      "introContent2": "We focus on ROC and LLP annual filings, day-to-day accounts, registrations and returns for GST and income tax, trademark protection, and the many small statutory touchpoints owners are expected to juggle alongside running the firm.",
       "introImage": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000",
       "statsCTA": {
-        "title": "Custom Solutions for Architects of Commerce.",
-        "subtitle": "No two business structures are identical.",
-        "badge": "Business Owners",
-        "buttonText": "Get Free Quote",
-        "secondaryButtonText": "View Case Studies",
+        "title": "Not sure where to begin?",
+        "subtitle": "Tell us if you work through a company, LLP, or as an individual—we’ll outline the MCA, GST, and tax filings that apply and help you prioritize.",
+        "badge": "",
+        "buttonText": "WhatsApp us",
+        "secondaryButtonText": "Fee structure",
         "stats": [
           {
-            "label": "Compliance Accuracy",
-            "value": 98.8,
-            "suffix": "%",
-            "decimals": 1
-          },
-          {
-            "label": "Assets Under Audit",
-            "value": 4.2,
-            "prefix": "$",
-            "suffix": "B",
-            "decimals": 1
-          },
-          {
-            "label": "Strategic Industries",
-            "value": 15,
+            "label": "Happy clients",
+            "value": 500,
             "suffix": "+"
           },
           {
-            "label": "Inquiry Response",
-            "value": 24,
-            "suffix": "h"
+            "label": "Annual filings supported",
+            "value": 500,
+            "suffix": "+"
           }
         ]
       },
       "serviceList": [
         {
           "id": "mca-compliance",
-          "title": "MCA Compliance",
+          "title": "MCA compliance (Companies & LLPs)",
           "icon": "Gavel",
           "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600",
-          "description": "Ministry of Corporate Affairs adherence including annual filings and Director KYC updates.",
-          "category": "Regulatory Compliance",
-          "heroTitle": "MCA Compliance Made Simple",
-          "subtitle": "Stay ahead of Ministry of Corporate Affairs deadlines with our expert-managed annual filings, Director KYC, and statutory compliance solutions—so you can focus on growing your business.",
-          "mainHeading": "End-to-End MCA Compliance Services",
-          "longDescription": "Navigating Ministry of Corporate Affairs regulations can be overwhelming for any business owner. From annual return filings to Director KYC updates, every deadline missed carries penalties that can disrupt your operations.\n\nAt Phinura Advisors, we take the entire compliance burden off your plate. Our dedicated compliance team monitors every due date, prepares all required documentation, and coordinates with MCA portals on your behalf.\n\nWe handle everything from ROC filings for Private Limited and LLP companies to board resolution drafting and secretarial audit support—giving you complete peace of mind.",
-          "ctaTitle": "Avoid MCA Penalties. Talk to Us Today.",
+          "description": "ROC filings, annual returns, LLP and company MCA calendar, DIN/KYC support, statutory registers, board and AGM paperwork.",
+          "category": "MCA & company law",
+          "heroTitle": "MCA compliance for Companies & LLPs",
+          "subtitle": "Stay current with the MCA for private limited companies and LLPs: forms, ROC deadlines, DIN/KYC, registers, resolutions, and AGM documentation—managed with reminders and clear status updates.",
+          "mainHeading": "Company & LLP MCA compliances handled end‑to‑end",
+          "longDescription": "For incorporated businesses, MCA obligations run all year—from annual filings and event-based forms to director KYC and maintenance of statutory records. Missed ROC dates add avoidable penalties and stress.\n\nPhinura Advisors helps you align your entity—company or LLP—to MCA requirements with a practical checklist: what is due, when it is due, and which documents portal teams expect.\n\nWe also support incorporation and post-incorporation steps (RUN, DIN/DSC coordination, filings after incorporation) so you are not juggling multiple vendors for the same Ministry.",
+          "ctaTitle": "Plan your MCA filings with us.",
           "deliverables": [
-            "Annual Return Filing (AOC-4 & MGT-7)",
-            "Director KYC (DIR-3 KYC) filing",
-            "Board Meeting & AGM documentation",
-            "Statutory Register maintenance",
-            "DIN & DSC management support",
-            "ROC compliance calendar with reminders"
+            "Annual return and financial statement filings (including AOC-4 / relevant forms)",
+            "MGT-7 / MCA annual compliance as applicable",
+            "Director DIN and DIR-3 KYC support",
+            "Board meeting, AGM, and resolution documentation support",
+            "Statutory register maintenance guidance",
+            "Event-based ROC forms (director changes, capital, address, LLP partner updates)",
+            "Name reservations and incorporation support for new companies / LLPs"
           ],
           "benefits": [
-            "Zero penalty risk from missed deadlines",
-            "Dedicated compliance manager assigned",
-            "Real-time status updates via WhatsApp",
-            "Transparent flat-fee pricing",
-            "Secure document storage and retrieval",
-            "Pan-India filing capability"
-          ]
-        },
-        {
-          "id": "company-registration",
-          "title": "Company Registration",
-          "icon": "Building2",
-          "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600",
-          "description": "Incorporate your PVT LTD, LLP, or OPC with zero hassle.",
-          "category": "Business Formation",
-          "heroTitle": "Register Your Company in 10 Days",
-          "subtitle": "From Private Limited and LLP to One Person Companies—we handle your entire incorporation process end-to-end, with zero paperwork headaches and full government compliance.",
-          "mainHeading": "Fast, Hassle-Free Business Incorporation",
-          "longDescription": "Starting a business in India involves navigating multiple government portals, documentation requirements, and approval stages. A single mistake can delay your launch by weeks.\n\nPhinura Advisors streamlines the entire company registration process for you. Whether you're launching a Private Limited Company, an LLP, or a One Person Company, our team prepares and files all required documents directly with the Ministry of Corporate Affairs.\n\nWe obtain your DIN, DSC, and Certificate of Incorporation quickly and accurately—so your business is legally operational in as little as 10 working days. We also advise you on the right structure based on your business goals and tax profile.",
-          "ctaTitle": "Ready to Launch? Let's Register Your Company.",
-          "deliverables": [
-            "Name reservation & approval (RUN/RSUP)",
-            "DIN & DSC procurement for all directors",
-            "MOA & AOA drafting and filing",
-            "Certificate of Incorporation",
-            "PAN & TAN for the new company",
-            "GST registration guidance post-incorporation"
+            "Structured calendar tuned to MCA due dates",
+            "Plain‑language summaries before you authorize filings",
+            "Single point of contact for ROC-related questions",
+            "Document readiness so filings are not last‑minute scrambles",
+            "Coordination aligned with GST and tax timelines where relevant"
           ],
-          "benefits": [
-            "10-day average turnaround time",
-            "Expert guidance on PVT LTD vs LLP vs OPC",
-            "End-to-end documentation handled",
-            "Free post-registration compliance checklist",
-            "Dedicated relationship manager",
-            "Transparent, all-inclusive pricing"
-          ]
+          "consultationHeading": "MCA consultation — how we can help",
+          "consultationClosing": "We start with your incorporation documents, financial year cadence, and any outstanding ROC filings—that tells us which annual returns, event-based forms, or director/KYC chores are overdue and how to prioritise them.\n\nOn consultation we listen first: AGM anxiety, unexplained ROC notices, capital or director changes stalled in draft, LLP partner updates waiting on DSC, or simply not knowing what the MCA expects next. We then spell out a practical calendar—documents to locate, drafts we circulate, MCA credentials your team uploads—always in straightforward language.\n\nMCA timelines seldom sit alone; GST and income-tax seasons still matter. WhatsApp us or call and we propose the next ROC-safe step alongside your wider compliance picture—not template scripts."
         },
         {
           "id": "trademark-registration",
-          "title": "Trademark Registration",
+          "title": "Trademark registration",
           "icon": "ShieldCheck",
           "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600",
-          "description": "Securing your intellectual property.",
-          "category": "Intellectual Property",
-          "heroTitle": "Protect Your Brand with a Trademark",
-          "subtitle": "Your brand name, logo, and slogan are your most valuable assets. We help you register and protect them under Indian trademark law before anyone else does.",
-          "mainHeading": "Comprehensive Trademark Protection Services",
-          "longDescription": "In today's competitive market, your brand identity is one of your most critical business assets. Without a registered trademark, your brand name, logo, or tagline can be legally used—or misused—by competitors.\n\nPhinura Advisors' trademark experts guide you through the full process: from conducting a thorough trademark search to filing the application under the correct class with the Indian Trademark Registry.\n\nWe monitor your application status, respond to examination reports, and handle objections on your behalf. Once registered, your trademark gives you exclusive nationwide rights for 10 years—renewable indefinitely. We also assist with trademark opposition proceedings if a third party challenges your application.",
-          "ctaTitle": "Secure Your Brand Today. Start Your Trademark Application.",
+          "description": "Search, filing, objections, and brand protection aligned with Indian trademark practice.",
+          "category": "Trademark & IP",
+          "heroTitle": "Protect names, logos, and brands",
+          "subtitle": "Trademark searches, class advice, filings with the Registry, replies to examination reports, and renewal planning—explained simply for SMEs.",
+          "mainHeading": "Trademark advisory for growing businesses",
+          "longDescription": "Your trading name and logo deserve protection before confusion or copying becomes expensive. Whether you operate as a firm, LLP, or company, the application process involves search, classification, timelines, and often correspondence with examiners.\n\nWe help you prioritise registrations that matter commercially, coordinate searches and filings, and keep renewal dates visible so marks do not lapse quietly.\n\nOur focus stays practical: filings you can defend, timelines you can rely on, and communication you can understand.",
+          "ctaTitle": "Start a trademark conversation.",
           "deliverables": [
-            "Comprehensive trademark availability search",
-            "Trademark application filing (all classes)",
-            "TM-A filing with Trademark Registry",
-            "Status tracking & examination report response",
-            "Show-cause hearing representation",
-            "Trademark registration certificate"
+            "Trademark clearance / search summary",
+            "Class and specification guidance",
+            "Application drafting and Registry filing",
+            "Examination report and procedural follow‑up coordination",
+            "Renewal and maintenance reminders",
+            "Introduction to allied IP steps where needed"
           ],
           "benefits": [
-            "Exclusive nationwide brand protection",
-            "Legal right to use ™ and ® symbols",
-            "Protection against infringement and copying",
-            "10-year validity with easy renewal",
-            "Expert handling of objections and oppositions",
-            "Peace of mind for your brand's future"
-          ]
+            "Earlier visibility on conflicting marks before you scale branding spend",
+            "Documentation handled with transparent milestones",
+            "Support rooted in SME budgets and timelines"
+          ],
+          "consultationHeading": "Trademark consultation — how we can help",
+          "consultationClosing": "We open with where you operate, which logo or brand name worries you today, and any earlier Registry correspondence—that frames search scope, Nice class posture, and how examiner objections tend to land for your segment.\n\nConsultation hears first whether you faced knock-off listings, hurried packaging runs, crowdfunding deadlines, expansion into new territories, or renewal dates slipping. Afterwards we prioritise filings, examiner replies, affidavits, or renewals—with plain English before drafting anything on Registry forms.\n\nTrademark work still crosses GST invoicing and MCA shareholder updates when marks move entities. Ping us via WhatsApp or phone for a practical roadmap—not marketing hype."
+        },
+        {
+          "id": "accounting-bookkeeping",
+          "title": "Accounting & bookkeeping",
+          "icon": "Calculator",
+          "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600",
+          "description": "Books aligned to filings: ledgers, reconciliations, MIS, and year-end readiness for statutory and tax disclosures.",
+          "category": "Accounts",
+          "heroTitle": "Books that stack up at year end",
+          "subtitle": "Systematic bookkeeping, bank and vendor reconciliations, inventory and expense discipline, closing support, and handoff notes for MCA, GST, and income-tax cycles.",
+          "mainHeading": "Accounting support for SMEs",
+          "longDescription": "Reliable statutory work sits on dependable books—otherwise GST reconciliations, tax computations, and board-facing numbers fight the same inconsistencies.\n\nWe structure accounting around your operational reality: invoicing rhythms, payouts, petty cash discipline, payroll-related postings where applicable, and reconciliations that auditors and portals expect.\n\nYou get schedules and explanations that complement compliance filings rather than scrambling to rebuild numbers every quarter.",
+          "ctaTitle": "Get control of ongoing accounts.",
+          "deliverables": [
+            "Monthly / quarterly bookkeeping cycles",
+            "Bank, vendor, and key third-party reconciliations",
+            "GST-ready purchase and sale traceability basics",
+            "Year-end summaries and MIS packs for founders",
+            "Coordination drafts for auditors and statutory formats"
+          ],
+          "benefits": [
+            "Fewer shocks at filing deadlines",
+            "Clearer profitability and cash‑flow visibility between returns",
+            "Consistent narration for GST, MCA, and tax teams"
+          ],
+          "consultationHeading": "Books & accounts consultation — how we can help",
+          "consultationClosing": "Our first look is invoicing rhythms, payouts, petty cash realities, payroll postings (if any), and how you reconcile bank—that tells us which ledgers will choke GST recon or audit questionnaires later.\n\nWe listen where reconciliations break, spreadsheets that never match portals, suspense entries nobody owns, POS exports drifting, or MIS packs boards still await. Next we choreograph close cycles—what your staff posts, what we tidy—and explain filings before auditors or portals lock numbers.\n\nSolid books keep GST, MCA, and tax teams coordinated. Reach on WhatsApp or call—we point to the next housekeeping step with timelines you own."
+        },
+        {
+          "id": "income-tax-compliance",
+          "title": "Income tax & taxation",
+          "icon": "Landmark",
+          "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=600",
+          "description": "ITR preparation, deductions, advances, withholding basics, scrutiny coordination, and company or partner-level tax timelines.",
+          "category": "Income tax",
+          "heroTitle": "Income tax made routine, not frantic",
+          "subtitle": "For individuals, partners, proprietors, and firms or companies—we handle return preparation aligned to books, withholdings relevant to SMEs, reminders for advance-tax behaviour, and clear responses within scope.",
+          "mainHeading": "Taxation advisory tied to filings",
+          "longDescription": "Income tax timelines run parallel to MCA and GST. When books, deductions, and withholding positions are unexplained until the last fortnight of July or September windows, filings become expensive errors.\n\nWe focus on disclosures that match GST and accounting reality, structuring compliance so annual returns and estimates are repeatable processes—not annual surprises.\n\nWhere deeper opinion or contested matters arise, we help you escalate with clarity.",
+          "ctaTitle": "Plan this assessment year deliberately.",
+          "deliverables": [
+            "ITR drafting for applicable entity types within our scope",
+            "Form 26AS / AIS alignment checks explained simply",
+            "Advance tax planning reminders anchored to provisional numbers",
+            "TDS applicability guidance for SME transactions",
+            "Coordination drafts for departmental notices handled case‑by‑case"
+          ],
+          "benefits": [
+            "Filing drafts you can reconcile to books without guesswork",
+            "Calendar tied to MCA and GST workloads",
+            "Plain-language checkpoints before portals lock submissions"
+          ],
+          "consultationHeading": "Income tax consultation — how we can help",
+          "consultationClosing": "We baseline your entity type—individual proprietor, LLP partner, or company—and whether books reconcile to Form 26AS / AIS so we map deductions, TDS withholdings, and advance-tax behaviour clearly.\n\nConsultation absorbs refund anxiety, TDS riddles, belated ITR timelines, departmental letters, advance-tax guesses, or unease aligning partner remuneration with MCA resolutions. We then spell out filings, withholdings narratives, escalation paths—all in ordinary language prior to uploads.\n\nIncome tax never floats alone alongside GST balances and ROC events. WhatsApp us or call for the sober next tax-safe move."
+        },
+        {
+          "id": "gst-compliance",
+          "title": "GST registrations & returns",
+          "icon": "BadgeIndianRupee",
+          "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=600",
+          "description": "Registration amendments, outward/inward reconciliation discipline, quarterly or monthly filings, cancellations, and liaison planning common to SMEs.",
+          "category": "GST",
+          "heroTitle": "GST compliance your ops team can recognise",
+          "subtitle": "Registrations, amendments, regular returns with reconciliation narratives, LUT or refund conversations where modestly applicable, and table-readings that match your invoicing realities.",
+          "mainHeading": "GST aligned to how you invoice and purchase",
+          "longDescription": "GST exposure is rarely one form—it is invoicing posture, reconciliation tables, mismatches, cancellations, refunds, LUT decisions, sector-specific quirks, plus annual reconciliations to books.\n\nWe keep filings tethered to your accounting rhythms and escalate mismatch themes early so cascading portal problems do not erupt at year-lock windows.\n\nWhere cross-border nuances matter, we triage applicability before you chase certificates you may not legally need.",
+          "ctaTitle": "Stabilise your GST filings.",
+          "deliverables": [
+            "New GST registration and amendments (thematic cases)",
+            "GSTR‑1 / GSTR‑3B style cycles coordinated with bookkeeping",
+            "Reconciliation summaries between books and portals",
+            "Annual / closing reconciliations and documentation packs",
+            "Refund / LUT guidance where realistically in scope"
+          ],
+          "benefits": [
+            "Portal submissions described before you authorize them",
+            "Mismatch themes surfaced quarterly, not accidentally at closure",
+            "Coordination handshake with MCA and income tax calendars"
+          ],
+          "consultationHeading": "GST consultation — how we can help",
+          "consultationClosing": "We typically begin with how you invoice, purchase, and close books each month—that tells us whether regular, composition, or export-linked GST patterns apply and which reconciliations will matter.\n\nIn consultation we listen first: mismatches between GSTR-2B / ITC claims and ledgers, refund or LUT doubts, amendment needs, or simply feeling behind on filings. Then we outline a practical sequence—what to fix first, which documents are useful to gather, what we draft versus what your team uploads—and we explain filings in ordinary language before you authorise anything on government portals.\n\nGST stays aligned with MCA and income tax calendars where overlaps exist, so filings are not rebuilt in isolation. When you reach out—WhatsApp or call—we suggest a sensible next step and timelines you can rely on rather than jargon."
+        },
+        {
+          "id": "business-compliance-other",
+          "title": "Other business compliances",
+          "icon": "ScrollText",
+          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
+          "description": "Additional statutory hygiene—contracts with compliance touchpoints, industry registers, licences, certifications, PF/ESI coordination introductions, labour registers at a basic advisory level.",
+          "category": "Allied compliance",
+          "heroTitle": "Everything else regulators expect quietly",
+          "subtitle": "We help founders triage licences, registrations, filings, renewal calendars, PF/ESI introductions, Shops Act themes, IEC or MSME postures—as applicable—with realistic scope boundaries.",
+          "mainHeading": "Allied filings beyond MCA, GST, and core tax cycles",
+          "longDescription": "Running a shop, factory desk, SaaS exporter, importer, LLP service firm, MSME claimant, labour-light office, consulting partnership—each drags incidental notifications, renewals, and registers.\n\nWe do not pretend one firm covers every speciality regulator; we help you classify what genuinely applies, avoid vanity registrations, anchor renewals beside GST and MCA timelines, and bring specialist partners visible when law or scale demands.\n\nThe aim is coherent compliance choreography rather than a shelf of orphaned certificates.",
+          "ctaTitle": "Map ancillary obligations calmly.",
+          "deliverables": [
+            "Inventory of registrations and licences that plausibly apply",
+            "Renewal calendars cross-linked with major tax filings",
+            "Starter kits for Shops Act registers, IEC, MSME, etc., when relevant",
+            "Introduction and coordination scaffolding for payroll/PF‑ESI experts",
+            "Board-level compliance summaries founders can circulate"
+          ],
+          "benefits": [
+            "Less duplication across consultants",
+            "Cleaner board conversations about statutory posture",
+            "Honest escalation when specialist counsel beats generalist guesses"
+          ],
+          "consultationHeading": "Compliance consultation — how we can help",
+          "consultationClosing": "We triage licences, Shops Act registers, IEC renewals, MSME posture, PF/ESI introductions—only what realistically applies—without stacking vanity registrations.\n\nConsultations align renewals beside GST / MCA calendars, prep introductions where specialist desks need to weigh in, and spell pragmatic board summaries you circulate internally—all in plain wording.\n\nPing us via WhatsApp or phone for sequencing—and candid referrals when narrower experts should lead."
         }
       ]
     },
     "about": {
       "hero": {
-        "title": "The Standard of Financial Integrity.",
-        "subtitle": "We don't just balance books; we build foundations. For over three decades, Phinura Advisors has been the architectural force behind global fiscal stability.",
-        "badge": "About Us",
-        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
-        "statNumber": "5",
-        "statLabel": "YEARS EXPERIENCE"
+        "title": "Phinura Advisors — the team beside your MCA, GST and tax filings.",
+        "subtitle": "We are Chartered Accountants and Company Secretaries who answer the phone when GST due dates and ROC timelines land together. Businesses across India rely on us for clear explanations, careful paperwork, and people who speak plain English—not jargon.",
+        "body": "Whether you are steering a founder-led startup, a growing SME, or a multi-branch operation, we help you plan filings, reconcile books, respond to notices, and keep board and MCA paperwork orderly—without losing you in jargon.",
+        "highlights": [
+          "GST, income tax, and TDS timelines planned alongside ROC and MCA due dates",
+          "Bookkeeping and reporting packs your auditor—and your team—can follow",
+          "Notices and departmental queries drafted with calm, structured responses",
+          "Remote-first workflows with predictable status updates across India"
+        ],
+        "photoCaption": "Phinura Advisors team members at work—the colleagues you speak with for MCA, GST, tax and bookkeeping support.",
+        "badge": "About us",
+        "image": "",
+        "statNumber": "30",
+        "statLabel": "Years of practice"
       },
       "story": {
-        "title": "Founded on a Singular Principle: Sovereignty.",
-        "content": "Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies. Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.",
-        "image": "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80&w=800"
+        "title": "A practice rooted in diligence—and built to scale with every client milestone.",
+        "content": "",
+        "eyebrow": "Our Story",
+        "lead": "Phinura Advisors was established with one aim: give entrepreneurs and finance teams disciplined support for MCA, GST, income tax, and everyday accounting—explained plainly, executed reliably.",
+        "paragraphs": [
+          "Our journey began as a deliberately lean team focusing on filings done right rather than churn. We listened to promoters who needed calm during GST cycles, ROC cadence, audits, notices, board paperwork, and the quiet administrative load that slows growth.",
+          "Relentless effort and clear communication widened both our clientele and breadth of mandates. Competitive clarity, brisk turnaround discipline, and strong digital tooling together keep remote coordination and paperwork movement predictable—even when timelines collide.",
+          "We think of ourselves as a comprehensive advisory partner rather than an ad-hoc desk: MCA and tax hygiene, bookkeeping alignment, introductions to payroll and statutory specialists where needed, and retainership conversations when founders want judgement on call.",
+          "With each passing year we have drafted new checklists from real client tensions—premium retainerships when leadership wants always-on stewardship, sharper reporting packs before investors, tighter coordination ahead of departmental queries—so reassurance travels with expansion."
+        ],
+        "image": "",
+        "trajectoryTitle": "How far has Phinura reached?",
+        "trajectoryBrandLine": "Phinura Advisors",
+        "trajectoryParagraphs": [
+          "Starting with deliberate engagements alongside a curated client base, the firm matured into trusted counsel across retail, pharma, logistics, SaaS exporters, startups, partnerships, MSME corridors, founder-led firms, LLPs—and teams headquartered in Hyderabad supporting mandates that routinely span Indian metros.",
+          "Today's pipeline blends steady annual compliance with sharper special projects whenever statutes, investors, lenders, or board conversations demand choreography across GST, ROC, bookkeeping, staffing partners, diligence, trademarks, notices, retainership judgements—all sequenced deliberately rather than improvised."
+        ],
+        "milestonesSectionTitle": "Milestones at a glance",
+        "milestones": [
+          { "numericValue": 25, "suffix": "+", "label": "Cities served" },
+          { "numericValue": 38, "suffix": "+", "label": "Advisory & compliance streams" },
+          { "numericValue": 110, "suffix": "+", "label": "Business relationships cumulative" },
+          { "textFigure": "Popular", "suffix": "", "label": "GST & income-tax cycles, ROC + MCA housekeeping, bookkeeping, coordinated payroll filings, trademarks, diligence & board packs when leadership needs sharper storytelling." }
+        ],
+        "trustedLine": "Partner-led stewardship with CAs & CS advisors who stay reachable when calendars collide."
       },
       "missionVision": {
         "missions": [
-          "We help business owners complete registrations, GST, income tax, and MCA filings on time — and we explain what matters in plain language, not dense legal wording.",
+          "We help business owners with company incorporation, GST, income tax, and MCA filings on time — and we explain what matters in plain language, not dense legal wording.",
           "We stay reachable: you can ask doubts, get status updates, and plan ahead so surprises and penalties are avoided."
         ],
         "vision": "To be the firm people happily recommend when they want dependable, easy-to-understand support for taxes, company law, and day-to-day compliance.",
@@ -357,7 +595,7 @@
               "Business Advisor"
             ],
             "expertise": [
-              "Company Registration",
+              "Company Incorporation",
               "GST & Income Tax",
               "MCA Compliance"
             ],
@@ -391,7 +629,7 @@
               "Business Advisor"
             ],
             "expertise": [
-              "Company Registration",
+              "Company Incorporation",
               "GST & Income Tax",
               "MCA Compliance"
             ],
@@ -425,7 +663,7 @@
               "Business Advisor"
             ],
             "expertise": [
-              "Company Registration",
+              "Company Incorporation",
               "GST & Income Tax",
               "MCA Compliance"
             ],
@@ -459,7 +697,7 @@
               "Business Advisor"
             ],
             "expertise": [
-              "Company Registration",
+              "Company Incorporation",
               "GST & Income Tax",
               "MCA Compliance"
             ],
@@ -483,7 +721,7 @@
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
             "desc": "Supports secretarial work, filings, and coordination so MCA deadlines are never missed.",
             "bio": "Shruti is a Company Secretary focused on secretarial compliance and timely filings. She works closely with founders and directors on forms, disclosures, and routine MCA updates. Clients value her responsiveness and attention to detail when multiple filings need to move together.",
-            "img": "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&q=80&w=600"
+            "img": ""
           }
         ]
       },

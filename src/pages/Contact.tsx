@@ -204,8 +204,10 @@ const Newsletter = () => (
         <CtaImageCard className="rounded-[2.5rem] text-white md:rounded-[3rem]" contentClassName="p-8 md:p-20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
             <div className="max-w-xl">
-              <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">Stay Informed.</h2>
-              <p className="text-xl text-on-primary-container">Join 5,000+ business owners receiving our monthly regulatory insights and financial strategy guide.</p>
+              <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">Stay Informed.</h2>
+              <p className="text-xl text-sky-100/95 leading-relaxed font-normal tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
+                Join 5,000+ business owners receiving our monthly regulatory insights and financial strategy guide.
+              </p>
             </div>
             <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
               <input

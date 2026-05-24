@@ -7,8 +7,6 @@ import {
   ShieldCheck,
   ArrowRight,
   Building2,
-  Goal,
-  Eye,
   LineChart,
   Rocket,
   Briefcase,
@@ -19,8 +17,8 @@ import { CtaImageCard } from "../components/CtaImageCard";
 import { TeamSection } from "../components/TeamSection";
 import missionCardBanner from "../Assets/genral_banner.jpg";
 import visionSectionImage from "../Assets/vision_2.jpg";
-import workingBanner from "../Assets/working.png";
-import ctaBackground from "../Assets/team_member.webp";
+import aboutTeamPhoto from "../Assets/team_member.webp";
+import ctaBackground from "../Assets/details_page_bg.avif";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
@@ -41,78 +39,128 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
   );
 };
 
-/* ─── Hero ─────────────────────────────────────────────────────────────── */
+/* ─── Hero — immersive wash (matches Services hero pattern; BG = bundled team photo by default) ─ */
 const Hero = () => {
   const { data: siteDetails } = useCMS();
-  const { hero } = siteDetails.pages.about;
+  const hero = siteDetails.pages.about.hero;
+
+  const bgImg =
+    typeof hero.image === "string" && hero.image.trim()
+      ? hero.image.trim()
+      : aboutTeamPhoto;
+
+  const statDigits = Number.parseInt(String(hero.statNumber ?? "").replace(/[^\d]/g, ""), 10);
+  const statShow = Number.isFinite(statDigits) ? statDigits : 0;
+  const badge = hero.badge?.trim();
+  const bodyText = hero.body?.trim();
+  const highlightItems = (hero.highlights ?? []).map((h) => String(h).trim()).filter(Boolean);
+  const caption =
+    hero.photoCaption?.trim() ||
+    "Phinura Advisors team members at work—the colleagues you speak with for MCA, GST, tax and bookkeeping support.";
+
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#F8F9FA] pt-36 pb-[clamp(3rem,10vw,5rem)]">
-      {/* Bottom band: working photo (left); no overlay so the asset stays fully visible */}
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden h-[clamp(168px,26vh,320px)] sm:block"
-        aria-hidden
-      >
-        <div className="relative flex h-full w-full items-end justify-start pl-6 pr-4 sm:pl-8">
-          <img
-            src={workingBanner}
-            alt=""
-            className="max-h-full w-auto max-w-[min(100%,520px)] object-contain object-left-bottom opacity-100 sm:max-w-[min(100%,580px)]"
-          />
-        </div>
+    <section className="relative overflow-hidden bg-primary pb-44 pt-32 md:pb-52 md:pt-40 lg:pb-56">
+      <div className="absolute inset-0 z-0">
+        <img
+          src={bgImg}
+          alt=""
+          className="h-full w-full scale-[1.04] object-cover object-[center_22%] opacity-[0.38]"
+          referrerPolicy={bgImg.startsWith("http") ? "no-referrer" : undefined}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/93 to-primary/58" />
+        <div className="absolute inset-0 h-full bg-gradient-to-t from-primary via-transparent to-transparent" />
+        <div
+          aria-hidden
+          className="absolute top-1/4 -right-1/4 h-[520px] w-[520px] rounded-full bg-primary/25 blur-[100px] mix-blend-screen"
+        />
+        <div
+          aria-hidden
+          className="absolute bottom-1/4 -left-1/4 h-[440px] w-[440px] rounded-full bg-secondary-container/14 blur-[90px] mix-blend-screen"
+        />
+        <div className="pointer-events-none absolute bottom-0 left-0 z-[1] h-[22%] w-full bg-gradient-to-t from-[#18335c] via-[#18335c]/88 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto h-full max-w-7xl px-6">
-        <div className="grid grid-cols-1 items-center gap-20 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="mb-8 text-5xl font-headline font-extrabold leading-[1.1] tracking-tight text-[#0D1B2A] md:text-7xl">
-              {hero.title}
-            </h1>
+      <div className="relative z-30 mx-auto max-w-7xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75 }}
+          className="max-w-4xl"
+        >
+          {badge ? (
+            <motion.span
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.08 }}
+              className="mb-9 inline-flex items-center rounded-xl border border-secondary-container/35 bg-secondary-container/12 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary-container sm:text-xs"
+            >
+              {badge}
+            </motion.span>
+          ) : null}
 
-            <p className="mb-12 max-w-xl text-lg leading-relaxed text-on-surface-variant opacity-80 md:text-xl">
-              {hero.subtitle}
+          <h1 className="mb-8 font-headline text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl md:text-[3.05rem] md:leading-[1.06] lg:text-[3.25rem]">
+            {hero.title}
+          </h1>
+
+          <p
+            className={`max-w-2xl text-lg font-light leading-relaxed text-on-primary/80 md:text-xl md:text-on-primary/[0.84] ${bodyText || highlightItems.length > 0 ? "mb-6" : "mb-11"}`}
+          >
+            {hero.subtitle}
+          </p>
+
+          {bodyText ? (
+            <p className="mb-8 max-w-2xl text-base font-light leading-relaxed text-on-primary/75 md:text-lg md:leading-relaxed">
+              {bodyText}
             </p>
+          ) : null}
+
+          {highlightItems.length > 0 ? (
+            <motion.ul
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.12, duration: 0.55 }}
+              className="mb-10 grid max-w-3xl gap-3 sm:grid-cols-2"
+              aria-label="What we focus on"
+            >
+              {highlightItems.map((line, i) => (
+                <li
+                  key={`${line.slice(0, 24)}-${i}`}
+                  className="flex gap-3 rounded-2xl border border-white/15 bg-white/[0.08] px-4 py-3.5 backdrop-blur-sm"
+                >
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-secondary-container" aria-hidden />
+                  <span className="text-sm font-medium leading-snug text-blue-50/95 md:text-[0.9375rem] md:leading-snug">
+                    {line}
+                  </span>
+                </li>
+              ))}
+            </motion.ul>
+          ) : null}
+
+          <div className="flex flex-wrap items-stretch gap-4 sm:items-center">
             <AppLink
               to="/contact"
-              className="inline-block rounded-lg bg-[#0D1B2A] px-12 py-5 text-center font-headline text-lg font-bold text-white transition-all hover:bg-opacity-90"
+              className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl bg-secondary px-10 py-4 text-center font-headline text-lg font-bold text-white shadow-2xl shadow-secondary/28 transition-transform hover:scale-[1.02] sm:px-12 sm:py-5"
             >
               Get Started
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 sm:h-6 sm:w-6" />
             </AppLink>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex items-center justify-center"
-          >
-            <div className="rounded-2xl overflow-hidden shadow-2xl w-full">
-              <img
-                src={hero.image}
-                alt="Architectural Building"
-                className="w-full object-cover"
-                style={{ height: "clamp(400px, 70vh, 750px)" }}
-              />
-            </div>
-            {/* Floating stat card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="absolute -bottom-10 left-10 bg-[#0D1B2A] text-white px-10 py-8 rounded-xl shadow-2xl z-20 min-w-[280px]"
-            >
-              <div className="text-5xl font-headline font-extrabold mb-1">
-                <Counter value={parseInt(hero.statNumber)} suffix="+" />
+            {statShow > 0 ? (
+              <div className="flex min-h-[56px] min-w-[11rem] flex-col justify-center rounded-2xl border border-white/20 bg-white/10 px-6 py-3.5 backdrop-blur-md">
+                <div className="font-headline text-2xl font-extrabold tabular-nums text-white sm:text-3xl">
+                  <Counter value={statShow} suffix="+" />
+                </div>
+                <div className="mt-1 text-[10px] font-semibold uppercase leading-tight tracking-[0.18em] text-blue-100/90">
+                  {hero.statLabel}
+                </div>
               </div>
-              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200">
-                {hero.statLabel}
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
+            ) : null}
+          </div>
+
+          <p className="mt-12 max-w-2xl text-sm leading-snug text-on-primary/[0.76] md:text-[0.9375rem] md:leading-relaxed">
+            {caption}
+          </p>
+        </motion.div>
       </div>
     </section>
   );

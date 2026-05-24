@@ -29,11 +29,32 @@
 
 @layer base {
   body {
-    @apply bg-surface text-on-surface font-body;
+    @apply bg-surface text-on-surface font-body antialiased;
   }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Keyboard focus: high-contrast ring on primary interactive elements */
+  :where(a, button, summary, [role="tab"], [role="button"]):focus {
+    outline: none;
+  }
+  :where(a, button, summary, [role="tab"], [role="button"]):focus-visible {
+    outline: 2px solid var(--color-secondary-container);
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+  }
+
+  :where(a, button):focus-visible:is(.rounded-2xl, .rounded-xl, .rounded-full, .rounded-\[2rem\]) {
+    border-radius: inherit;
+    outline-offset: 4px;
   }
 
   /* `/preview` only — see PreviewLayout mount effect */
@@ -83,26 +104,4 @@
 @keyframes reveal {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* Global Icon Shake Animation */
-@keyframes icon-shake {
-  0% { transform: scale(1) rotate(0deg); }
-  25% { transform: scale(1.1) rotate(-8deg); }
-  50% { transform: scale(1.1) rotate(8deg); }
-  75% { transform: scale(1.1) rotate(-4deg); }
-  100% { transform: scale(1.1) rotate(0deg); }
-}
-
-button:hover svg, 
-a:hover svg,
-.group:hover svg,
-.group:hover .logo-img {
-  animation: icon-shake 0.4s ease-in-out;
-}
-
-button:active svg,
-a:active svg {
-  transform: scale(0.9);
-  transition: transform 0.1s;
 }

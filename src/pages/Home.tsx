@@ -5,7 +5,7 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
-import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   Rocket,
   CheckCircle2,
@@ -173,7 +173,7 @@ const Hero = () => {
 
   const mp4FallbackSrc = bundledHomeBannerMp4;
 
-  const titleText = siteDetails.pages.home.hero.title || "Architectural Authority in Global Finance.";
+  const titleText = siteDetails.pages.home.hero.title || "The Standard of Financial Integrity.";
 
   return (
     <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16 bg-primary">
@@ -237,13 +237,18 @@ const Hero = () => {
         {/* Left Column - Content */}
         <div className="lg:col-span-7 flex flex-col justify-center">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 py-1.5 px-3 bg-blue-500/10 border border-blue-400/20 backdrop-blur-md rounded-full text-blue-300 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 sm:mb-8 w-fit shadow-[0_0_15px_rgba(59,130,246,0.15)]"
+            transition={{ duration: 0.7 }}
+            className="relative mb-7 max-w-[min(38rem,100%)] sm:mb-9"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-            {siteDetails.pages.home.hero.badge || "Excellence in Finance"}
+            <p className="pb-3 font-headline text-[1.0625rem] font-bold leading-snug tracking-[-0.02em] text-balance text-white sm:pb-4 sm:text-xl md:text-2xl [text-shadow:0_2px_28px_rgba(0,0,0,0.42)]">
+              {siteDetails.pages.home.hero.badge || "Excellence in Finance"}
+            </p>
+            <div
+              className="h-0.5 max-w-xl bg-gradient-to-r from-secondary-container from-[-2%] via-secondary-container/70 to-transparent"
+              aria-hidden
+            />
           </motion.div>
 
           <TypewriterText
@@ -255,7 +260,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: (titleText.length * 0.05) + 0.2, duration: 0.8 }}
-            className="text-base sm:text-lg md:text-xl text-blue-100/70 leading-relaxed mb-10 max-w-2xl font-light"
+            className="mb-11 max-w-[min(42rem,100%)] text-pretty text-base font-light leading-[1.65] text-blue-100/82 sm:text-lg md:text-xl"
           >
             {siteDetails.pages.home.hero.subtitle}
           </motion.p>
@@ -270,15 +275,15 @@ const Hero = () => {
               href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden group bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 sm:py-5 rounded-xl font-headline font-bold text-sm sm:text-base transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] flex items-center justify-center gap-3"
+              className="group relative inline-flex min-h-12 flex-1 items-center justify-center gap-3 rounded-2xl bg-blue-600 px-8 py-3.5 text-center font-headline text-sm font-bold text-white shadow-[0_0_34px_-4px_rgba(37,99,235,0.45)] transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_44px_-4px_rgba(37,99,235,0.55)] active:translate-y-[1px] sm:min-h-[3.125rem] sm:flex-initial sm:py-4 sm:text-base"
             >
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
+              <div className="pointer-events-none absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1s_infinite]" />
               {siteDetails.pages.home.hero.buttonText}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <AppLink
               to="/services"
-              className="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-white px-8 py-4 sm:py-5 rounded-xl font-headline font-bold text-sm sm:text-base transition-all flex items-center justify-center"
+              className="inline-flex min-h-12 flex-1 items-center justify-center rounded-2xl border border-white/20 bg-white/8 px-8 py-3.5 text-center font-headline text-sm font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md transition-all duration-200 hover:border-white/30 hover:bg-white/14 active:translate-y-[1px] sm:min-h-[3.125rem] sm:flex-initial sm:py-4 sm:text-base"
             >
               {siteDetails.pages.home.hero.secondaryButtonText || "View Services"}
             </AppLink>
@@ -305,7 +310,7 @@ const Hero = () => {
                 ))}
               </div>
               <div className="text-right">
-                <div className="text-2xl font-black text-white">100+</div>
+                <div className="text-2xl font-black text-white">500+</div>
                 <div className="text-[10px] text-blue-200/60 uppercase tracking-widest">Happy Clients</div>
               </div>
             </div>
@@ -314,7 +319,7 @@ const Hero = () => {
               {[
                 { icon: ShieldCheck, title: "Tax & Audit Defense", desc: "Expert representation & legal protection." },
                 { icon: Zap, title: "Fast Incorporation", desc: "Start your company within 7 days." },
-                { icon: CheckCircle2, title: "100% Compliance", desc: "Timely filings & zero penalty guarantee." }
+                { icon: CheckCircle2, title: "100% Customer Oriented", desc: "Advice and filings centered on your goals—not generic paperwork." },
               ].map((feature, idx) => (
                 <div key={idx} className="flex gap-4 items-center group/item hover:bg-white/5 p-3 -mx-3 rounded-xl transition-colors">
                   <div className="w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover/item:scale-110 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all duration-300">
@@ -352,10 +357,47 @@ const Hero = () => {
 
 const StatsBar = () => {
   const { data: siteDetails } = useCMS();
-  const partners = siteDetails.pages.home.statsPartners ?? [];
+  const partnersRaw = siteDetails.pages.home.statsPartners ?? [];
+
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const onChange = () => setPrefersReducedMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const partners = useMemo(() => {
+    const list = [...partnersRaw];
+    const hasLogo = (p: { logo?: string }) => Boolean((p.logo ?? "").trim());
+
+    return list.sort((a, b) => {
+      const fa = Boolean((a as { featured?: boolean }).featured);
+      const fb = Boolean((b as { featured?: boolean }).featured);
+      if (fa !== fb) return fa ? -1 : 1;
+
+      const la = hasLogo(a as { logo?: string });
+      const lb = hasLogo(b as { logo?: string });
+      if (la !== lb) return la ? -1 : 1;
+
+      return 0;
+    });
+  }, [partnersRaw]);
+
+  /** Two copies enable seamless left-to-right motion (x from -50% to 0%). */
+  const marqueeItems = useMemo(() => [...partners, ...partners], [partners]);
+
+  const partnerUrl = (url: string | undefined) => {
+    const u = (url ?? "").trim();
+    return /^https?:\/\//i.test(u) ? u : null;
+  };
+
+  const marqueeDurationSec = Math.max(28, Math.min(72, partners.length * 4.25));
 
   return (
-    <div className="relative overflow-hidden bg-white py-16 md:py-24">
+    <div className="relative overflow-hidden bg-white py-20 md:py-28">
       <div
         className="pointer-events-none absolute top-1/2 right-0 h-[min(28rem,90vw)] w-[min(28rem,90vw)] translate-x-1/4 -translate-y-1/2 rounded-full bg-secondary/5 blur-3xl"
         aria-hidden
@@ -369,45 +411,109 @@ const StatsBar = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-xs font-bold uppercase tracking-[0.3em] text-primary mb-12"
+            className="mb-10 text-xs font-bold uppercase tracking-[0.3em] text-primary md:mb-12"
           >
             {siteDetails.pages.home.statsTitle || "Our Trusted Clients"}
           </motion.p>
-          <FadeInStagger className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {partners.map((client, idx) => (
-              <motion.a
-                href={client.url || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={`${client.name}-${idx}`}
-                className="group flex flex-col items-center gap-4"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: idx * 0.15, type: "spring", stiffness: 100 }}
+
+          <div className="-mx-4 px-0 sm:-mx-6 sm:px-0 md:mx-0 md:px-0">
+            <div
+              role="region"
+              aria-label="Strategic Industry Partners — logos scroll horizontally left to right"
+              className="relative left-1/2 w-[100vw] -translate-x-1/2 overflow-hidden pb-4 pt-1"
+            >
+              <motion.div
+                className="flex w-max flex-nowrap gap-6 px-5 sm:px-8 md:gap-10"
+                initial={false}
+                animate={prefersReducedMotion ? { x: 0 } : { x: ["-50%", "0%"] }}
+                transition={
+                  prefersReducedMotion
+                    ? undefined
+                    : {
+                        duration: marqueeDurationSec,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }
+                }
               >
-                <motion.div
-                  whileHover={{ scale: 1.08, y: -8 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-3xl shadow-sm border border-slate-100 flex items-center justify-center p-6 overflow-hidden group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] group-hover:border-primary/30 relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-w-full max-h-full object-contain relative z-10 transition-all duration-700 ease-out"
-                    onError={(e) => {
-                      // Fallback if image is not yet uploaded by user
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${client.name.replace(/ /g, '+')}&background=f8f9fa&color=001f49&size=200`;
-                    }}
-                  />
-                </motion.div>
-                <span className="text-sm font-bold text-slate-500 group-hover:text-primary transition-colors text-center max-w-[150px]">
-                  {client.name}
-                </span>
-              </motion.a>
-            ))}
-          </FadeInStagger>
+                {marqueeItems.map((client, idx) => {
+                  const href = partnerUrl((client as { url?: string }).url);
+                  const logo = ((client as { logo?: string }).logo ?? "").trim();
+                  const featured = Boolean((client as { featured?: boolean }).featured);
+
+                  const tile = (
+                    <>
+                      <motion.div
+                        whileHover={{ scale: 1.08, y: -8 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className={`relative h-32 w-32 shrink-0 rounded-3xl border bg-white shadow-sm md:h-40 md:w-40 flex items-center justify-center p-6 overflow-hidden transition-all duration-700 ease-out group-hover:border-primary/30 group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] ${
+                          featured
+                            ? "border-secondary-container/60 ring-2 ring-secondary-container/35 ring-offset-2 ring-offset-white"
+                            : "border-slate-100"
+                        }`}
+                      >
+                        {featured ? (
+                          <span className="absolute top-2 left-2 z-20 rounded-full bg-secondary-container px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wide text-secondary">
+                            Landmark
+                          </span>
+                        ) : null}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                        {logo ? (
+                          <img
+                            src={logo}
+                            alt={client.name}
+                            className="relative z-10 max-h-full max-w-full object-contain transition-all duration-700 ease-out"
+                            onError={(e) => {
+                              const el = e.target as HTMLImageElement;
+                              el.onerror = null;
+                              el.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(client.name)}&background=f0f2ff&color=18335c&size=256`;
+                            }}
+                          />
+                        ) : (
+                          <span
+                            className="relative z-10 flex h-full w-full items-center justify-center font-headline text-2xl font-extrabold text-primary/35"
+                            aria-hidden
+                          >
+                            {client.name.slice(0, 2).toUpperCase()}
+                          </span>
+                        )}
+                      </motion.div>
+                      <span className="text-center text-sm font-bold text-slate-500 transition-colors group-hover:text-primary max-w-[11rem]">
+                        {client.name}
+                      </span>
+                    </>
+                  );
+
+                  const itemClass =
+                    "group flex w-[calc(72vw)] max-w-[13rem] shrink-0 flex-col items-center gap-4 rounded-2xl p-3 outline-none sm:w-auto sm:max-w-none sm:min-w-[12rem]" +
+                    (href
+                      ? " transition-colors hover:bg-primary/[0.03] focus-visible:ring-2 focus-visible:ring-secondary-container focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                      : "");
+
+                  if (href) {
+                    return (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={`${client.name}-${idx}`}
+                        aria-label={`${client.name} — opens official website`}
+                        className={itemClass}
+                      >
+                        {tile}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div key={`${client.name}-${idx}`} className={itemClass}>
+                      {tile}
+                    </div>
+                  );
+                })}
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -417,7 +523,7 @@ const StatsBar = () => {
 const CoreServices = () => {
   const { data: siteDetails } = useCMS();
   return (
-    <section className="relative overflow-x-hidden bg-white py-16 md:py-24">
+    <section className="relative overflow-x-hidden bg-white py-20 md:py-28 lg:py-32">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_50%_0%,rgba(0,31,73,0.06),transparent_65%)]"
         aria-hidden
@@ -547,7 +653,14 @@ function ProcessFlowStep({
   isLast: boolean;
 }) {
   const stepStart = 0.1 + i * 0.18;
-  const iconMap: { [key: string]: typeof Rocket } = { Search, FileStack, Microscope, Rocket };
+  const iconMap: { [key: string]: typeof Rocket } = {
+    Search,
+    FileStack,
+    Microscope,
+    Rocket,
+    UserSearch,
+    ShieldCheck,
+  };
   const Icon = iconMap[step.icon] || Rocket;
 
   const boxBg = useTransform(scrollYProgress, [stepStart, stepStart + 0.08], ["#ffffff", "#001f49"]);
@@ -611,123 +724,7 @@ const ProcessFlow = () => {
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-          {/* Indian Court-Style Ink Stamp Seal - Top Right (10px above heading) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
-            whileInView={{ opacity: 0.85, scale: 1, rotate: -6 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, type: "spring", stiffness: 60 }}
-            className="absolute -top-[10px] right-6 z-20 pointer-events-none select-none scale-75 md:scale-100 origin-top-right opacity-60 md:opacity-100"
-            style={{ filter: "saturate(1.2) contrast(1.1)" }}
-          >
-            <svg width="200" height="200" viewBox="0 0 240 240" className="drop-shadow-[0_2px_6px_rgba(0,31,73,0.15)]" style={{ filter: "url(#inkTexture)" }}>
-              <defs>
-                {/* Ink texture filter for rough stamp edges */}
-                <filter id="inkTexture" x="-5%" y="-5%" width="110%" height="110%">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="2" result="noise" />
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
-                </filter>
-                {/* Clip for center logo */}
-                <clipPath id="logoClip">
-                  <circle cx="120" cy="120" r="38" />
-                </clipPath>
-                {/* Curved text paths */}
-                <path id="sealTopArc" d="M 38,120 a 82,82 0 0,1 164,0" fill="none" />
-                <path id="sealBottomArc" d="M 202,120 a 82,82 0 0,1 -164,0" fill="none" />
-                <path id="sealEstArc" d="M 60,120 a 60,60 0 0,0 120,0" fill="none" />
-              </defs>
-
-              {/* Outermost ring — thick ink border */}
-              <circle cx="120" cy="120" r="116" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="4" opacity="0.9" />
-              <circle cx="120" cy="120" r="110" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="1.5" opacity="0.7" />
-
-              {/* Decorative dots ring — between outer and inner rings */}
-              {Array.from({ length: 48 }).map((_, i) => {
-                const angle = (i * 7.5 * Math.PI) / 180;
-                const r = 103;
-                const cx = 120 + r * Math.cos(angle);
-                const cy = 120 + r * Math.sin(angle);
-                const size = i % 4 === 0 ? 2.2 : i % 2 === 0 ? 1.5 : 0.9;
-                return <circle key={`od-${i}`} cx={cx} cy={cy} r={size} fill="var(--color-primary, #001f49)" opacity={0.6 + (i % 3) * 0.15} />;
-              })}
-
-              {/* Inner ring */}
-              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="2" opacity="0.85" />
-
-              {/* Star/diamond decorations at 8 positions */}
-              {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => {
-                const angle = (deg * Math.PI) / 180;
-                const cx = 120 + 95 * Math.cos(angle);
-                const cy = 120 + 95 * Math.sin(angle);
-                return (
-                  <g key={`s8-${deg}`} transform={`translate(${cx},${cy}) rotate(${deg})`}>
-                    <polygon points="0,-3.5 1,-1 3.5,0 1,1 0,3.5 -1,1 -3.5,0 -1,-1" fill="var(--color-primary, #001f49)" opacity="0.8" />
-                  </g>
-                );
-              })}
-
-              {/* Curved text — PHINURA ADVISORS on top */}
-              <text fontSize="13" fontWeight="900" fill="var(--color-primary, #001f49)" letterSpacing="4" fontFamily="'Georgia', 'Times New Roman', serif" opacity="0.9">
-                <textPath href="#sealTopArc" startOffset="50%" textAnchor="middle">
-                  PHINURA ADVISORS
-                </textPath>
-              </text>
-
-              {/* Curved text — ★ LLP ★ on bottom */}
-              <text fontSize="12" fontWeight="900" fill="var(--color-primary, #001f49)" letterSpacing="5" fontFamily="'Georgia', 'Times New Roman', serif" opacity="0.9">
-                <textPath href="#sealBottomArc" startOffset="50%" textAnchor="middle">
-                  ★ LLP ★
-                </textPath>
-              </text>
-
-              {/* Est date curved below center */}
-              <text fontSize="8" fontWeight="bold" fill="var(--color-primary, #001f49)" letterSpacing="3" fontFamily="'Georgia', serif" opacity="0.7">
-                <textPath href="#sealEstArc" startOffset="50%" textAnchor="middle">
-                  EST. 2015
-                </textPath>
-              </text>
-
-              {/* Inner decorative ring around logo */}
-              <circle cx="120" cy="120" r="48" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="1.5" opacity="0.6" strokeDasharray="3 3" />
-              <circle cx="120" cy="120" r="42" fill="none" stroke="var(--color-primary, #001f49)" strokeWidth="0.8" opacity="0.5" />
-
-              {/* Center logo image */}
-              <image
-                href={phinuraLogo}
-                x="82"
-                y="82"
-                width="76"
-                height="76"
-                clipPath="url(#logoClip)"
-                preserveAspectRatio="xMidYMid meet"
-                opacity="0.85"
-              />
-
-              {/* Scattered ink splatter dots — random positions for authentic ink stamp feel */}
-              {[
-                { x: 25, y: 30, r: 1.5 }, { x: 210, y: 45, r: 1 }, { x: 40, y: 200, r: 2 },
-                { x: 195, y: 190, r: 1.2 }, { x: 15, y: 100, r: 0.8 }, { x: 225, y: 120, r: 1.5 },
-                { x: 50, y: 55, r: 0.6 }, { x: 185, y: 30, r: 1.8 }, { x: 30, y: 170, r: 1 },
-                { x: 210, y: 170, r: 0.7 }, { x: 100, y: 15, r: 1.3 }, { x: 140, y: 225, r: 1.1 },
-                { x: 60, y: 20, r: 0.5 }, { x: 175, y: 215, r: 0.9 }, { x: 18, y: 140, r: 1.4 },
-                { x: 222, y: 80, r: 0.6 }, { x: 70, y: 215, r: 1.6 }, { x: 160, y: 18, r: 0.8 },
-                { x: 35, y: 85, r: 1.1 }, { x: 205, y: 155, r: 0.7 },
-              ].map((dot, i) => (
-                <circle key={`ink-${i}`} cx={dot.x} cy={dot.y} r={dot.r} fill="var(--color-primary, #001f49)" opacity={0.2 + (i % 4) * 0.1} />
-              ))}
-
-              {/* Additional tiny ink spray dots */}
-              {Array.from({ length: 16 }).map((_, i) => {
-                const angle = ((i * 22.5 + 11) * Math.PI) / 180;
-                const r = 108 + (i % 3) * 4;
-                const cx = 120 + r * Math.cos(angle);
-                const cy = 120 + r * Math.sin(angle);
-                return <circle key={`spray-${i}`} cx={cx} cy={cy} r={0.5 + (i % 2) * 0.4} fill="var(--color-primary, #001f49)" opacity={0.3} />;
-              })}
-            </svg>
-          </motion.div>
-
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className="mx-auto mb-16 max-w-3xl text-center pt-8 md:pt-4">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <h2 className="mb-4 font-headline text-4xl font-extrabold tracking-tight text-primary md:text-6xl relative z-10">
                 {process.title}
@@ -776,7 +773,7 @@ const WhyChooseUs = () => {
   const iconMap: { [key: string]: any } = { ShieldCheck, Zap, CheckCircle2, Rocket, UserSearch };
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 bg-[#18335c]">
+    <section className="relative overflow-hidden bg-[#18335c] py-20 md:py-28">
       {/* Decorative background map-like pattern */}
       <div 
         className="absolute inset-0 z-0 opacity-10 pointer-events-none"
@@ -884,7 +881,7 @@ const Testimonials = () => {
   const reviews = testimonials ?? [];
 
   return (
-    <section className="relative overflow-hidden bg-[#dfe9f5] py-16 md:py-24">
+    <section className="relative overflow-hidden bg-[#dfe9f5] py-20 md:py-28">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_100%,rgba(0,31,73,0.04),transparent_60%)]"
         aria-hidden
@@ -897,7 +894,10 @@ const Testimonials = () => {
             </h2>
           </FadeInItem>
           <FadeInItem>
-            <p className="text-on-surface-variant">Real stories from entrepreneurs who grow with us.</p>
+            <p className="text-on-surface-variant">
+              {(siteDetails.pages.home as any).testimonialsSubtitle ??
+                "Real stories from entrepreneurs who grow with us."}
+            </p>
           </FadeInItem>
         </FadeInStagger>
       </div>
@@ -914,40 +914,57 @@ const Testimonials = () => {
           }}
           className="flex gap-8 whitespace-nowrap"
         >
-          {[...reviews, ...reviews].map((t, i) => (
-            <div
-              key={i}
-              className="w-[400px] flex-shrink-0 bg-white p-10 rounded-[2rem] border border-outline-variant/10 shadow-sm relative group"
-            >
-              <Quote className="text-primary/5 w-20 h-20 absolute top-4 right-6 select-none group-hover:text-primary/10 transition-colors" />
-              <div className="flex gap-1 text-secondary mb-6">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Zap key={s} className="w-4 h-4 fill-secondary" />
-                ))}
-              </div>
-              <p className="text-lg font-medium text-primary italic mb-10 leading-relaxed whitespace-normal">
-                "{t.quote}"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full ring-2 ring-primary/20 ring-offset-2 bg-primary-fixed flex items-center justify-center font-bold text-primary shadow-md relative overflow-hidden flex-shrink-0 group-hover:ring-primary/50 transition-all duration-300">
-                  {t.image ? (
+          {[...reviews, ...reviews].map((t, i) => {
+            const companyLogo = t.companyLogo?.trim();
+            return (
+              <div
+                key={`${t.name}-${t.role}-${i}`}
+                className="w-[min(100vw-2rem,400px)] flex-shrink-0 bg-white p-10 rounded-[2rem] border border-outline-variant/10 shadow-sm relative group"
+              >
+                <Quote className="text-primary/5 w-20 h-20 absolute top-4 right-6 select-none group-hover:text-primary/10 transition-colors" />
+                {companyLogo ? (
+                  <div className="relative z-10 mb-5 flex min-h-[48px] items-center border-b border-outline-variant/10 pb-5">
                     <img
-                      src={t.image}
-                      alt={t.name}
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
+                      src={companyLogo}
+                      alt=""
+                      role="presentation"
+                      className="max-h-11 w-auto max-w-[11.5rem] object-contain object-left"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = "none";
+                      }}
                     />
-                  ) : (
-                    <span className="text-lg font-bold text-primary relative z-10">{t.name.charAt(0)}</span>
-                  )}
+                  </div>
+                ) : null}
+                <div className="flex gap-1 text-secondary mb-6">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Zap key={s} className="w-4 h-4 fill-secondary" />
+                  ))}
                 </div>
-                <div className="whitespace-normal">
-                  <div className="font-bold text-primary">{t.name}</div>
-                  <div className="text-xs text-on-surface-variant font-medium">{t.role}</div>
+                <p className="text-lg font-medium text-primary italic mb-10 leading-relaxed whitespace-normal">
+                  "{t.quote}"
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full ring-2 ring-primary/20 ring-offset-2 bg-primary-fixed flex items-center justify-center font-bold text-primary shadow-md relative overflow-hidden flex-shrink-0 group-hover:ring-primary/50 transition-all duration-300">
+                    {t.image ? (
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
+                      <span className="text-lg font-bold text-primary relative z-10">{t.name.charAt(0)}</span>
+                    )}
+                  </div>
+                  <div className="whitespace-normal">
+                    <div className="font-bold text-primary">{t.name}</div>
+                    <div className="text-xs text-on-surface-variant font-medium">{t.role}</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </motion.div>
       </div>
     </section>
@@ -958,7 +975,7 @@ const FinalCTA = () => {
   const { data: siteDetails } = useCMS();
 
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white py-20 md:py-28">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -974,12 +991,12 @@ const FinalCTA = () => {
           >
             <FadeInStagger>
               <FadeInItem>
-                <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6">
+                <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">
                   {siteDetails.pages.home.cta.title}
                 </h2>
               </FadeInItem>
               <FadeInItem>
-                <p className="text-xl text-on-primary-container mb-12 max-w-2xl mx-auto">
+                <p className="text-xl md:text-[1.35rem] text-sky-100/95 mb-12 max-w-2xl mx-auto leading-relaxed font-normal tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
                   {siteDetails.pages.home.cta.subtitle}
                 </p>
               </FadeInItem>

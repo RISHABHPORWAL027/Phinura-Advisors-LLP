@@ -94,8 +94,12 @@ export interface SiteDetails {
         role: string;
         quote: string;
         image?: string;
+        /** Optional client / company logo (e.g. /client_logo/...) */
+        companyLogo?: string;
       }>;
       testimonialsTitle: string;
+      /** Subtitle under testimonials title */
+      testimonialsSubtitle?: string;
       /** Label above the stats row on the home page */
       statsTitle?: string;
       /** Client / partner logos in the row directly under `statsTitle` */
@@ -103,17 +107,27 @@ export interface SiteDetails {
         name: string;
         /** External link when the logo is clicked */
         url: string;
-        /** Image URL or path (e.g. `/client_logo/...` or pasted upload URL) */
-        logo: string;
+        /** Image path or URL; omit or leave empty to show text tile (sorted after logos) */
+        logo?: string;
+        /** Highlight as first / landmark partner (e.g. Kamal Watch) */
+        featured?: boolean;
       }>;
     };
     services: {
+      /** Section heading above the service cards on `/services` */
+      gridTitle?: string;
+      /** Supporting line under `gridTitle` */
+      gridSubtitle?: string;
       serviceList: Array<{
         id: string;
         title: string;
         icon: string;
         image?: string;
         description: string;
+        /** Small headline above consultation copy (below deliverables grid) */
+        consultationHeading?: string;
+        /** Optional paragraph(s) below deliverables — how consultation works / how we help */
+        consultationClosing?: string;
         heroTitle?: string;
         hero_title?: string;
         subtitle?: string;
@@ -133,6 +147,10 @@ export interface SiteDetails {
       serviceDetailCtaSubtitle?: string;
       /** Default “Request a call back” link label on service detail pages */
       serviceDetailCallBackLinkText?: string;
+      /** Default headline for the consultation block below deliverables/benefits (each service may override). */
+      serviceDetailConsultationHeading?: string;
+      /** Default consultation body shown on every service detail page unless overridden */
+      serviceDetailConsultationClosing?: string;
       introTitle?: string;
       introContent1?: string;
       introContent2?: string;
@@ -162,15 +180,45 @@ export interface SiteDetails {
       hero: {
         title: string;
         subtitle: string;
+        /** Extra paragraph shown under the subtitle (optional) */
+        body?: string;
+        /** Short trust / capability bullets under the subtitle or body */
+        highlights?: string[];
+        /** Caption under the CTA row (photo / team context) */
+        photoCaption?: string;
         badge: string;
         image: string;
         statNumber?: string;
         statLabel?: string;
       };
       story: {
+        /** Main heading */
         title: string;
+        /** Fallback body when `paragraphs` is omitted: use double newlines between blocks */
         content: string;
         image?: string;
+        eyebrow?: string;
+        /** Short italic-style lead shown under title */
+        lead?: string;
+        /** Story body paragraphs (preferred over splitting `content`) */
+        paragraphs?: string[];
+        trajectoryTitle?: string;
+        trajectoryBrandLine?: string;
+        trajectoryParagraphs?: string[];
+        growthTitle?: string;
+        growthParagraphs?: string[];
+        milestonesSectionTitle?: string;
+        milestones?: Array<{
+          label: string;
+          /** Animated number when numeric */
+          numericValue?: number;
+          suffix?: string;
+          /** Free-form headline instead of animated number (e.g. Popular) */
+          textFigure?: string;
+          /** Optional image URL when provided by CMS */
+          image?: string;
+        }>;
+        trustedLine?: string;
       };
       principles: {
         title: string;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X } from "lucide-react";
+import { UserRound, X } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import type { SiteDetails } from "../services/types";
@@ -19,7 +19,52 @@ const TEAM_MEMBER_HEADSHOTS: Record<string, string> = {
 };
 
 function resolveTeamPhoto(member: TeamMember): string {
-  return TEAM_MEMBER_HEADSHOTS[member.name] ?? member.img;
+  const bundled = TEAM_MEMBER_HEADSHOTS[member.name];
+  const url = typeof member.img === "string" ? member.img.trim() : "";
+  return (bundled ?? url).trim();
+}
+
+function initialsFromName(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+}
+
+function TeamMemberPortraitFill({
+  member,
+  imgClassName,
+}: {
+  member: TeamMember;
+  /** Applied only when a real photo is shown */
+  imgClassName: string;
+}) {
+  const src = resolveTeamPhoto(member);
+  const [broken, setBroken] = useState(false);
+  const showImage = Boolean(src) && !broken;
+
+  useEffect(() => {
+    setBroken(false);
+  }, [member.name, src]);
+
+  return showImage ? (
+    <img
+      src={src}
+      alt={member.name}
+      className={imgClassName}
+      referrerPolicy="no-referrer"
+      onError={() => setBroken(true)}
+    />
+  ) : (
+    <div
+      className="flex h-full w-full min-h-[8rem] flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary/[0.12] via-slate-100 to-[#18335c]/[0.12] px-4 text-center"
+      role="img"
+      aria-label={`Photo placeholder for ${member.name}`}
+    >
+      <UserRound className="h-10 w-10 shrink-0 text-primary/[0.22]" aria-hidden strokeWidth={1.75} />
+      <span className="font-headline text-4xl font-black uppercase tracking-[0.15em] text-primary/28 sm:text-5xl">{initialsFromName(member.name)}</span>
+    </div>
+  );
 }
 
 type Props = {
@@ -108,13 +153,10 @@ export function TeamSection({ variant }: Props) {
                 onClick={() => setSelected(person)}
                 className="text-left group rounded-2xl border border-outline-variant/15 bg-white shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
-                <div className="relative overflow-hidden aspect-[4/5]">
-                  <img
-                    src={resolveTeamPhoto(person)}
-                    alt={person.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <div className="h-full w-full overflow-hidden transition-transform duration-500 group-hover:scale-105">
+                    <TeamMemberPortraitFill member={person} imgClassName="h-full w-full object-cover" />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <span className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
                     View profile
@@ -174,13 +216,8 @@ export function TeamSection({ variant }: Props) {
               </button>
 
               <div className="flex flex-col items-center text-center px-6 pt-10 pb-8 md:px-10 md:pb-10 overflow-y-auto">
-                <div className="w-full max-w-[200px] aspect-[4/5] rounded-2xl overflow-hidden shadow-xl mb-6 border-[3px] border-white shrink-0 ring-1 ring-black/5">
-                  <img
-                    src={resolveTeamPhoto(selected)}
-                    alt={selected.name}
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className="mb-6 aspect-[4/5] w-full max-w-[200px] shrink-0 overflow-hidden rounded-2xl border-[3px] border-white shadow-xl ring-1 ring-black/5">
+                  <TeamMemberPortraitFill member={selected} imgClassName="h-full w-full object-cover" />
                 </div>
 
                 <p className="text-[#B45309] text-[11px] font-bold tracking-[0.12em] uppercase mb-4 max-w-sm">
