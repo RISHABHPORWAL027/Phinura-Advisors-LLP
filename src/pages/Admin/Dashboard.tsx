@@ -1348,6 +1348,14 @@ export function AdminDashboard() {
                     </a>{" "}
                     Open the icon control to see each option with its preview; use the custom row for any name from the gallery.
                   </p>
+                  <p className="mb-4 rounded-lg border border-secondary-container/25 bg-secondary-container/[0.08] px-4 py-3 text-sm leading-relaxed text-on-surface">
+                    <strong className="font-headline text-primary">Consultation ("how we can help") — per service:</strong> In each card below, scroll past{" "}
+                    <em>Deliverables</em> and <em>Benefits</em> to find <strong>Consultation headline</strong> and{" "}
+                    <strong>Consultation paragraphs</strong>. On the live page this appears directly under{" "}
+                    <strong>Key Deliverables</strong> and <strong>Strategic Benefits</strong> (e.g. MCA:&nbsp;
+                    <code className="rounded bg-white/80 px-1.5 py-0.5 text-xs text-primary shadow-sm ring-1 ring-outline-variant/20">/services/mca-compliance</code>
+                    ).
+                  </p>
                   {formData.pages.services.serviceList.map((service, i) => (
                     <div key={i} className="mb-8 p-6 border border-outline-variant rounded-xl relative space-y-4 shadow-sm bg-surface">
                       <button onClick={() => handleArrayRemove(["pages", "services", "serviceList"], i)} className="absolute top-4 right-4 text-red-500 hover:text-red-700 z-10 p-2"><Trash2 size={20} /></button>
@@ -1440,26 +1448,31 @@ export function AdminDashboard() {
                         </div>
                       </div>
 
-                      <div className="mt-4 space-y-2 border-t border-outline-variant/20 pt-4">
-                        <label className="text-xs font-bold uppercase text-primary">
-                          Consultation headline (topic-specific; blank inherits Services default above)
+                      <div className="mt-4 space-y-3 rounded-xl border border-secondary-container/35 bg-secondary-container/[0.06] p-4">
+                        <p className="text-[11px] font-bold uppercase tracking-wide text-primary">Consultation block — this service only</p>
+                        <p className="text-[11px] leading-snug text-on-surface-variant">
+                          Shown on the detail page beneath <strong className="text-on-surface">Key Deliverables</strong> /{" "}
+                          <strong className="text-on-surface">Strategic Benefits</strong>. Leave empty to use site-wide defaults at top of Services tab.
+                        </p>
+                        <label className="block text-xs font-bold uppercase text-primary">
+                          Consultation headline
                         </label>
                         <input
                           type="text"
                           value={service.consultationHeading ?? ""}
                           onChange={(e) => handleChange(["pages", "services", "serviceList", i, "consultationHeading"], e.target.value)}
-                          className="w-full rounded-lg border bg-surface-container p-2 outline-none"
-                          placeholder="Consultation: how we can help"
+                          className="w-full rounded-lg border border-outline-variant/60 bg-white p-3 outline-none focus:border-primary"
+                          placeholder='e.g. MCA consultation — how we can help'
                         />
-                        <label className="text-xs font-bold uppercase text-on-surface-variant">
-                          Consultation paragraphs (topic-specific – blank inherits Services default; use blank lines between paragraphs)
+                        <label className="block text-xs font-bold uppercase text-on-surface-variant">
+                          Consultation paragraphs
                         </label>
                         <textarea
-                          rows={5}
+                          rows={10}
                           value={service.consultationClosing ?? ""}
                           onChange={(e) => handleChange(["pages", "services", "serviceList", i, "consultationClosing"], e.target.value)}
-                          className="w-full resize-y rounded-lg border bg-surface-container p-2 outline-none"
-                          placeholder="Optional: how consultation works and how you help—shown under Key Deliverables / Strategic Benefits."
+                          className="w-full resize-y rounded-lg border border-outline-variant/60 bg-white p-3 outline-none focus:border-primary"
+                          placeholder="Separate paragraphs with a blank line. Example: MCA / GST / ROC copy that matches this service."
                         />
                       </div>
 

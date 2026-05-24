@@ -173,7 +173,7 @@ const Hero = () => {
 
   const mp4FallbackSrc = bundledHomeBannerMp4;
 
-  const titleText = siteDetails.pages.home.hero.title || "The Standard of Financial Integrity.";
+  const titleText = siteDetails.pages.home.hero.title || "You run the business.\nWe handle the compliance.";
 
   return (
     <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16 bg-primary">

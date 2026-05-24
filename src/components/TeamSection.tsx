@@ -220,7 +220,11 @@ export function TeamSection({ variant }: Props) {
                   <TeamMemberPortraitFill member={selected} imgClassName="h-full w-full object-cover" />
                 </div>
 
-                <p className="text-[#B45309] text-[11px] font-bold tracking-[0.12em] uppercase mb-4 max-w-sm">
+                <h2 className="font-headline text-2xl font-extrabold tracking-tight text-primary md:text-[1.65rem] px-1">
+                  {selected.name}
+                </h2>
+
+                <p className="mt-2 text-[#B45309] text-[11px] font-bold tracking-[0.12em] uppercase mb-4 max-w-sm">
                   {selected.role}
                 </p>
 
