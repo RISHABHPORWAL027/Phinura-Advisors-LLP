@@ -146,13 +146,15 @@ const Hero = () => {
             </AppLink>
 
             {statShow > 0 ? (
-              <div className="flex min-h-[56px] min-w-[11rem] flex-col justify-center rounded-2xl border border-white/20 bg-white/10 px-6 py-3.5 backdrop-blur-md">
-                <div className="font-headline text-2xl font-extrabold tabular-nums text-white sm:text-3xl">
-                  <Counter value={statShow} suffix="+" />
-                </div>
-                <div className="mt-1 text-[10px] font-semibold uppercase leading-tight tracking-[0.18em] text-blue-100/90">
-                  {hero.statLabel}
-                </div>
+              <div className="flex min-h-[52px] flex-1 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 py-3.5 backdrop-blur-md sm:min-h-[56px] sm:min-w-[13rem] sm:flex-initial sm:px-6">
+                <span className="inline-flex items-center justify-center gap-x-2 text-center">
+                  <span className="font-headline text-2xl font-extrabold tabular-nums leading-none text-white sm:text-3xl">
+                    <Counter value={statShow} suffix="+" />
+                  </span>
+                  <span className="text-sm font-medium leading-snug text-blue-50/92 sm:text-base">
+                    {(hero.statLabel ?? "").trim() || "Years experience"}
+                  </span>
+                </span>
               </div>
             ) : null}
           </div>
