@@ -15,7 +15,7 @@ import {
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { TeamSection } from "../components/TeamSection";
-import missionCardBanner from "../Assets/genral_banner.jpg";
+import missionBg from "../Assets/our_mission.jpg";
 import visionSectionImage from "../Assets/vision_2.jpg";
 import aboutTeamPhoto from "../Assets/team_member.webp";
 import ctaBackground from "../Assets/details_page_bg.avif";
@@ -319,19 +319,17 @@ const MissionVision = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 relative flex min-h-[400px] flex-col justify-center overflow-hidden rounded-[2rem] border border-slate-100 shadow-sm"
+            className="lg:col-span-2 relative flex min-h-[400px] flex-col justify-center overflow-hidden rounded-[2rem] border border-slate-100 shadow-sm bg-slate-900 shadow-2xl"
           >
             <div className="pointer-events-none absolute inset-0" aria-hidden>
-              <img src={missionCardBanner} alt="" className="h-full w-full object-cover" />
-              <div
-                className="absolute inset-0 bg-[linear-gradient(100deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.88)_28%,rgba(255,255,255,0.45)_48%,rgba(255,255,255,0.08)_68%,transparent_88%)]"
-                aria-hidden
-              />
+              <img src={missionBg} alt="Our Mission" className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-[#0D1B2A]/40 group-hover:bg-[#0D1B2A]/20 transition-colors duration-500" aria-hidden></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" aria-hidden></div>
             </div>
 
             <div className="relative z-10 flex max-w-xl flex-col justify-center p-12 md:p-16">
-              <Building2 className="mb-8 h-10 w-10 text-primary" />
-              <h3 className="mb-6 font-headline text-3xl font-bold text-primary">Our Mission</h3>
+              <Building2 className="mb-8 h-10 w-10 text-white" />
+              <h3 className="mb-6 font-headline text-3xl font-bold text-white">Our Mission</h3>
 
               <div className="relative h-32 overflow-hidden md:h-24">
                 <AnimatePresence mode="wait">
@@ -341,7 +339,7 @@ const MissionVision = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute text-xl font-medium leading-relaxed text-[#0D1B2A]/90"
+                    className="absolute text-xl font-medium leading-relaxed text-white/90"
                   >
                     {safeMissions[currentMission]}
                   </motion.p>
@@ -450,7 +448,7 @@ const CTA = () => {
             <h2 className="text-4xl md:text-6xl font-headline font-extrabold mb-8 leading-[1.1]">
               {cta.title}
             </h2>
-            <p className="text-xl md:text-2xl text-on-primary-container/80 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white mb-12 max-w-3xl mx-auto leading-relaxed">
               {cta.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

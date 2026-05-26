@@ -209,7 +209,7 @@ const ServiceGrid = ({
                   transition: { duration: 0.3 }
                 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative h-full flex flex-col"
+                className="bg-white rounded-[2.5rem] border-2 border-primary/20 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative h-full flex flex-col"
               >
                 {/* Image Section Wrapper */}
                 <div className="relative aspect-[16/10]">

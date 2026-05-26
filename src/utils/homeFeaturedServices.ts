@@ -1,5 +1,5 @@
 /** Always show this many cards in the home “Core Services” grid. */
-export const HOMEPAGE_FEATURED_SERVICE_COUNT = 3;
+export const HOMEPAGE_FEATURED_SERVICE_COUNT = 6;
 
 type ServiceLike = { id: string };
 

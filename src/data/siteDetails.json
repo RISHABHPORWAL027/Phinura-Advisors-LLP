@@ -473,7 +473,7 @@
           "id": "gst-compliance",
           "title": "GST registrations & returns",
           "icon": "BadgeIndianRupee",
-          "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80&w=600",
+          "image": "src/Assets/gst_india.webp",
           "description": "Registration amendments, outward/inward reconciliation discipline, quarterly or monthly filings, cancellations, and liaison planning common to SMEs.",
           "category": "GST",
           "heroTitle": "GST compliance your ops team can recognise",
