@@ -13,6 +13,7 @@ const About = lazy(() => import("./pages/About").then((m) => ({ default: m.About
 const Services = lazy(() => import("./pages/Services").then((m) => ({ default: m.Services })));
 const Contact = lazy(() => import("./pages/Contact").then((m) => ({ default: m.Contact })));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail").then((m) => ({ default: m.ServiceDetail })));
+const SubServiceDetail = lazy(() => import("./pages/SubServiceDetail").then((m) => ({ default: m.SubServiceDetail })));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy").then((m) => ({ default: m.PrivacyPolicy })));
 const TermsOfService = lazy(() => import("./pages/TermsOfService").then((m) => ({ default: m.TermsOfService })));
 const AdminDashboard = lazy(() => import("./pages/Admin/Dashboard").then((m) => ({ default: m.AdminDashboard })));
@@ -65,6 +66,7 @@ const previewRoutes = (
     <Route index element={<Home />} />
     <Route path="about" element={<About />} />
     <Route path="services" element={<Services />} />
+    <Route path="services/:serviceId/:subServiceId" element={<SubServiceDetail />} />
     <Route path="services/:serviceId" element={<ServiceDetail />} />
     <Route path="contact" element={<Contact />} />
     <Route path="privacy" element={<PrivacyPolicy />} />
@@ -85,6 +87,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="services" element={<Services />} />
+            <Route path="services/:serviceId/:subServiceId" element={<SubServiceDetail />} />
             <Route path="services/:serviceId" element={<ServiceDetail />} />
             <Route path="contact" element={<Contact />} />
             <Route path="privacy" element={<PrivacyPolicy />} />

@@ -136,11 +136,14 @@
       "coreServices": {
         "badge": "Comprehensive Expertise",
         "title": "Our Core Services",
-        "subtitle": "End-to-end financial and legal solutions designed to empower your business journey with absolute precision and clarity.",
+        "subtitle": "End-to-end compliance and advisory solutions to help your business stay compliant, grow sustainably, and achieve more.",
         "featuredServiceIds": [
+          "company-registration",
           "mca-compliance",
+          "trademark-registration",
+          "accounting-bookkeeping",
           "gst-compliance",
-          "trademark-registration"
+          "income-tax-compliance"
         ]
       },
       "process": {
@@ -324,11 +327,11 @@
       "serviceDetailCallBackLinkText": "Request a Call Back",
       "serviceDetailConsultationHeading": "Consultation — how we can help",
       "serviceDetailConsultationClosing": "We start from how your business runs day to day—that tells us which MCA, GST, tax, trademark, or allied obligations actually apply.\n\nOn consultation we listen first: what deadlines worry you and what paperwork you already have. Then we map a sensible sequence—what we prepare, what you submit on government portals—and we explain steps in ordinary language before you authorise filings.\n\nMCA, GST, and income-tax cycles often overlap; we keep work coordinated instead of reinventing data in isolation. Reach us on WhatsApp or call for a clear next step, not jargon.",
-      "gridTitle": "What we help you with",
-      "gridSubtitle": "Company and LLP MCA compliances, trademark protection, accounting, taxation, GST, and other related business compliances—explained simply and tracked to due dates.",
+      "gridTitle": "Our Core Services",
+      "gridSubtitle": "End-to-end compliance and advisory solutions to help your business stay compliant, grow sustainably, and achieve more.",
       "hero": {
-        "title": "MCA, tax, GST & business compliance",
-        "subtitle": "Practical support for companies and LLPs: ROC filings, accounts, trademarks, income tax, GST, and allied statutory work—aligned to how SMEs actually operate.",
+        "title": "Our Core Services",
+        "subtitle": "End-to-end compliance and advisory solutions to help your business stay compliant, grow sustainably, and achieve more.",
         "badge": "Compliance & advisory",
         "bgImage": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"
       },
@@ -357,171 +360,417 @@
       },
       "serviceList": [
         {
+          "id": "company-registration",
+          "title": "Company Registration Services",
+          "icon": "Building2",
+          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
+          "description": "Private Limited, LLP, OPC and other business structures.",
+          "category": "Incorporation",
+          "pageLayout": "hub",
+          "heroTitle": "Register Your Business the Right Way",
+          "subtitle": "From choosing the right structure to government filing — we handle everything so you can focus on building your business.",
+          "heroCtaPrimary": "Get Started",
+          "heroCtaSecondary": "Talk to Expert",
+          "registeredBusinessBenefitsTitle": "Benefits of a Registered Business",
+          "registeredBusinessBenefitsText": "A registered company gives you legal identity, limited liability, and opens doors to funding, contracts, and long-term business growth. Unlike an unregistered setup, a formal entity lets you open corporate bank accounts, hire employees, issue invoices in the company name, and build trust with investors and enterprise clients.",
+          "registeredBusinessBenefitsCards": [
+            {
+              "title": "Limited Liability",
+              "description": "Personal assets protected from business debts & losses.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Investor Ready",
+              "description": "Raise funding, issue shares & attract serious investors.",
+              "icon": "TrendingUp"
+            },
+            {
+              "title": "Legal Identity",
+              "description": "Open bank accounts, sign contracts & bid for tenders.",
+              "icon": "Landmark"
+            },
+            {
+              "title": "Tax Benefits",
+              "description": "Access startup tax exemptions, deductions & lower corporate tax.",
+              "icon": "BadgeIndianRupee"
+            },
+            {
+              "title": "Hire & Scale",
+              "description": "Issue ESOPs, hire employees & grow with a proper structure.",
+              "icon": "Users"
+            },
+            {
+              "title": "Brand Credibility",
+              "description": "Customers & vendors trust a Pvt Ltd or LLP over sole proprietors.",
+              "icon": "Globe"
+            }
+          ],
+          "registrationTypesHeading": "Choose your structure",
+          "registrationTypesEyebrow": "All Registration Types",
+          "registrationTypesSubtext": "Not sure where to start? Pick the structure that matches your goals — we will walk you through documents, government fees, timelines, and compliance for each option.",
+          "serviceIntro": "Whether you are launching a startup, registering a professional firm, or setting up a non-profit, choosing the right business structure affects your liability, taxes, compliance burden, and ability to raise funds. Our team helps you compare options and complete every filing on MCA and allied portals — with clear guidance at each step.",
+          "postRegistrationSection": {
+            "title": "Company Registration in India — What You Should Know",
+            "subtitle": "Incorporation is more than a form on the MCA portal. The structure you choose today shapes how you raise capital, pay tax, sign contracts, and stay compliant for years to come.",
+            "paragraphs": [
+              "In India, most businesses register through the Ministry of Corporate Affairs (MCA) using integrated forms such as SPICe+ (for companies) or FiLLiP (for LLPs). A Private Limited Company remains the most common choice for startups and SMEs because it offers limited liability, a separate legal identity, and a clear path to equity investment. LLPs are popular among consultants, CA firms, and professional partnerships that want flexibility with lower compliance than a full company. OPCs suit solo founders who want company-style protection without bringing in co-founders from day one.",
+              "Registration timelines vary by structure: a Private Limited Company or OPC typically takes 7–15 working days once documents are ready; LLPs often complete in a similar window; partnership and proprietorship setups can be faster depending on state registration and GST requirements. Standard documents include identity and address proof of promoters, registered office proof, photographs, and digital signatures (DSC) where applicable. After incorporation, businesses usually need PAN, TAN, a corporate bank account, GST registration (if turnover or activity requires it), and ongoing MCA filings such as annual returns and financial statements.",
+              "Getting the structure wrong can mean unnecessary compliance cost, tax inefficiency, or difficulty raising funds later. That is why founders across Hyderabad and India work with Phinura Advisors — we help you compare Pvt Ltd, LLP, OPC, Partnership, and Section 8 options honestly, prepare MoA/AoA or LLP Agreements, file on government portals, and set up a post-registration compliance calendar so you stay penalty-free from day one."
+            ],
+            "highlights": [
+              {
+                "title": "MCA-Compliant Filings",
+                "description": "SPICe+, FiLLiP, RUN name reservation, DIN, DSC, and post-incorporation forms handled with clear status updates."
+              },
+              {
+                "title": "Documents & Drafting",
+                "description": "MoA, AoA, LLP Agreement, Partnership Deed, and nominee appointments prepared to match your business reality."
+              },
+              {
+                "title": "Tax & Bank Readiness",
+                "description": "PAN, TAN, GST registration guidance, and documentation support for opening a corporate current account."
+              },
+              {
+                "title": "Compliance From Day One",
+                "description": "Annual return reminders, board resolution support, and a roadmap so MCA, GST, and income-tax cycles stay coordinated."
+              }
+            ]
+          },
+          "mainHeading": "Start your business the right way",
+          "longDescription": "We help entrepreneurs and businesses register their companies smoothly with complete legal guidance and documentation support. Whether you are starting a Private Limited Company, LLP, OPC, Partnership Firm, or any other business entity, our experts ensure a hassle-free registration process with quick approvals and compliance support.",
+          "subServices": [
+            {
+              "id": "private-limited-company",
+              "title": "Private Limited Company",
+              "hook": "India's go-to structure for startups that want to scale and raise funds.",
+              "description": "Separate legal entity with limited liability, 2+ directors, and equity-ready shareholding. Ideal when you plan to hire, invoice enterprise clients, or pitch to investors."
+            },
+            {
+              "id": "llp-registration",
+              "title": "LLP Registration",
+              "hook": "Flexible partnership with company-style liability protection.",
+              "description": "Perfect for CA firms, consultants, and professional partners who want lower compliance than a Pvt Ltd while keeping personal assets protected."
+            },
+            {
+              "id": "one-person-company",
+              "title": "One Person Company (OPC)",
+              "hook": "One founder. Full control. Registered company benefits.",
+              "description": "Built for solo entrepreneurs who want limited liability and a credible MCA-registered entity — without needing a co-founder on day one."
+            },
+            {
+              "id": "partnership-firm",
+              "title": "Partnership Firm",
+              "hook": "Start together quickly — shared ownership, shared profits.",
+              "description": "Affordable registration for 2+ partners with a clear Partnership Deed. A practical choice for family businesses, traders, and local professional practices."
+            },
+            {
+              "id": "sole-proprietorship",
+              "title": "Sole Proprietorship",
+              "hook": "Fastest way to start — minimal paperwork, maximum simplicity.",
+              "description": "Best for freelancers, home-based businesses, and small shops testing the market. Upgrade to OPC or Pvt Ltd when you are ready to scale."
+            },
+            {
+              "id": "section-8-company",
+              "title": "Section 8 / NGO",
+              "hook": "Give your social mission a recognised legal identity.",
+              "description": "Non-profit registration for charitable, educational, and welfare objectives — with pathways to 12A, 80G, CSR funding, and donor credibility."
+            }
+          ],
+          "deliverables": [
+            "Name reservation and availability check",
+            "Document preparation and drafting support",
+            "DIN, DSC, and MCA portal filing coordination",
+            "Post-incorporation compliance checklist",
+            "Bank account opening documentation support"
+          ],
+          "benefits": [
+            "Hassle-free registration with expert guidance",
+            "Quick approvals and clear status updates",
+            "Complete documentation handled end-to-end",
+            "Post-registration compliance roadmap included"
+          ],
+          "consultationHeading": "Company registration consultation — how we can help",
+          "consultationClosing": "We start by understanding your business goals, number of partners, and funding plans—that tells us whether a Private Limited, LLP, OPC, or Partnership structure fits best.\n\nOn consultation we listen first: your timeline, existing documents, and any concerns about compliance after registration. Then we map a clear sequence—name reservation, document drafting, MCA filing, and post-incorporation steps—all explained in plain language.\n\nReach us on WhatsApp or call for a free consultation on the right business structure for you.",
+          "ctaTitle": "Ready to register your company?"
+        },
+        {
           "id": "mca-compliance",
-          "title": "MCA compliance (Companies & LLPs)",
+          "title": "MCA Compliances",
           "icon": "Gavel",
           "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600",
-          "description": "ROC filings, annual returns, LLP and company MCA calendar, DIN/KYC support, statutory registers, board and AGM paperwork.",
+          "description": "Annual filings, ROC returns, board resolutions & more.",
           "category": "MCA & company law",
-          "heroTitle": "MCA compliance for Companies & LLPs",
-          "subtitle": "Stay current with the MCA for private limited companies and LLPs: forms, ROC deadlines, DIN/KYC, registers, resolutions, and AGM documentation—managed with reminders and clear status updates.",
-          "mainHeading": "Company & LLP MCA compliances handled end‑to‑end",
-          "longDescription": "For incorporated businesses, MCA obligations run all year—from annual filings and event-based forms to director KYC and maintenance of statutory records. Missed ROC dates add avoidable penalties and stress.\n\nPhinura Advisors helps you align your entity—company or LLP—to MCA requirements with a practical checklist: what is due, when it is due, and which documents portal teams expect.\n\nWe also support incorporation and post-incorporation steps (RUN, DIN/DSC coordination, filings after incorporation) so you are not juggling multiple vendors for the same Ministry.",
-          "ctaTitle": "Plan your MCA filings with us.",
+          "heroTitle": "MCA Compliances",
+          "subtitle": "Annual filings, ROC returns, board resolutions, director compliances, and statutory registers — managed end-to-end.",
+          "mainHeading": "Stay compliant with MCA regulations",
+          "longDescription": "Stay compliant with Ministry of Corporate Affairs (MCA) regulations through our end-to-end compliance services. We manage ROC filings, annual returns, board resolutions, director compliances, statutory registers, and other corporate legal requirements to keep your business secure and penalty-free.",
+          "subServices": [
+            { "title": "Annual Filings", "description": "AOC-4, MGT-7, and other annual return submissions on time." },
+            { "title": "ROC Returns", "description": "Event-based and periodic filings with the Registrar of Companies." },
+            { "title": "Board Resolutions", "description": "Drafting and documentation for board meetings and AGM paperwork." },
+            { "title": "Director Compliances", "description": "DIN, DIR-3 KYC, and director change filings." },
+            { "title": "Statutory Registers", "description": "Maintenance and updates of mandatory company registers." }
+          ],
           "deliverables": [
-            "Annual return and financial statement filings (including AOC-4 / relevant forms)",
-            "MGT-7 / MCA annual compliance as applicable",
+            "Annual return and financial statement filings",
+            "Board meeting and AGM documentation",
             "Director DIN and DIR-3 KYC support",
-            "Board meeting, AGM, and resolution documentation support",
             "Statutory register maintenance guidance",
-            "Event-based ROC forms (director changes, capital, address, LLP partner updates)",
-            "Name reservations and incorporation support for new companies / LLPs"
+            "Event-based ROC forms (director changes, capital, address updates)"
           ],
           "benefits": [
             "Structured calendar tuned to MCA due dates",
-            "Plain‑language summaries before you authorize filings",
-            "Single point of contact for ROC-related questions",
-            "Document readiness so filings are not last‑minute scrambles",
-            "Coordination aligned with GST and tax timelines where relevant"
+            "Penalty-free compliance with timely filings",
+            "Plain-language summaries before you authorize filings",
+            "Single point of contact for all ROC-related queries"
           ],
           "consultationHeading": "MCA consultation — how we can help",
-          "consultationClosing": "We start with your incorporation documents, financial year cadence, and any outstanding ROC filings—that tells us which annual returns, event-based forms, or director/KYC chores are overdue and how to prioritise them.\n\nOn consultation we listen first: AGM anxiety, unexplained ROC notices, capital or director changes stalled in draft, LLP partner updates waiting on DSC, or simply not knowing what the MCA expects next. We then spell out a practical calendar—documents to locate, drafts we circulate, MCA credentials your team uploads—always in straightforward language.\n\nMCA timelines seldom sit alone; GST and income-tax seasons still matter. WhatsApp us or call and we propose the next ROC-safe step alongside your wider compliance picture—not template scripts."
+          "consultationClosing": "We start with your incorporation documents, financial year cadence, and any outstanding ROC filings—that tells us which annual returns, event-based forms, or director/KYC chores are overdue.\n\nOn consultation we listen first: AGM anxiety, unexplained ROC notices, director changes, or simply not knowing what the MCA expects next. We then spell out a practical calendar in straightforward language.\n\nMCA timelines seldom sit alone; GST and income-tax seasons still matter. WhatsApp us or call for the next ROC-safe step.",
+          "ctaTitle": "Plan your MCA filings with us."
         },
         {
           "id": "trademark-registration",
-          "title": "Trademark registration",
+          "title": "Trademark Registration",
           "icon": "ShieldCheck",
           "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600",
-          "description": "Search, filing, objections, and brand protection aligned with Indian trademark practice.",
+          "description": "Search, filing, oppositions & brand protection.",
           "category": "Trademark & IP",
-          "heroTitle": "Protect names, logos, and brands",
-          "subtitle": "Trademark searches, class advice, filings with the Registry, replies to examination reports, and renewal planning—explained simply for SMEs.",
-          "mainHeading": "Trademark advisory for growing businesses",
-          "longDescription": "Your trading name and logo deserve protection before confusion or copying becomes expensive. Whether you operate as a firm, LLP, or company, the application process involves search, classification, timelines, and often correspondence with examiners.\n\nWe help you prioritise registrations that matter commercially, coordinate searches and filings, and keep renewal dates visible so marks do not lapse quietly.\n\nOur focus stays practical: filings you can defend, timelines you can rely on, and communication you can understand.",
-          "ctaTitle": "Start a trademark conversation.",
+          "pageLayout": "hub",
+          "heroTitle": "Protect Your Brand the Right Way",
+          "subtitle": "From trademark search to filing and objection handling, we manage the complete trademark registration process so you can focus on building your brand.",
+          "heroCtaPrimary": "Get Started",
+          "heroCtaSecondary": "Talk to Expert",
+          "registeredBusinessBenefitsTitle": "Benefits of Trademark Registration",
+          "registeredBusinessBenefitsText": "A registered trademark protects your brand identity, gives you exclusive legal rights, and helps build trust, credibility, and long-term business value.",
+          "registeredBusinessBenefitsCards": [
+            {
+              "title": "Exclusive Brand Protection",
+              "description": "Protect your business name, logo, tagline, and product identity legally across India.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Legal Rights Against Copying",
+              "description": "Take legal action against trademark infringement, misuse, and confusingly similar marks.",
+              "icon": "Gavel"
+            },
+            {
+              "title": "Builds Trust & Credibility",
+              "description": "A registered trademark increases customer trust, brand value, and marketplace confidence.",
+              "icon": "Award"
+            },
+            {
+              "title": "Long-Term Business Asset",
+              "description": "Trademarks can be licensed, sold, franchised, or commercially monetised over time.",
+              "icon": "TrendingUp"
+            },
+            {
+              "title": "Valid Across India",
+              "description": "One registration provides nationwide protection for your mark in the chosen classes.",
+              "icon": "Globe"
+            },
+            {
+              "title": "Renewable Every 10 Years",
+              "description": "Trademark protection lasts 10 years and can be renewed indefinitely to stay protected.",
+              "icon": "CheckCircle2"
+            }
+          ],
+          "registrationTypesHeading": "Choose Your Trademark Service",
+          "registrationTypesEyebrow": "All Trademark Services",
+          "registrationTypesSubtext": "Click on any service below to know more about process, documents, fees, and timeline for each trademark matter.",
+          "serviceIntro": "Your brand name, logo, and tagline are among your most valuable business assets. Whether you are filing a new trademark, replying to an examiner objection, opposing a conflicting mark, or renewing an existing registration, the right legal strategy at each stage protects your identity and avoids costly disputes later.",
+          "postRegistrationSection": {
+            "title": "Trademark Protection in India — What You Should Know",
+            "subtitle": "Trademark registration under the Trade Marks Act, 1999 gives you exclusive rights to use your mark for the goods or services covered in your application — but the journey often includes search, examination, journal publication, and sometimes objections or opposition.",
+            "paragraphs": [
+              "Before filing, a proper trademark search helps identify conflicting marks in the same or related classes. Applications are filed with the Trademark Registry with the correct Nice classification, supporting documents, and Power of Attorney (TM-48). After filing, you may use the ™ symbol immediately; the ® symbol applies once registration is granted.",
+              "The Registry examines every application. Examiners may raise objections under Section 9 (distinctiveness/descriptiveness) or Section 11 (similarity with existing marks). Objection replies must generally be filed within 30 days. Accepted marks are published in the Trademark Journal, where third parties may oppose within four months. The full process typically takes 6 to 24 months depending on objections, hearings, or opposition.",
+              "Phinura Advisors supports startups, MSMEs, e-commerce sellers, manufacturers, and service brands across Hyderabad and India — from first filing through objection replies, opposition defence, infringement notices, hearings, and TM-R renewals — so your brand stays protected at every stage."
+            ],
+            "highlights": [
+              {
+                "title": "Trademark Search & Filing",
+                "description": "Class selection, clearance search, application drafting, and online filing with the Trademark Registry."
+              },
+              {
+                "title": "Objection & Opposition Support",
+                "description": "Examination replies, TM-O opposition filing, evidence preparation, and hearing representation."
+              },
+              {
+                "title": "Infringement & Enforcement",
+                "description": "Cease-and-desist notices, evidence collection, and legal action against unauthorised brand use."
+              },
+              {
+                "title": "Renewal & Compliance",
+                "description": "TM-R renewal, restoration after expiry, and reminders so your mark never lapses unintentionally."
+              }
+            ]
+          },
+          "subServices": [
+            {
+              "id": "trademark-filing",
+              "title": "Trademark Registration",
+              "hook": "Secure your name, logo, or slogan with nationwide legal protection.",
+              "description": "Complete support from trademark search and class selection to application filing, journal tracking, and registration certificate."
+            },
+            {
+              "id": "trademark-objection",
+              "title": "Trademark Objection",
+              "hook": "Received an examiner objection? We draft strong legal replies under Section 9 & 11.",
+              "description": "Professional objection reply drafting, evidence support, and hearing assistance to move your application toward approval."
+            },
+            {
+              "id": "trademark-opposition",
+              "title": "Trademark Opposition",
+              "hook": "Stop confusing marks before they get registered.",
+              "description": "TM-O filing, legal drafting, evidence preparation, and end-to-end opposition management within the 4-month journal window."
+            },
+            {
+              "id": "trademark-objection-reply",
+              "title": "Response to Trademark Objection",
+              "hook": "File a timely, well-argued reply within 30 days.",
+              "description": "Examination report analysis, legal reply drafting, document collation, and online filing with Registry follow-up."
+            },
+            {
+              "id": "trademark-infringement",
+              "title": "Trademark Infringement",
+              "hook": "Someone using your brand without permission? Take legal action fast.",
+              "description": "Infringement analysis, cease-and-desist notices, evidence collection, and enforcement support online and offline."
+            },
+            {
+              "id": "trademark-renewal",
+              "title": "Trademark Renewal",
+              "hook": "Don't lose your mark — renew every 10 years on time.",
+              "description": "TM-R filing, late renewal with surcharge, restoration support, and renewal certificate tracking."
+            },
+            {
+              "id": "trademark-hearing",
+              "title": "Trademark Hearing",
+              "hook": "Hearing notice received? Get expert representation and submissions.",
+              "description": "Hearing preparation, written submissions, online or physical representation, and post-hearing follow-up."
+            }
+          ],
+          "ctaTitle": "Protect Your Brand Today",
+          "ctaSubtitle": "We handle the complete trademark registration process including trademark search, filing, objection handling, opposition defence, renewal, and legal compliance, helping your business stay protected and legally secure.",
           "deliverables": [
-            "Trademark clearance / search summary",
+            "Trademark clearance and search summary",
             "Class and specification guidance",
             "Application drafting and Registry filing",
-            "Examination report and procedural follow‑up coordination",
-            "Renewal and maintenance reminders",
-            "Introduction to allied IP steps where needed"
+            "Examination report and opposition follow-up",
+            "Renewal and maintenance reminders"
           ],
           "benefits": [
-            "Earlier visibility on conflicting marks before you scale branding spend",
+            "Early visibility on conflicting marks before you scale branding",
             "Documentation handled with transparent milestones",
+            "Long-term brand protection and renewal support",
             "Support rooted in SME budgets and timelines"
           ],
           "consultationHeading": "Trademark consultation — how we can help",
-          "consultationClosing": "We open with where you operate, which logo or brand name worries you today, and any earlier Registry correspondence—that frames search scope, Nice class posture, and how examiner objections tend to land for your segment.\n\nConsultation hears first whether you faced knock-off listings, hurried packaging runs, crowdfunding deadlines, expansion into new territories, or renewal dates slipping. Afterwards we prioritise filings, examiner replies, affidavits, or renewals—with plain English before drafting anything on Registry forms.\n\nTrademark work still crosses GST invoicing and MCA shareholder updates when marks move entities. Ping us via WhatsApp or phone for a practical roadmap—not marketing hype."
+          "consultationClosing": "We open with where you operate, which logo or brand name worries you today, and any earlier Registry correspondence—that frames search scope and class posture.\n\nConsultation hears whether you faced knock-off listings, expansion into new territories, or renewal dates slipping. Afterwards we prioritise filings, examiner replies, or renewals in plain English.\n\nPing us via WhatsApp or phone for a practical trademark roadmap."
         },
         {
           "id": "accounting-bookkeeping",
-          "title": "Accounting & bookkeeping",
+          "title": "Accounting Services",
           "icon": "Calculator",
           "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600",
-          "description": "Books aligned to filings: ledgers, reconciliations, MIS, and year-end readiness for statutory and tax disclosures.",
+          "description": "Bookkeeping, MIS reports, reconciliations & more.",
           "category": "Accounts",
-          "heroTitle": "Books that stack up at year end",
-          "subtitle": "Systematic bookkeeping, bank and vendor reconciliations, inventory and expense discipline, closing support, and handoff notes for MCA, GST, and income-tax cycles.",
-          "mainHeading": "Accounting support for SMEs",
-          "longDescription": "Reliable statutory work sits on dependable books—otherwise GST reconciliations, tax computations, and board-facing numbers fight the same inconsistencies.\n\nWe structure accounting around your operational reality: invoicing rhythms, payouts, petty cash discipline, payroll-related postings where applicable, and reconciliations that auditors and portals expect.\n\nYou get schedules and explanations that complement compliance filings rather than scrambling to rebuild numbers every quarter.",
-          "ctaTitle": "Get control of ongoing accounts.",
+          "heroTitle": "Accounting Services",
+          "subtitle": "Bookkeeping, MIS reports, reconciliations, and financial statements — accurate records for better financial management.",
+          "mainHeading": "Maintain accurate financial records",
+          "longDescription": "Our accounting services help businesses maintain accurate financial records and improve financial management. We provide bookkeeping, bank reconciliations, MIS reporting, expense tracking, financial statements, and customized accounting solutions for startups and enterprises.",
+          "subServices": [
+            { "title": "Bookkeeping", "description": "Day-to-day ledger maintenance and transaction recording." },
+            { "title": "Bank Reconciliations", "description": "Matching bank statements with books for accuracy." },
+            { "title": "MIS Reporting", "description": "Management information reports for founders and leadership." },
+            { "title": "Expense Tracking", "description": "Organized expense categorization and tracking." },
+            { "title": "Financial Statements", "description": "P&L, balance sheet, and cash flow preparation." }
+          ],
           "deliverables": [
-            "Monthly / quarterly bookkeeping cycles",
-            "Bank, vendor, and key third-party reconciliations",
-            "GST-ready purchase and sale traceability basics",
-            "Year-end summaries and MIS packs for founders",
-            "Coordination drafts for auditors and statutory formats"
+            "Monthly or quarterly bookkeeping cycles",
+            "Bank, vendor, and third-party reconciliations",
+            "MIS packs and financial summaries for founders",
+            "Year-end closing and audit-ready schedules",
+            "GST-ready purchase and sale traceability"
           ],
           "benefits": [
             "Fewer shocks at filing deadlines",
-            "Clearer profitability and cash‑flow visibility between returns",
-            "Consistent narration for GST, MCA, and tax teams"
+            "Clearer profitability and cash-flow visibility",
+            "Consistent records for GST, MCA, and tax filings",
+            "Customized solutions for startups and enterprises"
           ],
-          "consultationHeading": "Books & accounts consultation — how we can help",
-          "consultationClosing": "Our first look is invoicing rhythms, payouts, petty cash realities, payroll postings (if any), and how you reconcile bank—that tells us which ledgers will choke GST recon or audit questionnaires later.\n\nWe listen where reconciliations break, spreadsheets that never match portals, suspense entries nobody owns, POS exports drifting, or MIS packs boards still await. Next we choreograph close cycles—what your staff posts, what we tidy—and explain filings before auditors or portals lock numbers.\n\nSolid books keep GST, MCA, and tax teams coordinated. Reach on WhatsApp or call—we point to the next housekeeping step with timelines you own."
-        },
-        {
-          "id": "income-tax-compliance",
-          "title": "Income tax & taxation",
-          "icon": "Landmark",
-          "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=600",
-          "description": "ITR preparation, deductions, advances, withholding basics, scrutiny coordination, and company or partner-level tax timelines.",
-          "category": "Income tax",
-          "heroTitle": "Income tax made routine, not frantic",
-          "subtitle": "For individuals, partners, proprietors, and firms or companies—we handle return preparation aligned to books, withholdings relevant to SMEs, reminders for advance-tax behaviour, and clear responses within scope.",
-          "mainHeading": "Taxation advisory tied to filings",
-          "longDescription": "Income tax timelines run parallel to MCA and GST. When books, deductions, and withholding positions are unexplained until the last fortnight of July or September windows, filings become expensive errors.\n\nWe focus on disclosures that match GST and accounting reality, structuring compliance so annual returns and estimates are repeatable processes—not annual surprises.\n\nWhere deeper opinion or contested matters arise, we help you escalate with clarity.",
-          "ctaTitle": "Plan this assessment year deliberately.",
-          "deliverables": [
-            "ITR drafting for applicable entity types within our scope",
-            "Form 26AS / AIS alignment checks explained simply",
-            "Advance tax planning reminders anchored to provisional numbers",
-            "TDS applicability guidance for SME transactions",
-            "Coordination drafts for departmental notices handled case‑by‑case"
-          ],
-          "benefits": [
-            "Filing drafts you can reconcile to books without guesswork",
-            "Calendar tied to MCA and GST workloads",
-            "Plain-language checkpoints before portals lock submissions"
-          ],
-          "consultationHeading": "Income tax consultation — how we can help",
-          "consultationClosing": "We baseline your entity type—individual proprietor, LLP partner, or company—and whether books reconcile to Form 26AS / AIS so we map deductions, TDS withholdings, and advance-tax behaviour clearly.\n\nConsultation absorbs refund anxiety, TDS riddles, belated ITR timelines, departmental letters, advance-tax guesses, or unease aligning partner remuneration with MCA resolutions. We then spell out filings, withholdings narratives, escalation paths—all in ordinary language prior to uploads.\n\nIncome tax never floats alone alongside GST balances and ROC events. WhatsApp us or call for the sober next tax-safe move."
+          "consultationHeading": "Accounting consultation — how we can help",
+          "consultationClosing": "Our first look is invoicing rhythms, payouts, and how you reconcile bank—that tells us which ledgers will support GST recon and audit readiness.\n\nWe listen where reconciliations break, spreadsheets that never match, or MIS packs boards still await. Next we choreograph close cycles in plain language.\n\nSolid books keep GST, MCA, and tax teams coordinated. Reach on WhatsApp or call.",
+          "ctaTitle": "Get control of your accounts."
         },
         {
           "id": "gst-compliance",
-          "title": "GST registrations & returns",
+          "title": "GST Compliance",
           "icon": "BadgeIndianRupee",
           "image": "src/Assets/gst_india.webp",
-          "description": "Registration amendments, outward/inward reconciliation discipline, quarterly or monthly filings, cancellations, and liaison planning common to SMEs.",
+          "description": "GST registration, returns, reconciliation & advisory.",
           "category": "GST",
-          "heroTitle": "GST compliance your ops team can recognise",
-          "subtitle": "Registrations, amendments, regular returns with reconciliation narratives, LUT or refund conversations where modestly applicable, and table-readings that match your invoicing realities.",
-          "mainHeading": "GST aligned to how you invoice and purchase",
-          "longDescription": "GST exposure is rarely one form—it is invoicing posture, reconciliation tables, mismatches, cancellations, refunds, LUT decisions, sector-specific quirks, plus annual reconciliations to books.\n\nWe keep filings tethered to your accounting rhythms and escalate mismatch themes early so cascading portal problems do not erupt at year-lock windows.\n\nWhere cross-border nuances matter, we triage applicability before you chase certificates you may not legally need.",
-          "ctaTitle": "Stabilise your GST filings.",
+          "heroTitle": "GST Compliance",
+          "subtitle": "GST registration, monthly/quarterly returns, reconciliation, notices handling, and advisory — complete GST solutions.",
+          "mainHeading": "Complete GST compliance solutions",
+          "longDescription": "We offer complete GST compliance solutions including GST registration, monthly/quarterly return filing, reconciliation, notices handling, and GST advisory. Our experts ensure timely compliance and help businesses avoid penalties while optimizing tax efficiency.",
+          "subServices": [
+            { "title": "GST Registration", "description": "New registration, amendments, and cancellation support." },
+            { "title": "Return Filing", "description": "GSTR-1, GSTR-3B, and other periodic return submissions." },
+            { "title": "Reconciliation", "description": "ITC matching, GSTR-2B reconciliation, and annual returns." },
+            { "title": "Notices Handling", "description": "Response drafting and liaison for departmental notices." },
+            { "title": "GST Advisory", "description": "Tax efficiency guidance and compliance planning." }
+          ],
           "deliverables": [
-            "New GST registration and amendments (thematic cases)",
-            "GSTR‑1 / GSTR‑3B style cycles coordinated with bookkeeping",
+            "GST registration and amendment filings",
+            "GSTR-1 and GSTR-3B return cycles",
             "Reconciliation summaries between books and portals",
-            "Annual / closing reconciliations and documentation packs",
-            "Refund / LUT guidance where realistically in scope"
+            "Annual reconciliation and documentation packs",
+            "Notice response and advisory support"
           ],
           "benefits": [
-            "Portal submissions described before you authorize them",
-            "Mismatch themes surfaced quarterly, not accidentally at closure",
-            "Coordination handshake with MCA and income tax calendars"
+            "Timely compliance to avoid penalties",
+            "Mismatch themes surfaced early, not at year-end",
+            "Portal submissions explained before you authorize them",
+            "Tax efficiency optimization alongside compliance"
           ],
           "consultationHeading": "GST consultation — how we can help",
-          "consultationClosing": "We typically begin with how you invoice, purchase, and close books each month—that tells us whether regular, composition, or export-linked GST patterns apply and which reconciliations will matter.\n\nIn consultation we listen first: mismatches between GSTR-2B / ITC claims and ledgers, refund or LUT doubts, amendment needs, or simply feeling behind on filings. Then we outline a practical sequence—what to fix first, which documents are useful to gather, what we draft versus what your team uploads—and we explain filings in ordinary language before you authorise anything on government portals.\n\nGST stays aligned with MCA and income tax calendars where overlaps exist, so filings are not rebuilt in isolation. When you reach out—WhatsApp or call—we suggest a sensible next step and timelines you can rely on rather than jargon."
+          "consultationClosing": "We begin with how you invoice, purchase, and close books each month—that tells us which GST patterns apply and which reconciliations will matter.\n\nIn consultation we listen first: mismatches between GSTR-2B and ledgers, refund doubts, or simply feeling behind on filings. Then we outline a practical sequence in ordinary language.\n\nGST stays aligned with MCA and income tax calendars. WhatsApp us or call for a sensible next step.",
+          "ctaTitle": "Stabilise your GST filings."
         },
         {
-          "id": "business-compliance-other",
-          "title": "Other business compliances",
-          "icon": "ScrollText",
-          "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
-          "description": "Additional statutory hygiene—contracts with compliance touchpoints, industry registers, licences, certifications, PF/ESI coordination introductions, labour registers at a basic advisory level.",
-          "category": "Allied compliance",
-          "heroTitle": "Everything else regulators expect quietly",
-          "subtitle": "We help founders triage licences, registrations, filings, renewal calendars, PF/ESI introductions, Shops Act themes, IEC or MSME postures—as applicable—with realistic scope boundaries.",
-          "mainHeading": "Allied filings beyond MCA, GST, and core tax cycles",
-          "longDescription": "Running a shop, factory desk, SaaS exporter, importer, LLP service firm, MSME claimant, labour-light office, consulting partnership—each drags incidental notifications, renewals, and registers.\n\nWe do not pretend one firm covers every speciality regulator; we help you classify what genuinely applies, avoid vanity registrations, anchor renewals beside GST and MCA timelines, and bring specialist partners visible when law or scale demands.\n\nThe aim is coherent compliance choreography rather than a shelf of orphaned certificates.",
-          "ctaTitle": "Map ancillary obligations calmly.",
+          "id": "income-tax-compliance",
+          "title": "Income Tax Services",
+          "icon": "Landmark",
+          "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=600",
+          "description": "ITR filing, tax planning, TDS, deductions & more.",
+          "category": "Income tax",
+          "heroTitle": "Income Tax Services",
+          "subtitle": "ITR filing, tax planning, TDS compliance, deductions, and advisory — for individuals and businesses.",
+          "mainHeading": "Minimize tax liabilities with full compliance",
+          "longDescription": "Our income tax services cover individual and business tax filing, tax planning, TDS compliance, deductions, assessments, and advisory support. We help clients minimize tax liabilities while ensuring complete compliance with income tax regulations.",
+          "subServices": [
+            { "title": "ITR Filing", "description": "Individual and business income tax return preparation and submission." },
+            { "title": "Tax Planning", "description": "Strategic planning to minimize liabilities within legal bounds." },
+            { "title": "TDS Compliance", "description": "TDS applicability, deduction, and return filing support." },
+            { "title": "Deductions", "description": "Maximizing eligible deductions under applicable sections." },
+            { "title": "Assessments & Advisory", "description": "Notice handling, scrutiny support, and tax advisory." }
+          ],
           "deliverables": [
-            "Inventory of registrations and licences that plausibly apply",
-            "Renewal calendars cross-linked with major tax filings",
-            "Starter kits for Shops Act registers, IEC, MSME, etc., when relevant",
-            "Introduction and coordination scaffolding for payroll/PF‑ESI experts",
-            "Board-level compliance summaries founders can circulate"
+            "ITR drafting for individuals and businesses",
+            "Form 26AS and AIS alignment checks",
+            "Advance tax planning and reminders",
+            "TDS applicability guidance and return filing",
+            "Assessment notice coordination and advisory"
           ],
           "benefits": [
-            "Less duplication across consultants",
-            "Cleaner board conversations about statutory posture",
-            "Honest escalation when specialist counsel beats generalist guesses"
+            "Minimized tax liabilities with full compliance",
+            "Filing drafts reconciled to books without guesswork",
+            "Calendar tied to MCA and GST workloads",
+            "Plain-language checkpoints before portal submissions"
           ],
-          "consultationHeading": "Compliance consultation — how we can help",
-          "consultationClosing": "We triage licences, Shops Act registers, IEC renewals, MSME posture, PF/ESI introductions—only what realistically applies—without stacking vanity registrations.\n\nConsultations align renewals beside GST / MCA calendars, prep introductions where specialist desks need to weigh in, and spell pragmatic board summaries you circulate internally—all in plain wording.\n\nPing us via WhatsApp or phone for sequencing—and candid referrals when narrower experts should lead."
+          "consultationHeading": "Income tax consultation — how we can help",
+          "consultationClosing": "We baseline your entity type and whether books reconcile to Form 26AS / AIS so we map deductions, TDS, and advance-tax behaviour clearly.\n\nConsultation absorbs refund anxiety, TDS questions, belated ITR timelines, or departmental letters. We spell out filings in ordinary language prior to uploads.\n\nIncome tax never floats alone alongside GST and ROC events. WhatsApp us or call for the next tax-safe move.",
+          "ctaTitle": "Plan this assessment year deliberately."
         }
       ]
     },

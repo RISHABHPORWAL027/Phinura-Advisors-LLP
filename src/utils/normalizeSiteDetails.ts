@@ -103,6 +103,32 @@ function defaultServiceKey(s: UnknownRecord): string {
   return String(s.id ?? s.slug ?? "");
 }
 
+function mergeSubServiceLists(defaultList: unknown[], incomingList: unknown[]): unknown[] {
+  if (!Array.isArray(incomingList) || incomingList.length === 0) {
+    return cloneDeep(defaultList);
+  }
+  const defaults = Array.isArray(defaultList) ? defaultList : [];
+  const merged = incomingList.map((raw) => {
+    const row = isPlainObject(raw) ? raw : {};
+    const rid = String(row.id ?? "").toLowerCase();
+    const def = defaults.find(
+      (d) => isPlainObject(d) && String((d as UnknownRecord).id ?? "").toLowerCase() === rid
+    );
+    if (def) return deepMergeWithDefaults(def, row);
+    return deepMergeWithDefaults({}, row);
+  });
+  for (const def of defaults) {
+    if (!isPlainObject(def)) continue;
+    const did = String(def.id ?? "").toLowerCase();
+    if (!did) continue;
+    const exists = merged.some(
+      (m) => isPlainObject(m) && String((m as UnknownRecord).id ?? "").toLowerCase() === did
+    );
+    if (!exists) merged.push(cloneDeep(def));
+  }
+  return merged;
+}
+
 function findDefaultForService(defaultList: unknown[], row: UnknownRecord): UnknownRecord | undefined {
   const rid = String(row.id ?? "").toLowerCase();
   const rslug = String(row.slug ?? "").toLowerCase();
@@ -158,6 +184,11 @@ function mergeServiceLists(defaultList: unknown[], incomingList: unknown[]): unk
     }
     if (Array.isArray(rowBen) && rowBen.length === 0 && Array.isArray(def.benefits) && (def.benefits as unknown[]).length > 0) {
       merged.benefits = cloneDeep(def.benefits);
+    }
+
+    if (Array.isArray(def.subServices)) {
+      const incSubs = Array.isArray(merged.subServices) ? (merged.subServices as unknown[]) : [];
+      merged.subServices = mergeSubServiceLists(def.subServices as unknown[], incSubs);
     }
 
     return merged;

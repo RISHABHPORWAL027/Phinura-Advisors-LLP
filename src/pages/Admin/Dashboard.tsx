@@ -18,6 +18,11 @@ import {
   slotsToFeaturedIds,
   HOMEPAGE_FEATURED_SERVICE_COUNT,
 } from "../../utils/homeFeaturedServices";
+import { prepareServiceForAdmin } from "../../utils/prepareServiceForAdmin";
+import {
+  ServiceHubEditor,
+  ServiceStandardSubServicesEditor,
+} from "../../components/admin/ServiceCmsEditors";
 
 /** Full clone so nested updates never mutate prev (React Strict Mode runs updaters twice in dev). */
 function cloneFormState(prev: SiteDetails): SiteDetails {
@@ -128,19 +133,9 @@ export function AdminDashboard() {
       if (prev) return prev;
       const cloned = JSON.parse(JSON.stringify(normalizeSiteDetails(data)));
       if (cloned?.pages?.services?.serviceList && Array.isArray(cloned.pages.services.serviceList)) {
-        cloned.pages.services.serviceList = cloned.pages.services.serviceList.map((service: any) => ({
-          ...service,
-          heroTitle: service.heroTitle ?? "",
-          subtitle: service.subtitle ?? "",
-          mainHeading: service.mainHeading ?? "",
-          longDescription: service.longDescription ?? "",
-          ctaTitle: service.ctaTitle ?? "",
-          category: service.category ?? "",
-          ctaSubtitle: service.ctaSubtitle ?? "",
-          callBackLinkText: service.callBackLinkText ?? "",
-          deliverables: Array.isArray(service.deliverables) ? service.deliverables : [],
-          benefits: Array.isArray(service.benefits) ? service.benefits : [],
-        }));
+        cloned.pages.services.serviceList = cloned.pages.services.serviceList.map((service: any) =>
+          prepareServiceForAdmin(service)
+        );
       }
       if (cloned?.pages?.services?.statsCTA?.stats && !Array.isArray(cloned.pages.services.statsCTA.stats)) {
         cloned.pages.services.statsCTA.stats = [];
@@ -1500,6 +1495,17 @@ export function AdminDashboard() {
                           placeholder="Leave empty to use the default"
                         />
                       </div>
+
+                      <ServiceHubEditor
+                        serviceIndex={i}
+                        service={service as Record<string, unknown>}
+                        handlers={{ handleChange, handleArrayAdd, handleArrayRemove }}
+                      />
+                      <ServiceStandardSubServicesEditor
+                        serviceIndex={i}
+                        service={service as Record<string, unknown>}
+                        handlers={{ handleChange, handleArrayAdd, handleArrayRemove }}
+                      />
                     </div>
                   ))}
                   

@@ -1,3 +1,5 @@
+import type { SubServicePageContent } from "../data/subServiceTypes";
+
 export interface SiteDetails {
   companyName: string;
   fullName: string;
@@ -135,6 +137,39 @@ export interface SiteDetails {
         mainHeading?: string;
         deliverables?: string[];
         benefits?: string[];
+        /** Optional sub-services — hub cards + detail pages when `id` and `pageContent` are set. */
+        subServices?: Array<{
+          id?: string;
+          title: string;
+          hook?: string;
+          description?: string;
+          pageContent?: Partial<SubServicePageContent>;
+        }>;
+        /** Optional heading above sub-services list; defaults to service title. */
+        subServicesTitle?: string;
+        /** Hub = benefits grid + blue sub-service cards; standard = classic detail layout. */
+        pageLayout?: "standard" | "hub";
+        heroCtaPrimary?: string;
+        heroCtaSecondary?: string;
+        registeredBusinessBenefitsTitle?: string;
+        registeredBusinessBenefitsText?: string;
+        registeredBusinessBenefitsCards?: Array<{
+          title: string;
+          description: string;
+          icon?: string;
+        }>;
+        registrationTypesHeading?: string;
+        registrationTypesEyebrow?: string;
+        registrationTypesSubtext?: string;
+        /** Intro paragraph shown on registration hub pages (e.g. company registration). */
+        serviceIntro?: string;
+        /** Rich content block shown after the registration types grid on hub pages. */
+        postRegistrationSection?: {
+          title?: string;
+          subtitle?: string;
+          paragraphs?: string[];
+          highlights?: Array<{ title: string; description: string }>;
+        };
         ctaTitle?: string;
         cta_title?: string;
         category?: string;

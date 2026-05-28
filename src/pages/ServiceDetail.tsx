@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
-import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp } from "lucide-react";
+import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp, Layers, ArrowRight } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
+import { resolveLucideIcon } from "../utils/lucideIconMap";
 import { CtaImageCard } from "../components/CtaImageCard";
 import detailsBg from "../Assets/details_page_bg.avif";
 
@@ -72,6 +73,40 @@ export const ServiceDetail = () => {
       "Clear, step-by-step guidance",
       "Transparent pricing and communication",
     ];
+  const subServices =
+    Array.isArray(service.subServices) && service.subServices.length > 0
+      ? service.subServices.filter((s: any) => s?.title?.trim())
+      : [];
+  const subServicesTitle =
+    (typeof service.subServicesTitle === "string" && service.subServicesTitle.trim()) ||
+    heroTitle ||
+    service.title ||
+    "Sub-Services";
+  const subServicesHaveDescriptions = subServices.some((s: { description?: string }) => s.description?.trim());
+  const hasRegistrationHub =
+    service.pageLayout === "hub" ||
+    (Boolean(service.registrationTypesHeading?.trim()) &&
+      subServices.some((s: any) => s?.id?.trim()));
+  const registeredBusinessBenefitsTitle = service.registeredBusinessBenefitsTitle?.trim();
+  const registeredBusinessBenefitsText = service.registeredBusinessBenefitsText?.trim();
+  const registeredBusinessBenefitsCards = Array.isArray(service.registeredBusinessBenefitsCards)
+    ? service.registeredBusinessBenefitsCards.filter((c: any) => c?.title?.trim())
+    : [];
+  const registrationTypesHeading = service.registrationTypesHeading?.trim();
+  const registrationTypesEyebrow = service.registrationTypesEyebrow?.trim();
+  const registrationTypesSubtext = service.registrationTypesSubtext?.trim();
+  const serviceIntro = service.serviceIntro?.trim();
+  const postRegistrationSection = service.postRegistrationSection;
+  const postRegistrationTitle = postRegistrationSection?.title?.trim();
+  const postRegistrationSubtitle = postRegistrationSection?.subtitle?.trim();
+  const postRegistrationParagraphs = Array.isArray(postRegistrationSection?.paragraphs)
+    ? postRegistrationSection.paragraphs.filter((p: string) => p?.trim())
+    : [];
+  const postRegistrationHighlights = Array.isArray(postRegistrationSection?.highlights)
+    ? postRegistrationSection.highlights.filter((h: any) => h?.title?.trim())
+    : [];
+  const heroCtaPrimary = service.heroCtaPrimary?.trim() || data.pages.home.hero.buttonText || "Get Started";
+  const heroCtaSecondary = service.heroCtaSecondary?.trim() || data.pages.home.hero.secondaryButtonText || "Talk to Expert";
   const ctaTitle = service.ctaTitle || service.cta_title || "Ready to get started?";
   const ctaBlockSubtitle =
     service.ctaSubtitle ||
@@ -134,31 +169,90 @@ export const ServiceDetail = () => {
             <p className="mb-10 text-xl leading-relaxed text-white/85 md:mb-12 md:max-w-2xl">
               {subtitle}
             </p>
-            {whatsappPhone ? (
-              <a
-                href={`https://wa.me/${whatsappPhone}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl bg-white px-8 py-4 font-headline font-bold text-primary transition-colors hover:bg-slate-100"
-              >
-                {data.pages.home.hero.buttonText}
-              </a>
-            ) : (
+            <div className="flex flex-col gap-4 sm:flex-row">
               <AppLink
                 to="/contact"
                 className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl bg-white px-8 py-4 font-headline font-bold text-primary transition-colors hover:bg-slate-100"
               >
-                Contact Us
+                {heroCtaPrimary}
               </AppLink>
-            )}
+              {whatsappPhone ? (
+                <a
+                  href={`https://wa.me/${whatsappPhone}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl border-2 border-white/30 bg-white/10 px-8 py-4 font-headline font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                >
+                  {heroCtaSecondary}
+                </a>
+              ) : (
+                <AppLink
+                  to="/contact"
+                  className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl border-2 border-white/30 bg-white/10 px-8 py-4 font-headline font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+                >
+                  {heroCtaSecondary}
+                </AppLink>
+              )}
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="bg-white pb-14 pt-14 md:pb-20 md:pt-16 lg:pt-24">
+      <section className={`bg-white ${hasRegistrationHub ? "pb-14 pt-14 md:pb-20 md:pt-16 lg:pt-24" : "pb-14 pt-14 md:pb-20 md:pt-16 lg:pt-24"}`}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl">
+          <div className={hasRegistrationHub ? "w-full" : "max-w-4xl"}>
+            {serviceIntro && hasRegistrationHub && (
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mx-auto mb-14 max-w-4xl text-center text-lg leading-relaxed text-on-surface-variant md:mb-16 md:text-xl"
+              >
+                {serviceIntro}
+              </motion.p>
+            )}
+
+            {registeredBusinessBenefitsTitle && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-14 md:mb-20"
+              >
+                <div className="mb-10 text-center md:mb-12">
+                  <h2 className="text-3xl md:text-4xl font-headline font-extrabold text-primary mb-4">
+                    {registeredBusinessBenefitsTitle}
+                  </h2>
+                  {registeredBusinessBenefitsText && (
+                    <p className="mx-auto max-w-3xl text-lg leading-relaxed text-on-surface-variant">
+                      {registeredBusinessBenefitsText}
+                    </p>
+                  )}
+                </div>
+                {registeredBusinessBenefitsCards.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                    {registeredBusinessBenefitsCards.map((card: { title: string; description: string; icon?: string }, i: number) => {
+                      const Icon = resolveLucideIcon(card.icon) || CheckCircle2;
+                      return (
+                        <div
+                          key={i}
+                          className="rounded-2xl border border-outline-variant/15 bg-surface-container-lowest p-6 md:p-7 transition-shadow hover:shadow-md"
+                        >
+                          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-fixed text-primary">
+                            <Icon className="h-5 w-5" aria-hidden />
+                          </div>
+                          <h3 className="mb-2 font-headline text-lg font-bold text-primary">{card.title}</h3>
+                          <p className="text-sm leading-relaxed text-on-surface-variant">{card.description}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </motion.div>
+            )}
+
+            {!hasRegistrationHub && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +267,50 @@ export const ServiceDetail = () => {
                 {longDescription}
               </div>
             </motion.div>
+            )}
 
+            {!hasRegistrationHub && subServices.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-12 md:mb-16"
+              >
+                <h3 className="text-xl font-headline font-bold text-primary mb-8 flex items-center gap-3">
+                  <Layers className="w-6 h-6 text-secondary" />
+                  {subServicesTitle}
+                </h3>
+                {subServicesHaveDescriptions ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {subServices.map((sub: { title: string; description?: string }, i: number) => (
+                      <div
+                        key={i}
+                        className="rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-5 transition-shadow hover:shadow-md"
+                      >
+                        <h4 className="font-headline font-bold text-primary mb-2">{sub.title}</h4>
+                        {sub.description && (
+                          <p className="text-sm text-on-surface-variant leading-relaxed">{sub.description}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {subServices.map((sub: { title: string }, i: number) => (
+                      <li
+                        key={i}
+                        className="flex gap-3 rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-4 text-on-surface-variant"
+                      >
+                        <CheckCircle2 className="h-5 w-5 shrink-0 text-secondary mt-0.5" aria-hidden />
+                        <span className="text-sm font-medium leading-relaxed">{sub.title}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </motion.div>
+            )}
+
+            {!hasRegistrationHub && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-20">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -217,7 +354,9 @@ export const ServiceDetail = () => {
                 </ul>
               </motion.div>
             </div>
+            )}
 
+            {!hasRegistrationHub && (
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -237,9 +376,151 @@ export const ServiceDetail = () => {
                 {consultationClosing}
               </div>
             </motion.div>
+            )}
           </div>
         </div>
       </section>
+
+      {/* Registration types — blue section (matches home Why Choose Us) */}
+      {hasRegistrationHub && (
+        <section className="relative overflow-hidden bg-[#18335c] py-20 md:py-28">
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-10"
+            style={{
+              backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -left-32 top-1/4 h-64 w-64 rounded-full bg-blue-400/10 blur-[80px]"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-[80px]"
+            aria-hidden
+          />
+
+          <div className="relative z-10 mx-auto max-w-7xl px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-10 text-center md:mb-14"
+            >
+              <h2 className="mb-3 font-headline text-3xl font-extrabold text-white md:text-4xl lg:text-5xl">
+                {registrationTypesHeading}
+              </h2>
+              {registrationTypesEyebrow && (
+                <p className="mb-2 text-base font-semibold text-blue-100 md:text-lg">
+                  {registrationTypesEyebrow}
+                </p>
+              )}
+              {registrationTypesSubtext && (
+                <p className="mx-auto max-w-3xl text-base leading-relaxed text-blue-100/90 md:text-lg">
+                  {registrationTypesSubtext}
+                </p>
+              )}
+            </motion.div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+              {subServices.map((sub: { id?: string; title: string; hook?: string; description?: string }, i: number) =>
+                sub.id ? (
+                  <AppLink
+                    key={sub.id}
+                    to={`/services/${service.id}/${sub.id}`}
+                    className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.35)] transition-all hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)] md:p-7"
+                  >
+                    <h3 className="mb-2 font-headline text-lg font-bold text-[#18335c] group-hover:text-secondary">
+                      {sub.title}
+                    </h3>
+                    {sub.hook?.trim() && (
+                      <p className="mb-3 text-sm font-semibold leading-snug text-secondary">
+                        {sub.hook}
+                      </p>
+                    )}
+                    {sub.description && (
+                      <p className="mb-5 flex-grow text-sm leading-relaxed text-on-surface-variant">
+                        {sub.description}
+                      </p>
+                    )}
+                    <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-secondary">
+                      Know more
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </AppLink>
+                ) : (
+                  <div
+                    key={i}
+                    className="rounded-2xl border border-white/10 bg-white p-6 md:p-7"
+                  >
+                    <h3 className="mb-2 font-headline text-lg font-bold text-[#18335c]">{sub.title}</h3>
+                    {sub.description && (
+                      <p className="text-sm leading-relaxed text-on-surface-variant">{sub.description}</p>
+                    )}
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Post-registration hub content — after structure grid */}
+      {hasRegistrationHub && postRegistrationTitle && (
+        <section className="bg-white py-14 md:py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mx-auto max-w-4xl text-center mb-12 md:mb-16"
+            >
+              <h2 className="mb-4 font-headline text-3xl font-extrabold text-primary md:text-4xl">
+                {postRegistrationTitle}
+              </h2>
+              {postRegistrationSubtitle && (
+                <p className="text-lg leading-relaxed text-on-surface-variant">{postRegistrationSubtitle}</p>
+              )}
+            </motion.div>
+
+            {postRegistrationParagraphs.length > 0 && (
+              <div className="mx-auto mb-14 max-w-4xl space-y-6 md:mb-16">
+                {postRegistrationParagraphs.map((paragraph: string, i: number) => (
+                  <motion.p
+                    key={i}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="text-base leading-relaxed text-on-surface-variant md:text-lg"
+                  >
+                    {paragraph}
+                  </motion.p>
+                ))}
+              </div>
+            )}
+
+            {postRegistrationHighlights.length > 0 && (
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 md:gap-6">
+                {postRegistrationHighlights.map((item: { title: string; description: string }, i: number) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06 }}
+                    className="rounded-2xl border border-outline-variant/15 bg-surface-container-lowest p-6"
+                  >
+                    <h3 className="mb-2 font-headline text-base font-bold text-primary">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-on-surface-variant">{item.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* CTA Section — generous vertical rhythm above/below the card */}
       <section className="bg-surface-container-lowest px-6 py-14 md:py-20 lg:py-24">
