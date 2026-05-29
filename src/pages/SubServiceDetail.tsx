@@ -21,6 +21,7 @@ import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { getSubServicePageContent } from "../utils/subServiceContent";
+import { FirmWhyChooseUsBlock } from "../components/FirmWhyChooseUsBlock";
 import detailsBg from "../Assets/details_page_bg.avif";
 
 function FeatureCards({ items }: { items: { title: string; description: string }[] }) {
@@ -128,6 +129,16 @@ export const SubServiceDetail = () => {
     service.heroCtaPrimary?.trim() || data.pages.home.hero.buttonText || "Get Started";
   const heroCtaSecondary =
     service.heroCtaSecondary?.trim() || data.pages.home.hero.secondaryButtonText || "Talk to Expert";
+
+  const firmStats = (data.pages.home.stats ?? [])
+    .filter((s) => typeof s?.value === "number" && s.value > 0)
+    .slice(0, 2)
+    .map((s) => ({
+      label: String(s.label ?? ""),
+      value: Number(s.value),
+      suffix: s.suffix ?? "",
+      prefix: s.prefix ?? "",
+    }));
 
   if (!service || !content) {
     return (
@@ -339,12 +350,17 @@ export const SubServiceDetail = () => {
               </SectionBlock>
             ))}
 
-            <SectionBlock title={content.whyChooseUsHeading} icon={CheckCircle2}>
-              {content.whyChooseUsIntro && (
-                <p className="mb-6 text-lg leading-relaxed text-on-surface-variant">{content.whyChooseUsIntro}</p>
-              )}
-              <BulletList items={content.whyChooseUs} />
-            </SectionBlock>
+            {content.whyChooseUs.length > 0 && (
+              <FirmWhyChooseUsBlock
+                heading={content.whyChooseUsHeading}
+                intro={content.whyChooseUsIntro}
+                items={content.whyChooseUs}
+                companyName={data.companyName}
+                fullName={data.fullName}
+                fieldLabel={service.title || content.title}
+                stats={firmStats.length >= 2 ? firmStats : undefined}
+              />
+            )}
 
             {content.whoShouldApply && content.whoShouldApply.length > 0 && (
               <SectionBlock title={content.whoShouldApplyHeading || "Who Should Apply?"} icon={Users}>

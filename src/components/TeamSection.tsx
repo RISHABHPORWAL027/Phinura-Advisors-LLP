@@ -4,7 +4,7 @@ import { UserRound, X } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import type { SiteDetails } from "../services/types";
-import logo from "../Assets/Phinura_Advisors_logo.png";
+import { RotatingLogoWatermark } from "./RotatingLogoWatermark";
 import ambujProfile from "../Assets/team_profile/ambuj_profile.jpeg";
 import shivaniProfile from "../Assets/team_profile/shivani_profile.jpeg";
 import priyaProfile from "../Assets/team_profile/priya_profile.jpeg";
@@ -109,21 +109,7 @@ export function TeamSection({ variant }: Props) {
           }}
         />
         
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 -translate-y-1/2 -right-[300px] md:-right-[400px] w-[600px] md:w-[800px] h-[600px] md:h-[800px] opacity-[0.05] pointer-events-none bg-white"
-          style={{
-            WebkitMaskImage: `url(${logo})`,
-            WebkitMaskSize: "contain",
-            WebkitMaskRepeat: "no-repeat",
-            WebkitMaskPosition: "center",
-            maskImage: `url(${logo})`,
-            maskSize: "contain",
-            maskRepeat: "no-repeat",
-            maskPosition: "center"
-          }}
-        />
+        <RotatingLogoWatermark side="right" tintClass="bg-white" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16 text-center md:text-left">

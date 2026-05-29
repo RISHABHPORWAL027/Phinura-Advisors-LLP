@@ -15,7 +15,7 @@ import {
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { TeamSection } from "../components/TeamSection";
-import missionBg from "../Assets/mission.png";
+import missionBg from "../Assets/our_mission_new.webp";
 import visionSectionImage from "../Assets/vision_2.jpg";
 import aboutTeamPhoto from "../Assets/team_member.webp";
 import ctaBackground from "../Assets/details_page_bg.avif";
