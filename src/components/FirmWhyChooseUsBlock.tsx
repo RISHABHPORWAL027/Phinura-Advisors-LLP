@@ -51,8 +51,8 @@ type Props = {
 };
 
 const DEFAULT_STATS: FirmStat[] = [
-  { label: "Businesses we've helped", value: 500, suffix: "+" },
-  { label: "Years of experience", value: 5, suffix: "+" },
+  { label: "Years Experience", value: 5, suffix: "+" },
+  { label: "Happy Clients", value: 499, suffix: "+" },
 ];
 
 export function FirmWhyChooseUsBlock({

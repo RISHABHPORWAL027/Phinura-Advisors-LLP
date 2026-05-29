@@ -239,8 +239,8 @@ export const ServiceDetail = () => {
                           key={i}
                           className="rounded-2xl border border-outline-variant/15 bg-surface-container-lowest p-6 md:p-7 transition-shadow hover:shadow-md"
                         >
-                          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-fixed text-primary">
-                            <Icon className="h-5 w-5" aria-hidden />
+                          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-fixed text-primary md:h-16 md:w-16">
+                            <Icon className="h-7 w-7 md:h-8 md:w-8" aria-hidden />
                           </div>
                           <h3 className="mb-2 font-headline text-lg font-bold text-primary">{card.title}</h3>
                           <p className="text-sm leading-relaxed text-on-surface-variant">{card.description}</p>
@@ -493,7 +493,7 @@ export const ServiceDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="text-base leading-relaxed text-on-surface-variant md:text-lg"
+                    className="text-justify text-base leading-relaxed text-on-surface-variant md:text-lg"
                   >
                     {paragraph}
                   </motion.p>

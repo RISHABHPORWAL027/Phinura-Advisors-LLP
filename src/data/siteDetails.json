@@ -124,7 +124,7 @@
         },
         {
           "label": "Happy Clients",
-          "value": 500,
+          "value": 499,
           "suffix": "+"
         },
         {
@@ -963,34 +963,88 @@
           "longDescription": "We manage complete MCA and ROC compliance services for companies and LLPs, including annual filings, event-based changes, director KYC, statutory forms, and closure support.",
           "subServices": [
             {
-              "title": "Annual Filings",
-              "description": "AOC-4, MGT-7, and other annual return submissions on time.",
-              "id": "",
-              "hook": ""
+              "id": "annual-compliance-private-limited",
+              "title": "Annual Compliance for Private Limited Company",
+              "hook": "Stay compliant with MCA & ROC regulations.",
+              "description": "AOC-4, MGT-7/MGT-7A, ADT-1, DPT-3, AGM, and complete annual ROC compliance for your company."
             },
             {
-              "title": "ROC Returns",
-              "description": "Event-based and periodic filings with the Registrar of Companies.",
-              "id": "",
-              "hook": ""
+              "id": "llp-compliance",
+              "title": "LLP Compliance",
+              "hook": "Keep your LLP active and penalty-free.",
+              "description": "Form 8, Form 11, income tax filing, and complete LLP annual compliance under the LLP Act, 2008."
             },
             {
-              "title": "Board Resolutions",
-              "description": "Drafting and documentation for board meetings and AGM paperwork.",
-              "id": "",
-              "hook": ""
+              "id": "change-company-name",
+              "title": "Change Company Name",
+              "hook": "Rebrand with full MCA & ROC support.",
+              "description": "Name approval, board resolutions, shareholder approval, ROC filing, and fresh Certificate of Incorporation."
             },
             {
-              "title": "Director Compliances",
-              "description": "DIN, DIR-3 KYC, and director change filings.",
-              "id": "",
-              "hook": ""
+              "id": "registered-office-change",
+              "title": "Registered Office Change",
+              "hook": "Shift office address with proper MCA filing.",
+              "description": "Complete support for registered office change within city, across ROC jurisdictions, or across states."
             },
             {
-              "title": "Statutory Registers",
-              "description": "Maintenance and updates of mandatory company registers.",
-              "id": "",
-              "hook": ""
+              "id": "din-ekyc-filing",
+              "title": "DIN eKYC Filing",
+              "hook": "Keep your DIN active with DIR-3 KYC Web.",
+              "description": "DIR-3 KYC Web filing, DIN reactivation, DSC verification, and director detail updates with MCA."
+            },
+            {
+              "id": "change-in-director",
+              "title": "Change in Director",
+              "hook": "Appointment, resignation, or removal — filed correctly.",
+              "description": "Board resolutions, DIR-12, DIR-6, and complete director change compliance under the Companies Act, 2013."
+            },
+            {
+              "id": "adt-1-filing",
+              "title": "ADT-1 Filing",
+              "hook": "Mandatory auditor appointment filing.",
+              "description": "Complete ADT-1 filing for first auditor appointment, AGM reappointment, and casual vacancy appointments."
+            },
+            {
+              "id": "dpt-3-filing",
+              "title": "DPT-3 Filing",
+              "hook": "Annual return of deposits and loans.",
+              "description": "DPT-3 filing for outstanding loans, deposits, and exempted borrowings with auditor coordination."
+            },
+            {
+              "id": "change-llp-agreement",
+              "title": "Change in LLP Agreement",
+              "hook": "Update partner terms and file with MCA.",
+              "description": "Supplementary LLP agreement drafting, partner resolutions, and LLP-3 / LLP-4 ROC filing."
+            },
+            {
+              "id": "authorized-capital-increase",
+              "title": "Authorized Capital Increase",
+              "hook": "Raise your company's share capital limit.",
+              "description": "Board and shareholder approvals, MOA amendment, SH-7 filing, and MCA compliance support."
+            },
+            {
+              "id": "share-transfer",
+              "title": "Share Transfer",
+              "hook": "Transfer shares with full legal compliance.",
+              "description": "Form SH-4 execution, board approval, stamp duty, and register of members update for Pvt Ltd companies."
+            },
+            {
+              "id": "llp-winding-up",
+              "title": "LLP Winding Up",
+              "hook": "Close your LLP legally and cleanly.",
+              "description": "Form 24 strike-off, annual compliance completion, GST cancellation, and LLP closure support."
+            },
+            {
+              "id": "company-winding-up",
+              "title": "Company Winding Up",
+              "hook": "Voluntary closure with MCA compliance.",
+              "description": "Voluntary winding up, liquidation documentation, resolutions, and ROC filing support."
+            },
+            {
+              "id": "inc-20a-filing",
+              "title": "Commencement (INC-20A)",
+              "hook": "Declare commencement of business legally.",
+              "description": "INC-20A filing, board resolution, bank statement verification, and Section 10A compliance."
             }
           ],
           "deliverables": [
@@ -1008,24 +1062,7 @@
           ],
           "consultationHeading": "MCA consultation — how we can help",
           "consultationClosing": "We start with your incorporation documents, financial year cadence, and any outstanding ROC filings—that tells us which annual returns, event-based forms, or director/KYC chores are overdue.\n\nOn consultation we listen first: AGM anxiety, unexplained ROC notices, director changes, or simply not knowing what the MCA expects next. We then spell out a practical calendar in straightforward language.\n\nMCA timelines seldom sit alone; GST and income-tax seasons still matter. WhatsApp us or call for the next ROC-safe step.",
-          "ctaTitle": "Plan your MCA filings with us.",
-          "pageLayout": "standard",
-          "heroCtaPrimary": "",
-          "heroCtaSecondary": "",
-          "serviceIntro": "",
-          "registeredBusinessBenefitsTitle": "",
-          "registeredBusinessBenefitsText": "",
-          "registeredBusinessBenefitsCards": [],
-          "registrationTypesHeading": "",
-          "registrationTypesEyebrow": "",
-          "registrationTypesSubtext": "",
-          "subServicesTitle": "",
-          "postRegistrationSection": {
-            "title": "",
-            "subtitle": "",
-            "paragraphs": [],
-            "highlights": []
-          }
+          "ctaTitle": "Plan your MCA filings with us."
         },
         {
           "id": "trademark-registration",
@@ -2596,7 +2633,7 @@
           "id": "income-tax-compliance",
           "title": "Income Tax Services",
           "icon": "Landmark",
-          "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=600",
+          "image": "src/Assets/income_tax.jpg",
           "description": "ITR filing, tax planning, TDS, deductions & more.",
           "category": "Income tax",
           "heroTitle": "Income Tax Services",

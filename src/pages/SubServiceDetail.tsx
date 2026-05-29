@@ -21,6 +21,12 @@ import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { getSubServicePageContent } from "../utils/subServiceContent";
+import type { SubServiceLabeledSection } from "../data/subServiceTypes";
+import {
+  DEFAULT_FIRM_WHY_CHOOSE_US_HEADING,
+  DEFAULT_FIRM_WHY_CHOOSE_US_INTRO,
+  DEFAULT_FIRM_WHY_CHOOSE_US_ITEMS,
+} from "../utils/firmWhyChooseUsDefaults";
 import { FirmWhyChooseUsBlock } from "../components/FirmWhyChooseUsBlock";
 import detailsBg from "../Assets/details_page_bg.avif";
 
@@ -105,6 +111,41 @@ function SectionBlock({
   );
 }
 
+function LabeledSectionBody({ section }: { section: SubServiceLabeledSection }) {
+  return (
+    <>
+      {section.intro && (
+        <p className="mb-6 text-lg leading-relaxed text-on-surface-variant">{section.intro}</p>
+      )}
+      {section.items && section.items.length > 0 && <FeatureCards items={section.items} />}
+      {section.bullets && section.bullets.length > 0 && (
+        <BulletList items={section.bullets} iconClass="text-primary" />
+      )}
+    </>
+  );
+}
+
+function splitProcessCompanionSections(sections: SubServiceLabeledSection[] | undefined) {
+  const all = sections ?? [];
+  const firstCardSectionIndex = all.findIndex(
+    (section) => Array.isArray(section.items) && section.items.length > 0
+  );
+
+  if (firstCardSectionIndex === -1) {
+    return {
+      processCompanionSections: all.filter((section) => section.bullets?.length),
+      remainingLabeledSections: all.filter((section) => section.items?.length),
+    };
+  }
+
+  return {
+    processCompanionSections: all
+      .slice(0, firstCardSectionIndex)
+      .filter((section) => section.bullets?.length),
+    remainingLabeledSections: all.slice(firstCardSectionIndex),
+  };
+}
+
 export const SubServiceDetail = () => {
   const { serviceId, subServiceId } = useParams<{ serviceId: string; subServiceId: string }>();
   const { data, loading } = useCMS();
@@ -156,6 +197,16 @@ export const SubServiceDetail = () => {
   const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
   const telHref = whatsappPhone ? `tel:+${whatsappPhone}` : "/contact";
   const parentTitle = service.title || "Services";
+  const labeledSplit = splitProcessCompanionSections(content.labeledSections);
+  const processCompanionSections = content.processSteps?.length
+    ? labeledSplit.processCompanionSections
+    : [];
+  const remainingLabeledSections = content.processSteps?.length
+    ? labeledSplit.remainingLabeledSections
+    : content.labeledSections ?? [];
+  const hasProcessCompanionColumn =
+    processCompanionSections.length > 0 ||
+    (content.documentsRequired?.length ?? 0) > 0;
 
   return (
     <div className="min-h-screen bg-white">
@@ -253,13 +304,29 @@ export const SubServiceDetail = () => {
             </SectionBlock>
 
             {/* Key Features + Benefits side by side */}
-            {(content.keyFeaturesHeading || content.benefits || content.benefitFeatures) && (
+            {(() => {
+              const hasKeyFeaturesContent = Boolean(
+                content.keyFeaturesHeading ||
+                  content.keyFeatureFeatures?.length ||
+                  content.keyFeatures?.length
+              );
+              const hasBenefitsContent = Boolean(
+                content.benefitsIntro ||
+                  content.benefitFeatures?.length ||
+                  content.benefits?.length
+              );
+              if (!hasKeyFeaturesContent && !hasBenefitsContent) return null;
+
+              return (
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-20"
+                className={`grid grid-cols-1 gap-12 md:gap-16 lg:gap-20 ${
+                  hasKeyFeaturesContent && hasBenefitsContent ? "md:grid-cols-2" : ""
+                }`}
               >
+                {hasKeyFeaturesContent && (
                 <div>
                   {content.keyFeaturesHeading && (
                     <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
@@ -293,7 +360,9 @@ export const SubServiceDetail = () => {
                     <BulletList items={content.keyFeatures} />
                   ) : null}
                 </div>
+                )}
 
+                {hasBenefitsContent && (
                 <div>
                   <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
                     <Target className="h-7 w-7 shrink-0 text-secondary" aria-hidden />
@@ -307,8 +376,7 @@ export const SubServiceDetail = () => {
                   {content.benefitFeatures && content.benefitFeatures.length > 0 ? (
                     <ol className="space-y-6">
                       {content.benefitFeatures.map((item, i) => {
-                        // Extract number from title if it starts with one (e.g., "1. Title" -> "Title")
-                        const cleanTitle = item.title.replace(/^\d+\.\s*/, '');
+                        const cleanTitle = item.title.replace(/^\d+\.\s*/, "");
                         return (
                           <li key={i} className="flex gap-4">
                             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary-fixed text-sm font-bold text-secondary">
@@ -335,8 +403,10 @@ export const SubServiceDetail = () => {
                     </ol>
                   ) : null}
                 </div>
+                )}
               </motion.div>
-            )}
+              );
+            })()}
 
             {content.registrableItems && content.registrableItems.length > 0 && (
               <SectionBlock title={content.registrableItemsHeading || "What Can Be Registered?"} icon={FileText}>
@@ -354,52 +424,86 @@ export const SubServiceDetail = () => {
             )}
 
             {content.processSteps && content.processSteps.length > 0 && (
-              <SectionBlock title={content.processStepsHeading || "Process"} icon={ListOrdered}>
-                <ol className="space-y-6">
-                  {content.processSteps.map((step, i) => (
-                    <li key={i} className="flex gap-4">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-sm font-bold text-primary">
-                        {i + 1}
-                      </span>
-                      <div>
-                        <h3 className="mb-1 font-headline font-bold text-primary">{step.title}</h3>
-                        <p className="text-sm leading-relaxed text-on-surface-variant">{step.description}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </SectionBlock>
+              hasProcessCompanionColumn ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-20"
+                >
+                  <SectionBlock title={content.processStepsHeading || "Process"} icon={ListOrdered}>
+                    <ol className="space-y-6">
+                      {content.processSteps.map((step, i) => (
+                        <li key={i} className="flex gap-4">
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-sm font-bold text-primary">
+                            {i + 1}
+                          </span>
+                          <div>
+                            <h3 className="mb-1 font-headline font-bold text-primary">{step.title}</h3>
+                            <p className="text-sm leading-relaxed text-on-surface-variant">{step.description}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </SectionBlock>
+
+                  <div className="space-y-12 md:space-y-14">
+                    {content.documentsRequired && content.documentsRequired.length > 0 && (
+                      <SectionBlock title={content.documentsHeading || "Documents Required"} icon={ClipboardList}>
+                        <BulletList items={content.documentsRequired} iconClass="text-primary" />
+                      </SectionBlock>
+                    )}
+                    {processCompanionSections.map((section, i) => (
+                      <SectionBlock key={i} title={section.title} icon={ClipboardList}>
+                        <LabeledSectionBody section={section} />
+                      </SectionBlock>
+                    ))}
+                  </div>
+                </motion.div>
+              ) : (
+                <SectionBlock title={content.processStepsHeading || "Process"} icon={ListOrdered}>
+                  <ol className="space-y-6">
+                    {content.processSteps.map((step, i) => (
+                      <li key={i} className="flex gap-4">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-sm font-bold text-primary">
+                          {i + 1}
+                        </span>
+                        <div>
+                          <h3 className="mb-1 font-headline font-bold text-primary">{step.title}</h3>
+                          <p className="text-sm leading-relaxed text-on-surface-variant">{step.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </SectionBlock>
+              )
             )}
 
-            {content.documentsRequired && content.documentsRequired.length > 0 && (
+            {content.documentsRequired &&
+              content.documentsRequired.length > 0 &&
+              !(content.processSteps?.length && hasProcessCompanionColumn) && (
               <SectionBlock title={content.documentsHeading || "Documents Required"} icon={ClipboardList}>
                 <BulletList items={content.documentsRequired} iconClass="text-primary" />
               </SectionBlock>
             )}
 
-            {content.labeledSections?.map((section, i) => (
+            {remainingLabeledSections.map((section, i) => (
               <SectionBlock key={i} title={section.title} icon={HelpCircle}>
-                {section.intro && (
-                  <p className="mb-6 text-lg leading-relaxed text-on-surface-variant">{section.intro}</p>
-                )}
-                {section.items && section.items.length > 0 && <FeatureCards items={section.items} />}
-                {section.bullets && section.bullets.length > 0 && (
-                  <BulletList items={section.bullets} iconClass="text-primary" />
-                )}
+                <LabeledSectionBody section={section} />
               </SectionBlock>
             ))}
 
-            {content.whyChooseUs.length > 0 && (
-              <FirmWhyChooseUsBlock
-                heading={content.whyChooseUsHeading}
-                intro={content.whyChooseUsIntro}
-                items={content.whyChooseUs}
-                companyName={data.companyName}
-                fullName={data.fullName}
-                fieldLabel={service.title || content.title}
-                stats={firmStats.length >= 2 ? firmStats : undefined}
-              />
-            )}
+            <FirmWhyChooseUsBlock
+              heading={content.whyChooseUsHeading?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_HEADING}
+              intro={content.whyChooseUsIntro?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_INTRO}
+              items={
+                content.whyChooseUs.length > 0 ? content.whyChooseUs : DEFAULT_FIRM_WHY_CHOOSE_US_ITEMS
+              }
+              companyName={data.companyName}
+              fullName={data.fullName}
+              fieldLabel={service.title || content.title}
+              stats={firmStats.length >= 2 ? firmStats : undefined}
+            />
 
             {content.whoShouldApply && content.whoShouldApply.length > 0 && (
               <SectionBlock title={content.whoShouldApplyHeading || "Who Should Apply?"} icon={Users}>
