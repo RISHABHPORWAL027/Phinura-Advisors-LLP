@@ -33,6 +33,7 @@ import whyChooseUsSectionImage from "../Assets/team_member.webp";
 import ctaBackground from "../Assets/details_page_bg.avif";
 const ScrollTypewriterText = ({ text, className }: { text: string; className?: string }) => {
   const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -43,6 +44,7 @@ const ScrollTypewriterText = ({ text, className }: { text: string; className?: s
     let currentIndex = 0;
 
     setDisplayedText("");
+    setIsComplete(false);
 
     const interval = setInterval(() => {
       if (currentIndex < text.length) {
@@ -51,6 +53,7 @@ const ScrollTypewriterText = ({ text, className }: { text: string; className?: s
         currentIndex++;
       } else {
         clearInterval(interval);
+        setIsComplete(true);
       }
     }, 50);
 
@@ -60,23 +63,27 @@ const ScrollTypewriterText = ({ text, className }: { text: string; className?: s
   return (
     <h2 ref={ref} className={className} style={{ whiteSpace: "pre-wrap" }}>
       {displayedText}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-        className="inline-block w-[0.05em] h-[1em] bg-primary align-baseline ml-1 translate-y-[0.1em]"
-      />
+      {!isComplete && (
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+          className="inline-block w-[0.05em] h-[1em] bg-primary align-baseline ml-1 translate-y-[0.1em]"
+        />
+      )}
     </h2>
   );
 };
 
 const TypewriterText = ({ text, className }: { text: string; className?: string }) => {
   const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
     let currentText = "";
     let currentIndex = 0;
 
     setDisplayedText("");
+    setIsComplete(false);
 
     const interval = setInterval(() => {
       if (currentIndex < text.length) {
@@ -85,6 +92,7 @@ const TypewriterText = ({ text, className }: { text: string; className?: string 
         currentIndex++;
       } else {
         clearInterval(interval);
+        setIsComplete(true);
       }
     }, 50);
 
@@ -94,11 +102,13 @@ const TypewriterText = ({ text, className }: { text: string; className?: string 
   return (
     <h1 className={className} style={{ whiteSpace: "pre-wrap" }}>
       {displayedText}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-        className="inline-block w-[0.05em] h-[1em] bg-white align-baseline ml-1 translate-y-[0.1em]"
-      />
+      {!isComplete && (
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+          className="inline-block w-[0.05em] h-[1em] bg-white align-baseline ml-1 translate-y-[0.1em]"
+        />
+      )}
     </h1>
   );
 };
