@@ -443,37 +443,425 @@
               "id": "private-limited-company",
               "title": "Private Limited Company",
               "hook": "India's go-to structure for startups that want to scale and raise funds.",
-              "description": "Separate legal entity with limited liability, 2+ directors, and equity-ready shareholding. Ideal when you plan to hire, invoice enterprise clients, or pitch to investors."
+              "description": "Separate legal entity with limited liability, 2+ directors, and equity-ready shareholding. Ideal when you plan to hire, invoice enterprise clients, or pitch to investors.",
+              "pageContent": {
+                "id": "private-limited-company",
+                "title": "Private Limited Company Registration",
+                "heroTitle": "Private Limited Company Registration in India",
+                "shortDescription": "Register your Private Limited Company with experienced professionals. We manage the complete incorporation process including DSC, DIN, MoA, AoA, SPICe+ filing, PAN, TAN, GST registration, and post-incorporation compliance — so you launch with confidence and stay penalty-free from day one.",
+                "whyChooseHeading": "Why Choose Private Limited Company Registration?",
+                "whyChooseIntro": "A Private Limited Company is the preferred structure for startups and growing businesses that need limited liability, investor readiness, and a credible legal identity under the Companies Act, 2013.",
+                "whyChooseItems": [
+                  "MoA and AoA Drafting",
+                  "Limited Liability Protection",
+                  "Easy Investment and Fundraising",
+                  "End-to-End Compliance Support"
+                ],
+                "whatIsHeading": "What is a Private Limited Company?",
+                "whatIsDescription": "A Private Limited Company is one of the most preferred business structures for startups and growing businesses. It is registered under the Companies Act, 2013 and regulated by the Ministry of Corporate Affairs (MCA). Shareholders' liability is limited to their investment, and the company exists as a separate legal person — able to own assets, sign contracts, and sue or be sued in its own name.",
+                "keyPointsHeading": "Key Points",
+                "keyPoints": [
+                  "Separate legal entity",
+                  "Minimum 2 Directors",
+                  "Minimum 2 Shareholders",
+                  "At least 1 Indian Resident Director",
+                  "Maximum 200 Shareholders",
+                  "No minimum paid-up capital requirement"
+                ],
+                "keyFeaturesHeading": "Key Features",
+                "keyFeaturesIntro": "These structural features define how a Private Limited Company operates and why it is widely chosen by founders scaling beyond a sole proprietorship or partnership.",
+                "keyFeatures": [
+                  "Limited Liability Protection",
+                  "Separate Legal Entity",
+                  "Perpetual Succession",
+                  "Easy Investment Opportunities",
+                  "Tax Benefits and Startup Incentives"
+                ],
+                "benefitsIntro": "Beyond legal structure, incorporation as a Pvt Ltd delivers tangible business advantages — from protecting personal assets to making your company attractive to investors and enterprise clients.",
+                "benefits": [
+                  "Limited Liability Protection",
+                  "Separate Legal Identity",
+                  "Business Continuity",
+                  "Easier Fundraising",
+                  "Tax Benefits",
+                  "Better Brand Credibility"
+                ],
+                "whyChooseUsHeading": "Why Choose Us?",
+                "whyChooseUsIntro": "From name reservation to SPICe+ filing and post-incorporation MCA compliance, our team guides you at every step with clear timelines, transparent pricing, and documentation handled end-to-end.",
+                "whyChooseUs": [
+                  "Expert Company Registration Support",
+                  "Foreign Company & NRI Assistance",
+                  "One-Stop Compliance Solution",
+                  "Post-Incorporation Compliance Support"
+                ],
+                "faq": [
+                  {
+                    "question": "What is a Private Limited Company?",
+                    "answer": "A Private Limited Company is a separate legal entity with limited liability protection suitable for startups and scalable businesses."
+                  },
+                  {
+                    "question": "How long does registration take?",
+                    "answer": "Generally 7–15 working days."
+                  },
+                  {
+                    "question": "Is minimum capital required?",
+                    "answer": "No minimum capital requirement."
+                  },
+                  {
+                    "question": "Can foreigners register?",
+                    "answer": "Yes, subject to FEMA and FDI guidelines."
+                  }
+                ],
+                "ctaTitle": "Register Your Private Limited Company Today"
+              }
             },
             {
               "id": "llp-registration",
               "title": "LLP Registration",
               "hook": "Flexible partnership with company-style liability protection.",
-              "description": "Perfect for CA firms, consultants, and professional partners who want lower compliance than a Pvt Ltd while keeping personal assets protected."
+              "description": "Perfect for CA firms, consultants, and professional partners who want lower compliance than a Pvt Ltd while keeping personal assets protected.",
+              "pageContent": {
+                "id": "llp-registration",
+                "title": "Limited Liability Partnership (LLP) Registration",
+                "heroTitle": "Limited Liability Partnership Registration in India",
+                "shortDescription": "Register your LLP with complete assistance for FiLLiP filing, LLP Agreement drafting, GST registration, and compliance management. Ideal for professional firms and partner-led businesses that want flexibility with legal protection.",
+                "whyChooseHeading": "Why Choose LLP Registration?",
+                "whyChooseIntro": "An LLP offers the operational flexibility of a partnership with the limited liability shield of a company — making it a practical choice for consultants, CA firms, and self-funded professional services.",
+                "whyChooseItems": [
+                  "Flexible Structure",
+                  "Limited Liability Protection",
+                  "Lower Compliance",
+                  "Expert LLP Agreement Drafting"
+                ],
+                "whatIsHeading": "What is an LLP?",
+                "whatIsDescription": "An LLP combines the flexibility of partnership with the legal protection of a company. Partners manage the business as per the LLP Agreement while their personal assets remain protected beyond agreed contribution.",
+                "keyPointsHeading": "Requirements",
+                "keyPoints": [
+                  "Minimum 2 Partners",
+                  "One Indian Resident Partner",
+                  "No Minimum Capital Requirement"
+                ],
+                "keyFeaturesHeading": "Key Features",
+                "keyFeaturesIntro": "LLPs are designed for businesses that want partnership-style management without unlimited personal liability.",
+                "keyFeatures": [
+                  "Separate Legal Entity",
+                  "Limited Liability",
+                  "Flexible Operations",
+                  "Lower Compliance Burden"
+                ],
+                "benefitsIntro": "LLP registration keeps compliance lighter than a private company while still giving your firm a registered identity clients and banks recognise.",
+                "benefits": [
+                  "Tax Efficiency",
+                  "Lower Compliance",
+                  "Flexible Management",
+                  "Legal Protection",
+                  "Business Continuity"
+                ],
+                "whyChooseUsHeading": "Why Choose Us?",
+                "whyChooseUsIntro": "We draft your LLP Agreement, file FiLLiP on the MCA portal, and set up GST and post-registration compliance so partners can focus on client work from day one.",
+                "whyChooseUs": [
+                  "Expert LLP Registration Support",
+                  "LLP Agreement Drafting",
+                  "FiLLiP Filing & Compliance",
+                  "Post-Registration Support"
+                ],
+                "idealForHeading": "Ideal For",
+                "idealFor": [
+                  "Consultants",
+                  "CA Firms",
+                  "IT Companies",
+                  "Professional Services",
+                  "Family Businesses"
+                ],
+                "faq": [
+                  {
+                    "question": "Difference between LLP and Pvt Ltd?",
+                    "answer": "LLPs have lower compliance and are suitable for self-funded businesses."
+                  },
+                  {
+                    "question": "Is audit mandatory?",
+                    "answer": "Only after prescribed turnover/contribution limits."
+                  }
+                ],
+                "ctaTitle": "Register Your LLP Today"
+              }
             },
             {
               "id": "one-person-company",
               "title": "One Person Company (OPC)",
               "hook": "One founder. Full control. Registered company benefits.",
-              "description": "Built for solo entrepreneurs who want limited liability and a credible MCA-registered entity — without needing a co-founder on day one."
+              "description": "Built for solo entrepreneurs who want limited liability and a credible MCA-registered entity — without needing a co-founder on day one.",
+              "pageContent": {
+                "id": "one-person-company",
+                "title": "One Person Company (OPC) Registration",
+                "heroTitle": "One Person Company Registration in India",
+                "shortDescription": "Register your OPC with complete support for DSC, DIN, SPICe+ filing, GST registration, nominee appointment, and compliance management — built for solo founders who want company benefits without partners.",
+                "whyChooseHeading": "Why Choose OPC Registration?",
+                "whyChooseIntro": "OPC lets a single entrepreneur operate as a registered company with limited liability, separate legal identity, and a clear path to convert into a Private Limited Company when the business scales.",
+                "whyChooseItems": [
+                  "Solo Entrepreneur Structure",
+                  "Limited Liability Protection",
+                  "Easy Conversion to Pvt Ltd",
+                  "Quick Registration Process"
+                ],
+                "whatIsHeading": "What is an OPC?",
+                "whatIsDescription": "An OPC allows a single entrepreneur to run a registered company with limited liability protection. It requires one shareholder, one director (can be the same person), and a nominee who would succeed in case of the member's death or incapacity.",
+                "keyPointsHeading": "Requirements",
+                "keyPoints": [
+                  "One Shareholder",
+                  "One Nominee",
+                  "One Director",
+                  "Indian Resident Member"
+                ],
+                "keyFeaturesHeading": "Key Features",
+                "keyFeaturesIntro": "OPC bridges the gap between a sole proprietorship and a full private limited company — giving solo founders credibility without needing co-founders.",
+                "keyFeatures": [
+                  "Single Owner Structure",
+                  "Separate Legal Identity",
+                  "Nominee Requirement",
+                  "Business Expansion Flexibility"
+                ],
+                "benefitsIntro": "For freelancers, consultants, and solo founders, OPC registration adds professional credibility while keeping compliance manageable compared to larger company structures.",
+                "benefits": [
+                  "Full Ownership & Control",
+                  "Limited Liability",
+                  "Better Credibility",
+                  "Lower Compliance",
+                  "Tax Benefits"
+                ],
+                "whyChooseUsHeading": "Why Choose Us?",
+                "whyChooseUsIntro": "We handle nominee appointment, SPICe+ filing, and first-year MCA compliance — and advise when converting to Pvt Ltd makes sense for fundraising or growth.",
+                "whyChooseUs": [
+                  "Expert OPC Registration Support",
+                  "Nominee & Compliance Guidance",
+                  "Conversion to Pvt Ltd Assistance",
+                  "End-to-End Filing Support"
+                ],
+                "idealForHeading": "Ideal For",
+                "idealFor": [
+                  "Freelancers",
+                  "Consultants",
+                  "Solo Founders",
+                  "Small Businesses",
+                  "Self-Employed Professionals"
+                ],
+                "faq": [
+                  {
+                    "question": "Difference between OPC and Proprietorship?",
+                    "answer": "OPC provides limited liability and separate legal identity."
+                  },
+                  {
+                    "question": "Can OPC raise investment?",
+                    "answer": "No, external investment requires conversion into Pvt Ltd."
+                  }
+                ],
+                "ctaTitle": "Register Your OPC Today"
+              }
             },
             {
               "id": "partnership-firm",
               "title": "Partnership Firm",
               "hook": "Start together quickly — shared ownership, shared profits.",
-              "description": "Affordable registration for 2+ partners with a clear Partnership Deed. A practical choice for family businesses, traders, and local professional practices."
+              "description": "Affordable registration for 2+ partners with a clear Partnership Deed. A practical choice for family businesses, traders, and local professional practices.",
+              "pageContent": {
+                "id": "partnership-firm",
+                "title": "Partnership Firm Registration",
+                "heroTitle": "Partnership Firm Registration in India",
+                "shortDescription": "Register your Partnership Firm with complete support for Partnership Deed drafting, PAN, GST registration, and compliance management — a straightforward structure for 2+ partners sharing profits and responsibilities.",
+                "whyChooseHeading": "Why Choose Partnership Firm Registration?",
+                "whyChooseIntro": "Partnership firms suit family businesses, local traders, and professional practices where partners want shared ownership without the cost and compliance of a full company incorporation.",
+                "whyChooseItems": [
+                  "Easy & Affordable Setup",
+                  "Flexible Profit Sharing",
+                  "Shared Ownership",
+                  "Expert Partnership Deed Drafting"
+                ],
+                "whatIsHeading": "What is a Partnership Firm?",
+                "whatIsDescription": "A Partnership Firm is formed when two or more individuals operate a business together and share profits as per agreed terms in a Partnership Deed. Registration adds legal recognition and helps resolve disputes between partners.",
+                "keyFeaturesHeading": "Key Features",
+                "keyFeaturesIntro": "Partnership registration is affordable, quick, and flexible — ideal when all partners are actively involved in running the business.",
+                "keyFeatures": [
+                  "Minimum 2 Partners",
+                  "Partnership Deed Based",
+                  "No Minimum Capital",
+                  "Simple Compliance"
+                ],
+                "benefitsIntro": "Registered partnership firms gain better standing with banks and vendors, while keeping setup costs and ongoing compliance lower than a company.",
+                "benefits": [
+                  "Affordable Registration",
+                  "Flexible Operations",
+                  "Shared Resources",
+                  "Lower Compliance",
+                  "Easy Dissolution"
+                ],
+                "whyChooseUsHeading": "Why Choose Us?",
+                "whyChooseUsIntro": "We draft a clear Partnership Deed, handle registration formalities, and assist with PAN, GST, and conversion to LLP when your firm outgrows the partnership structure.",
+                "whyChooseUs": [
+                  "Expert Partnership Deed Drafting",
+                  "Affordable Registration Support",
+                  "PAN & GST Registration Assistance",
+                  "Compliance Management"
+                ],
+                "idealForHeading": "Ideal For",
+                "idealFor": [
+                  "Family Businesses",
+                  "Retail Businesses",
+                  "Local Traders",
+                  "Professional Practices",
+                  "Self-Funded Businesses"
+                ],
+                "faq": [
+                  {
+                    "question": "Is registration mandatory?",
+                    "answer": "No, but registered firms get better legal protection."
+                  },
+                  {
+                    "question": "Can it be converted into LLP?",
+                    "answer": "Yes, conversion is possible anytime."
+                  }
+                ],
+                "ctaTitle": "Register Your Partnership Firm Today"
+              }
             },
             {
               "id": "sole-proprietorship",
               "title": "Sole Proprietorship",
               "hook": "Fastest way to start — minimal paperwork, maximum simplicity.",
-              "description": "Best for freelancers, home-based businesses, and small shops testing the market. Upgrade to OPC or Pvt Ltd when you are ready to scale."
+              "description": "Best for freelancers, home-based businesses, and small shops testing the market. Upgrade to OPC or Pvt Ltd when you are ready to scale.",
+              "pageContent": {
+                "id": "sole-proprietorship",
+                "title": "Sole Proprietorship",
+                "heroTitle": "Sole Proprietorship Registration in India",
+                "shortDescription": "Start your business with the simplest structure — minimal compliance, full control, and quick setup for solo entrepreneurs, freelancers, and small traders who want to begin trading without full company incorporation.",
+                "whyChooseHeading": "Why Choose Sole Proprietorship?",
+                "whyChooseIntro": "Sole proprietorship is the fastest way to start a business in India. There is no separate legal entity — you operate under your own name or trade name with minimal paperwork and straightforward tax filing.",
+                "whyChooseItems": [
+                  "Simplest Business Form",
+                  "Minimal Compliance Burden",
+                  "Full Owner Control",
+                  "Quick & Affordable Setup"
+                ],
+                "whatIsHeading": "What is a Sole Proprietorship?",
+                "whatIsDescription": "A Sole Proprietorship is a business owned and run by one individual. There is no separate legal entity — the owner and business are the same for legal and tax purposes.",
+                "keyPointsHeading": "Key Points",
+                "keyPoints": [
+                  "Single owner",
+                  "No minimum capital requirement",
+                  "Owner liable for business debts",
+                  "Simple tax filing (individual ITR)",
+                  "Easy to start and dissolve"
+                ],
+                "keyFeaturesHeading": "Key Features",
+                "keyFeaturesIntro": "Proprietorship suits early-stage businesses that prioritise speed and simplicity over limited liability or investor readiness.",
+                "keyFeatures": [
+                  "One-Owner Structure",
+                  "Minimal Documentation",
+                  "Low Setup Cost",
+                  "Direct Control",
+                  "Simple Compliance"
+                ],
+                "benefitsIntro": "When you are testing an idea or running a small local business, proprietorship keeps costs low while you build revenue and customer base.",
+                "benefits": [
+                  "Affordable & Quick Setup",
+                  "Minimal Regulatory Compliance",
+                  "Full Control Over Decisions",
+                  "Simple Tax Filing",
+                  "Easy to Operate"
+                ],
+                "whyChooseUsHeading": "Why Choose Us?",
+                "whyChooseUsIntro": "We help you register GST, Shop Act, and other licences as needed — and advise when upgrading to OPC, LLP, or Pvt Ltd protects you better as revenue grows.",
+                "whyChooseUs": [
+                  "Guidance on GST & Shop Act Registration",
+                  "PAN & Bank Account Documentation Support",
+                  "Transition Advice to Pvt Ltd or LLP When You Scale",
+                  "Affordable Registration Support"
+                ],
+                "idealForHeading": "Ideal For",
+                "idealFor": [
+                  "Freelancers",
+                  "Small Traders",
+                  "Consultants",
+                  "Home-Based Businesses",
+                  "Local Service Providers"
+                ],
+                "faq": [
+                  {
+                    "question": "Is separate registration mandatory?",
+                    "answer": "No formal incorporation is required, but GST, Shop Act, or other licences may apply based on your business."
+                  },
+                  {
+                    "question": "Can a sole proprietorship be converted later?",
+                    "answer": "Yes, you can convert to Pvt Ltd, LLP, or Partnership as your business grows."
+                  }
+                ],
+                "ctaTitle": "Register Your Sole Proprietorship Today"
+              }
             },
             {
               "id": "section-8-company",
               "title": "Section 8 / NGO",
               "hook": "Give your social mission a recognised legal identity.",
-              "description": "Non-profit registration for charitable, educational, and welfare objectives — with pathways to 12A, 80G, CSR funding, and donor credibility."
+              "description": "Non-profit registration for charitable, educational, and welfare objectives — with pathways to 12A, 80G, CSR funding, and donor credibility.",
+              "pageContent": {
+                "id": "section-8-company",
+                "title": "Section 8 Company Registration",
+                "heroTitle": "Section 8 Company Registration in India",
+                "shortDescription": "Establish your non-profit organisation with complete support for licence procurement, MoA drafting, 12A, 80G, and FCRA compliance — for NGOs, charitable trusts, and social enterprises pursuing tax-exempt status.",
+                "whyChooseHeading": "Why Choose Section 8 Registration?",
+                "whyChooseIntro": "Section 8 companies are formed to promote charitable, educational, or social welfare objectives — with profits reinvested into the mission rather than distributed to members.",
+                "whyChooseItems": [
+                  "MoA and Licence Drafting",
+                  "12A & 80G Support",
+                  "CSR Funding Eligibility",
+                  "Corporate Governance Structure"
+                ],
+                "whatIsHeading": "What is a Section 8 Company?",
+                "whatIsDescription": "A Section 8 Company is a non-profit organisation formed for charitable, educational, environmental, or social welfare objectives. It requires a central government licence and operates under stricter governance rules than a standard company.",
+                "keyFeaturesHeading": "Key Features",
+                "keyFeaturesIntro": "Section 8 registration unlocks donor confidence, CSR eligibility, and tax exemptions when set up and maintained correctly.",
+                "keyFeatures": [
+                  "Government Licence",
+                  "Limited Liability",
+                  "Tax Benefits",
+                  "FCRA Eligibility",
+                  "CSR Funding Access"
+                ],
+                "benefitsIntro": "Non-profits that register properly gain legal standing to receive grants, CSR funds, and tax-deductible donations from supporters.",
+                "benefits": [
+                  "Legal Recognition",
+                  "Tax Exemptions",
+                  "Better Funding Opportunities",
+                  "Higher Credibility",
+                  "Perpetual Succession"
+                ],
+                "whyChooseUsHeading": "Why Choose Us?",
+                "whyChooseUsIntro": "We guide licence application, MoA drafting, and registrations for 12A, 80G, and FCRA so your organisation can fundraise with confidence and stay compliant.",
+                "whyChooseUs": [
+                  "Non-Profit Registration Expertise",
+                  "Licence & MoA Drafting Support",
+                  "12A, 80G & FCRA Guidance",
+                  "End-to-End Compliance Support"
+                ],
+                "idealForHeading": "Ideal For",
+                "idealFor": [
+                  "NGOs",
+                  "Charitable Trusts",
+                  "Educational Institutions",
+                  "CSR Foundations",
+                  "Social Enterprises"
+                ],
+                "faq": [
+                  {
+                    "question": "Can Section 8 companies receive foreign donations?",
+                    "answer": "Yes, after FCRA registration."
+                  },
+                  {
+                    "question": "Is profit distribution allowed?",
+                    "answer": "No, profits must be used for charitable objectives only."
+                  }
+                ],
+                "ctaTitle": "Register Your Section 8 Company Today"
+              }
             }
           ],
           "deliverables": [
@@ -491,7 +879,8 @@
           ],
           "consultationHeading": "Company registration consultation — how we can help",
           "consultationClosing": "We start by understanding your business goals, number of partners, and funding plans—that tells us whether a Private Limited, LLP, OPC, or Partnership structure fits best.\n\nOn consultation we listen first: your timeline, existing documents, and any concerns about compliance after registration. Then we map a clear sequence—name reservation, document drafting, MCA filing, and post-incorporation steps—all explained in plain language.\n\nReach us on WhatsApp or call for a free consultation on the right business structure for you.",
-          "ctaTitle": "Ready to register your company?"
+          "ctaTitle": "Ready to register your company?",
+          "subServicesTitle": ""
         },
         {
           "id": "mca-compliance",
@@ -505,11 +894,36 @@
           "mainHeading": "Stay compliant with MCA regulations",
           "longDescription": "Stay compliant with Ministry of Corporate Affairs (MCA) regulations through our end-to-end compliance services. We manage ROC filings, annual returns, board resolutions, director compliances, statutory registers, and other corporate legal requirements to keep your business secure and penalty-free.",
           "subServices": [
-            { "title": "Annual Filings", "description": "AOC-4, MGT-7, and other annual return submissions on time." },
-            { "title": "ROC Returns", "description": "Event-based and periodic filings with the Registrar of Companies." },
-            { "title": "Board Resolutions", "description": "Drafting and documentation for board meetings and AGM paperwork." },
-            { "title": "Director Compliances", "description": "DIN, DIR-3 KYC, and director change filings." },
-            { "title": "Statutory Registers", "description": "Maintenance and updates of mandatory company registers." }
+            {
+              "title": "Annual Filings",
+              "description": "AOC-4, MGT-7, and other annual return submissions on time.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "ROC Returns",
+              "description": "Event-based and periodic filings with the Registrar of Companies.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Board Resolutions",
+              "description": "Drafting and documentation for board meetings and AGM paperwork.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Director Compliances",
+              "description": "DIN, DIR-3 KYC, and director change filings.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Statutory Registers",
+              "description": "Maintenance and updates of mandatory company registers.",
+              "id": "",
+              "hook": ""
+            }
           ],
           "deliverables": [
             "Annual return and financial statement filings",
@@ -526,7 +940,24 @@
           ],
           "consultationHeading": "MCA consultation — how we can help",
           "consultationClosing": "We start with your incorporation documents, financial year cadence, and any outstanding ROC filings—that tells us which annual returns, event-based forms, or director/KYC chores are overdue.\n\nOn consultation we listen first: AGM anxiety, unexplained ROC notices, director changes, or simply not knowing what the MCA expects next. We then spell out a practical calendar in straightforward language.\n\nMCA timelines seldom sit alone; GST and income-tax seasons still matter. WhatsApp us or call for the next ROC-safe step.",
-          "ctaTitle": "Plan your MCA filings with us."
+          "ctaTitle": "Plan your MCA filings with us.",
+          "pageLayout": "standard",
+          "heroCtaPrimary": "",
+          "heroCtaSecondary": "",
+          "serviceIntro": "",
+          "registeredBusinessBenefitsTitle": "",
+          "registeredBusinessBenefitsText": "",
+          "registeredBusinessBenefitsCards": [],
+          "registrationTypesHeading": "",
+          "registrationTypesEyebrow": "",
+          "registrationTypesSubtext": "",
+          "subServicesTitle": "",
+          "postRegistrationSection": {
+            "title": "",
+            "subtitle": "",
+            "paragraphs": [],
+            "highlights": []
+          }
         },
         {
           "id": "trademark-registration",
@@ -610,43 +1041,1314 @@
               "id": "trademark-filing",
               "title": "Trademark Registration",
               "hook": "Secure your name, logo, or slogan with nationwide legal protection.",
-              "description": "Complete support from trademark search and class selection to application filing, journal tracking, and registration certificate."
+              "description": "Complete support from trademark search and class selection to application filing, journal tracking, and registration certificate.",
+              "pageContent": {
+                "id": "trademark-filing",
+                "title": "Trademark Registration",
+                "heroTitle": "Protect Your Brand Legally Across India",
+                "shortDescription": "Secure your business name, logo, slogan, or brand identity with professional trademark registration services. We handle the complete process from trademark search to filing and objection handling, helping you protect your brand with confidence.",
+                "whyChooseHeading": "Why Trademark Registration is Important",
+                "whyChooseIntro": "A registered trademark gives your business exclusive legal rights and helps prevent unauthorised use of your brand identity.",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Exclusive Brand Protection",
+                    "description": "Protect your business name, logo, tagline, and product identity legally."
+                  },
+                  {
+                    "title": "Legal Rights Against Copying",
+                    "description": "Take legal action against trademark infringement and misuse."
+                  },
+                  {
+                    "title": "Builds Trust and Credibility",
+                    "description": "A registered trademark increases customer trust and brand value."
+                  },
+                  {
+                    "title": "Long-Term Business Asset",
+                    "description": "Trademarks can be licensed, sold, franchised, or commercially monetised."
+                  }
+                ],
+                "whatIsHeading": "What is Trademark Registration?",
+                "whatIsDescription": "Trademark registration grants you exclusive legal rights over your brand name, logo, slogan, or other distinctive mark used to identify your goods or services. Under the Trade Marks Act, 1999, a registered trademark is protected across India and can be renewed indefinitely every 10 years.",
+                "keyFeaturesHeading": "Why Register Your Trademark",
+                "keyFeatures": [
+                  "Exclusive Brand Protection",
+                  "Legal Rights Against Copying",
+                  "Builds Trust and Credibility",
+                  "Long-Term Business Asset"
+                ],
+                "benefitsIntro": "A registered trademark protects your brand identity and supports long-term business growth.",
+                "benefits": [
+                  "Brand Protection",
+                  "Exclusive Ownership Rights",
+                  "Business Expansion Support",
+                  "Valid Across India",
+                  "Renewable Every 10 Years"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Brand Protection",
+                    "description": "Protects your brand identity from misuse and copying."
+                  },
+                  {
+                    "title": "Exclusive Ownership Rights",
+                    "description": "Provides exclusive legal ownership over the trademark."
+                  },
+                  {
+                    "title": "Business Expansion Support",
+                    "description": "Helps in franchise, licensing, and online marketplace registration."
+                  },
+                  {
+                    "title": "Valid Across India",
+                    "description": "Trademark protection is applicable throughout India."
+                  },
+                  {
+                    "title": "Renewable Every 10 Years",
+                    "description": "Trademark registration remains valid for 10 years and can be renewed indefinitely."
+                  }
+                ],
+                "registrableItemsHeading": "What Can Be Registered as a Trademark?",
+                "registrableItems": [
+                  "Brand Name",
+                  "Business Name",
+                  "Logo or Symbol",
+                  "Tagline or Slogan",
+                  "Product Name",
+                  "Packaging Design",
+                  "Sound or Jingle"
+                ],
+                "processStepsHeading": "Trademark Registration Process",
+                "processSteps": [
+                  {
+                    "title": "Trademark Search",
+                    "description": "We check trademark availability and identify similar existing marks."
+                  },
+                  {
+                    "title": "Class Selection",
+                    "description": "Selection of the correct trademark class based on your business activity."
+                  },
+                  {
+                    "title": "Trademark Application Filing",
+                    "description": "Preparation and filing of trademark application with the Trademark Registry."
+                  },
+                  {
+                    "title": "Examination by Trademark Department",
+                    "description": "The application is reviewed by the Trademark Examiner."
+                  },
+                  {
+                    "title": "Objection Handling (If Any)",
+                    "description": "Professional reply drafting and objection response support."
+                  },
+                  {
+                    "title": "Trademark Journal Publication",
+                    "description": "The trademark is published in the official Trademark Journal."
+                  },
+                  {
+                    "title": "Trademark Registration Certificate",
+                    "description": "After successful processing, the Trademark Registration Certificate is issued."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Registration",
+                "documentsRequired": [
+                  "PAN Card and Aadhaar Card of Applicant or Authorized Signatory",
+                  "Business Registration Proof such as Company Incorporation Certificate, LLP Certificate, or Partnership Deed",
+                  "Logo or Trademark Copy",
+                  "MSME or Startup Certificate (if applicable)",
+                  "Address Proof",
+                  "GST Certificate (if available)",
+                  "Power of Attorney (TM-48)",
+                  "User Affidavit and Usage Proof (if trademark is already in use)"
+                ],
+                "whoShouldApplyHeading": "Who Should Apply for Trademark Registration?",
+                "whoShouldApply": [
+                  "Startups",
+                  "MSMEs",
+                  "E-commerce Sellers",
+                  "Manufacturers",
+                  "Service Providers",
+                  "Agencies and Consultants",
+                  "Restaurants and Cafes",
+                  "Import Export Businesses",
+                  "Professionals and Freelancers"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Registration?",
+                "whyChooseUs": [
+                  "Expert Trademark Filing Support — professional guidance for trademark search, filing, and legal compliance.",
+                  "Objection and Opposition Handling — complete assistance for examination replies, hearings, and opposition defence.",
+                  "Class Selection and Brand Protection Strategy — support for selecting correct trademark classes and long-term brand protection planning.",
+                  "End-to-End Trademark Compliance — assistance from trademark filing to registration, renewal, assignment, and legal protection."
+                ],
+                "faq": [
+                  {
+                    "question": "How long does trademark registration take?",
+                    "answer": "Trademark registration usually takes around 6 to 24 months depending on objections or opposition."
+                  },
+                  {
+                    "question": "Can I use ™ before registration?",
+                    "answer": "Yes. You can use the ™ symbol immediately after filing the application."
+                  },
+                  {
+                    "question": "What is the validity of a trademark?",
+                    "answer": "Trademark registration is valid for 10 years and can be renewed indefinitely."
+                  },
+                  {
+                    "question": "Is trademark registration mandatory?",
+                    "answer": "No, but it provides stronger legal protection and exclusive ownership rights."
+                  },
+                  {
+                    "question": "Can I register both name and logo separately?",
+                    "answer": "Yes. Brand name and logo can be registered separately for wider protection."
+                  }
+                ],
+                "ctaTitle": "Register Your Trademark Today"
+              }
             },
             {
               "id": "trademark-objection",
               "title": "Trademark Objection",
               "hook": "Received an examiner objection? We draft strong legal replies under Section 9 & 11.",
-              "description": "Professional objection reply drafting, evidence support, and hearing assistance to move your application toward approval."
+              "description": "Professional objection reply drafting, evidence support, and hearing assistance to move your application toward approval.",
+              "pageContent": {
+                "id": "trademark-objection",
+                "title": "Trademark Objection",
+                "heroTitle": "Resolve Trademark Objections with Expert Legal Support",
+                "shortDescription": "Received a trademark objection from the Trademark Registry? Don't worry. We help you draft strong legal replies, handle objections under Section 9 & 11, and improve the chances of trademark approval with complete professional support.",
+                "whyChooseHeading": "Why Choose Our Trademark Objection Service?",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Expert Reply Drafting",
+                    "description": "Professionally drafted objection replies tailored to your trademark case."
+                  },
+                  {
+                    "title": "Section 9 & 11 Objection Handling",
+                    "description": "Support for descriptive, similar mark, and legal compliance objections."
+                  },
+                  {
+                    "title": "Fast Filing Support",
+                    "description": "Quick preparation and timely filing of objection replies with proper documentation."
+                  },
+                  {
+                    "title": "Hearing Representation Support",
+                    "description": "Professional assistance for trademark hearings whenever required."
+                  }
+                ],
+                "whatIsHeading": "What is a Trademark Objection?",
+                "whatIsDescription": "A trademark objection is an official notice issued by the Trademark Examiner during the trademark registration process when the application does not meet certain legal requirements or conflicts with existing trademarks. It is not a rejection — it is an opportunity for the applicant to explain and justify why the trademark should be approved.",
+                "keyPointsHeading": "Common Reasons for Objections",
+                "keyPoints": [
+                  "Similarity with existing trademarks",
+                  "Lack of distinctiveness",
+                  "Incorrect trademark class",
+                  "Descriptive or generic words",
+                  "Missing documents or filing errors",
+                  "Use of prohibited or misleading elements"
+                ],
+                "keyFeaturesHeading": "Our Trademark Objection Support",
+                "keyFeatures": [
+                  "Expert Reply Drafting",
+                  "Section 9 & 11 Objection Handling",
+                  "Fast Filing Support",
+                  "Hearing Representation Support"
+                ],
+                "benefitsIntro": "Professional objection handling improves approval chances and avoids costly delays.",
+                "benefits": [
+                  "Better Chances of Approval",
+                  "Saves Time and Delays",
+                  "Complete Legal Support",
+                  "Proper Documentation"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Better Chances of Approval",
+                    "description": "Strong legal drafting improves trademark acceptance chances."
+                  },
+                  {
+                    "title": "Saves Time and Delays",
+                    "description": "Professional handling avoids unnecessary delays and filing mistakes."
+                  },
+                  {
+                    "title": "Complete Legal Support",
+                    "description": "Expert assistance throughout reply drafting, filing, and hearing stages."
+                  },
+                  {
+                    "title": "Proper Documentation",
+                    "description": "Accurate supporting documents and legal references strengthen the application."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "Common Types of Trademark Objections",
+                    "items": [
+                      {
+                        "title": "Section 9 Objection",
+                        "description": "Raised when the trademark is generic, descriptive, non-distinctive, or misleading."
+                      },
+                      {
+                        "title": "Section 11 Objection",
+                        "description": "Raised when the proposed trademark is similar to an already registered or applied trademark."
+                      },
+                      {
+                        "title": "Procedural Objection",
+                        "description": "Raised due to incorrect filing details, missing documents, wrong applicant details, or improper trademark class selection."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Why Trademark Objections Happen",
+                    "bullets": [
+                      "Similar trademarks already registered",
+                      "Generic or descriptive trademark names",
+                      "Lack of uniqueness",
+                      "Incorrect trademark class selection",
+                      "Improper documentation",
+                      "Legal restrictions under trademark laws"
+                    ]
+                  }
+                ],
+                "processStepsHeading": "Trademark Objection Reply Process",
+                "processSteps": [
+                  {
+                    "title": "Review Examination Report",
+                    "description": "We carefully analyse the objection raised by the Trademark Examiner."
+                  },
+                  {
+                    "title": "Draft Legal Reply",
+                    "description": "Our experts prepare a detailed legal response with supporting arguments and documents."
+                  },
+                  {
+                    "title": "Collect Supporting Evidence",
+                    "description": "Invoices, advertisements, social proof, website usage, and prior usage documents are prepared."
+                  },
+                  {
+                    "title": "File Objection Reply",
+                    "description": "The objection reply is filed online with the Trademark Registry within the prescribed timeline."
+                  },
+                  {
+                    "title": "Hearing Support (If Required)",
+                    "description": "If the Trademark Registry schedules a hearing, we provide complete representation support."
+                  },
+                  {
+                    "title": "Trademark Approval Process",
+                    "description": "If the reply is accepted, the trademark moves forward for Journal publication and registration."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Objection Reply",
+                "documentsRequired": [
+                  "Trademark Examination Report",
+                  "Trademark Application Number",
+                  "PAN Card and Aadhaar Card",
+                  "Business Registration Proof",
+                  "Logo or Trademark Copy",
+                  "User Affidavit",
+                  "Invoices or Usage Proof",
+                  "Advertisement or Social Media Proof",
+                  "MSME or Startup Certificate (if applicable)",
+                  "Power of Attorney (TM-48)"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Objection?",
+                "whyChooseUs": [
+                  "Experienced Trademark Experts — professional support from experienced trademark consultants and legal experts.",
+                  "Quick Response and Filing — fast drafting and timely submission of objection replies.",
+                  "End-to-End Trademark Support — complete support from objection handling to trademark registration.",
+                  "Affordable and Transparent Pricing — professional services with clear pricing and no hidden charges."
+                ],
+                "faq": [
+                  {
+                    "question": "What happens if a trademark objection is ignored?",
+                    "answer": "If no reply is filed within the prescribed timeline, the trademark application may become abandoned."
+                  },
+                  {
+                    "question": "How long do I get to reply to a trademark objection?",
+                    "answer": "Generally, the reply must be filed within 30 days from the examination report date."
+                  },
+                  {
+                    "question": "Can a trademark be registered after objection?",
+                    "answer": "Yes. Many trademarks are successfully registered after filing a proper objection reply."
+                  },
+                  {
+                    "question": "Is trademark objection the same as rejection?",
+                    "answer": "No. An objection is not rejection. It is an opportunity to explain and defend the trademark application."
+                  },
+                  {
+                    "question": "Will there be a hearing after objection reply?",
+                    "answer": "In some cases, the Trademark Registry may schedule a hearing if further clarification is required."
+                  }
+                ],
+                "ctaTitle": "Resolve Your Trademark Objection Today"
+              }
             },
             {
               "id": "trademark-opposition",
               "title": "Trademark Opposition",
               "hook": "Stop confusing marks before they get registered.",
-              "description": "TM-O filing, legal drafting, evidence preparation, and end-to-end opposition management within the 4-month journal window."
+              "description": "TM-O filing, legal drafting, evidence preparation, and end-to-end opposition management within the 4-month journal window.",
+              "pageContent": {
+                "id": "trademark-opposition",
+                "title": "Trademark Opposition",
+                "heroTitle": "Protect Your Brand Against Similar Trademark Applications",
+                "shortDescription": "If someone applies for a trademark that is similar to your brand, you can legally oppose its registration. We provide complete support for trademark opposition filing, legal drafting, evidence preparation, hearings, and end-to-end opposition management.",
+                "whyChooseHeading": "Why Choose Our Trademark Opposition Service?",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Fast Trademark Opposition Filing",
+                    "description": "Quick and professional filing of trademark opposition within the prescribed timeline."
+                  },
+                  {
+                    "title": "Expert Legal Drafting",
+                    "description": "Strong opposition notices prepared with proper legal grounds and supporting evidence."
+                  },
+                  {
+                    "title": "End-to-End Opposition Support",
+                    "description": "Complete assistance from filing TM-O to hearings and final decisions."
+                  },
+                  {
+                    "title": "Brand Protection Strategy",
+                    "description": "Protect your business identity from confusing or misleading trademark registrations."
+                  }
+                ],
+                "whatIsHeading": "What is Trademark Opposition?",
+                "whatIsDescription": "Trademark Opposition is a legal process that allows any person or business to challenge a trademark application after it is published in the Trademark Journal. If a trademark is similar to your existing brand, creates confusion, or violates trademark laws, you can file an opposition to stop its registration.",
+                "keyPointsHeading": "How Opposition Protects Your Brand",
+                "keyPoints": [
+                  "Protect existing trademark rights",
+                  "Prevent market confusion",
+                  "Stop misleading trademarks",
+                  "Maintain brand uniqueness",
+                  "Protect business goodwill"
+                ],
+                "keyFeaturesHeading": "Our Trademark Opposition Support",
+                "keyFeatures": [
+                  "Fast Trademark Opposition Filing",
+                  "Expert Legal Drafting",
+                  "End-to-End Opposition Support",
+                  "Brand Protection Strategy"
+                ],
+                "benefitsIntro": "Timely opposition filing protects your brand from confusing or misleading registrations.",
+                "benefits": [
+                  "Protects Your Brand Identity",
+                  "Avoids Customer Confusion",
+                  "Preserves Market Reputation",
+                  "Stronger Legal Protection"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Protects Your Brand Identity",
+                    "description": "Prevents registration of confusing or similar trademarks."
+                  },
+                  {
+                    "title": "Avoids Customer Confusion",
+                    "description": "Protects customers from misleading or duplicate brands."
+                  },
+                  {
+                    "title": "Preserves Market Reputation",
+                    "description": "Maintains brand credibility and business goodwill."
+                  },
+                  {
+                    "title": "Stronger Legal Protection",
+                    "description": "Helps enforce trademark rights effectively."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "Who Can File a Trademark Opposition?",
+                    "bullets": [
+                      "Registered Trademark Owners",
+                      "Prior Trademark Users",
+                      "Businesses and Competitors",
+                      "Companies and LLPs",
+                      "Partnership Firms",
+                      "Individuals",
+                      "Any person affected by the trademark registration"
+                    ]
+                  },
+                  {
+                    "title": "Time Limit for Trademark Opposition",
+                    "intro": "A trademark opposition must generally be filed within 4 months from the date of publication of the trademark in the Trademark Journal. Failure to oppose within the prescribed timeline may allow the trademark to proceed for registration."
+                  },
+                  {
+                    "title": "Grounds for Trademark Opposition",
+                    "items": [
+                      {
+                        "title": "Similarity with Existing Trademark",
+                        "description": "When the applied trademark is identical or confusingly similar to an existing trademark."
+                      },
+                      {
+                        "title": "Lack of Distinctiveness",
+                        "description": "If the trademark is generic, descriptive, or lacks uniqueness."
+                      },
+                      {
+                        "title": "Bad Faith Trademark Filing",
+                        "description": "If the trademark application is filed to misuse another brand's reputation or goodwill."
+                      },
+                      {
+                        "title": "Misleading or Deceptive Trademark",
+                        "description": "If the trademark can confuse consumers regarding product origin, quality, or business identity."
+                      },
+                      {
+                        "title": "Violation of Trademark Laws",
+                        "description": "If the trademark violates provisions under the Trade Marks Act, 1999."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Difference Between Trademark Objection and Trademark Opposition",
+                    "intro": "A trademark objection is raised by the Trademark Examiner during examination of an application. Trademark opposition is filed by a third party after the mark is published in the Trademark Journal. Both require timely legal response but follow different procedures and timelines."
+                  }
+                ],
+                "processStepsHeading": "Trademark Opposition Process",
+                "processSteps": [
+                  {
+                    "title": "Trademark Journal Monitoring",
+                    "description": "We identify conflicting trademarks published in the Trademark Journal."
+                  },
+                  {
+                    "title": "Opposition Notice Drafting",
+                    "description": "Preparation of legal opposition notice mentioning grounds of opposition."
+                  },
+                  {
+                    "title": "Filing Form TM-O",
+                    "description": "Trademark opposition is filed with the Trademark Registry within the prescribed timeline."
+                  },
+                  {
+                    "title": "Counter Statement by Applicant",
+                    "description": "The applicant files a response against the opposition notice."
+                  },
+                  {
+                    "title": "Evidence Submission",
+                    "description": "Both parties submit documents, affidavits, and supporting evidence."
+                  },
+                  {
+                    "title": "Trademark Hearing",
+                    "description": "If required, hearings are conducted before the Trademark Registrar."
+                  },
+                  {
+                    "title": "Final Decision",
+                    "description": "The Registrar decides whether the trademark should proceed for registration or be rejected."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Opposition",
+                "documentsRequired": [
+                  "Trademark Application Number",
+                  "Copy of Trademark Journal Publication",
+                  "Opponent's Trademark Registration Certificate (if available)",
+                  "Proof of Trademark Usage",
+                  "Invoices and Business Proof",
+                  "Advertisement and Marketing Materials",
+                  "Affidavit and Supporting Documents",
+                  "Power of Attorney (TM-48)",
+                  "Identity and Address Proof"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Opposition?",
+                "whyChooseUs": [
+                  "Experienced Trademark Experts — professional support for handling complex trademark opposition matters.",
+                  "Strong Legal and Evidence Support — well-drafted opposition notices backed by proper documentation.",
+                  "End-to-End Case Management — complete assistance from filing to hearing and final order.",
+                  "Transparent Pricing — affordable and clear pricing without hidden charges."
+                ],
+                "faq": [
+                  {
+                    "question": "Who can file a trademark opposition?",
+                    "answer": "Any person or business affected by the trademark registration can file an opposition."
+                  },
+                  {
+                    "question": "What is the deadline for filing trademark opposition?",
+                    "answer": "Trademark opposition should generally be filed within 4 months from Journal publication."
+                  },
+                  {
+                    "question": "Can an unregistered trademark owner file opposition?",
+                    "answer": "Yes. Prior users of a trademark can also oppose a trademark application."
+                  },
+                  {
+                    "question": "What happens after trademark opposition is filed?",
+                    "answer": "The applicant files a counter statement, followed by evidence submission and hearings if required."
+                  },
+                  {
+                    "question": "Can trademark opposition stop registration?",
+                    "answer": "Yes. If the opposition succeeds, the trademark application may be rejected."
+                  }
+                ],
+                "ctaTitle": "File Trademark Opposition with Expert Support"
+              }
             },
             {
               "id": "trademark-objection-reply",
               "title": "Response to Trademark Objection",
               "hook": "File a timely, well-argued reply within 30 days.",
-              "description": "Examination report analysis, legal reply drafting, document collation, and online filing with Registry follow-up."
+              "description": "Examination report analysis, legal reply drafting, document collation, and online filing with Registry follow-up.",
+              "pageContent": {
+                "id": "trademark-objection-reply",
+                "title": "Response to Trademark Objection",
+                "heroTitle": "Reply to Trademark Objections with Expert Legal Support",
+                "shortDescription": "Received a trademark objection from the Trademark Registry? We help you draft and file professional trademark objection replies with proper legal reasoning and supporting documents, improving the chances of successful trademark registration.",
+                "whyChooseHeading": "Why Choose Our Trademark Objection Reply Service?",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Expert-Drafted Legal Replies",
+                    "description": "Professionally prepared replies based on trademark laws and examiner objections."
+                  },
+                  {
+                    "title": "In-Depth Examination Report Analysis",
+                    "description": "Detailed review of the trademark objection report under Section 9 or Section 11."
+                  },
+                  {
+                    "title": "End-to-End Filing Support",
+                    "description": "Complete assistance from drafting to online filing and follow-up."
+                  },
+                  {
+                    "title": "Real-Time Status Updates",
+                    "description": "Stay informed about reply filing status and trademark application progress."
+                  }
+                ],
+                "whatIsHeading": "What is a Trademark Objection Reply?",
+                "whatIsDescription": "A Trademark Objection Reply is a formal response submitted to the Trademark Registry when an objection is raised during trademark examination. A properly drafted objection reply helps explain why your trademark deserves registration and addresses the concerns raised by the examiner.",
+                "keyPointsHeading": "Common Reasons for Objections",
+                "keyPoints": [
+                  "Similarity with existing trademarks",
+                  "Lack of distinctiveness",
+                  "Descriptive or generic words",
+                  "Incorrect documentation",
+                  "Wrong trademark class selection",
+                  "Legal or procedural issues"
+                ],
+                "keyFeaturesHeading": "Our Objection Reply Support",
+                "keyFeatures": [
+                  "Expert-Drafted Legal Replies",
+                  "In-Depth Examination Report Analysis",
+                  "End-to-End Filing Support",
+                  "Real-Time Status Updates"
+                ],
+                "benefitsIntro": "A timely, well-drafted reply is critical to keeping your trademark application alive.",
+                "benefits": [
+                  "Better Approval Chances",
+                  "Proper Legal Representation",
+                  "Accurate Documentation",
+                  "Faster Resolution"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Better Approval Chances",
+                    "description": "Strong legal drafting increases the possibility of trademark acceptance."
+                  },
+                  {
+                    "title": "Proper Legal Representation",
+                    "description": "Professional handling of objections and hearings."
+                  },
+                  {
+                    "title": "Accurate Documentation",
+                    "description": "Well-organised evidence and supporting documents strengthen the reply."
+                  },
+                  {
+                    "title": "Faster Resolution",
+                    "description": "Timely filing and follow-up help avoid unnecessary delays."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "Common Trademark Objections",
+                    "items": [
+                      {
+                        "title": "Section 9 Objection",
+                        "description": "Raised when the trademark is descriptive, generic, misleading, or lacks uniqueness."
+                      },
+                      {
+                        "title": "Section 11 Objection",
+                        "description": "Raised when the proposed trademark is similar to an existing registered or applied trademark."
+                      },
+                      {
+                        "title": "Procedural Objection",
+                        "description": "Raised because of incorrect filing details, missing documents, or classification errors."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Time Limit for Trademark Objection Reply",
+                    "intro": "A trademark objection reply should generally be filed within 30 days from the date of the Examination Report issued by the Trademark Registry. Failure to file the reply within the prescribed timeline may lead to abandonment of the trademark application."
+                  },
+                  {
+                    "title": "What Happens if Trademark Objection Reply is Not Filed?",
+                    "bullets": [
+                      "Trademark application may become abandoned",
+                      "Government filing fees may be lost",
+                      "Fresh trademark application may be required",
+                      "Brand protection may get delayed"
+                    ]
+                  }
+                ],
+                "processStepsHeading": "Trademark Objection Reply Process",
+                "processSteps": [
+                  {
+                    "title": "Examination Report Review",
+                    "description": "We carefully analyse the objections raised by the Trademark Examiner."
+                  },
+                  {
+                    "title": "Legal Reply Drafting",
+                    "description": "Our experts prepare a detailed legal response with supporting arguments."
+                  },
+                  {
+                    "title": "Evidence Collection",
+                    "description": "Supporting documents such as invoices, advertisements, and usage proof are organised."
+                  },
+                  {
+                    "title": "Online Filing",
+                    "description": "The objection reply is filed online with the Trademark Registry."
+                  },
+                  {
+                    "title": "Hearing Support",
+                    "description": "If required, we provide complete support and representation for trademark hearings."
+                  },
+                  {
+                    "title": "Trademark Approval Process",
+                    "description": "If the reply is accepted, the trademark proceeds for Journal publication and registration."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Objection Reply",
+                "documentsRequired": [
+                  "Trademark Examination Report",
+                  "Trademark Application Number",
+                  "PAN Card and Aadhaar Card",
+                  "Business Registration Proof",
+                  "Logo or Trademark Copy",
+                  "User Affidavit",
+                  "Invoices or Usage Proof",
+                  "Advertisement or Social Media Proof",
+                  "MSME or Startup Certificate (if applicable)",
+                  "Power of Attorney (TM-48)"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Objection Reply?",
+                "whyChooseUs": [
+                  "Experienced Trademark Professionals — expert support for handling trademark objections across multiple industries.",
+                  "Strong Legal Drafting — detailed replies prepared with legal references and supporting arguments.",
+                  "End-to-End Trademark Assistance — support from examination report review to final trademark approval.",
+                  "Affordable and Transparent Pricing — professional services with clear pricing and no hidden charges."
+                ],
+                "faq": [
+                  {
+                    "question": "What is the deadline for filing a trademark objection reply?",
+                    "answer": "The reply should generally be filed within 30 days from the Examination Report date."
+                  },
+                  {
+                    "question": "Can a trademark be approved after objection?",
+                    "answer": "Yes. Many trademarks are successfully registered after filing a proper objection reply."
+                  },
+                  {
+                    "question": "Is a trademark objection the same as rejection?",
+                    "answer": "No. An objection is not a rejection. It is an opportunity to explain and justify the trademark application."
+                  },
+                  {
+                    "question": "What happens after filing the objection reply?",
+                    "answer": "The Trademark Registry reviews the reply and may either accept the trademark, issue a hearing notice, or request further clarification."
+                  },
+                  {
+                    "question": "Will a hearing be required after filing the reply?",
+                    "answer": "In some cases, the Trademark Registry may schedule a hearing if additional clarification is required."
+                  }
+                ],
+                "ctaTitle": "File Your Trademark Objection Reply Today"
+              }
             },
             {
               "id": "trademark-infringement",
               "title": "Trademark Infringement",
               "hook": "Someone using your brand without permission? Take legal action fast.",
-              "description": "Infringement analysis, cease-and-desist notices, evidence collection, and enforcement support online and offline."
+              "description": "Infringement analysis, cease-and-desist notices, evidence collection, and enforcement support online and offline.",
+              "pageContent": {
+                "id": "trademark-infringement",
+                "title": "Trademark Infringement",
+                "heroTitle": "Protect Your Brand Against Unauthorised Usage",
+                "shortDescription": "If someone is using your brand name, logo, packaging, or trademark without permission, it may amount to trademark infringement. We provide complete legal support for infringement notices, brand protection, evidence collection, and legal action to help safeguard your business identity.",
+                "whyChooseHeading": "Why Choose Our Trademark Infringement Service?",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Legal Protection for Your Brand",
+                    "description": "Take action against unauthorised use of your trademark or brand identity."
+                  },
+                  {
+                    "title": "Expert Legal Notice Drafting",
+                    "description": "Professionally drafted cease and desist notices for quick resolution."
+                  },
+                  {
+                    "title": "Trademark Monitoring Support",
+                    "description": "Identify and track potential trademark misuse across online and offline platforms."
+                  },
+                  {
+                    "title": "End-to-End Legal Assistance",
+                    "description": "Support for notices, litigation, settlements, and infringement disputes."
+                  }
+                ],
+                "whatIsHeading": "What is Trademark Infringement?",
+                "whatIsDescription": "Trademark infringement happens when someone uses a registered trademark or a confusingly similar mark without permission in a way that may confuse customers or harm the brand owner's reputation. Trademark infringement is governed under the Trade Marks Act, 1999.",
+                "keyPointsHeading": "What Infringement May Include",
+                "keyPoints": [
+                  "Copying a brand name",
+                  "Using a similar logo",
+                  "Duplicate packaging design",
+                  "Fake products using your trademark",
+                  "Similar domain names or social media handles",
+                  "Misleading advertisements using your brand identity"
+                ],
+                "keyFeaturesHeading": "Our Infringement Support",
+                "keyFeatures": [
+                  "Legal Protection for Your Brand",
+                  "Expert Legal Notice Drafting",
+                  "Trademark Monitoring Support",
+                  "End-to-End Legal Assistance"
+                ],
+                "benefitsIntro": "Taking prompt action against infringement protects your reputation and market share.",
+                "benefits": [
+                  "Protects Brand Reputation",
+                  "Stops Customer Confusion",
+                  "Protects Revenue and Market Share",
+                  "Strengthens Legal Rights"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Protects Brand Reputation",
+                    "description": "Prevents misuse that may damage customer trust and business image."
+                  },
+                  {
+                    "title": "Stops Customer Confusion",
+                    "description": "Helps customers identify genuine products and services."
+                  },
+                  {
+                    "title": "Protects Revenue and Market Share",
+                    "description": "Stops competitors from unfairly benefiting from your brand identity."
+                  },
+                  {
+                    "title": "Strengthens Legal Rights",
+                    "description": "Proper enforcement strengthens your trademark protection."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "Common Types of Trademark Infringement",
+                    "items": [
+                      {
+                        "title": "Direct Trademark Infringement",
+                        "description": "Unauthorised use of a registered trademark on similar goods or services."
+                      },
+                      {
+                        "title": "Counterfeit Products",
+                        "description": "Selling fake or duplicate products using a registered trademark."
+                      },
+                      {
+                        "title": "Logo and Packaging Copying",
+                        "description": "Using similar packaging, colour combinations, or logo styles to confuse customers."
+                      },
+                      {
+                        "title": "Online Trademark Infringement",
+                        "description": "Use of your trademark in domain names, social media accounts, online ads, or e-commerce listings."
+                      },
+                      {
+                        "title": "Passing Off",
+                        "description": "Using a similar business identity to mislead customers even if the trademark is not registered."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Signs Your Trademark May Be Infringed",
+                    "bullets": [
+                      "Similar brand names in the market",
+                      "Duplicate logos or packaging",
+                      "Customer confusion or complaints",
+                      "Fake products being sold online",
+                      "Similar advertisements or websites",
+                      "Unauthorised use on marketplaces like Amazon or Flipkart"
+                    ]
+                  },
+                  {
+                    "title": "Legal Remedies for Trademark Infringement",
+                    "items": [
+                      {
+                        "title": "Cease and Desist Notice",
+                        "description": "Legal notice demanding immediate stoppage of trademark misuse."
+                      },
+                      {
+                        "title": "Injunction Orders",
+                        "description": "Court orders preventing further use of the infringing trademark."
+                      },
+                      {
+                        "title": "Claim for Damages",
+                        "description": "Compensation for business losses and brand reputation damage."
+                      },
+                      {
+                        "title": "Seizure of Infringing Goods",
+                        "description": "Court-authorised seizure of counterfeit or infringing products."
+                      },
+                      {
+                        "title": "Criminal Action",
+                        "description": "Trademark infringement involving counterfeiting may attract criminal penalties under trademark laws."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Difference Between Trademark Infringement and Passing Off",
+                    "intro": "Trademark infringement applies to registered trademarks and is governed by the Trade Marks Act, 1999. Passing off protects unregistered marks based on goodwill and prior usage when a competitor misleads customers about the origin of goods or services."
+                  }
+                ],
+                "processStepsHeading": "Trademark Infringement Process",
+                "processSteps": [
+                  {
+                    "title": "Infringement Analysis",
+                    "description": "We review and verify whether the trademark usage amounts to infringement."
+                  },
+                  {
+                    "title": "Evidence Collection",
+                    "description": "Collection of screenshots, invoices, advertisements, product samples, and online proof."
+                  },
+                  {
+                    "title": "Legal Notice Drafting",
+                    "description": "Preparation and sending of cease and desist notice to the infringing party."
+                  },
+                  {
+                    "title": "Negotiation and Settlement",
+                    "description": "Attempt resolution through legal communication and settlement discussions."
+                  },
+                  {
+                    "title": "Court Action (If Required)",
+                    "description": "Filing civil or criminal proceedings for trademark protection."
+                  },
+                  {
+                    "title": "Ongoing Trademark Monitoring",
+                    "description": "Continuous monitoring support to prevent future infringement."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Infringement Action",
+                "documentsRequired": [
+                  "Trademark Registration Certificate",
+                  "Trademark Application Details",
+                  "Proof of Trademark Usage",
+                  "Invoices and Business Proof",
+                  "Screenshots or Photographs of Infringement",
+                  "Website or Marketplace Links",
+                  "Social Media Evidence",
+                  "Legal Identity Proof",
+                  "Power of Attorney (if applicable)"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Infringement Matters?",
+                "whyChooseUs": [
+                  "Experienced Trademark Professionals — expert assistance for infringement disputes and legal enforcement.",
+                  "Strong Legal Notice Support — professionally drafted notices for faster and stronger action.",
+                  "End-to-End Legal Coordination — support for evidence collection, notices, hearings, and legal proceedings.",
+                  "Affordable and Transparent Pricing — clear pricing structure with professional support at every stage."
+                ],
+                "faq": [
+                  {
+                    "question": "What is trademark infringement?",
+                    "answer": "Trademark infringement occurs when someone uses a registered trademark or a similar mark without permission in a way that creates confusion."
+                  },
+                  {
+                    "question": "Can I take action without trademark registration?",
+                    "answer": "Yes. In some cases, legal action can be taken through passing off rights based on business goodwill and prior usage."
+                  },
+                  {
+                    "question": "What should I do if someone copies my brand name or logo?",
+                    "answer": "You should collect evidence and immediately send a legal notice to stop the infringement."
+                  },
+                  {
+                    "question": "Is trademark infringement a criminal offence?",
+                    "answer": "Counterfeiting and fraudulent trademark use may attract criminal penalties under Indian trademark laws."
+                  },
+                  {
+                    "question": "Can online trademark misuse be removed?",
+                    "answer": "Yes. Infringing listings, websites, social media pages, and advertisements can often be reported and removed."
+                  }
+                ],
+                "ctaTitle": "Protect Your Trademark Today"
+              }
             },
             {
               "id": "trademark-renewal",
               "title": "Trademark Renewal",
               "hook": "Don't lose your mark — renew every 10 years on time.",
-              "description": "TM-R filing, late renewal with surcharge, restoration support, and renewal certificate tracking."
+              "description": "TM-R filing, late renewal with surcharge, restoration support, and renewal certificate tracking.",
+              "pageContent": {
+                "id": "trademark-renewal",
+                "title": "Trademark Renewal",
+                "heroTitle": "Renew Your Trademark and Keep Your Brand Protected",
+                "shortDescription": "Trademark renewal helps you continue the legal protection of your brand name, logo, slogan, and business identity. We provide complete support for online trademark renewal, restoration, document filing, and renewal status tracking to ensure uninterrupted trademark protection.",
+                "whyChooseHeading": "Why Choose Our Trademark Renewal Service?",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Hassle-Free Online Renewal",
+                    "description": "Complete online trademark renewal support with quick filing and documentation."
+                  },
+                  {
+                    "title": "Avoid Trademark Expiry",
+                    "description": "Renew your trademark on time and maintain uninterrupted legal protection."
+                  },
+                  {
+                    "title": "Expert Compliance Support",
+                    "description": "Professional assistance for renewal, restoration, and registry compliance."
+                  },
+                  {
+                    "title": "End-to-End Trademark Assistance",
+                    "description": "Support from renewal filing to certificate issuance and status tracking."
+                  }
+                ],
+                "whatIsHeading": "What is Trademark Renewal?",
+                "whatIsDescription": "Trademark renewal is the process of extending the validity of a registered trademark after every 10 years. If a trademark is not renewed within the prescribed timeline, it may become expired or removed from the Trademark Register, increasing the risk of brand misuse or infringement.",
+                "keyPointsHeading": "Why Renewal Matters",
+                "keyPoints": [
+                  "Continued legal protection",
+                  "Exclusive ownership rights",
+                  "Brand reputation security",
+                  "Protection against misuse and copying",
+                  "Long-term business value"
+                ],
+                "keyFeaturesHeading": "Our Trademark Renewal Support",
+                "keyFeatures": [
+                  "Hassle-Free Online Renewal",
+                  "Avoid Trademark Expiry",
+                  "Expert Compliance Support",
+                  "End-to-End Trademark Assistance"
+                ],
+                "benefitsIntro": "Timely renewal keeps your trademark active and your brand legally protected.",
+                "benefits": [
+                  "Continued Brand Protection",
+                  "Prevents Trademark Expiry",
+                  "Strengthens Business Value",
+                  "Protects Against Infringement",
+                  "Supports Business Expansion"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Continued Brand Protection",
+                    "description": "Maintain exclusive legal ownership over your trademark."
+                  },
+                  {
+                    "title": "Prevents Trademark Expiry",
+                    "description": "Avoid loss of trademark rights and legal complications."
+                  },
+                  {
+                    "title": "Strengthens Business Value",
+                    "description": "An active trademark increases brand credibility and commercial value."
+                  },
+                  {
+                    "title": "Protects Against Infringement",
+                    "description": "Helps stop unauthorised use of your trademark identity."
+                  },
+                  {
+                    "title": "Supports Business Expansion",
+                    "description": "Important for franchise, licensing, online marketplaces, and investor confidence."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "When Should Trademark Renewal Be Filed?",
+                    "items": [
+                      {
+                        "title": "Before Expiry",
+                        "description": "Trademark renewal can be filed up to 1 year before the expiry date."
+                      },
+                      {
+                        "title": "Grace Period After Expiry",
+                        "description": "Trademark can still be renewed within 6 months after expiry by paying late fees."
+                      },
+                      {
+                        "title": "Restoration After Expiry",
+                        "description": "If renewal is missed even after the grace period, trademark restoration along with renewal may be required."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Trademark Renewal Fees in India",
+                    "intro": "Trademark renewal fees generally depend on the filing type and renewal timeline.",
+                    "items": [
+                      {
+                        "title": "Standard Renewal Fees",
+                        "description": "Applicable when renewal is filed before expiry."
+                      },
+                      {
+                        "title": "Late Renewal with Surcharge",
+                        "description": "Applicable when filed within the grace period after expiry."
+                      },
+                      {
+                        "title": "Restoration and Renewal Fees",
+                        "description": "Applicable when trademark restoration is required after removal from the register."
+                      }
+                    ],
+                    "bullets": [
+                      "Government fees may vary depending on online or physical filing and the number of trademark classes."
+                    ]
+                  },
+                  {
+                    "title": "What Happens if Trademark is Not Renewed?",
+                    "bullets": [
+                      "Trademark protection may expire",
+                      "Brand rights may be lost",
+                      "Others may apply for a similar trademark",
+                      "Increased risk of infringement and brand misuse",
+                      "Fresh trademark registration may become necessary"
+                    ]
+                  },
+                  {
+                    "title": "Trademark Restoration After Expiry",
+                    "intro": "If the trademark has expired and is removed from the register, restoration may still be possible within the prescribed period by filing restoration and renewal application with additional fees and supporting documents."
+                  }
+                ],
+                "processStepsHeading": "Trademark Renewal Process",
+                "processSteps": [
+                  {
+                    "title": "Trademark Verification",
+                    "description": "We verify trademark details, validity, and renewal due dates."
+                  },
+                  {
+                    "title": "Document Collection",
+                    "description": "Collection and verification of required documents for renewal."
+                  },
+                  {
+                    "title": "Filing Form TM-R",
+                    "description": "Preparation and online filing of trademark renewal application."
+                  },
+                  {
+                    "title": "Payment of Government Fees",
+                    "description": "Payment of applicable trademark renewal fees and surcharge if applicable."
+                  },
+                  {
+                    "title": "Application Processing",
+                    "description": "Trademark Registry reviews and processes the renewal application."
+                  },
+                  {
+                    "title": "Renewal Certificate Issuance",
+                    "description": "After approval, the Trademark Renewal Certificate is issued extending protection for another 10 years."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Renewal",
+                "documentsRequired": [
+                  "Trademark Registration Certificate",
+                  "Trademark Application Number",
+                  "PAN Card and Aadhaar Card",
+                  "Business Registration Proof",
+                  "Address Proof",
+                  "Power of Attorney (TM-48)",
+                  "Applicant Details",
+                  "Trademark Renewal Authorization Documents"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Renewal?",
+                "whyChooseUs": [
+                  "Expert Trademark Professionals — professional support for trademark renewal, restoration, and compliance.",
+                  "Timely Filing and Reminders — avoid penalties and expiry with timely renewal support.",
+                  "End-to-End Renewal Assistance — support for documentation, filing, follow-up, and certificate issuance.",
+                  "Transparent and Affordable Pricing — professional services with clear pricing and no hidden charges."
+                ],
+                "faq": [
+                  {
+                    "question": "How long is a trademark valid in India?",
+                    "answer": "A trademark is valid for 10 years and can be renewed indefinitely every 10 years."
+                  },
+                  {
+                    "question": "Can trademark renewal be done online?",
+                    "answer": "Yes. Trademark renewal can be completed online through the Trademark Registry portal."
+                  },
+                  {
+                    "question": "What happens if trademark renewal is missed?",
+                    "answer": "The trademark may expire and can eventually be removed from the Trademark Register."
+                  },
+                  {
+                    "question": "Is there a grace period for trademark renewal?",
+                    "answer": "Yes. A grace period of 6 months is available after expiry with additional late fees."
+                  },
+                  {
+                    "question": "Can an expired trademark be restored?",
+                    "answer": "Yes. Trademark restoration may be possible within the prescribed restoration period after expiry."
+                  }
+                ],
+                "ctaTitle": "Renew Your Trademark Today"
+              }
             },
             {
               "id": "trademark-hearing",
               "title": "Trademark Hearing",
               "hook": "Hearing notice received? Get expert representation and submissions.",
-              "description": "Hearing preparation, written submissions, online or physical representation, and post-hearing follow-up."
+              "description": "Hearing preparation, written submissions, online or physical representation, and post-hearing follow-up.",
+              "pageContent": {
+                "id": "trademark-hearing",
+                "title": "Trademark Hearing",
+                "heroTitle": "Professional Support for Trademark Hearings and Legal Representation",
+                "shortDescription": "Received a trademark hearing notice from the Trademark Registry? We provide complete support for trademark hearing preparation, legal arguments, documentation, and representation to help improve the chances of trademark approval.",
+                "whyChooseHeading": "Why Choose Our Trademark Hearing Service?",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Expert Hearing Representation",
+                    "description": "Professional support for presenting your case before the Trademark Registrar."
+                  },
+                  {
+                    "title": "Strong Legal Arguments",
+                    "description": "Well-prepared legal submissions and supporting documents for better case presentation."
+                  },
+                  {
+                    "title": "End-to-End Hearing Assistance",
+                    "description": "Support from hearing notice review to final hearing updates and follow-ups."
+                  },
+                  {
+                    "title": "Fast and Hassle-Free Process",
+                    "description": "Complete coordination and timely preparation for trademark hearings."
+                  }
+                ],
+                "whatIsHeading": "What is a Trademark Hearing?",
+                "whatIsDescription": "A trademark hearing is an official proceeding conducted by the Trademark Registry when objections raised during trademark examination are not fully resolved through written replies. The hearing gives the applicant an opportunity to explain the trademark application, clarify objections, submit additional documents, and defend the trademark before the Registrar.",
+                "keyPointsHeading": "When Hearings Are Scheduled",
+                "keyPoints": [
+                  "Explain the trademark application",
+                  "Clarify objections raised by the examiner",
+                  "Submit additional documents and evidence",
+                  "Defend the trademark before the Registrar",
+                  "Commonly scheduled after Section 9 or Section 11 objections"
+                ],
+                "keyFeaturesHeading": "Our Trademark Hearing Support",
+                "keyFeatures": [
+                  "Expert Hearing Representation",
+                  "Strong Legal Arguments",
+                  "End-to-End Hearing Assistance",
+                  "Fast and Hassle-Free Process"
+                ],
+                "benefitsIntro": "Professional hearing support improves your chances of trademark approval.",
+                "benefits": [
+                  "Better Approval Chances",
+                  "Proper Legal Representation",
+                  "Accurate Documentation",
+                  "Saves Time and Avoids Delays"
+                ],
+                "benefitFeatures": [
+                  {
+                    "title": "Better Approval Chances",
+                    "description": "Strong legal presentation improves the possibility of trademark acceptance."
+                  },
+                  {
+                    "title": "Proper Legal Representation",
+                    "description": "Professional handling of hearing proceedings and examiner queries."
+                  },
+                  {
+                    "title": "Accurate Documentation",
+                    "description": "Well-organised evidence and legal submissions strengthen the application."
+                  },
+                  {
+                    "title": "Saves Time and Avoids Delays",
+                    "description": "Timely preparation helps avoid procedural issues and repeated hearings."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "Common Reasons for Trademark Hearing",
+                    "items": [
+                      {
+                        "title": "Similar Trademark Objection",
+                        "description": "When the applied trademark resembles an existing registered or applied trademark."
+                      },
+                      {
+                        "title": "Lack of Distinctiveness",
+                        "description": "When the trademark appears generic, descriptive, or non-unique."
+                      },
+                      {
+                        "title": "Section 9 Objection",
+                        "description": "Raised for descriptive, misleading, or non-distinctive trademarks."
+                      },
+                      {
+                        "title": "Section 11 Objection",
+                        "description": "Raised due to similarity with earlier trademarks causing possible confusion."
+                      },
+                      {
+                        "title": "Third-Party Opposition",
+                        "description": "When another party challenges the trademark application."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Online Trademark Hearing Support",
+                    "intro": "Trademark hearings are now commonly conducted online through video conferencing platforms. Applicants or authorised representatives can attend hearings remotely without visiting the Trademark Registry office physically."
+                  },
+                  {
+                    "title": "Possible Outcomes of Trademark Hearing",
+                    "items": [
+                      {
+                        "title": "Trademark Accepted",
+                        "description": "The trademark proceeds for Journal publication and registration."
+                      },
+                      {
+                        "title": "Accepted with Conditions",
+                        "description": "The trademark may be approved subject to modifications or limitations."
+                      },
+                      {
+                        "title": "Adjournment",
+                        "description": "The hearing may be postponed for additional clarification or documentation."
+                      },
+                      {
+                        "title": "Trademark Refused",
+                        "description": "The Registrar may reject the application if objections remain unresolved."
+                      }
+                    ]
+                  }
+                ],
+                "processStepsHeading": "Trademark Hearing Process",
+                "processSteps": [
+                  {
+                    "title": "Review Hearing Notice",
+                    "description": "We analyse the hearing notice and objections raised by the Trademark Registry."
+                  },
+                  {
+                    "title": "Case Preparation",
+                    "description": "Preparation of legal arguments, supporting evidence, and hearing documents."
+                  },
+                  {
+                    "title": "Drafting Written Submissions",
+                    "description": "Preparation of detailed written submissions and legal explanations."
+                  },
+                  {
+                    "title": "Trademark Hearing Representation",
+                    "description": "Representation before the Trademark Registrar through physical or online hearing."
+                  },
+                  {
+                    "title": "Follow-Up with Trademark Registry",
+                    "description": "Regular tracking and follow-up after the hearing process."
+                  },
+                  {
+                    "title": "Final Decision",
+                    "description": "The Registrar may approve, conditionally accept, adjourn, or reject the trademark application."
+                  }
+                ],
+                "documentsHeading": "Documents Required for Trademark Hearing",
+                "documentsRequired": [
+                  "Trademark Application Copy",
+                  "Examination Report",
+                  "Reply to Examination Report",
+                  "Trademark Hearing Notice",
+                  "PAN Card and Aadhaar Card",
+                  "Business Registration Proof",
+                  "User Affidavit and Usage Proof",
+                  "Invoices, Advertisements, and Marketing Materials",
+                  "Power of Attorney (TM-48) or Authority Letter",
+                  "Additional Supporting Documents"
+                ],
+                "whyChooseUsHeading": "Why Choose Us for Trademark Hearing?",
+                "whyChooseUs": [
+                  "Experienced Trademark Professionals — expert support for trademark hearings across multiple industries and trademark classes.",
+                  "Complete Legal Assistance — support for drafting, evidence preparation, representation, and hearing follow-up.",
+                  "Online and Offline Hearing Support — assistance for both virtual and physical trademark hearings.",
+                  "Transparent and Affordable Pricing — professional trademark hearing support with clear pricing and no hidden charges."
+                ],
+                "faq": [
+                  {
+                    "question": "What is a trademark hearing?",
+                    "answer": "A trademark hearing is an official proceeding where the applicant explains and defends the trademark before the Registrar."
+                  },
+                  {
+                    "question": "Is trademark hearing mandatory?",
+                    "answer": "Trademark hearing is required only when objections are not fully resolved through written replies."
+                  },
+                  {
+                    "question": "Can trademark hearings happen online?",
+                    "answer": "Yes. Many trademark hearings are conducted online through video conferencing platforms."
+                  },
+                  {
+                    "question": "Who can attend the trademark hearing?",
+                    "answer": "The applicant, trademark attorney, authorised representative, or registered trademark agent can attend the hearing."
+                  },
+                  {
+                    "question": "What happens after the trademark hearing?",
+                    "answer": "The Registrar may approve, adjourn, conditionally accept, or reject the trademark application."
+                  }
+                ],
+                "ctaTitle": "Get Expert Support for Trademark Hearing"
+              }
             }
           ],
           "ctaTitle": "Protect Your Brand Today",
@@ -665,7 +2367,8 @@
             "Support rooted in SME budgets and timelines"
           ],
           "consultationHeading": "Trademark consultation — how we can help",
-          "consultationClosing": "We open with where you operate, which logo or brand name worries you today, and any earlier Registry correspondence—that frames search scope and class posture.\n\nConsultation hears whether you faced knock-off listings, expansion into new territories, or renewal dates slipping. Afterwards we prioritise filings, examiner replies, or renewals in plain English.\n\nPing us via WhatsApp or phone for a practical trademark roadmap."
+          "consultationClosing": "We open with where you operate, which logo or brand name worries you today, and any earlier Registry correspondence—that frames search scope and class posture.\n\nConsultation hears whether you faced knock-off listings, expansion into new territories, or renewal dates slipping. Afterwards we prioritise filings, examiner replies, or renewals in plain English.\n\nPing us via WhatsApp or phone for a practical trademark roadmap.",
+          "subServicesTitle": ""
         },
         {
           "id": "accounting-bookkeeping",
@@ -679,11 +2382,36 @@
           "mainHeading": "Maintain accurate financial records",
           "longDescription": "Our accounting services help businesses maintain accurate financial records and improve financial management. We provide bookkeeping, bank reconciliations, MIS reporting, expense tracking, financial statements, and customized accounting solutions for startups and enterprises.",
           "subServices": [
-            { "title": "Bookkeeping", "description": "Day-to-day ledger maintenance and transaction recording." },
-            { "title": "Bank Reconciliations", "description": "Matching bank statements with books for accuracy." },
-            { "title": "MIS Reporting", "description": "Management information reports for founders and leadership." },
-            { "title": "Expense Tracking", "description": "Organized expense categorization and tracking." },
-            { "title": "Financial Statements", "description": "P&L, balance sheet, and cash flow preparation." }
+            {
+              "title": "Bookkeeping",
+              "description": "Day-to-day ledger maintenance and transaction recording.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Bank Reconciliations",
+              "description": "Matching bank statements with books for accuracy.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "MIS Reporting",
+              "description": "Management information reports for founders and leadership.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Expense Tracking",
+              "description": "Organized expense categorization and tracking.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Financial Statements",
+              "description": "P&L, balance sheet, and cash flow preparation.",
+              "id": "",
+              "hook": ""
+            }
           ],
           "deliverables": [
             "Monthly or quarterly bookkeeping cycles",
@@ -700,7 +2428,24 @@
           ],
           "consultationHeading": "Accounting consultation — how we can help",
           "consultationClosing": "Our first look is invoicing rhythms, payouts, and how you reconcile bank—that tells us which ledgers will support GST recon and audit readiness.\n\nWe listen where reconciliations break, spreadsheets that never match, or MIS packs boards still await. Next we choreograph close cycles in plain language.\n\nSolid books keep GST, MCA, and tax teams coordinated. Reach on WhatsApp or call.",
-          "ctaTitle": "Get control of your accounts."
+          "ctaTitle": "Get control of your accounts.",
+          "pageLayout": "standard",
+          "heroCtaPrimary": "",
+          "heroCtaSecondary": "",
+          "serviceIntro": "",
+          "registeredBusinessBenefitsTitle": "",
+          "registeredBusinessBenefitsText": "",
+          "registeredBusinessBenefitsCards": [],
+          "registrationTypesHeading": "",
+          "registrationTypesEyebrow": "",
+          "registrationTypesSubtext": "",
+          "subServicesTitle": "",
+          "postRegistrationSection": {
+            "title": "",
+            "subtitle": "",
+            "paragraphs": [],
+            "highlights": []
+          }
         },
         {
           "id": "gst-compliance",
@@ -714,11 +2459,36 @@
           "mainHeading": "Complete GST compliance solutions",
           "longDescription": "We offer complete GST compliance solutions including GST registration, monthly/quarterly return filing, reconciliation, notices handling, and GST advisory. Our experts ensure timely compliance and help businesses avoid penalties while optimizing tax efficiency.",
           "subServices": [
-            { "title": "GST Registration", "description": "New registration, amendments, and cancellation support." },
-            { "title": "Return Filing", "description": "GSTR-1, GSTR-3B, and other periodic return submissions." },
-            { "title": "Reconciliation", "description": "ITC matching, GSTR-2B reconciliation, and annual returns." },
-            { "title": "Notices Handling", "description": "Response drafting and liaison for departmental notices." },
-            { "title": "GST Advisory", "description": "Tax efficiency guidance and compliance planning." }
+            {
+              "title": "GST Registration",
+              "description": "New registration, amendments, and cancellation support.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Return Filing",
+              "description": "GSTR-1, GSTR-3B, and other periodic return submissions.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Reconciliation",
+              "description": "ITC matching, GSTR-2B reconciliation, and annual returns.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Notices Handling",
+              "description": "Response drafting and liaison for departmental notices.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "GST Advisory",
+              "description": "Tax efficiency guidance and compliance planning.",
+              "id": "",
+              "hook": ""
+            }
           ],
           "deliverables": [
             "GST registration and amendment filings",
@@ -735,7 +2505,24 @@
           ],
           "consultationHeading": "GST consultation — how we can help",
           "consultationClosing": "We begin with how you invoice, purchase, and close books each month—that tells us which GST patterns apply and which reconciliations will matter.\n\nIn consultation we listen first: mismatches between GSTR-2B and ledgers, refund doubts, or simply feeling behind on filings. Then we outline a practical sequence in ordinary language.\n\nGST stays aligned with MCA and income tax calendars. WhatsApp us or call for a sensible next step.",
-          "ctaTitle": "Stabilise your GST filings."
+          "ctaTitle": "Stabilise your GST filings.",
+          "pageLayout": "standard",
+          "heroCtaPrimary": "",
+          "heroCtaSecondary": "",
+          "serviceIntro": "",
+          "registeredBusinessBenefitsTitle": "",
+          "registeredBusinessBenefitsText": "",
+          "registeredBusinessBenefitsCards": [],
+          "registrationTypesHeading": "",
+          "registrationTypesEyebrow": "",
+          "registrationTypesSubtext": "",
+          "subServicesTitle": "",
+          "postRegistrationSection": {
+            "title": "",
+            "subtitle": "",
+            "paragraphs": [],
+            "highlights": []
+          }
         },
         {
           "id": "income-tax-compliance",
@@ -749,11 +2536,36 @@
           "mainHeading": "Minimize tax liabilities with full compliance",
           "longDescription": "Our income tax services cover individual and business tax filing, tax planning, TDS compliance, deductions, assessments, and advisory support. We help clients minimize tax liabilities while ensuring complete compliance with income tax regulations.",
           "subServices": [
-            { "title": "ITR Filing", "description": "Individual and business income tax return preparation and submission." },
-            { "title": "Tax Planning", "description": "Strategic planning to minimize liabilities within legal bounds." },
-            { "title": "TDS Compliance", "description": "TDS applicability, deduction, and return filing support." },
-            { "title": "Deductions", "description": "Maximizing eligible deductions under applicable sections." },
-            { "title": "Assessments & Advisory", "description": "Notice handling, scrutiny support, and tax advisory." }
+            {
+              "title": "ITR Filing",
+              "description": "Individual and business income tax return preparation and submission.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Tax Planning",
+              "description": "Strategic planning to minimize liabilities within legal bounds.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "TDS Compliance",
+              "description": "TDS applicability, deduction, and return filing support.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Deductions",
+              "description": "Maximizing eligible deductions under applicable sections.",
+              "id": "",
+              "hook": ""
+            },
+            {
+              "title": "Assessments & Advisory",
+              "description": "Notice handling, scrutiny support, and tax advisory.",
+              "id": "",
+              "hook": ""
+            }
           ],
           "deliverables": [
             "ITR drafting for individuals and businesses",
@@ -770,7 +2582,24 @@
           ],
           "consultationHeading": "Income tax consultation — how we can help",
           "consultationClosing": "We baseline your entity type and whether books reconcile to Form 26AS / AIS so we map deductions, TDS, and advance-tax behaviour clearly.\n\nConsultation absorbs refund anxiety, TDS questions, belated ITR timelines, or departmental letters. We spell out filings in ordinary language prior to uploads.\n\nIncome tax never floats alone alongside GST and ROC events. WhatsApp us or call for the next tax-safe move.",
-          "ctaTitle": "Plan this assessment year deliberately."
+          "ctaTitle": "Plan this assessment year deliberately.",
+          "pageLayout": "standard",
+          "heroCtaPrimary": "",
+          "heroCtaSecondary": "",
+          "serviceIntro": "",
+          "registeredBusinessBenefitsTitle": "",
+          "registeredBusinessBenefitsText": "",
+          "registeredBusinessBenefitsCards": [],
+          "registrationTypesHeading": "",
+          "registrationTypesEyebrow": "",
+          "registrationTypesSubtext": "",
+          "subServicesTitle": "",
+          "postRegistrationSection": {
+            "title": "",
+            "subtitle": "",
+            "paragraphs": [],
+            "highlights": []
+          }
         }
       ]
     },
@@ -788,7 +2617,7 @@
         "photoCaption": "Phinura Advisors team members at work—the colleagues you speak with for MCA, GST, tax and bookkeeping support.",
         "badge": "About us",
         "image": "",
-        "statNumber": "7",
+        "statNumber": "5",
         "statLabel": "Years experience"
       },
       "story": {
@@ -811,10 +2640,26 @@
         ],
         "milestonesSectionTitle": "Milestones at a glance",
         "milestones": [
-          { "numericValue": 25, "suffix": "+", "label": "Cities served" },
-          { "numericValue": 38, "suffix": "+", "label": "Advisory & compliance streams" },
-          { "numericValue": 110, "suffix": "+", "label": "Business relationships cumulative" },
-          { "textFigure": "Popular", "suffix": "", "label": "GST & income-tax cycles, ROC + MCA housekeeping, bookkeeping, coordinated payroll filings, trademarks, diligence & board packs when leadership needs sharper storytelling." }
+          {
+            "numericValue": 25,
+            "suffix": "+",
+            "label": "Cities served"
+          },
+          {
+            "numericValue": 38,
+            "suffix": "+",
+            "label": "Advisory & compliance streams"
+          },
+          {
+            "numericValue": 110,
+            "suffix": "+",
+            "label": "Business relationships cumulative"
+          },
+          {
+            "textFigure": "Popular",
+            "suffix": "",
+            "label": "GST & income-tax cycles, ROC + MCA housekeeping, bookkeeping, coordinated payroll filings, trademarks, diligence & board packs when leadership needs sharper storytelling."
+          }
         ],
         "trustedLine": "Partner-led stewardship with CAs & CS advisors who stay reachable when calendars collide."
       },
