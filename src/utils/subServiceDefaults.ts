@@ -1,10 +1,12 @@
 import { COMPANY_REGISTRATION_SUB_SERVICES } from "../data/companyRegistrationSubServices";
 import { TRADEMARK_SUB_SERVICES } from "../data/trademarkSubServices";
+import { MCA_COMPLIANCE_SUB_SERVICES } from "../data/mcaComplianceSubServices";
 import type { SubServicePageContent } from "../data/subServiceTypes";
 
 const REGISTRY: Record<string, SubServicePageContent[]> = {
   "company-registration": COMPANY_REGISTRATION_SUB_SERVICES,
   "trademark-registration": TRADEMARK_SUB_SERVICES,
+  "mca-compliance": MCA_COMPLIANCE_SUB_SERVICES,
 };
 
 /** Bundled default sub-service page content (fallback when CMS has no pageContent). */

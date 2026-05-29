@@ -25,6 +25,7 @@ function mergePageContent(
     "whyChooseFeatures",
     "keyPoints",
     "keyFeatures",
+    "keyFeatureFeatures",
     "benefits",
     "benefitFeatures",
     "whyChooseUs",

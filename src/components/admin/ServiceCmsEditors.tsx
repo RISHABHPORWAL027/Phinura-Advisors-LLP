@@ -349,6 +349,12 @@ export function SubServicePageContentEditor({
           />
         </Field>
         <StringListEditor label="Key features" path={p(["pageContent", "keyFeatures"])} items={pc.keyFeatures ?? []} handlers={handlers} />
+        <FeaturePairsEditor
+          label="Key features — feature cards"
+          path={p(["pageContent", "keyFeatureFeatures"])}
+          items={pc.keyFeatureFeatures ?? []}
+          handlers={handlers}
+        />
 
         <Field label="Benefits — intro (optional)">
           <textarea

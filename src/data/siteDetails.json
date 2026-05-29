@@ -884,15 +884,83 @@
         },
         {
           "id": "mca-compliance",
-          "title": "MCA Compliances",
+          "title": "MCA Compliance",
           "icon": "Gavel",
           "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600",
-          "description": "Annual filings, ROC returns, board resolutions & more.",
+          "description": "Complete ROC and MCA compliance support.",
           "category": "MCA & company law",
-          "heroTitle": "MCA Compliances",
-          "subtitle": "Annual filings, ROC returns, board resolutions, director compliances, and statutory registers — managed end-to-end.",
+          "pageLayout": "hub",
+          "heroTitle": "Complete ROC & MCA Compliance Support for Your Business",
+          "subtitle": "From annual ROC filing to director KYC, company changes, and event-based filings, we handle complete MCA compliance services so your business stays legally compliant, active, and penalty-free.",
+          "heroCtaPrimary": "Get Started",
+          "heroCtaSecondary": "Talk to Expert",
+          "registeredBusinessBenefitsTitle": "Benefits of MCA Compliance",
+          "registeredBusinessBenefitsText": "Proper MCA compliance helps maintain your company's legal status, avoids penalties, protects directors, and builds trust with banks, investors, and government authorities.",
+          "registeredBusinessBenefitsCards": [
+            {
+              "title": "Timely ROC Filing",
+              "description": "File annual returns and key MCA forms within due dates to keep company status active.",
+              "icon": "CheckCircle2"
+            },
+            {
+              "title": "Penalty Protection",
+              "description": "Avoid late fees, adjudication notices, and non-compliance consequences with proactive filing.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Director Safety",
+              "description": "Protect directors from disqualification risk by maintaining proper board and KYC compliance.",
+              "icon": "UserCheck"
+            },
+            {
+              "title": "Investor & Bank Readiness",
+              "description": "Clean MCA records improve credibility during loans, due diligence, and fundraising.",
+              "icon": "TrendingUp"
+            },
+            {
+              "title": "Event-Based Accuracy",
+              "description": "Handle director changes, capital changes, address updates, and other events with correct ROC forms.",
+              "icon": "FileCheck"
+            },
+            {
+              "title": "Compliance Continuity",
+              "description": "Track deadlines through the year so compliance is managed, not rushed at year-end.",
+              "icon": "CalendarCheck2"
+            }
+          ],
+          "registrationTypesHeading": "Choose Your MCA Compliance Service",
+          "registrationTypesEyebrow": "All MCA & ROC Compliance Services",
+          "registrationTypesSubtext": "Click on any service below to know more: process, documents, fees & timeline.",
+          "serviceIntro": "Whether you are managing a private limited company or LLP, MCA compliance is not only about annual returns. Director KYC, auditor filings, capital changes, office changes, and event-based ROC forms all need correct documentation and timely submission. Our team handles end-to-end compliance so your entity stays active, legally protected, and audit-ready.",
+          "postRegistrationSection": {
+            "title": "MCA Compliance in India — What You Should Know",
+            "subtitle": "MCA compliance under the Companies Act, 2013 and LLP Act, 2008 is an ongoing legal responsibility. Missing filings can lead to daily penalties, director-related issues, and compliance risk for future funding, banking, and governance.",
+            "paragraphs": [
+              "Private Limited Companies must typically file annual financials and returns such as AOC-4 and MGT-7/MGT-7A, maintain board and AGM records, and complete statutory filings like ADT-1 and DPT-3 where applicable. LLPs must file Form 11, Form 8, and related updates within prescribed timelines.",
+              "Event-based filings are equally important. Changes in directors, registered office, company name, authorized capital, LLP agreement, and commencement declarations (INC-20A) require specific ROC forms and documentary backing. Delayed or incorrect filing can trigger additional fees and legal complications.",
+              "A strong MCA compliance system is not just about avoiding penalties. It helps maintain entity credibility with investors, banks, regulators, and business partners. With proper tracking, documentation, and timely filing, businesses stay active and governance-ready throughout the year."
+            ],
+            "highlights": [
+              {
+                "title": "Annual Filing Management",
+                "description": "AOC-4, MGT-7/MGT-7A, Form 8, Form 11, and other recurring compliance handled with deadline control."
+              },
+              {
+                "title": "Event-Based ROC Filings",
+                "description": "Director changes, office shift, capital increase, name change, and statutory updates filed with proper documentation."
+              },
+              {
+                "title": "Director & DIN Compliance",
+                "description": "DIR-3 KYC, DIN reactivation, and director data updates to maintain filing eligibility."
+              },
+              {
+                "title": "Closure & Strike-Off Support",
+                "description": "LLP and company closure support with pre-closure compliance cleanup and ROC filing workflow."
+              }
+            ]
+          },
           "mainHeading": "Stay compliant with MCA regulations",
-          "longDescription": "Stay compliant with Ministry of Corporate Affairs (MCA) regulations through our end-to-end compliance services. We manage ROC filings, annual returns, board resolutions, director compliances, statutory registers, and other corporate legal requirements to keep your business secure and penalty-free.",
+          "longDescription": "We manage complete MCA and ROC compliance services for companies and LLPs, including annual filings, event-based changes, director KYC, statutory forms, and closure support.",
           "subServices": [
             {
               "title": "Annual Filings",

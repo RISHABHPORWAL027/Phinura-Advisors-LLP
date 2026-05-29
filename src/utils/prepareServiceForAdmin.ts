@@ -20,6 +20,7 @@ function mergePageContentForAdmin(
     "whyChooseFeatures",
     "keyPoints",
     "keyFeatures",
+    "keyFeatureFeatures",
     "benefits",
     "benefitFeatures",
     "whyChooseUs",

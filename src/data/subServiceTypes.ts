@@ -26,11 +26,12 @@ export type SubServicePageContent = {
   whatIsDescription: string;
   keyPointsHeading?: string;
   keyPoints?: string[];
-  keyFeaturesHeading: string;
+  keyFeaturesHeading?: string;
   keyFeaturesIntro?: string;
-  keyFeatures: string[];
+  keyFeatures?: string[];
+  keyFeatureFeatures?: SubServiceFeature[];
   benefitsIntro?: string;
-  benefits: string[];
+  benefits?: string[];
   /** Title + description benefit cards (optional alternative layout) */
   benefitFeatures?: SubServiceFeature[];
   whyChooseUsHeading: string;

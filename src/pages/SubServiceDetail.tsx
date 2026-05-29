@@ -253,51 +253,90 @@ export const SubServiceDetail = () => {
             </SectionBlock>
 
             {/* Key Features + Benefits side by side */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-20"
-            >
-              <div>
-                <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
-                  <Star className="h-7 w-7 shrink-0 text-secondary" aria-hidden />
-                  {content.keyFeaturesHeading}
-                </h2>
-                {content.keyFeaturesIntro && (
-                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
-                    {content.keyFeaturesIntro}
-                  </p>
-                )}
-                <BulletList items={content.keyFeatures} />
-              </div>
+            {(content.keyFeaturesHeading || content.benefits || content.benefitFeatures) && (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-20"
+              >
+                <div>
+                  {content.keyFeaturesHeading && (
+                    <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
+                      <Star className="h-7 w-7 shrink-0 text-secondary" aria-hidden />
+                      {content.keyFeaturesHeading}
+                    </h2>
+                  )}
+                  {content.keyFeaturesIntro && (
+                    <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
+                      {content.keyFeaturesIntro}
+                    </p>
+                  )}
+                  {content.keyFeatureFeatures && content.keyFeatureFeatures.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-4">
+                      {content.keyFeatureFeatures.map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex gap-4 rounded-2xl border border-outline-variant/20 bg-surface-container-lowest p-5"
+                        >
+                          <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/5 text-primary">
+                            <CheckCircle2 className="h-5 w-5" />
+                          </div>
+                          <div>
+                            <h3 className="mb-1 font-headline text-base font-bold text-primary">{item.title}</h3>
+                            <p className="text-sm leading-relaxed text-on-surface-variant">{item.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : content.keyFeatures && content.keyFeatures.length > 0 ? (
+                    <BulletList items={content.keyFeatures} />
+                  ) : null}
+                </div>
 
-              <div>
-                <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
-                  <Target className="h-7 w-7 shrink-0 text-secondary" aria-hidden />
-                  Benefits
-                </h2>
-                {content.benefitsIntro && (
-                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
-                    {content.benefitsIntro}
-                  </p>
-                )}
-                {content.benefitFeatures && content.benefitFeatures.length > 0 ? (
-                  <FeatureCards items={content.benefitFeatures} />
-                ) : (
-                <ol className="space-y-4">
-                  {content.benefits.map((item, i) => (
-                    <li key={i} className="flex gap-4 text-on-surface-variant">
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary-fixed text-xs font-bold text-secondary">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm font-medium leading-relaxed pt-0.5">{item}</span>
-                    </li>
-                  ))}
-                </ol>
-                )}
-              </div>
-            </motion.div>
+                <div>
+                  <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
+                    <Target className="h-7 w-7 shrink-0 text-secondary" aria-hidden />
+                    Benefits
+                  </h2>
+                  {content.benefitsIntro && (
+                    <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
+                      {content.benefitsIntro}
+                    </p>
+                  )}
+                  {content.benefitFeatures && content.benefitFeatures.length > 0 ? (
+                    <ol className="space-y-6">
+                      {content.benefitFeatures.map((item, i) => {
+                        // Extract number from title if it starts with one (e.g., "1. Title" -> "Title")
+                        const cleanTitle = item.title.replace(/^\d+\.\s*/, '');
+                        return (
+                          <li key={i} className="flex gap-4">
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary-fixed text-sm font-bold text-secondary">
+                              {i + 1}
+                            </span>
+                            <div className="pt-1.5">
+                              <h3 className="mb-1 font-headline text-base font-bold text-primary">{cleanTitle}</h3>
+                              <p className="text-sm leading-relaxed text-on-surface-variant">{item.description}</p>
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  ) : content.benefits && content.benefits.length > 0 ? (
+                    <ol className="space-y-4">
+                      {content.benefits.map((item, i) => (
+                        <li key={i} className="flex gap-4 text-on-surface-variant">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary-fixed text-xs font-bold text-secondary">
+                            {i + 1}
+                          </span>
+                          <span className="text-sm font-medium leading-relaxed pt-0.5">{item}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : null}
+                </div>
+              </motion.div>
+            )}
 
             {content.registrableItems && content.registrableItems.length > 0 && (
               <SectionBlock title={content.registrableItemsHeading || "What Can Be Registered?"} icon={FileText}>
