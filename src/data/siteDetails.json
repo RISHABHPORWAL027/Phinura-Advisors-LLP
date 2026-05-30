@@ -2482,40 +2482,132 @@
           "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600",
           "description": "Bookkeeping, MIS reports, reconciliations & more.",
           "category": "Accounts",
-          "heroTitle": "Accounting Services",
-          "subtitle": "Bookkeeping, MIS reports, reconciliations, and financial statements — accurate records for better financial management.",
+          "pageLayout": "hub",
+          "heroTitle": "Simplify Your Business Finances with Expert Accounting Support",
+          "subtitle": "From bookkeeping and payroll to audits and financial reporting — we help businesses maintain accurate records, stay compliant, and make informed financial decisions with confidence.",
+          "heroCtaPrimary": "Get Started",
+          "heroCtaSecondary": "Talk to Expert",
+          "registeredBusinessBenefitsTitle": "Why Professional Accounting Matters",
+          "registeredBusinessBenefitsText": "Proper accounting helps businesses maintain financial discipline, improve decision-making, and stay compliant with legal requirements.",
+          "registeredBusinessBenefitsCards": [
+            {
+              "title": "Accurate Financial Records",
+              "description": "Maintain organized and error-free financial records for smooth business operations and compliance.",
+              "icon": "FileCheck"
+            },
+            {
+              "title": "Better Business Decisions",
+              "description": "Access clear financial insights and reports to make informed strategic and operational decisions.",
+              "icon": "TrendingUp"
+            },
+            {
+              "title": "Regulatory Compliance",
+              "description": "Stay compliant with GST, TDS, Income Tax, payroll laws, and other statutory requirements.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Improved Cash Flow Management",
+              "description": "Monitor expenses, receivables, and business performance to maintain healthy cash flow.",
+              "icon": "CheckCircle2"
+            },
+            {
+              "title": "Time & Cost Efficiency",
+              "description": "Outsource accounting tasks and focus on growing your business while reducing operational burden.",
+              "icon": "CalendarCheck2"
+            },
+            {
+              "title": "Business Growth Support",
+              "description": "Financial planning and reporting support to help businesses scale efficiently and sustainably.",
+              "icon": "Award"
+            }
+          ],
+          "registrationTypesHeading": "Our Accounting Services",
+          "registrationTypesEyebrow": "Comprehensive Financial Support",
+          "registrationTypesSubtext": "We provide comprehensive accounting and financial support services for businesses across various industries.",
+          "serviceIntro": "Whether you are a startup, SME, or growing enterprise, managing finances efficiently is essential for business success. Our accounting experts provide end-to-end financial management services tailored to your business needs, helping you maintain compliance, improve cash flow, and focus on growth.",
+          "postRegistrationSection": {
+            "title": "Why Choose Phinura Advisors?",
+            "subtitle": "Trusted accounting, taxation, and compliance support for businesses across industries.",
+            "paragraphs": [],
+            "highlights": [
+              {
+                "title": "Experienced Financial Experts",
+                "description": "Our team has experience handling accounting, taxation, audits, and compliance for businesses across industries."
+              },
+              {
+                "title": "Customized Solutions",
+                "description": "We provide accounting solutions tailored to your business size, industry, and operational needs."
+              },
+              {
+                "title": "End-to-End Support",
+                "description": "From daily bookkeeping to advanced financial reporting and audits, we handle everything under one roof."
+              },
+              {
+                "title": "Timely Compliance",
+                "description": "We ensure all filings, reports, and statutory compliances are completed on time."
+              },
+              {
+                "title": "Transparent Communication",
+                "description": "Clear guidance, regular updates, and practical financial advice without unnecessary complexity."
+              }
+            ]
+          },
           "mainHeading": "Maintain accurate financial records",
           "longDescription": "Our accounting services help businesses maintain accurate financial records and improve financial management. We provide bookkeeping, bank reconciliations, MIS reporting, expense tracking, financial statements, and customized accounting solutions for startups and enterprises.",
           "subServices": [
             {
-              "title": "Bookkeeping",
-              "description": "Day-to-day ledger maintenance and transaction recording.",
-              "id": "",
-              "hook": ""
+              "id": "secretarial-audit",
+              "title": "Secretarial Audit",
+              "hook": "Ensure legal compliance and strong corporate governance.",
+              "description": "Ensure your company complies with legal and regulatory requirements through detailed secretarial audits and compliance reviews."
             },
             {
-              "title": "Bank Reconciliations",
-              "description": "Matching bank statements with books for accuracy.",
-              "id": "",
-              "hook": ""
+              "id": "due-diligence",
+              "title": "Due Diligence",
+              "hook": "Make confident business decisions with proper due diligence.",
+              "description": "Comprehensive financial and compliance verification services for investments, mergers, acquisitions, and partnerships."
             },
             {
-              "title": "MIS Reporting",
-              "description": "Management information reports for founders and leadership.",
-              "id": "",
-              "hook": ""
+              "id": "business-plan",
+              "title": "Business Plan",
+              "hook": "Build a strong foundation for your business growth.",
+              "description": "Professional business planning services including financial projections, budgeting, and growth strategies for startups and businesses."
             },
             {
-              "title": "Expense Tracking",
-              "description": "Organized expense categorization and tracking.",
-              "id": "",
-              "hook": ""
+              "id": "accounting-services",
+              "title": "Accounting Services",
+              "hook": "Manage your business finances with accuracy and confidence.",
+              "description": "Maintain accurate books of accounts, transaction records, and financial statements with professional accounting support."
             },
             {
-              "title": "Financial Statements",
-              "description": "P&L, balance sheet, and cash flow preparation.",
-              "id": "",
-              "hook": ""
+              "id": "accounts-payable-services",
+              "title": "Accounts Payable Services",
+              "hook": "Streamline vendor payments and improve financial control.",
+              "description": "Efficient management of vendor payments, invoices, approvals, and payable tracking to improve cash flow management."
+            },
+            {
+              "id": "accounts-receivable-services",
+              "title": "Accounts Receivable Services",
+              "hook": "Improve cash flow with efficient payment collection.",
+              "description": "Track receivables, customer invoices, collections, and outstanding payments to maintain healthy business cash flow."
+            },
+            {
+              "id": "tax-audit",
+              "title": "Tax Audit",
+              "hook": "Ensure accurate compliance with expert tax audit support.",
+              "description": "Professional tax audit services to ensure proper compliance with Income Tax Act requirements and accurate financial reporting."
+            },
+            {
+              "id": "payroll-services",
+              "title": "Payroll Services",
+              "hook": "Simplify payroll with accurate and compliant solutions.",
+              "description": "Complete payroll management including salary processing, payslips, TDS, PF, ESI, and statutory compliance."
+            },
+            {
+              "id": "financial-report-preparation",
+              "title": "Financial Report Preparation",
+              "hook": "Accurate financial reports for better business decisions.",
+              "description": "Prepare accurate financial reports, MIS reports, balance sheets, profit & loss statements, and cash flow reports."
             }
           ],
           "deliverables": [
@@ -2533,66 +2625,117 @@
           ],
           "consultationHeading": "Accounting consultation — how we can help",
           "consultationClosing": "Our first look is invoicing rhythms, payouts, and how you reconcile bank—that tells us which ledgers will support GST recon and audit readiness.\n\nWe listen where reconciliations break, spreadsheets that never match, or MIS packs boards still await. Next we choreograph close cycles in plain language.\n\nSolid books keep GST, MCA, and tax teams coordinated. Reach on WhatsApp or call.",
-          "ctaTitle": "Get control of your accounts.",
-          "pageLayout": "standard",
-          "heroCtaPrimary": "",
-          "heroCtaSecondary": "",
-          "serviceIntro": "",
-          "registeredBusinessBenefitsTitle": "",
-          "registeredBusinessBenefitsText": "",
-          "registeredBusinessBenefitsCards": [],
-          "registrationTypesHeading": "",
-          "registrationTypesEyebrow": "",
-          "registrationTypesSubtext": "",
-          "subServicesTitle": "",
-          "postRegistrationSection": {
-            "title": "",
-            "subtitle": "",
-            "paragraphs": [],
-            "highlights": []
-          }
+          "ctaTitle": "Ready to Streamline Your Accounting?"
         },
         {
           "id": "gst-compliance",
           "title": "GST Compliance",
           "icon": "BadgeIndianRupee",
-          "image": "src/Assets/gst_india.webp",
+          "image": "/GST.jpeg",
           "description": "GST registration, returns, reconciliation & advisory.",
           "category": "GST",
-          "heroTitle": "GST Compliance",
-          "subtitle": "GST registration, monthly/quarterly returns, reconciliation, notices handling, and advisory — complete GST solutions.",
+          "pageLayout": "hub",
+          "heroTitle": "Complete GST Compliance Support for Your Business",
+          "subtitle": "From GST registration to return filing, annual returns, amendments, and e-way bill compliance, we handle complete GST compliance services so your business stays legally compliant, operational, and penalty-free.",
+          "heroCtaPrimary": "Get Started",
+          "heroCtaSecondary": "Talk to Expert",
+          "registeredBusinessBenefitsTitle": "Benefits of GST Compliance",
+          "registeredBusinessBenefitsText": "Proper GST compliance helps businesses avoid penalties, maintain smooth input tax credit flow, improve vendor credibility, and ensure uninterrupted operations.",
+          "registeredBusinessBenefitsCards": [
+            {
+              "title": "Timely GST Filing",
+              "description": "File GST returns and compliance forms within due dates to avoid late fees and notices.",
+              "icon": "CheckCircle2"
+            },
+            {
+              "title": "Penalty Protection",
+              "description": "Avoid GST late fees, interest, notices, and compliance risks with proactive filing support.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Smooth Input Tax Credit (ITC)",
+              "description": "Accurate return filing helps maintain proper ITC reconciliation and claim eligibility.",
+              "icon": "TrendingUp"
+            },
+            {
+              "title": "Business Credibility",
+              "description": "GST-compliant businesses build stronger trust with clients, vendors, banks, and authorities.",
+              "icon": "Award"
+            },
+            {
+              "title": "Proper Invoice & E-Way Compliance",
+              "description": "Ensure invoices and e-way bills are generated correctly under GST regulations.",
+              "icon": "FileCheck"
+            },
+            {
+              "title": "Ongoing Compliance Support",
+              "description": "Track monthly, quarterly, and annual GST compliance requirements without last-minute pressure.",
+              "icon": "CalendarCheck2"
+            }
+          ],
+          "registrationTypesHeading": "Choose Your GST Compliance Service",
+          "registrationTypesEyebrow": "All GST Compliance Services",
+          "registrationTypesSubtext": "Click on any service below to know more: process, documents, fees & timeline.",
+          "serviceIntro": "Whether you are a startup, trader, manufacturer, service provider, freelancer, or growing company, GST compliance is not only about registration. Regular return filing, invoice compliance, annual reconciliation, e-way bill generation, and amendment filings all require proper documentation and timely submission. Our team handles end-to-end GST compliance so your business remains compliant, audit-ready, and operational without disruption.",
+          "postRegistrationSection": {
+            "title": "GST Compliance in India — What You Should Know",
+            "subtitle": "GST compliance under the Goods and Services Tax laws is an ongoing responsibility for businesses registered under GST.",
+            "paragraphs": [
+              "GST-registered businesses are generally required to file returns such as GSTR-1, GSTR-3B, GSTR-9, and other applicable forms within prescribed due dates. Depending on turnover and business type, returns may be filed monthly, quarterly, or annually.",
+              "Apart from return filing, GST compliance also includes GST registration updates, e-way bill generation, invoice matching, input tax credit reconciliation, and responding to GST notices where required. Delayed or incorrect filing may lead to penalties, interest, notices, and ITC-related complications.",
+              "A proper GST compliance system helps businesses maintain smooth operations, improve vendor credibility, and avoid unnecessary legal or financial issues. With timely filing, reconciliation, and proper documentation, businesses can remain compliant and operational throughout the year."
+            ],
+            "highlights": [
+              {
+                "title": "GST Return Management",
+                "description": "GSTR-1, GSTR-3B, GSTR-9, NIL returns, reconciliation, and regular filing support managed with proper deadline tracking."
+              },
+              {
+                "title": "GST Registration & Amendment",
+                "description": "GST registration, business updates, address changes, partner or director modifications, and compliance updates handled professionally."
+              },
+              {
+                "title": "Input Tax Credit Reconciliation",
+                "description": "Invoice matching and ITC reconciliation support to maintain accurate GST records and reduce mismatch issues."
+              },
+              {
+                "title": "E-Way Bill Compliance",
+                "description": "Generation and management of e-way bills for smooth movement of goods and transport compliance."
+              }
+            ]
+          },
           "mainHeading": "Complete GST compliance solutions",
           "longDescription": "We offer complete GST compliance solutions including GST registration, monthly/quarterly return filing, reconciliation, notices handling, and GST advisory. Our experts ensure timely compliance and help businesses avoid penalties while optimizing tax efficiency.",
           "subServices": [
             {
+              "id": "gst-registration",
               "title": "GST Registration",
-              "description": "New registration, amendments, and cancellation support.",
-              "id": "",
-              "hook": ""
+              "hook": "Start your business with proper GST registration.",
+              "description": "New GST registration for proprietorships, companies, LLPs, startups, e-commerce sellers, freelancers, and service providers."
             },
             {
-              "title": "Return Filing",
-              "description": "GSTR-1, GSTR-3B, and other periodic return submissions.",
-              "id": "",
-              "hook": ""
+              "id": "gst-return-filing",
+              "title": "GST Return Filing",
+              "hook": "File GST returns accurately and on time.",
+              "description": "GSTR-1, GSTR-3B, GSTR-9, QRMP filings, NIL returns, reconciliation, and monthly or quarterly GST compliance support."
             },
             {
-              "title": "Reconciliation",
-              "description": "ITC matching, GSTR-2B reconciliation, and annual returns.",
-              "id": "",
-              "hook": ""
+              "id": "gst-modification",
+              "title": "GST Modification",
+              "hook": "Update GST registration details legally.",
+              "description": "Business name change, address update, partner/director changes, mobile & email update, and GST amendment filing support."
             },
             {
-              "title": "Notices Handling",
-              "description": "Response drafting and liaison for departmental notices.",
-              "id": "",
-              "hook": ""
+              "id": "gstr-9-annual-filing",
+              "title": "GSTR-9 Annual Filing",
+              "hook": "Annual GST return filing with reconciliation support.",
+              "description": "Preparation and filing of GSTR-9, turnover reconciliation, ITC verification, and annual GST compliance assistance."
             },
             {
-              "title": "GST Advisory",
-              "description": "Tax efficiency guidance and compliance planning.",
-              "id": "",
-              "hook": ""
+              "id": "gst-e-way-bill",
+              "title": "GST E-Way Bill",
+              "hook": "Generate and manage e-way bills smoothly.",
+              "description": "E-way bill generation, transporter updates, vehicle changes, and movement compliance under GST rules."
             }
           ],
           "deliverables": [
@@ -2610,66 +2753,123 @@
           ],
           "consultationHeading": "GST consultation — how we can help",
           "consultationClosing": "We begin with how you invoice, purchase, and close books each month—that tells us which GST patterns apply and which reconciliations will matter.\n\nIn consultation we listen first: mismatches between GSTR-2B and ledgers, refund doubts, or simply feeling behind on filings. Then we outline a practical sequence in ordinary language.\n\nGST stays aligned with MCA and income tax calendars. WhatsApp us or call for a sensible next step.",
-          "ctaTitle": "Stabilise your GST filings.",
-          "pageLayout": "standard",
-          "heroCtaPrimary": "",
-          "heroCtaSecondary": "",
-          "serviceIntro": "",
-          "registeredBusinessBenefitsTitle": "",
-          "registeredBusinessBenefitsText": "",
-          "registeredBusinessBenefitsCards": [],
-          "registrationTypesHeading": "",
-          "registrationTypesEyebrow": "",
-          "registrationTypesSubtext": "",
-          "subServicesTitle": "",
-          "postRegistrationSection": {
-            "title": "",
-            "subtitle": "",
-            "paragraphs": [],
-            "highlights": []
-          }
+          "ctaTitle": "Plan Your GST Compliance with Us"
         },
         {
           "id": "income-tax-compliance",
           "title": "Income Tax Services",
           "icon": "Landmark",
-          "image": "src/Assets/income_tax.jpg",
+          "image": "/income_tax.jpg",
           "description": "ITR filing, tax planning, TDS, deductions & more.",
           "category": "Income tax",
-          "heroTitle": "Income Tax Services",
-          "subtitle": "ITR filing, tax planning, TDS compliance, deductions, and advisory — for individuals and businesses.",
+          "pageLayout": "hub",
+          "heroTitle": "Complete Income Tax & Tax Filing Support for Individuals, Professionals & Businesses",
+          "subtitle": "From income tax return filing to TDS returns, PF returns, startup tax exemption, and ITR form-specific compliance, we handle complete income tax services so you stay compliant, avoid penalties, and manage taxes smoothly throughout the year.",
+          "heroCtaPrimary": "Get Started",
+          "heroCtaSecondary": "Talk to Expert",
+          "registeredBusinessBenefitsTitle": "Benefits of Income Tax Compliance",
+          "registeredBusinessBenefitsText": "Proper income tax compliance helps individuals and businesses avoid penalties, maintain financial transparency, improve loan eligibility, and stay legally protected under tax laws.",
+          "registeredBusinessBenefitsCards": [
+            {
+              "title": "Timely Tax Filing",
+              "description": "File ITRs, TDS returns, and tax forms within due dates to avoid penalties and notices.",
+              "icon": "CheckCircle2"
+            },
+            {
+              "title": "Better Financial Credibility",
+              "description": "Proper tax records improve credibility with banks, investors, and financial institutions.",
+              "icon": "TrendingUp"
+            },
+            {
+              "title": "Claim Tax Deductions",
+              "description": "Maximise eligible deductions, exemptions, and Input Tax Credit benefits wherever applicable.",
+              "icon": "FileCheck"
+            },
+            {
+              "title": "Avoid Penalties & Notices",
+              "description": "Reduce the risk of income tax scrutiny, notices, and interest liabilities.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Proper Tax Planning",
+              "description": "Manage taxes efficiently through structured tax planning and compliance.",
+              "icon": "CalendarCheck2"
+            },
+            {
+              "title": "Support for Businesses & Startups",
+              "description": "Dedicated tax support for startups, professionals, SMEs, and growing businesses.",
+              "icon": "Award"
+            }
+          ],
+          "registrationTypesHeading": "Choose Your Income Tax Service",
+          "registrationTypesEyebrow": "All Income Tax & Tax Compliance Services",
+          "registrationTypesSubtext": "Click on any service below to know more: process, documents, fees & timeline.",
+          "serviceIntro": "Whether you are a salaried employee, freelancer, startup founder, business owner, LLP, or private limited company, proper income tax compliance is important for financial stability and legal protection. Filing the correct ITR form, maintaining tax records, claiming deductions, handling TDS compliance, and responding to tax notices all require timely and accurate execution. Our team provides complete assistance for income tax filing, tax planning, startup exemptions, TDS returns, PF compliance, and annual tax management with proper guidance and documentation support.",
+          "postRegistrationSection": {
+            "title": "Income Tax Compliance in India — What You Should Know",
+            "subtitle": "Income tax compliance under the Income Tax Act, 1961 is an ongoing responsibility for individuals, businesses, startups, LLPs, and companies.",
+            "paragraphs": [
+              "Individuals are generally required to file income tax returns based on their income category, residential status, and source of income. Salaried employees commonly file ITR-1, while taxpayers having capital gains, foreign assets, or multiple income sources may require ITR-2 or other applicable forms. Businesses and companies must maintain proper books of accounts, comply with TDS provisions, and complete annual income tax filings within prescribed timelines. Startups may also apply for benefits such as Section 80-IAC tax exemption under Startup India subject to eligibility conditions.",
+              "TDS return filing is equally important for businesses deducting tax at source on salaries, contractor payments, rent, professional fees, and other specified payments. Incorrect or delayed TDS filing may lead to penalties, notices, and interest liabilities. PF compliance is another important responsibility for eligible employers. Monthly EPF filing, employee contribution deposits, and ECR submission must be completed regularly to maintain labour law compliance and employee benefit continuity.",
+              "A strong income tax compliance system helps businesses maintain transparency, improve financial credibility, and avoid unnecessary litigation or penalties. Proper planning and timely filing also help optimise tax liability and support long-term business growth."
+            ],
+            "highlights": [
+              {
+                "title": "Income Tax Return Filing Support",
+                "description": "Complete support for individual, professional, startup, LLP, and company income tax return filing with accurate tax computation and deduction planning."
+              },
+              {
+                "title": "TDS & Payroll Compliance",
+                "description": "Quarterly TDS returns, correction filings, challan verification, PF return filing, and payroll-linked tax compliance support."
+              },
+              {
+                "title": "Startup Tax Exemption Assistance",
+                "description": "Section 80-IAC startup tax exemption support including DPIIT recognition guidance and eligibility assistance."
+              },
+              {
+                "title": "Tax Planning & Compliance Management",
+                "description": "Ongoing support for tax planning, notices, deduction optimisation, and yearly compliance tracking."
+              }
+            ]
+          },
           "mainHeading": "Minimize tax liabilities with full compliance",
           "longDescription": "Our income tax services cover individual and business tax filing, tax planning, TDS compliance, deductions, assessments, and advisory support. We help clients minimize tax liabilities while ensuring complete compliance with income tax regulations.",
           "subServices": [
             {
-              "title": "ITR Filing",
-              "description": "Individual and business income tax return preparation and submission.",
-              "id": "",
-              "hook": ""
+              "id": "income-tax-return-filing",
+              "title": "Income Tax Return Filing",
+              "hook": "File your income tax return accurately and on time.",
+              "description": "Complete support for salaried individuals, freelancers, professionals, businesses, LLPs, and companies with tax computation, deductions, and online filing."
             },
             {
-              "title": "Tax Planning",
-              "description": "Strategic planning to minimize liabilities within legal bounds.",
-              "id": "",
-              "hook": ""
+              "id": "itr-2-form-filing",
+              "title": "ITR-2 Form Filing",
+              "hook": "Income tax filing for individuals with capital gains and multiple income sources.",
+              "description": "Support for taxpayers having capital gains, foreign assets, multiple house properties, or high-value investments."
             },
             {
-              "title": "TDS Compliance",
-              "description": "TDS applicability, deduction, and return filing support.",
-              "id": "",
-              "hook": ""
+              "id": "itr-7-form-filing",
+              "title": "ITR-7 Form Filing",
+              "hook": "Income tax return filing for trusts and charitable entities.",
+              "description": "Complete filing support for trusts, NGOs, political parties, educational institutions, and entities required to file ITR-7."
             },
             {
-              "title": "Deductions",
-              "description": "Maximizing eligible deductions under applicable sections.",
-              "id": "",
-              "hook": ""
+              "id": "tds-return-filing",
+              "title": "TDS Return Filing",
+              "hook": "Manage TDS compliance accurately and on time.",
+              "description": "Quarterly TDS return filing, challan verification, Form 24Q, Form 26Q, Form 27Q, correction returns, and TDS reconciliation support."
             },
             {
-              "title": "Assessments & Advisory",
-              "description": "Notice handling, scrutiny support, and tax advisory.",
-              "id": "",
-              "hook": ""
+              "id": "pf-return-filing",
+              "title": "PF Return Filing",
+              "hook": "Maintain PF compliance for your business and employees.",
+              "description": "Monthly PF return filing, employee contribution management, ECR filing, UAN support, and EPFO compliance assistance."
+            },
+            {
+              "id": "80-iac-tax-exemption",
+              "title": "80-IAC Tax Exemption for Startups",
+              "hook": "Claim startup tax exemption under Startup India scheme.",
+              "description": "Complete support for DPIIT recognition, eligibility review, documentation, and Section 80-IAC tax exemption application."
             }
           ],
           "deliverables": [
@@ -2687,24 +2887,7 @@
           ],
           "consultationHeading": "Income tax consultation — how we can help",
           "consultationClosing": "We baseline your entity type and whether books reconcile to Form 26AS / AIS so we map deductions, TDS, and advance-tax behaviour clearly.\n\nConsultation absorbs refund anxiety, TDS questions, belated ITR timelines, or departmental letters. We spell out filings in ordinary language prior to uploads.\n\nIncome tax never floats alone alongside GST and ROC events. WhatsApp us or call for the next tax-safe move.",
-          "ctaTitle": "Plan this assessment year deliberately.",
-          "pageLayout": "standard",
-          "heroCtaPrimary": "",
-          "heroCtaSecondary": "",
-          "serviceIntro": "",
-          "registeredBusinessBenefitsTitle": "",
-          "registeredBusinessBenefitsText": "",
-          "registeredBusinessBenefitsCards": [],
-          "registrationTypesHeading": "",
-          "registrationTypesEyebrow": "",
-          "registrationTypesSubtext": "",
-          "subServicesTitle": "",
-          "postRegistrationSection": {
-            "title": "",
-            "subtitle": "",
-            "paragraphs": [],
-            "highlights": []
-          }
+          "ctaTitle": "Plan Your Tax Compliance with Us"
         }
       ]
     },

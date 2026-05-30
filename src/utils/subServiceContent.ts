@@ -47,14 +47,14 @@ function mergePageContent(
 }
 
 /** Resolve sub-service page: CMS pageContent overrides bundled defaults. */
-export function getSubServicePageContent(
+export async function getSubServicePageContent(
   serviceId: string,
   subServiceId: string,
   cmsSubServices?: CmsSubService[]
-): SubServicePageContent | undefined {
+): Promise<SubServicePageContent | undefined> {
   const normalized = subServiceId.toLowerCase();
   const cmsSub = cmsSubServices?.find((s) => String(s?.id ?? "").toLowerCase() === normalized);
-  const defaults = getDefaultSubServicePageContent(serviceId, subServiceId);
+  const defaults = await getDefaultSubServicePageContent(serviceId, subServiceId);
   return mergePageContent(defaults, cmsSub?.pageContent);
 }
 

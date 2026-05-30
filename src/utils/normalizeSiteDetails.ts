@@ -1,5 +1,6 @@
 import defaults from "../data/siteDetails.json";
 import type { SiteDetails } from "../services/types";
+import { normalizeServiceImagePath } from "./resolveServiceHeroImage";
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -189,6 +190,14 @@ function mergeServiceLists(defaultList: unknown[], incomingList: unknown[]): unk
     if (Array.isArray(def.subServices)) {
       const incSubs = Array.isArray(merged.subServices) ? (merged.subServices as unknown[]) : [];
       merged.subServices = mergeSubServiceLists(def.subServices as unknown[], incSubs);
+    }
+
+    const imageRaw = typeof merged.image === "string" ? merged.image : typeof def.image === "string" ? def.image : "";
+    const normalizedImage = normalizeServiceImagePath(imageRaw) || normalizeServiceImagePath(def.image as string);
+    if (normalizedImage) {
+      merged.image = normalizedImage;
+    } else if (typeof def.image === "string" && def.image.trim()) {
+      merged.image = normalizeServiceImagePath(def.image) || def.image;
     }
 
     return merged;

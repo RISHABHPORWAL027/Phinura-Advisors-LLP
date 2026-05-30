@@ -3,15 +3,7 @@ import { Shield, Lock, Eye, FileText } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 
 export const PrivacyPolicy = () => {
-  const { data: siteDetails, loading } = useCMS();
-
-  if (loading || !siteDetails) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-surface">
-        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-      </div>
-    );
-  }
+  const { data: siteDetails } = useCMS();
 
   const privacy = siteDetails.pages.privacy;
 

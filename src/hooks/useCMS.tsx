@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { SiteDetails } from "../services/types";
-import { cms } from "../services/cmsFactory";
-import initialData from "../data/siteDetails.json";
+import { bundledSiteDetails } from "../data/bundledSiteDetails";
 import { normalizeSiteDetails } from "../utils/normalizeSiteDetails";
 
 interface CMSContextType {
@@ -16,32 +15,41 @@ type CMSProviderProps = {
   children: ReactNode;
   /** When set (e.g. under `/preview`), skip remote fetch and use this draft only. */
   previewDraft?: SiteDetails;
+  /** Load live content from GitHub CMS — use on `/admin` only. */
+  fetchRemote?: boolean;
 };
 
-export function CMSProvider({ children, previewDraft }: CMSProviderProps) {
+export function CMSProvider({ children, previewDraft, fetchRemote = false }: CMSProviderProps) {
   const isPreview = previewDraft != null;
   const [data, setData] = useState<SiteDetails>(() =>
-    isPreview ? normalizeSiteDetails(previewDraft) : (initialData as SiteDetails)
+    isPreview ? normalizeSiteDetails(previewDraft) : bundledSiteDetails
   );
-  const [loading, setLoading] = useState(() => !isPreview);
+  const [loading, setLoading] = useState(() => fetchRemote && !isPreview);
 
   useEffect(() => {
-    if (isPreview) {
-      setLoading(false);
-      return;
-    }
+    if (!fetchRemote || isPreview) return;
+
+    let cancelled = false;
     async function loadData() {
       try {
+        const { cms } = await import("../services/cmsFactory");
         const remoteData = await cms.getSiteDetails();
-        setData(normalizeSiteDetails(remoteData));
+        if (!cancelled) {
+          setData(normalizeSiteDetails(remoteData));
+        }
       } catch (error) {
         console.error("Failed to load CMS data:", error);
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     }
     loadData();
-  }, [isPreview]);
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchRemote, isPreview]);
 
   const updateData = async (newData: SiteDetails) => {
     if (isPreview) {
@@ -50,6 +58,7 @@ export function CMSProvider({ children, previewDraft }: CMSProviderProps) {
     }
     try {
       const normalized = normalizeSiteDetails(newData);
+      const { cms } = await import("../services/cmsFactory");
       await cms.updateSiteDetails(normalized);
       setData(normalized);
     } catch (error) {
@@ -71,4 +80,9 @@ export function useCMS() {
     throw new Error("useCMS must be used within a CMSProvider");
   }
   return context;
+}
+
+/** Wrap admin routes so GitHub CMS is fetched only when editing content. */
+export function AdminCMSProvider({ children }: { children: ReactNode }) {
+  return <CMSProvider fetchRemote>{children}</CMSProvider>;
 }

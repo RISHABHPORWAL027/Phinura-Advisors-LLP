@@ -1,8 +1,11 @@
 import { useParams } from "react-router-dom";
 import { motion } from "motion/react";
 import {
+  AlertCircle,
+  AlertTriangle,
   ArrowLeft,
   ArrowRight,
+  CalendarCheck2,
   CheckCircle2,
   ChevronDown,
   ClipboardList,
@@ -15,13 +18,14 @@ import {
   Star,
   Target,
   Users,
+  type LucideIcon,
 } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { useState, Fragment, useEffect, useMemo, type ReactNode } from "react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { getSubServicePageContent } from "../utils/subServiceContent";
-import type { SubServiceLabeledSection } from "../data/subServiceTypes";
+import type { SubServiceLabeledSection, SubServicePageContent } from "../data/subServiceTypes";
 import {
   DEFAULT_FIRM_WHY_CHOOSE_US_HEADING,
   DEFAULT_FIRM_WHY_CHOOSE_US_INTRO,
@@ -84,6 +88,45 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
+function getLabeledSectionIcon(title: string): LucideIcon {
+  const t = title.toLowerCase();
+
+  if (t.includes("why choose")) return Sparkles;
+  if (t.includes("documents required") || t.includes("documents generally")) return ClipboardList;
+  if (
+    t.includes("consequences") ||
+    t.includes("penalty") ||
+    t.includes("non-compliance") ||
+    t.includes("not updating") ||
+    t.includes("non-registration")
+  ) {
+    return AlertTriangle;
+  }
+  if (
+    t.includes("common mistake") ||
+    t.includes("common challenge") ||
+    t.includes("common reason")
+  ) {
+    return AlertCircle;
+  }
+  if (t.includes("due date") || t.includes("timeline") || t.includes("time limit")) {
+    return CalendarCheck2;
+  }
+  if (
+    t.includes("important") ||
+    t.includes(" form") ||
+    t.endsWith(" forms") ||
+    t.includes("returns under") ||
+    t.includes("structure of") ||
+    t.includes("components of") ||
+    t.includes("schedules in")
+  ) {
+    return FileText;
+  }
+
+  return FileText;
+}
+
 function SectionBlock({
   title,
   icon: Icon,
@@ -125,8 +168,16 @@ function LabeledSectionBody({ section }: { section: SubServiceLabeledSection }) 
   );
 }
 
+function isDuplicateWhyChooseSection(title: string): boolean {
+  return title.toLowerCase().includes("why choose");
+}
+
+function filterLabeledSections(sections: SubServiceLabeledSection[] | undefined): SubServiceLabeledSection[] {
+  return (sections ?? []).filter((section) => !isDuplicateWhyChooseSection(section.title));
+}
+
 function splitProcessCompanionSections(sections: SubServiceLabeledSection[] | undefined) {
-  const all = sections ?? [];
+  const all = filterLabeledSections(sections);
   const firstCardSectionIndex = all.findIndex(
     (section) => Array.isArray(section.items) && section.items.length > 0
   );
@@ -146,11 +197,96 @@ function splitProcessCompanionSections(sections: SubServiceLabeledSection[] | un
   };
 }
 
+type GridSectionItem = {
+  key: string;
+  title: string;
+  icon: LucideIcon;
+  children: ReactNode;
+};
+
+/** Renders sections in a 2-column grid: two sections per row on desktop. */
+function PairedSectionGrid({ sections }: { sections: GridSectionItem[] }) {
+  if (sections.length === 0) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-x-16 md:gap-y-14 lg:gap-x-20 lg:gap-y-16"
+    >
+      {sections.map((section) => (
+        <Fragment key={section.key}>
+          <SectionBlock title={section.title} icon={section.icon}>
+            {section.children}
+          </SectionBlock>
+        </Fragment>
+      ))}
+    </motion.div>
+  );
+}
+
+function labeledSectionToGridItem(section: SubServiceLabeledSection, key: string): GridSectionItem {
+  return {
+    key,
+    title: section.title,
+    icon: getLabeledSectionIcon(section.title),
+    children: <LabeledSectionBody section={section} />,
+  };
+}
+
 export const SubServiceDetail = () => {
   const { serviceId, subServiceId } = useParams<{ serviceId: string; subServiceId: string }>();
-  const { data, loading } = useCMS();
+  const { data } = useCMS();
+  const [pageContent, setPageContent] = useState<SubServicePageContent | undefined>();
+  const [contentLoading, setContentLoading] = useState(true);
 
-  if (loading || !data) {
+  const serviceIdNormalized = (serviceId || "").toLowerCase();
+  const service = useMemo(() => {
+    if (!data) return undefined;
+    const services = data.pages.services.serviceList || [];
+    return (
+      services.find((s: { id?: string; slug?: string }) => String(s?.id ?? "").toLowerCase() === serviceIdNormalized) ||
+      services.find((s: { id?: string; slug?: string }) => String(s?.slug ?? "").toLowerCase() === serviceIdNormalized)
+    );
+  }, [data, serviceIdNormalized]);
+
+  useEffect(() => {
+    if (!serviceId || !subServiceId || !service) {
+      setPageContent(undefined);
+      setContentLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setContentLoading(true);
+
+    getSubServicePageContent(serviceId, subServiceId, service.subServices).then((content) => {
+      if (!cancelled) {
+        setPageContent(content);
+        setContentLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [serviceId, subServiceId, service]);
+
+  if (!service) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-surface">
+        <div className="text-center px-6">
+          <h1 className="text-4xl font-headline font-bold text-primary mb-4">Page Not Found</h1>
+          <AppLink to="/services" className="text-secondary font-bold inline-flex items-center gap-2">
+            <ArrowLeft className="w-5 h-5" /> Back to Services
+          </AppLink>
+        </div>
+      </div>
+    );
+  }
+
+  if (contentLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-surface">
         <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
@@ -158,13 +294,7 @@ export const SubServiceDetail = () => {
     );
   }
 
-  const services = data.pages.services.serviceList || [];
-  const serviceIdNormalized = (serviceId || "").toLowerCase();
-  const service =
-    services.find((s: any) => String(s?.id ?? "").toLowerCase() === serviceIdNormalized) ||
-    services.find((s: any) => String(s?.slug ?? "").toLowerCase() === serviceIdNormalized);
-
-  const content = getSubServicePageContent(serviceId || "", subServiceId || "", service.subServices);
+  const content = pageContent;
 
   const heroCtaPrimary =
     service.heroCtaPrimary?.trim() || data.pages.home.hero.buttonText || "Get Started";
@@ -181,7 +311,7 @@ export const SubServiceDetail = () => {
       prefix: s.prefix ?? "",
     }));
 
-  if (!service || !content) {
+  if (!content) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-surface">
         <div className="text-center px-6">
@@ -203,10 +333,52 @@ export const SubServiceDetail = () => {
     : [];
   const remainingLabeledSections = content.processSteps?.length
     ? labeledSplit.remainingLabeledSections
-    : content.labeledSections ?? [];
+    : filterLabeledSections(content.labeledSections);
   const hasProcessCompanionColumn =
     processCompanionSections.length > 0 ||
     (content.documentsRequired?.length ?? 0) > 0;
+
+  const processGridSections: GridSectionItem[] = [];
+
+  if (content.processSteps?.length) {
+    processGridSections.push({
+      key: "process",
+      title: content.processStepsHeading || "Process",
+      icon: ListOrdered,
+      children: (
+        <ol className="space-y-6">
+          {content.processSteps.map((step, i) => (
+            <li key={i} className="flex gap-4">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-sm font-bold text-primary">
+                {i + 1}
+              </span>
+              <div>
+                <h3 className="mb-1 font-headline font-bold text-primary">{step.title}</h3>
+                <p className="text-sm leading-relaxed text-on-surface-variant">{step.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      ),
+    });
+  }
+
+  if (content.documentsRequired?.length) {
+    processGridSections.push({
+      key: "documents",
+      title: content.documentsHeading || "Documents Required",
+      icon: ClipboardList,
+      children: <BulletList items={content.documentsRequired} iconClass="text-primary" />,
+    });
+  }
+
+  processCompanionSections.forEach((section, i) => {
+    processGridSections.push(labeledSectionToGridItem(section, `companion-${i}`));
+  });
+
+  const remainingGridSections = remainingLabeledSections.map((section, i) =>
+    labeledSectionToGridItem(section, `remaining-${i}`)
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -423,60 +595,8 @@ export const SubServiceDetail = () => {
               </SectionBlock>
             )}
 
-            {content.processSteps && content.processSteps.length > 0 && (
-              hasProcessCompanionColumn ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-20"
-                >
-                  <SectionBlock title={content.processStepsHeading || "Process"} icon={ListOrdered}>
-                    <ol className="space-y-6">
-                      {content.processSteps.map((step, i) => (
-                        <li key={i} className="flex gap-4">
-                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-sm font-bold text-primary">
-                            {i + 1}
-                          </span>
-                          <div>
-                            <h3 className="mb-1 font-headline font-bold text-primary">{step.title}</h3>
-                            <p className="text-sm leading-relaxed text-on-surface-variant">{step.description}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ol>
-                  </SectionBlock>
-
-                  <div className="space-y-12 md:space-y-14">
-                    {content.documentsRequired && content.documentsRequired.length > 0 && (
-                      <SectionBlock title={content.documentsHeading || "Documents Required"} icon={ClipboardList}>
-                        <BulletList items={content.documentsRequired} iconClass="text-primary" />
-                      </SectionBlock>
-                    )}
-                    {processCompanionSections.map((section, i) => (
-                      <SectionBlock key={i} title={section.title} icon={ClipboardList}>
-                        <LabeledSectionBody section={section} />
-                      </SectionBlock>
-                    ))}
-                  </div>
-                </motion.div>
-              ) : (
-                <SectionBlock title={content.processStepsHeading || "Process"} icon={ListOrdered}>
-                  <ol className="space-y-6">
-                    {content.processSteps.map((step, i) => (
-                      <li key={i} className="flex gap-4">
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary-fixed text-sm font-bold text-primary">
-                          {i + 1}
-                        </span>
-                        <div>
-                          <h3 className="mb-1 font-headline font-bold text-primary">{step.title}</h3>
-                          <p className="text-sm leading-relaxed text-on-surface-variant">{step.description}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
-                </SectionBlock>
-              )
+            {processGridSections.length > 0 && (
+              <PairedSectionGrid sections={processGridSections} />
             )}
 
             {content.documentsRequired &&
@@ -487,11 +607,9 @@ export const SubServiceDetail = () => {
               </SectionBlock>
             )}
 
-            {remainingLabeledSections.map((section, i) => (
-              <SectionBlock key={i} title={section.title} icon={HelpCircle}>
-                <LabeledSectionBody section={section} />
-              </SectionBlock>
-            ))}
+            {remainingGridSections.length > 0 && (
+              <PairedSectionGrid sections={remainingGridSections} />
+            )}
 
             <FirmWhyChooseUsBlock
               heading={content.whyChooseUsHeading?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_HEADING}
@@ -535,57 +653,54 @@ export const SubServiceDetail = () => {
               </SectionBlock>
             )}
 
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/20 md:rounded-[3rem]"
+            >
+              <CtaImageCard
+                className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
+                contentClassName="px-8 py-14 md:px-14 md:py-20 lg:px-16 lg:py-24"
+              >
+                <h2 className="mb-8 font-headline text-3xl font-extrabold text-white md:text-5xl [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">
+                  {content.ctaTitle}
+                </h2>
+                <div className="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
+                  <a
+                    href={telHref}
+                    className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 font-headline font-bold text-lg text-primary transition-colors hover:bg-slate-100"
+                  >
+                    <PhoneCall className="h-5 w-5" />
+                    Call Us
+                  </a>
+                  {whatsappPhone ? (
+                    <a
+                      href={`https://wa.me/${whatsappPhone}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-500 px-8 py-4 font-headline font-bold text-lg text-white transition-colors hover:bg-emerald-600"
+                    >
+                      <MessageSquare className="h-5 w-5" />
+                      Chat on WhatsApp
+                    </a>
+                  ) : null}
+                </div>
+              </CtaImageCard>
+            </motion.div>
+
             {content.faq.length > 0 && (
               <SectionBlock title="FAQ" icon={HelpCircle}>
                 <div className="space-y-3">
                   {content.faq.map((item, i) => (
-                    <FaqItem key={i} question={item.question} answer={item.answer} />
+                    <Fragment key={i}>
+                      <FaqItem question={item.question} answer={item.answer} />
+                    </Fragment>
                   ))}
                 </div>
               </SectionBlock>
             )}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-surface-container-lowest px-6 py-14 md:py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/20 md:rounded-[3rem]"
-          >
-            <CtaImageCard
-              className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
-              contentClassName="px-8 py-14 md:px-14 md:py-20 lg:px-16 lg:py-24"
-            >
-              <h2 className="mb-8 font-headline text-3xl font-extrabold text-white md:text-5xl [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">
-                {content.ctaTitle}
-              </h2>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
-                <a
-                  href={telHref}
-                  className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 font-headline font-bold text-lg text-primary transition-colors hover:bg-slate-100"
-                >
-                  <PhoneCall className="h-5 w-5" />
-                  Call Us
-                </a>
-                {whatsappPhone ? (
-                  <a
-                    href={`https://wa.me/${whatsappPhone}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-500 px-8 py-4 font-headline font-bold text-lg text-white transition-colors hover:bg-emerald-600"
-                  >
-                    <MessageSquare className="h-5 w-5" />
-                    Chat on WhatsApp
-                  </a>
-                ) : null}
-              </div>
-            </CtaImageCard>
-          </motion.div>
         </div>
       </section>
 

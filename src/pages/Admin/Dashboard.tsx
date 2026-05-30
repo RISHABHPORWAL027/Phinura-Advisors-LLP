@@ -129,19 +129,28 @@ export function AdminDashboard() {
   // Initialize form after CMS data is ready (avoid render-phase setState; re-run when `data` updates from fetch/save)
   useEffect(() => {
     if (loading || !data) return;
-    setFormData((prev) => {
-      if (prev) return prev;
+
+    let cancelled = false;
+
+    async function initForm() {
       const cloned = JSON.parse(JSON.stringify(normalizeSiteDetails(data)));
       if (cloned?.pages?.services?.serviceList && Array.isArray(cloned.pages.services.serviceList)) {
-        cloned.pages.services.serviceList = cloned.pages.services.serviceList.map((service: any) =>
-          prepareServiceForAdmin(service)
+        cloned.pages.services.serviceList = await Promise.all(
+          cloned.pages.services.serviceList.map((service: any) => prepareServiceForAdmin(service))
         );
       }
       if (cloned?.pages?.services?.statsCTA?.stats && !Array.isArray(cloned.pages.services.statsCTA.stats)) {
         cloned.pages.services.statsCTA.stats = [];
       }
-      return cloned;
-    });
+      if (!cancelled) {
+        setFormData((prev) => prev ?? cloned);
+      }
+    }
+
+    initForm();
+    return () => {
+      cancelled = true;
+    };
   }, [loading, data]);
 
   const handleUnlock = async () => {

@@ -25,6 +25,7 @@ import { CtaImageCard } from "../components/CtaImageCard";
 import { TeamSection } from "../components/TeamSection";
 import { getHomepageFeaturedServices } from "../utils/homeFeaturedServices";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
+import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import bundledHomeBannerWebm from "../Assets/homebanner.webm";
 import bundledHomeBannerMp4 from "../Assets/homebanner.mp4";
 import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.webp";
@@ -594,7 +595,7 @@ const CoreServices = () => {
                       <div className="absolute inset-0 rounded-t-[2.5rem] overflow-hidden">
                         {service.image ? (
                           <img
-                            src={service.image}
+                            src={resolveServiceHeroImage(service.image)}
                             alt={service.title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             referrerPolicy="no-referrer"

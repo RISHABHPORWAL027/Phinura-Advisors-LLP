@@ -8,6 +8,7 @@ import {
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
+import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import { CtaImageCard } from "../components/CtaImageCard";
 
 const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
@@ -216,7 +217,7 @@ const ServiceGrid = ({
                   {/* Actual Image with its own overflow clipping */}
                   <div className="absolute inset-0 rounded-t-[2.5rem] overflow-hidden">
                     <img
-                      src={service.image || "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600"}
+                      src={resolveServiceHeroImage(service.image) || "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600"}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
@@ -334,15 +335,7 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any; siteDetails: any }
 };
 
 export const Services = () => {
-  const { data, loading } = useCMS();
-
-  if (loading || !data) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-surface">
-        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-      </div>
-    );
-  }
+  const { data } = useCMS();
 
   return (
     <div className="min-h-screen">

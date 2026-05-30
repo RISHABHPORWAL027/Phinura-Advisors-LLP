@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { FloatingWhatsAppButton } from "./components/FloatingWhatsAppButton";
 import { FloatingCallbackRequest } from "./components/FloatingCallbackRequest";
 import { PreviewLinkBaseProvider } from "./navigation/AppLink";
+import { AdminCMSProvider } from "./hooks/useCMS";
 
 /** Route-level lazy loading: each path downloads its own chunk (faster repeat visits / lighter bundles per URL). */
 const Home = lazy(() => import("./pages/Home").then((m) => ({ default: m.Home })));
@@ -92,7 +93,14 @@ export default function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="privacy" element={<PrivacyPolicy />} />
             <Route path="terms" element={<TermsOfService />} />
-            <Route path="admin" element={<AdminDashboard />} />
+            <Route
+              path="admin"
+              element={
+                <AdminCMSProvider>
+                  <AdminDashboard />
+                </AdminCMSProvider>
+              }
+            />
           </Route>
         </Routes>
       </Suspense>

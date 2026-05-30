@@ -1,5 +1,5 @@
 import type { SubServicePageContent } from "../data/subServiceTypes";
-import { getDefaultSubServicePageContent } from "./subServiceDefaults";
+import { loadDefaultSubServices } from "./subServiceDefaults";
 
 type UnknownRecord = Record<string, unknown>;
 
@@ -41,12 +41,15 @@ function mergePageContentForAdmin(
 }
 
 /** Normalize a service row for the admin form (defaults merged into editable fields). */
-export function prepareServiceForAdmin(service: UnknownRecord): UnknownRecord {
+export async function prepareServiceForAdmin(service: UnknownRecord): Promise<UnknownRecord> {
   const serviceId = String(service.id ?? "");
+  const defaultsList = serviceId ? await loadDefaultSubServices(serviceId) : [];
   const subServices = Array.isArray(service.subServices)
     ? service.subServices.map((sub: UnknownRecord) => {
         const subId = String(sub.id ?? "");
-        const defaults = subId ? getDefaultSubServicePageContent(serviceId, subId) : undefined;
+        const defaults = subId
+          ? defaultsList.find((s) => s.id.toLowerCase() === subId.toLowerCase())
+          : undefined;
         const pageContent = mergePageContentForAdmin(defaults, sub.pageContent as Partial<SubServicePageContent> | undefined);
         return {
           ...sub,

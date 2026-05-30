@@ -20,15 +20,7 @@ const SERVICE_DETAIL_FALLBACK_CONSULTATION_CLOSING = [
 
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
-  const { data, loading } = useCMS();
-
-  if (loading || !data) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-surface">
-        <div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-      </div>
-    );
-  }
+  const { data } = useCMS();
 
   const services = data.pages.services.serviceList || [];
   const serviceIdNormalized = (serviceId || "").toLowerCase();
