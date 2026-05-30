@@ -8,8 +8,6 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     shortDescription:
       "Filing your Income Tax Return (ITR) is an important part of financial compliance for individuals, professionals, freelancers, and businesses. Whether you are salaried, self-employed, or running a company, timely ITR filing helps you stay compliant with income tax laws, avoid penalties, and maintain proper financial records. We provide complete support for online Income Tax Return filing with accurate tax calculation, deduction planning, refund assistance, and expert guidance throughout the process.",
     whyChooseHeading: "Benefits of Income Tax Return Filing",
-    whyChooseIntro:
-      "Timely ITR filing keeps you legally compliant, supports refund claims, and strengthens financial credibility for loans, visas, and business growth.",
     whyChooseFeatures: [
       { title: "Stay Legally Compliant", description: "Timely ITR filing helps you comply with Income Tax regulations and avoid penalties." },
       { title: "Claim Tax Refunds", description: "Claim refunds for excess TDS or advance tax paid during the financial year." },
@@ -19,7 +17,7 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whatIsHeading: "What is Income Tax Return Filing?",
     whatIsDescription:
-      "Income Tax Return filing is the process of reporting your income, tax liability, deductions, and investments to the Income Tax Department of India. An ITR includes details such as salary income, business or professional income, rental income, capital gains, interest income, investments and tax deductions, and TDS and advance tax paid. The return is filed electronically through the Income Tax portal using the applicable ITR form.",
+      "Income Tax Return filing is the process of reporting your income, tax liability, deductions, and investments to the Income Tax Department of India. The return is filed electronically through the Income Tax portal using the applicable ITR form.",
     keyFeaturesHeading: "Types of ITR Forms",
     keyFeatureFeatures: [
       { title: "ITR-1", description: "For salaried individuals with basic income sources." },
@@ -28,23 +26,6 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
       { title: "ITR-4", description: "For presumptive taxation scheme taxpayers." },
       { title: "ITR-5", description: "For LLPs, partnership firms, and other entities." },
       { title: "ITR-6 & ITR-7", description: "Applicable for companies, trusts, and specified institutions." },
-    ],
-    benefitsIntro:
-      "Choosing the correct ITR form and tax regime helps optimise liability while staying fully compliant.",
-    benefitFeatures: [
-      { title: "New Tax Regime", description: "Lower tax rates with fewer deductions and exemptions." },
-      { title: "Old Tax Regime", description: "Higher deductions available under sections like 80C, 80D, HRA, and home loan interest." },
-      { title: "Section 80C", description: "Deductions for PPF, ELSS, LIC, EPF, tuition fees, and tax-saving investments." },
-      { title: "Section 80D & Other Deductions", description: "Health insurance, home loan benefits, standard deduction, and other eligible claims." },
-    ],
-    keyPointsHeading: "Who Should File Income Tax Return?",
-    keyPoints: [
-      "Salaried employees earning above the prescribed exemption limit",
-      "Freelancers and professionals (consultants, doctors, designers, marketers)",
-      "Business owners — proprietorship firms, LLPs, companies, and partnership firms",
-      "Individuals with capital gains from shares, mutual funds, crypto, or property sales",
-      "Individuals receiving rental income from property",
-      "Anyone claiming income tax refund from TDS deductions",
     ],
     processStepsHeading: "Income Tax Return Filing Process",
     processSteps: [
@@ -58,7 +39,32 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
+        title: "An ITR includes details such as",
+        bullets: [
+          "Salary Income",
+          "Business or Professional Income",
+          "Rental Income",
+          "Capital Gains",
+          "Interest Income",
+          "Investments & Tax Deductions",
+          "TDS & Advance Tax Paid",
+        ],
+      },
+      {
+        title: "Who Should File Income Tax Return?",
+        intro: "ITR filing is generally applicable to:",
+        items: [
+          { title: "Salaried Employees", description: "Individuals earning salary income above the prescribed exemption limit." },
+          { title: "Freelancers & Professionals", description: "Consultants, doctors, designers, marketers, and other professionals earning taxable income." },
+          { title: "Business Owners", description: "Proprietorship firms, LLPs, companies, and partnership firms." },
+          { title: "Individuals with Capital Gains", description: "Taxpayers earning income from shares, mutual funds, crypto, or property sales." },
+          { title: "Rental Income Earners", description: "Individuals receiving rental income from property." },
+          { title: "Tax Refund Claimants", description: "Anyone claiming income tax refund from TDS deductions." },
+        ],
+      },
+      {
         title: "Documents Required for ITR Filing",
+        intro: "The following documents are generally required:",
         bullets: [
           "PAN Card",
           "Aadhaar Card",
@@ -75,23 +81,62 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
+        title: "Documents Required for ITR Filing",
+        intro: "Additional documents may be required depending on the type of income.",
+      },
+      {
+        title: "Income Tax Slabs & Tax Regimes",
+        intro: "Taxpayers can generally choose between:",
+        items: [
+          { title: "New Tax Regime", description: "Lower tax rates with fewer deductions and exemptions." },
+          { title: "Old Tax Regime", description: "Higher deductions available under sections like 80C, 80D, HRA, and home loan interest." },
+        ],
+      },
+      {
+        title: "Income Tax Slabs & Tax Regimes",
+        intro: "Choosing the correct regime depends on your income structure and tax-saving investments.",
+      },
+      {
+        title: "Common Tax Deductions Available",
+        items: [
+          { title: "Section 80C", description: "Deductions for PPF, ELSS, LIC, EPF, tuition fees, and tax-saving investments." },
+          { title: "Section 80D", description: "Health insurance premium deductions." },
+          { title: "Home Loan Benefits", description: "Interest and principal repayment deductions on eligible home loans." },
+          { title: "Standard Deduction", description: "Applicable for salaried individuals and pensioners." },
+          { title: "Other Eligible Deductions", description: "Education loan interest, donations, savings account interest, and more." },
+        ],
+      },
+      {
+        title: "Due Date for ITR Filing",
+        intro: "The due date for Income Tax Return filing depends on taxpayer category.",
+        items: [
+          { title: "Individuals & Salaried Taxpayers", description: "Generally required to file before the prescribed due date announced for each assessment year." },
+          { title: "Businesses & Audit Cases", description: "Entities requiring audit may have extended due dates." },
+        ],
+      },
+      {
+        title: "Due Date for ITR Filing",
+        intro: "Timely filing is important to avoid penalties and interest.",
+      },
+      {
         title: "Penalty for Late Filing of ITR",
-        bullets: [
-          "Late Filing Fees under Income Tax Act for delayed filing",
-          "Interest on unpaid tax liability",
-          "Delay in refund processing",
-          "Loss carry-forward restrictions for certain business or capital losses",
-          "Compliance notices for non-filing",
+        intro: "Failure to file ITR within the due date may lead to:",
+        items: [
+          { title: "Late Filing Fees", description: "Penalty under Income Tax Act for delayed filing." },
+          { title: "Interest on Tax Liability", description: "Interest may apply on unpaid taxes." },
+          { title: "Delay in Refund", description: "Late filing may delay refund processing." },
+          { title: "Loss Carry Forward Restrictions", description: "Certain business or capital losses may not be carried forward." },
+          { title: "Compliance Notices", description: "Non-filing may trigger income tax notices." },
         ],
       },
       {
         title: "Common Mistakes in ITR Filing",
-        bullets: [
-          "Selecting wrong ITR form",
-          "Not reporting all income (interest, freelance, capital gains)",
-          "Incorrect deduction claims",
-          "Failure to verify ITR",
-          "PAN and bank detail errors delaying refunds",
+        items: [
+          { title: "Selecting Wrong ITR Form", description: "Using incorrect forms may result in defective return notices." },
+          { title: "Not Reporting All Income", description: "Interest income, freelance income, or capital gains are often missed." },
+          { title: "Incorrect Deduction Claims", description: "Wrong deduction claims may create scrutiny issues." },
+          { title: "Failure to Verify ITR", description: "Unverified returns are treated as invalid." },
+          { title: "PAN & Bank Detail Errors", description: "Incorrect account details may delay refunds." },
         ],
       },
       {
@@ -105,6 +150,7 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Is Income Tax Return filing mandatory?", answer: "ITR filing is mandatory for eligible taxpayers as per income tax rules." },
       { question: "Can I file ITR without Form 16?", answer: "Yes, ITR can be filed using salary slips, bank statements, and income details." },
@@ -115,6 +161,8 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
     ctaTitle: "File Your Income Tax Return with Expert Guidance",
+    ctaSubtitle:
+      "We provide complete Income Tax Return filing support including tax calculation, deduction planning, online filing, refund assistance, revised return filing, and notice support for salaried individuals, freelancers, professionals, and businesses across India.",
   },
   {
     id: "itr-2-form-filing",
@@ -123,8 +171,7 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     shortDescription:
       "ITR-2 filing is applicable for individuals and HUFs having income from capital gains, multiple house properties, foreign assets, foreign income, or other complex income sources. Filing the correct ITR form is important to avoid notices, penalties, and defective return issues. We provide professional ITR-2 filing services with complete assistance for salary income, capital gains, foreign asset disclosures, property income, and tax compliance.",
     whyChooseHeading: "Who Should File ITR-2?",
-    whyChooseIntro:
-      "ITR-2 filing is mandatory for taxpayers with complex income structures not covered under ITR-1.",
+    whyChooseIntro: "ITR-2 filing is mandatory for taxpayers falling under any of the following categories:",
     whyChooseFeatures: [
       { title: "Salaried Individuals with Capital Gains", description: "Individuals earning salary income along with gains from shares, mutual funds, property sales, or other investments." },
       { title: "Individuals with Multiple Properties", description: "Taxpayers having income from more than one house property." },
@@ -132,10 +179,22 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Company Directors", description: "Individuals serving as directors in private or public companies." },
       { title: "Taxpayers with High Income", description: "Individuals whose total income exceeds ₹50 lakh." },
       { title: "Cryptocurrency & NFT Investors", description: "Individuals earning income from Virtual Digital Assets (VDAs)." },
+      { title: "NRIs & RNORs", description: "Non-Residents and Resident but Not Ordinarily Residents meeting the filing conditions." },
     ],
     whatIsHeading: "What is ITR-2 Form?",
     whatIsDescription:
-      "ITR-2 is an Income Tax Return form applicable to Individuals and Hindu Undivided Families (HUFs) who do not have business or professional income but have complex income structures that are not covered under ITR-1. This form is commonly used by taxpayers having capital gains from shares, mutual funds, or property; multiple house properties; foreign income or foreign assets; income above ₹50 lakh; director in a company; investment in unlisted shares; cryptocurrency or VDA income; or agricultural income above ₹5,000.",
+      "ITR-2 is an Income Tax Return form applicable to Individuals and Hindu Undivided Families (HUFs) who do not have business or professional income but have complex income structures that are not covered under ITR-1.",
+    keyPointsHeading: "This form is commonly used by taxpayers having:",
+    keyPoints: [
+      "Capital gains from shares, mutual funds, or property",
+      "Multiple house properties",
+      "Foreign income or foreign assets",
+      "Income above ₹50 lakh",
+      "Director in a company",
+      "Investment in unlisted shares",
+      "Cryptocurrency or VDA income",
+      "Agricultural income above ₹5,000",
+    ],
     keyFeaturesHeading: "Important Schedules in ITR-2",
     keyFeatureFeatures: [
       { title: "Schedule S", description: "Salary and pension income details." },
@@ -143,23 +202,8 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Schedule CG", description: "Capital gains from shares, property, mutual funds, etc." },
       { title: "Schedule OS", description: "Income from interest, dividends, and other sources." },
       { title: "Schedule FA", description: "Foreign assets and foreign income disclosure." },
+      { title: "Schedule AL", description: "Assets and liabilities reporting for eligible taxpayers." },
       { title: "Schedule VDA", description: "Income from cryptocurrency and virtual digital assets." },
-    ],
-    benefitsIntro:
-      "ITR-2 cannot be used by taxpayers having business or professional income, freelancing income, presumptive taxation under Section 44AD/44ADA, or LLP partner remuneration — such taxpayers generally file ITR-3.",
-    benefitFeatures: [
-      { title: "ITR-1 vs ITR-2", description: "ITR-1 is for simple salaried income; ITR-2 covers capital gains, foreign assets, and multiple properties." },
-      { title: "ITR-2 vs ITR-3", description: "ITR-2 is for non-business income; ITR-3 is for business or professional income." },
-      { title: "Foreign Asset Disclosure", description: "Resident taxpayers holding foreign assets or foreign income must disclose them in Schedule FA." },
-      { title: "Capital Gain Accuracy", description: "Proper short-term and long-term capital gain computation reduces scrutiny risk." },
-    ],
-    keyPointsHeading: "Who Cannot File ITR-2?",
-    keyPoints: [
-      "Taxpayers having business or professional income",
-      "Freelancing income",
-      "Presumptive taxation income under Section 44AD/44ADA",
-      "Partnership firm income",
-      "LLP partner remuneration or interest income",
     ],
     processStepsHeading: "Step-by-Step Process for ITR-2 Filing",
     processSteps: [
@@ -173,13 +217,34 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
-        title: "Common Mistakes While Filing ITR-2",
+        title: "Who Cannot File ITR-2?",
+        intro: "ITR-2 cannot be used by taxpayers having:",
         bullets: [
-          "Choosing wrong ITR form (using ITR-1 instead of ITR-2)",
-          "Incorrect capital gain reporting",
-          "Missing foreign asset disclosure in Schedule FA",
-          "Mismatch with AIS and Form 26AS",
-          "Failure to e-verify the return",
+          "Business or professional income",
+          "Freelancing income",
+          "Presumptive taxation income under Section 44AD/44ADA",
+          "Partnership firm income",
+          "LLP partner remuneration or interest income",
+        ],
+      },
+      {
+        title: "Who Cannot File ITR-2?",
+        intro: "Such taxpayers are generally required to file ITR-3.",
+      },
+      {
+        title: "Difference Between ITR-1 & ITR-2",
+      },
+      {
+        title: "Difference Between ITR-2 & ITR-3",
+      },
+      {
+        title: "Common Mistakes While Filing ITR-2",
+        items: [
+          { title: "Choosing Wrong ITR Form", description: "Using ITR-1 instead of ITR-2 may result in defective return notices." },
+          { title: "Incorrect Capital Gain Reporting", description: "Wrong calculations of purchase price, indexed cost, or sale consideration may create tax issues." },
+          { title: "Missing Foreign Asset Disclosure", description: "Failure to report foreign assets may attract heavy penalties." },
+          { title: "Mismatch with AIS & Form 26AS", description: "Differences between ITR and tax statements can trigger notices." },
+          { title: "Failure to E-Verify", description: "Unverified returns are treated as invalid." },
         ],
       },
       {
@@ -204,6 +269,7 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQs)",
     faq: [
       { question: "Can salaried individuals file ITR-2?", answer: "Yes, salaried individuals with capital gains, multiple properties, foreign assets, or income above ₹50 lakh can file ITR-2." },
       { question: "Is ITR-2 applicable for crypto income?", answer: "Yes, income from cryptocurrency and virtual digital assets can be reported in ITR-2 if there is no business income." },
@@ -214,6 +280,8 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
     ctaTitle: "Get Professional Help for ITR-2 Filing",
+    ctaSubtitle:
+      "ITR-2 filing involves detailed disclosures, capital gain calculations, and compliance requirements. Our experts help ensure accurate filing, proper tax planning, and complete compliance with Income Tax laws.",
   },
   {
     id: "itr-7-form-filing",
@@ -222,19 +290,30 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     shortDescription:
       "File your ITR-7 accurately and stay compliant with Income Tax regulations with expert support from Phinura Advisors. We help trusts, NGOs, educational institutions, political parties, and charitable organizations manage complete ITR-7 filing with accuracy, transparency, and timely compliance.",
     whyChooseHeading: "Who is Required to File ITR-7?",
-    whyChooseIntro:
-      "ITR-7 is prescribed for entities claiming exemptions under various provisions of the Income Tax Act, 1961.",
     whyChooseFeatures: [
       { title: "Charitable & Religious Trusts", description: "Entities claiming exemption under Sections 11 and 12." },
       { title: "Educational Institutions", description: "Schools, colleges, universities, and institutions claiming exemption under Section 10(23C)." },
       { title: "Hospitals & Medical Institutions", description: "Hospitals and healthcare institutions eligible for exemption benefits." },
       { title: "Political Parties", description: "Registered political parties whose income exceeds the basic exemption limit." },
       { title: "Scientific Research Associations", description: "Organizations registered for scientific research activities." },
+      { title: "News Agencies", description: "Eligible news agencies claiming tax exemption." },
       { title: "Business Trusts & Investment Funds", description: "REITs, InvITs, and Alternative Investment Funds (AIFs)." },
     ],
     whatIsHeading: "What is ITR-7 Form?",
     whatIsDescription:
-      "ITR-7 is the Income Tax Return form prescribed for entities claiming exemptions under various provisions of the Income Tax Act, 1961. This form is generally applicable to charitable trusts, religious trusts, NGOs and societies, educational institutions, hospitals and medical institutions, political parties, research associations, news agencies, electoral trusts, and business trusts and investment funds. ITR-7 helps such organizations disclose income, donations, exemptions, fund utilization, and compliance details to maintain tax-exempt status.",
+      "ITR-7 is the Income Tax Return form prescribed for entities claiming exemptions under various provisions of the Income Tax Act, 1961. ITR-7 helps such organizations disclose income, donations, exemptions, fund utilization, and compliance details to maintain tax-exempt status.",
+    keyPointsHeading: "This form is generally applicable to:",
+    keyPoints: [
+      "Charitable Trusts",
+      "Religious Trusts",
+      "NGOs & Societies",
+      "Educational Institutions",
+      "Hospitals & Medical Institutions",
+      "Political Parties",
+      "Research Associations",
+      "Electoral Trusts",
+      "Business Trusts & Investment Funds",
+    ],
     keyFeaturesHeading: "Structure of ITR-7 Form",
     keyFeatureFeatures: [
       { title: "Part A", description: "General details of the entity including PAN, address, registration, and filing status." },
@@ -242,15 +321,10 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Schedule VC", description: "Reporting of voluntary contributions and donations." },
       { title: "Schedule AI", description: "Information relating to accumulated income and exemptions." },
       { title: "Schedule ER & EC", description: "Revenue and charitable expenditure details." },
+      { title: "Schedule CG", description: "Capital gains details." },
+      { title: "Schedule HP", description: "Income from house property." },
       { title: "Schedule ET", description: "Electoral trust disclosures." },
-    ],
-    benefitsIntro:
-      "Many entities filing ITR-7 are required to obtain and upload audit reports in Form 10B or 10BB before filing.",
-    benefitFeatures: [
-      { title: "ITR-5 vs ITR-7", description: "ITR-5 is generally for firms, LLPs, and AOPs; ITR-7 is for trusts, NGOs, and exempt entities." },
-      { title: "Audit Compliance", description: "Form 10B or 10BB audit report may be required before ITR filing." },
-      { title: "Exemption Protection", description: "Timely filing helps maintain exemption claims under Sections 11 and 12." },
-      { title: "Donor Reporting", description: "Accurate voluntary contribution reporting reduces compliance mismatches." },
+      { title: "Schedule K", description: "Details of trustees, founders, and related persons." },
     ],
     processStepsHeading: "Step-by-Step Process for ITR-7 Filing",
     processSteps: [
@@ -264,23 +338,27 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
+        title: "Due Dates for Filing ITR-7",
+        intro: "The due date for filing ITR-7 depends on audit applicability. Late filing may attract penalties and interest under Sections 234F and 234A.",
+      },
+      {
         title: "Penalties for Late Filing of ITR-7",
-        bullets: [
-          "Late filing fees up to ₹1,000 for income up to ₹5 lakh",
-          "Up to ₹5,000 before 31st December; up to ₹10,000 after 31st December",
-          "Interest under Section 234A at 1% per month on unpaid tax",
-          "Loss of exemption benefits under Sections 11 and 12",
-          "Delay in refund processing",
+        intro: "Failure to file ITR-7 within the prescribed due date may result in:",
+        items: [
+          { title: "Late Filing Fees", description: "Up to ₹1,000 for income up to ₹5 lakh. Up to ₹5,000 before 31st December. Up to ₹10,000 after 31st December." },
+          { title: "Interest on Outstanding Tax", description: "Interest under Section 234A at 1% per month on unpaid tax." },
+          { title: "Loss of Exemption Benefits", description: "Delayed filing may impact exemption claims under Sections 11 and 12." },
+          { title: "Delay in Refunds", description: "Refund processing may get delayed due to late filing." },
         ],
       },
       {
         title: "Common Mistakes to Avoid in ITR-7 Filing",
-        bullets: [
-          "Incorrect exemption claims",
-          "Missing audit report (Form 10B/10BB)",
-          "Incomplete donor reporting",
-          "Wrong schedule selection",
-          "Failure to e-verify within prescribed timeline",
+        items: [
+          { title: "Incorrect Exemption Claims", description: "Wrong exemption reporting may trigger notices." },
+          { title: "Missing Audit Report", description: "Failure to upload Form 10B/10BB before filing may invalidate the return." },
+          { title: "Incomplete Donor Reporting", description: "Donation mismatches may create compliance issues." },
+          { title: "Wrong Schedule Selection", description: "Incorrect schedules may result in defective returns." },
+          { title: "Failure to E-Verify", description: "Returns not verified within the prescribed timeline are treated as invalid." },
         ],
       },
       {
@@ -294,6 +372,7 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQs)",
     faq: [
       { question: "What is the difference between ITR-5 and ITR-7?", answer: "ITR-5 is generally for firms, LLPs, and AOPs, while ITR-7 is meant for trusts, NGOs, charitable institutions, and exempt entities." },
       { question: "Is audit mandatory for ITR-7?", answer: "Many entities filing ITR-7 are required to obtain and upload audit reports in Form 10B or 10BB before filing." },
@@ -305,51 +384,32 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
     ctaTitle: "Get Professional Help for ITR-7 Filing",
+    ctaSubtitle:
+      "ITR-7 filing involves complex compliance, exemption rules, and reporting requirements. Our experts help trusts, NGOs, and institutions complete accurate filing while ensuring complete tax compliance and peace of mind.",
   },
   {
     id: "tds-return-filing",
     title: "TDS Return Filing",
     heroTitle: "TDS Return Filing Online in India",
     shortDescription:
-      "Simplify your TDS return filing with Phinura Advisors. From accurate deduction reporting to timely quarterly return submission, our experts help businesses stay fully compliant with Income Tax regulations. We provide accurate quarterly TDS return filing, expert support for TDS compliance and corrections, filing for salary, contractor, professional and vendor payments, and end-to-end assistance from deduction to return filing.",
-    whyChooseHeading: "Benefits of Timely TDS Return Filing",
-    whyChooseIntro:
-      "Filing TDS returns correctly and on time is mandatory to avoid penalties, notices, and disallowance of expenses under the Income Tax Act.",
-    whyChooseFeatures: [
-      { title: "Avoid Penalties and Notices", description: "Timely filing prevents late fees, interest, and departmental scrutiny." },
-      { title: "Smooth Form 16 & 16A Processing", description: "Proper TDS returns enable accurate certificate generation for deductees." },
-      { title: "Better Vendor & Employee Compliance", description: "Correct TDS reporting maintains trust with employees and vendors." },
-      { title: "Proper Credit in Form 26AS", description: "Accurate filing ensures TDS credit reflects correctly for deductees." },
-      { title: "Improved Tax Compliance Record", description: "Regular quarterly filing builds a strong compliance history." },
-      { title: "Reduced Scrutiny Risk", description: "Proper verification before filing helps avoid mismatch notices." },
+      "Simplify your TDS return filing with Phinura Advisors. From accurate deduction reporting to timely quarterly return submission, our experts help businesses stay fully compliant with Income Tax regulations.",
+    whyChooseHeading: "TDS Return Filing Online in India",
+    whyChooseItems: [
+      "Accurate Quarterly TDS Return Filing",
+      "Expert Support for TDS Compliance & Corrections",
+      "Filing for Salary, Contractor, Professional & Vendor Payments",
+      "Timely Submission to Avoid Penalties",
+      "End-to-End Assistance from Deduction to Return Filing",
     ],
     whatIsHeading: "What is TDS Return Filing?",
     whatIsDescription:
-      "TDS Return Filing is the process of submitting details of tax deducted at source to the Income Tax Department. Any person or entity deducting TDS while making specified payments such as salary, professional fees, rent, commission, interest, or contractor payments must file TDS returns every quarter. The TDS return includes PAN of deductor and deductee, amount paid or credited, TDS deducted and deposited, challan details, and nature of payment. TDS returns are filed electronically using different forms depending on the type of payment and deductee category.",
-    keyFeaturesHeading: "Types of TDS Return Forms",
-    keyFeatureFeatures: [
-      { title: "Form 24Q", description: "TDS on salary payments to employees." },
-      { title: "Form 26Q", description: "TDS on payments other than salary to residents." },
-      { title: "Form 27Q", description: "TDS on payments to non-residents." },
-      { title: "Form 27EQ", description: "TCS return filing by collectors." },
-    ],
-    benefitsIntro:
-      "Any deductor holding a TAN and deducting tax at source must file quarterly TDS returns.",
-    benefitFeatures: [
-      { title: "Companies and LLPs", description: "Required to deduct TDS and file quarterly returns." },
-      { title: "Employers", description: "Deduct TDS on salary and file Form 24Q." },
-      { title: "Tax Audit Cases", description: "Individuals and HUFs liable for tax audit must comply with TDS provisions." },
-      { title: "E-Commerce & Specified Businesses", description: "Certain operators and businesses have TDS/TCS obligations." },
-    ],
-    keyPointsHeading: "Who is Required to File TDS Returns?",
+      "TDS Return Filing is the process of submitting details of tax deducted at source to the Income Tax Department. Any person or entity deducting TDS while making specified payments such as salary, professional fees, rent, commission, interest, or contractor payments must file TDS returns every quarter. The TDS return includes details such as:",
     keyPoints: [
-      "Companies and LLPs",
-      "Partnership firms and proprietorship businesses",
-      "Government departments",
-      "Trusts and societies",
-      "Employers deducting TDS on salary",
-      "Individuals and HUFs liable for tax audit",
-      "E-commerce operators and certain specified businesses",
+      "PAN of deductor and deductee",
+      "Amount paid or credited",
+      "TDS deducted and deposited",
+      "Challan details",
+      "Nature of payment",
     ],
     processStepsHeading: "Process of TDS Return Filing",
     processSteps: [
@@ -362,23 +422,70 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
+        title: "What is TDS Return Filing?",
+        intro: "TDS returns are filed electronically using different forms depending on the type of payment and deductee category. Filing TDS returns correctly and on time is mandatory to avoid penalties, notices, and disallowance of expenses under the Income Tax Act.",
+      },
+      {
+        title: "Who is Required to File TDS Returns?",
+        intro: "The following persons/entities are required to deduct TDS and file TDS returns:",
+        bullets: [
+          "Companies and LLPs",
+          "Partnership Firms",
+          "Proprietorship Businesses",
+          "Government Departments",
+          "Trusts and Societies",
+          "Employers deducting TDS on salary",
+          "Individuals and HUFs liable for tax audit",
+          "E-commerce operators and certain specified businesses",
+        ],
+      },
+      {
+        title: "Who is Required to File TDS Returns?",
+        intro: "Any deductor holding a TAN and deducting tax at source must file quarterly TDS returns.",
+      },
+      {
+        title: "Types of TDS Return Forms",
+        intro: "Different TDS return forms are prescribed for different types of payments.",
+      },
+      {
+        title: "Due Dates for TDS Return Filing",
+        intro: "TDS returns must be filed every quarter within the prescribed due dates. Late filing may attract penalties and interest under the Income Tax Act.",
+      },
+      {
         title: "Common Reasons for TDS Notices",
+        intro: "Businesses often receive notices due to errors or mismatches in TDS returns. Common reasons include:",
         bullets: [
           "Incorrect PAN details",
           "Short deduction of TDS",
           "Late deposit of TDS",
           "Challan mismatch",
           "Incorrect section selection",
-          "Non-filing or delay in quarterly filing",
+          "Non-filing of TDS return",
+          "Delay in quarterly filing",
           "Incorrect salary reporting",
         ],
       },
       {
+        title: "Common Reasons for TDS Notices",
+        intro: "Proper verification before filing helps avoid notices and penalties.",
+      },
+      {
         title: "Penalty for Late Filing of TDS Returns",
+        items: [
+          { title: "Late Filing Fee under Section 234E", description: "A late fee of Rs. 200 per day is applicable until the return is filed, subject to the total TDS amount." },
+          { title: "Penalty under Section 271H", description: "The Assessing Officer may levy a penalty ranging from Rs. 10,000 to Rs. 1,00,000 for incorrect filing or failure to file TDS returns." },
+          { title: "Interest on Late Deposit", description: "Interest is also charged for delay in deduction or deposit of TDS." },
+        ],
+      },
+      {
+        title: "Benefits of Timely TDS Return Filing",
         bullets: [
-          "Late filing fee under Section 234E: Rs. 200 per day until filed, subject to total TDS amount",
-          "Penalty under Section 271H: Rs. 10,000 to Rs. 1,00,000 for incorrect or non-filing",
-          "Interest on late deposit of TDS",
+          "Avoid penalties and notices",
+          "Smooth processing of Form 16 and 16A",
+          "Better vendor and employee compliance",
+          "Proper credit reflection in Form 26AS",
+          "Improved tax compliance record",
+          "Reduced chances of scrutiny",
         ],
       },
       {
@@ -387,11 +494,12 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
           { title: "Experienced Tax Professionals", description: "Our experts handle TDS filing for startups, SMEs, companies, and professionals across India." },
           { title: "Accurate and Timely Filing", description: "We ensure error-free preparation and on-time filing of quarterly TDS returns." },
           { title: "End-to-End Compliance Support", description: "From TDS deduction to return filing and correction statements, we manage the complete process." },
-          { title: "Notice Handling Assistance", description: "Support for TDS notices, defaults, and correction returns." },
+          { title: "Notice Handling Assistance", description: "Support is provided for TDS notices, defaults, and correction returns." },
           { title: "Transparent Pricing", description: "Simple and transparent pricing with no hidden charges." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQs)",
     faq: [
       { question: "Is TDS return filing mandatory?", answer: "Yes, every deductor who deducts TDS must file quarterly TDS returns." },
       { question: "Can TDS returns be revised?", answer: "Yes, correction or revised TDS returns can be filed to rectify mistakes." },
@@ -399,52 +507,51 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
       { question: "Is PAN mandatory for TDS filing?", answer: "Yes, PAN details of deductees are generally mandatory for accurate filing." },
       { question: "Can individuals file TDS returns?", answer: "Yes, individuals liable for tax audit and deducting TDS are required to file TDS returns." },
       { question: "What is TAN?", answer: "TAN stands for Tax Deduction and Collection Account Number, which is mandatory for deducting and filing TDS." },
+      { question: "How can Phinura Advisors help with TDS filing?", answer: "Phinura Advisors assists with TDS calculation, challan verification, quarterly return filing, correction returns, and notice handling." },
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Simplify TDS Return Filing with Expert Support",
+    ctaTitle: "TDS Return Filing Online in India",
   },
   {
     id: "pf-return-filing",
     title: "PF Return Filing",
     heroTitle: "PF Return Filing Online in India",
     shortDescription:
-      "Simplify your PF return filing with Phinura Advisors. Stay compliant with EPFO regulations through accurate monthly filings, timely payments, and expert support tailored for businesses, HR teams, and payroll professionals. We provide accurate monthly PF return filing, expert assistance for EPF compliance, timely filing to avoid penalties, payroll and PF calculation support, and end-to-end support from ECR upload to payment.",
-    whyChooseHeading: "Benefits of Timely PF Return Filing",
-    whyChooseIntro:
-      "Timely PF filing ensures compliance with EPFO regulations and protects employee retirement benefits.",
-    whyChooseFeatures: [
-      { title: "Legal Compliance", description: "Ensures compliance with EPF regulations and avoids legal issues." },
-      { title: "Avoidance of Penalties", description: "Timely filing prevents interest, damages, and prosecution." },
-      { title: "Better Employee Trust", description: "Regular PF contributions improve employee confidence and satisfaction." },
-      { title: "Organized Payroll Records", description: "Maintains proper salary and contribution records." },
-      { title: "Tax Benefits", description: "Employer PF contribution qualifies as business expenditure under Income Tax provisions." },
+      "Simplify your PF return filing with Phinura Advisors. Stay compliant with EPFO regulations through accurate monthly filings, timely payments, and expert support tailored for businesses, HR teams, and payroll professionals.",
+    whyChooseHeading: "PF Return Filing Online in India",
+    whyChooseItems: [
+      "Accurate Monthly PF Return Filing",
+      "Expert Assistance for EPF Compliance",
+      "Timely Filing to Avoid Penalties",
+      "Payroll & PF Calculation Support",
+      "End-to-End Support from ECR Upload to Payment",
     ],
     whatIsHeading: "What is PF Return Filing?",
     whatIsDescription:
-      "PF Return Filing refers to the monthly submission of employee provident fund contribution details by employers to the Employees' Provident Fund Organisation (EPFO). Every employer registered under the EPF Act must file Electronic Challan cum Return (ECR) and deposit PF contributions within the prescribed due date. The PF return contains employee UAN details, employee wages, employer and employee PF contributions, EPS contribution details, EDLI contribution details, and non-contributory period details.",
+      "PF Return Filing refers to the monthly submission of employee provident fund contribution details by employers to the Employees' Provident Fund Organisation (EPFO). Every employer registered under the EPF Act must file Electronic Challan cum Return (ECR) and deposit PF contributions within the prescribed due date. The PF return contains:",
+    keyPoints: [
+      "Employee UAN details",
+      "Employee wages",
+      "Employer and employee PF contributions",
+      "EPS contribution details",
+      "EDLI contribution details",
+      "Non-contributory period details",
+    ],
     keyFeaturesHeading: "PF Contribution Structure",
+    keyFeaturesIntro: "The standard EPF contribution rate is generally 12% of basic salary plus dearness allowance.",
     keyFeatureFeatures: [
       { title: "Employee Contribution", description: "12% contribution goes to EPF account." },
-      { title: "Employer EPF Share", description: "3.67% of basic salary plus DA towards EPF." },
-      { title: "Employer EPS Share", description: "8.33% towards Employee Pension Scheme (EPS)." },
-      { title: "EDLI Contribution", description: "0.5% towards EDLI scheme plus applicable administrative charges." },
+      { title: "Employer Contribution", description: "Employer contribution is divided into:" },
     ],
-    benefitsIntro:
-      "Employee Provident Fund (EPF) is a government-backed retirement savings scheme regulated by EPFO under the Ministry of Labour and Employment.",
-    benefitFeatures: [
-      { title: "Employee Savings", description: "Employees contribute a percentage of salary towards PF with employer matching." },
-      { title: "Retirement Benefits", description: "Contributions accumulate with interest for retirement, pension, and insurance benefits." },
-      { title: "Mandatory Coverage", description: "Employees earning up to Rs. 15,000 basic salary per month are mandatorily covered." },
-      { title: "Voluntary Opt-In", description: "Employees above the limit may opt for PF membership with employer consent." },
-    ],
-    keyPointsHeading: "Who is Required to File PF Returns?",
-    keyPoints: [
-      "Factories employing 20 or more employees",
-      "Companies and establishments covered under EPF Act",
-      "Businesses voluntarily registered under EPF",
-      "Startups and SMEs registered with EPFO",
-      "Employers deducting PF from employee salaries",
+    benefitsHeading: "What is Employee Provident Fund (EPF)?",
+    benefitsIntro: "Employee Provident Fund (EPF) is a government-backed retirement savings scheme regulated by EPFO under the Ministry of Labour and Employment. Under this scheme:",
+    benefits: [
+      "Employees contribute a percentage of salary towards PF",
+      "Employers also contribute an equal amount",
+      "Contributions accumulate with interest",
+      "Employees receive retirement, pension, and insurance benefits",
+      "The scheme helps employees build long-term financial security",
     ],
     processStepsHeading: "Process of PF Return Filing Online",
     processSteps: [
@@ -458,17 +565,73 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
+        title: "What is PF Return Filing?",
+        intro: "Timely PF filing ensures compliance with EPFO regulations and protects employee retirement benefits.",
+      },
+      {
+        title: "Employer Contribution",
+        bullets: [
+          "3.67% towards EPF",
+          "8.33% towards Employee Pension Scheme (EPS)",
+          "0.5% towards EDLI scheme",
+          "Applicable administrative charges",
+          "For certain establishments, the contribution rate may be reduced to 10%.",
+        ],
+      },
+      {
+        title: "Who is Required to File PF Returns?",
+        intro: "PF return filing is mandatory for:",
+        bullets: [
+          "Factories employing 20 or more employees",
+          "Companies and establishments covered under EPF Act",
+          "Businesses voluntarily registered under EPF",
+          "Startups and SMEs registered with EPFO",
+          "Employers deducting PF from employee salaries",
+        ],
+      },
+      {
+        title: "Who is Required to File PF Returns?",
+        intro: "Once EPF registration is obtained, monthly return filing becomes mandatory even if employee strength later falls below the threshold.",
+      },
+      {
+        title: "Benefits of Timely PF Return Filing",
+        items: [
+          { title: "Legal Compliance", description: "Ensures compliance with EPF regulations and avoids legal issues." },
+          { title: "Avoidance of Penalties", description: "Timely filing prevents interest, damages, and prosecution." },
+          { title: "Better Employee Trust", description: "Regular PF contributions improve employee confidence and satisfaction." },
+          { title: "Organized Payroll Records", description: "Maintains proper salary and contribution records." },
+          { title: "Tax Benefits", description: "Employer PF contribution qualifies as business expenditure under Income Tax provisions." },
+        ],
+      },
+      {
+        title: "Which Employees are Covered Under EPF?",
+        intro: "Generally, employees earning up to Rs. 15,000 basic salary per month are mandatorily covered under EPF. Employees earning above the limit may also opt for PF membership with mutual consent of employer and employee. Once enrolled, employees usually continue under the PF scheme irrespective of future salary increases.",
+      },
+      {
         title: "PF Return Filing Due Date",
         intro: "PF returns and contributions must be filed monthly. For example, PF contributions for April must be filed on or before 15th May.",
-        bullets: [],
+      },
+      {
+        title: "Important PF Forms",
       },
       {
         title: "Consequences of Late PF Filing",
+        items: [
+          { title: "Interest on Delayed Payment", description: "Interest under Section 7Q is charged on delayed PF payments." },
+          { title: "Damages under Section 14B", description: "EPFO may levy additional penalties for late filing or default." },
+          { title: "Legal Action", description: "Continuous non-compliance may result in prosecution and notices." },
+          { title: "Employee Complaints", description: "Delayed PF deposit can lead to employee disputes and complaints." },
+        ],
+      },
+      {
+        title: "PF Filing Charges",
+        intro: "PF filing costs generally include:",
         bullets: [
-          "Interest under Section 7Q on delayed PF payments",
-          "Damages under Section 14B for late filing or default",
-          "Legal action and prosecution for continuous non-compliance",
-          "Employee complaints and disputes from delayed PF deposit",
+          "EPF administrative charges",
+          "EDLI contribution",
+          "EDLI administrative charges",
+          "Professional filing fees, if applicable",
+          "Charges vary based on employee count and payroll size",
         ],
       },
       {
@@ -477,11 +640,12 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
           { title: "Experienced Compliance Experts", description: "Our professionals handle PF filings for startups, SMEs, and large businesses across India." },
           { title: "Accurate Monthly Filing", description: "We ensure proper calculation and timely filing of PF returns." },
           { title: "End-to-End Support", description: "From payroll verification to ECR filing and payment assistance, we manage the complete process." },
-          { title: "Notice & Correction Support", description: "Support for EPFO notices, corrections, and compliance issues." },
+          { title: "Notice & Correction Support", description: "Support is provided for EPFO notices, corrections, and compliance issues." },
           { title: "Transparent Pricing", description: "Affordable and transparent pricing with dedicated assistance." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQs)",
     faq: [
       { question: "What is the due date for PF return filing?", answer: "PF returns must be filed on or before the 15th of the following month." },
       { question: "Is PF return filing mandatory every month?", answer: "Yes, monthly PF filing is mandatory for registered establishments." },
@@ -489,99 +653,26 @@ export const INCOME_TAX_SUB_SERVICES: SubServicePageContent[] = [
       { question: "What is ECR in PF filing?", answer: "ECR stands for Electronic Challan cum Return used for monthly PF filing." },
       { question: "Is UAN mandatory for PF filing?", answer: "Yes, employee UAN details are required for accurate PF filing." },
       { question: "What happens if PF is not deposited on time?", answer: "Interest, penalties, damages, and legal notices may apply." },
+      { question: "Can Phinura Advisors handle complete PF compliance?", answer: "Yes, Phinura Advisors provides complete support for PF registration, monthly filing, ECR upload, payment assistance, and compliance management." },
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Manage PF Compliance with Expert Support",
+    ctaTitle: "PF Return Filing Online in India",
   },
   {
     id: "80-iac-tax-exemption",
     title: "80-IAC Tax Exemption for Startups",
-    heroTitle: "Claim Startup Tax Exemption Under Section 80-IAC",
+    heroTitle: "Claim startup tax exemption under Startup India scheme.",
     shortDescription:
-      "Section 80-IAC tax exemption under the Startup India scheme allows eligible startups to claim income tax exemption on profits for a specified period, subject to DPIIT recognition and compliance requirements. We provide complete support for DPIIT recognition, eligibility review, documentation, Section 80-IAC application filing, and ongoing compliance guidance so your startup can benefit from available tax incentives while remaining fully compliant.",
-    whyChooseHeading: "Benefits of Section 80-IAC Tax Exemption",
-    whyChooseIntro:
-      "Eligible startups can reduce tax liability during early growth years and reinvest savings into business expansion.",
-    whyChooseFeatures: [
-      { title: "Tax Exemption on Profits", description: "Eligible startups may claim 100% deduction on profits for 3 consecutive assessment years out of 10 years." },
-      { title: "Startup India Recognition", description: "DPIIT recognition validates your startup status and unlocks exemption eligibility." },
-      { title: "Improved Investor Confidence", description: "Tax exemption status strengthens credibility with investors and stakeholders." },
-      { title: "Reinvestment Opportunity", description: "Tax savings can be reinvested into product development, hiring, and growth." },
-      { title: "Structured Compliance Support", description: "Professional guidance for eligibility, documentation, and application filing." },
-      { title: "Ongoing Advisory", description: "Support for maintaining eligibility and responding to departmental queries." },
-    ],
-    whatIsHeading: "What is Section 80-IAC Tax Exemption?",
-    whatIsDescription:
-      "Section 80-IAC of the Income Tax Act provides tax exemption to eligible startups incorporated after 1st April 2016. Subject to conditions, a startup may claim 100% deduction of profits and gains for any three consecutive assessment years out of ten years beginning from the year of incorporation. To avail this benefit, the startup must obtain recognition from the Department for Promotion of Industry and Internal Trade (DPIIT) and file an application for exemption with the Inter-Ministerial Board of Certification.",
-    keyFeaturesHeading: "Eligibility Criteria for 80-IAC Exemption",
-    keyFeatureFeatures: [
-      { title: "DPIIT Recognition", description: "Startup must be recognised by DPIIT under the Startup India scheme." },
-      { title: "Incorporation Date", description: "Entity must be incorporated after 1st April 2016." },
-      { title: "Innovative Business", description: "Startup must work towards innovation, development, or improvement of products/processes/services." },
-      { title: "Turnover Limit", description: "Turnover must not exceed Rs. 100 crore in any of the previous years since incorporation." },
-      { title: "New Entity Requirement", description: "Entity must not be formed by splitting or reconstructing an existing business." },
-      { title: "Inter-Ministerial Board Approval", description: "Application must be approved by the Inter-Ministerial Board for exemption claim." },
-    ],
-    benefitsIntro:
-      "Startups must maintain compliance with DPIIT conditions and income tax filing requirements to retain exemption benefits.",
-    benefitFeatures: [
-      { title: "DPIIT Registration", description: "Obtain Startup India recognition through the DPIIT portal." },
-      { title: "Eligibility Assessment", description: "Review business model, turnover, and innovation criteria before application." },
-      { title: "Documentation Support", description: "Prepare pitch deck, business plan, and supporting documents for certification." },
-      { title: "80-IAC Application Filing", description: "File exemption application with the Inter-Ministerial Board." },
-    ],
-    keyPointsHeading: "Documents Generally Required",
-    keyPoints: [
-      "Certificate of Incorporation",
-      "PAN of the entity",
-      "DPIIT Recognition Certificate",
-      "Brief note on innovative nature of business",
-      "Details of turnover and financial statements",
-      "Board resolution or authorisation for application",
-      "Details of directors and shareholders",
-    ],
-    processStepsHeading: "80-IAC Tax Exemption Application Process",
-    processSteps: [
-      { title: "Eligibility Review", description: "Business model, incorporation date, turnover, and innovation criteria are assessed." },
-      { title: "DPIIT Recognition", description: "Startup India recognition is obtained through the DPIIT portal if not already registered." },
-      { title: "Documentation Preparation", description: "Required documents, business plan, and innovation details are prepared." },
-      { title: "Application Filing", description: "Section 80-IAC exemption application is filed with the Inter-Ministerial Board." },
-      { title: "Board Review & Approval", description: "Application is reviewed by the Inter-Ministerial Board for certification." },
-      { title: "Exemption Claim in ITR", description: "Approved exemption is claimed in the applicable income tax returns." },
-    ],
-    labeledSections: [
-      {
-        title: "Important Conditions After Approval",
-        bullets: [
-          "Maintain DPIIT recognition and Startup India compliance",
-          "File income tax returns regularly",
-          "Ensure turnover remains within prescribed limits",
-          "Maintain records supporting innovation and business activities",
-          "Respond to departmental queries or verification requests",
-        ],
-      },
-      {
-        title: "Why Choose Us for 80-IAC Tax Exemption?",
-        items: [
-          { title: "Startup Tax Specialists", description: "Professional support for DPIIT recognition and 80-IAC exemption applications." },
-          { title: "Eligibility Assessment", description: "Clear review of whether your startup meets exemption criteria before filing." },
-          { title: "Complete Documentation Support", description: "Assistance for business plans, innovation notes, and application documents." },
-          { title: "End-to-End Filing Support", description: "From DPIIT registration to 80-IAC application and ITR exemption claims." },
-          { title: "Transparent Pricing", description: "Affordable startup tax services with no hidden charges." },
-        ],
-      },
-    ],
-    faq: [
-      { question: "What is Section 80-IAC tax exemption?", answer: "It allows eligible startups to claim 100% deduction on profits for 3 consecutive years out of 10, subject to approval." },
-      { question: "Is DPIIT recognition mandatory?", answer: "Yes, DPIIT recognition under Startup India is generally required before applying for 80-IAC exemption." },
-      { question: "What is the turnover limit for 80-IAC?", answer: "Turnover must not exceed Rs. 100 crore in any previous year since incorporation." },
-      { question: "Can LLPs apply for 80-IAC?", answer: "Section 80-IAC generally applies to companies and LLPs incorporated as startups meeting eligibility criteria." },
-      { question: "How long does approval take?", answer: "Timelines depend on Inter-Ministerial Board review and completeness of application documents." },
+      "Complete support for DPIIT recognition, eligibility review, documentation, and Section 80-IAC tax exemption application.",
+    whyChooseHeading: "80-IAC Tax Exemption for Startups",
+    whyChooseItems: [
+      "Complete support for DPIIT recognition, eligibility review, documentation, and Section 80-IAC tax exemption application.",
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Claim Your Startup Tax Exemption with Expert Support",
+    faq: [],
+    ctaTitle: "80-IAC Tax Exemption for Startups",
   },
 ];
 

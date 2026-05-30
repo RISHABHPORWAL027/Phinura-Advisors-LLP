@@ -168,12 +168,15 @@ function LabeledSectionBody({ section }: { section: SubServiceLabeledSection }) 
   );
 }
 
-function isDuplicateWhyChooseSection(title: string): boolean {
-  return title.toLowerCase().includes("why choose");
+/** Hide bullet-only "why choose" duplicates, but keep rich card sections (client copy with descriptions). */
+function isDuplicateWhyChooseSection(section: SubServiceLabeledSection): boolean {
+  if (!section.title.toLowerCase().includes("why choose")) return false;
+  if (section.items && section.items.length > 0) return false;
+  return true;
 }
 
 function filterLabeledSections(sections: SubServiceLabeledSection[] | undefined): SubServiceLabeledSection[] {
-  return (sections ?? []).filter((section) => !isDuplicateWhyChooseSection(section.title));
+  return (sections ?? []).filter((section) => !isDuplicateWhyChooseSection(section));
 }
 
 function splitProcessCompanionSections(sections: SubServiceLabeledSection[] | undefined) {
@@ -232,6 +235,35 @@ function labeledSectionToGridItem(section: SubServiceLabeledSection, key: string
     title: section.title,
     icon: getLabeledSectionIcon(section.title),
     children: <LabeledSectionBody section={section} />,
+  };
+}
+
+function resolveFirmWhyChooseUsContent(content: SubServicePageContent) {
+  const labeledWhyChoose = content.labeledSections?.find(
+    (section) =>
+      section.title.toLowerCase().includes("why choose us") && (section.items?.length ?? 0) > 0
+  );
+
+  if (content.whyChooseUs.length > 0) {
+    return {
+      heading: content.whyChooseUsHeading?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_HEADING,
+      intro: content.whyChooseUsIntro?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_INTRO,
+      items: content.whyChooseUs,
+    };
+  }
+
+  if (labeledWhyChoose?.items?.length) {
+    return {
+      heading: labeledWhyChoose.title,
+      intro: labeledWhyChoose.intro,
+      items: labeledWhyChoose.items,
+    };
+  }
+
+  return {
+    heading: content.whyChooseUsHeading?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_HEADING,
+    intro: content.whyChooseUsIntro?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_INTRO,
+    items: DEFAULT_FIRM_WHY_CHOOSE_US_ITEMS,
   };
 }
 
@@ -327,13 +359,22 @@ export const SubServiceDetail = () => {
   const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
   const telHref = whatsappPhone ? `tel:+${whatsappPhone}` : "/contact";
   const parentTitle = service.title || "Services";
+  const firmWhyChooseUs = resolveFirmWhyChooseUsContent(content);
   const labeledSplit = splitProcessCompanionSections(content.labeledSections);
   const processCompanionSections = content.processSteps?.length
     ? labeledSplit.processCompanionSections
     : [];
-  const remainingLabeledSections = content.processSteps?.length
+  const remainingLabeledSections = (content.processSteps?.length
     ? labeledSplit.remainingLabeledSections
-    : filterLabeledSections(content.labeledSections);
+    : filterLabeledSections(content.labeledSections)
+  ).filter(
+    (section) =>
+      !(
+        section.title.toLowerCase().includes("why choose us") &&
+        (section.items?.length ?? 0) > 0 &&
+        content.whyChooseUs.length === 0
+      )
+  );
   const hasProcessCompanionColumn =
     processCompanionSections.length > 0 ||
     (content.documentsRequired?.length ?? 0) > 0;
@@ -368,7 +409,16 @@ export const SubServiceDetail = () => {
       key: "documents",
       title: content.documentsHeading || "Documents Required",
       icon: ClipboardList,
-      children: <BulletList items={content.documentsRequired} iconClass="text-primary" />,
+      children: (
+        <>
+          {content.documentsIntro && (
+            <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
+              {content.documentsIntro}
+            </p>
+          )}
+          <BulletList items={content.documentsRequired} iconClass="text-primary" />
+        </>
+      ),
     });
   }
 
@@ -463,6 +513,7 @@ export const SubServiceDetail = () => {
               ) : null}
             </SectionBlock>
 
+            {content.whatIsHeading && content.whatIsDescription && (
             <SectionBlock title={content.whatIsHeading} icon={HelpCircle}>
               <p className="mb-6 text-lg leading-relaxed text-on-surface-variant">{content.whatIsDescription}</p>
               {content.keyPoints && content.keyPoints.length > 0 && (
@@ -474,6 +525,7 @@ export const SubServiceDetail = () => {
                 </div>
               )}
             </SectionBlock>
+            )}
 
             {/* Key Features + Benefits side by side */}
             {(() => {
@@ -483,7 +535,8 @@ export const SubServiceDetail = () => {
                   content.keyFeatures?.length
               );
               const hasBenefitsContent = Boolean(
-                content.benefitsIntro ||
+                content.benefitsHeading ||
+                  content.benefitsIntro ||
                   content.benefitFeatures?.length ||
                   content.benefits?.length
               );
@@ -538,7 +591,7 @@ export const SubServiceDetail = () => {
                 <div>
                   <h2 className="mb-4 flex items-center gap-3 font-headline text-2xl font-extrabold text-primary md:text-3xl">
                     <Target className="h-7 w-7 shrink-0 text-secondary" aria-hidden />
-                    Benefits
+                    {content.benefitsHeading || "Benefits"}
                   </h2>
                   {content.benefitsIntro && (
                     <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
@@ -582,6 +635,11 @@ export const SubServiceDetail = () => {
 
             {content.registrableItems && content.registrableItems.length > 0 && (
               <SectionBlock title={content.registrableItemsHeading || "What Can Be Registered?"} icon={FileText}>
+                {content.registrableItemsIntro && (
+                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
+                    {content.registrableItemsIntro}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-3">
                   {content.registrableItems.map((item, i) => (
                     <span
@@ -603,6 +661,11 @@ export const SubServiceDetail = () => {
               content.documentsRequired.length > 0 &&
               !(content.processSteps?.length && hasProcessCompanionColumn) && (
               <SectionBlock title={content.documentsHeading || "Documents Required"} icon={ClipboardList}>
+                {content.documentsIntro && (
+                  <p className="mb-6 text-sm leading-relaxed text-on-surface-variant md:text-base">
+                    {content.documentsIntro}
+                  </p>
+                )}
                 <BulletList items={content.documentsRequired} iconClass="text-primary" />
               </SectionBlock>
             )}
@@ -612,11 +675,9 @@ export const SubServiceDetail = () => {
             )}
 
             <FirmWhyChooseUsBlock
-              heading={content.whyChooseUsHeading?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_HEADING}
-              intro={content.whyChooseUsIntro?.trim() || DEFAULT_FIRM_WHY_CHOOSE_US_INTRO}
-              items={
-                content.whyChooseUs.length > 0 ? content.whyChooseUs : DEFAULT_FIRM_WHY_CHOOSE_US_ITEMS
-              }
+              heading={firmWhyChooseUs.heading}
+              intro={firmWhyChooseUs.intro}
+              items={firmWhyChooseUs.items}
               companyName={data.companyName}
               fullName={data.fullName}
               fieldLabel={service.title || content.title}
@@ -666,6 +727,11 @@ export const SubServiceDetail = () => {
                 <h2 className="mb-8 font-headline text-3xl font-extrabold text-white md:text-5xl [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">
                   {content.ctaTitle}
                 </h2>
+                {content.ctaSubtitle && (
+                  <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-white/90 md:text-lg">
+                    {content.ctaSubtitle}
+                  </p>
+                )}
                 <div className="flex flex-col justify-center gap-4 sm:flex-row sm:gap-6">
                   <a
                     href={telHref}
@@ -690,7 +756,7 @@ export const SubServiceDetail = () => {
             </motion.div>
 
             {content.faq.length > 0 && (
-              <SectionBlock title="FAQ" icon={HelpCircle}>
+              <SectionBlock title={content.faqHeading || "Frequently Asked Questions (FAQ)"} icon={HelpCircle}>
                 <div className="space-y-3">
                   {content.faq.map((item, i) => (
                     <Fragment key={i}>

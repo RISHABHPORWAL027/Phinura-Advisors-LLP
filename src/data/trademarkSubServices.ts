@@ -28,48 +28,25 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         description: "Trademarks can be licensed, sold, franchised, or commercially monetised."
       }
     ],
-    whatIsHeading: "What is Trademark Registration?",
-    whatIsDescription:
-      "Trademark registration grants you exclusive legal rights over your brand name, logo, slogan, or other distinctive mark used to identify your goods or services. Under the Trade Marks Act, 1999, a registered trademark is protected across India and can be renewed indefinitely every 10 years.",
-    keyFeaturesHeading: "Why Register Your Trademark",
-    keyFeatureFeatures: [
-      {
-        title: "Exclusive Brand Protection",
-        description: "Protect your business name, logo, tagline, and product identity legally."
-      },
-      {
-        title: "Legal Rights Against Copying",
-        description: "Take legal action against trademark infringement and misuse."
-      },
-      {
-        title: "Builds Trust and Credibility",
-        description: "A registered trademark increases customer trust and brand value."
-      },
-      {
-        title: "Long-Term Business Asset",
-        description: "Trademarks can be licensed, sold, franchised, or commercially monetised."
-      }
-    ],
-    benefitsIntro: "A registered trademark protects your brand identity and supports long-term business growth.",
     benefitFeatures: [
       {
-        title: "1. Brand Protection",
+        title: "Brand Protection",
         description: "Protects your brand identity from misuse and copying."
       },
       {
-        title: "2. Exclusive Ownership Rights",
+        title: "Exclusive Ownership Rights",
         description: "Provides exclusive legal ownership over the trademark."
       },
       {
-        title: "3. Business Expansion Support",
+        title: "Business Expansion Support",
         description: "Helps in franchise, licensing, and online marketplace registration."
       },
       {
-        title: "4. Valid Across India",
+        title: "Valid Across India",
         description: "Trademark protection is applicable throughout India."
       },
       {
-        title: "5. Renewable Every 10 Years",
+        title: "Renewable Every 10 Years",
         description: "Trademark registration remains valid for 10 years and can be renewed indefinitely."
       }
     ],
@@ -137,11 +114,11 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Import Export Businesses",
       "Professionals and Freelancers"
     ],
-    whyChooseUsHeading: "Why Choose Us for Trademark Registration?",
+    whyChooseUsHeading: "Why Choose us for Trademark Registration?",
     whyChooseUs: [],
     labeledSections: [
       {
-        title: "Why Choose Us for Trademark Registration?",
+        title: "Why Choose us for Trademark Registration?",
         items: [
           {
             title: "Expert Trademark Filing Support",
@@ -184,6 +161,10 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "Yes. Brand name and logo can be registered separately for wider protection."
       }
     ],
+    benefitsHeading: "Benefits of Trademark Registration",
+    registrableItemsIntro: "You can register:",
+    documentsIntro: "The following documents are generally required for trademark registration for individuals, startups, LLPs, and companies:",
+    ctaSubtitle: "We handle the complete trademark registration process including trademark search, filing, objection handling, hearing support, and renewal services, helping your brand stay protected and legally secure.",
     ctaTitle: "Register Your Trademark Today"
   },
   {
@@ -223,41 +204,21 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Missing documents or filing errors",
       "Use of prohibited or misleading elements"
     ],
-    keyFeaturesHeading: "Our Trademark Objection Support",
-    keyFeatureFeatures: [
-      {
-        title: "Expert Reply Drafting",
-        description: "Professionally drafted objection replies tailored to your trademark case."
-      },
-      {
-        title: "Section 9 & 11 Objection Handling",
-        description: "Support for descriptive, similar mark, and legal compliance objections."
-      },
-      {
-        title: "Fast Filing Support",
-        description: "Quick preparation and timely filing of objection replies with proper documentation."
-      },
-      {
-        title: "Hearing Representation Support",
-        description: "Professional assistance for trademark hearings whenever required."
-      }
-    ],
-    benefitsIntro: "Professional objection handling improves approval chances and avoids costly delays.",
     benefitFeatures: [
       {
-        title: "1. Better Chances of Approval",
+        title: "Better Chances of Approval",
         description: "Strong legal drafting improves trademark acceptance chances."
       },
       {
-        title: "2. Saves Time and Delays",
+        title: "Saves Time and Delays",
         description: "Professional handling avoids unnecessary delays and filing mistakes."
       },
       {
-        title: "3. Complete Legal Support",
+        title: "Complete Legal Support",
         description: "Expert assistance throughout reply drafting, filing, and hearing stages."
       },
       {
-        title: "4. Proper Documentation",
+        title: "Proper Documentation",
         description: "Accurate supporting documents and legal references strengthen the application."
       }
     ],
@@ -291,7 +252,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Why Choose Us for Trademark Objection?",
+        title: "Why Choose us for Trademark Objection?",
         items: [
           {
             title: "Experienced Trademark Experts",
@@ -352,7 +313,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "MSME or Startup Certificate (if applicable)",
       "Power of Attorney (TM-48)"
     ],
-    whyChooseUsHeading: "Why Choose Us for Trademark Objection?",
+    whyChooseUsHeading: "Why Choose us for Trademark Objection?",
     whyChooseUs: [],
     faq: [
       {
@@ -376,6 +337,9 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "In some cases, the Trademark Registry may schedule a hearing if further clarification is required."
       }
     ],
+    benefitsHeading: "Benefits of Professional Trademark Objection Handling",
+    documentsIntro: "The following documents are generally required:",
+    ctaSubtitle: "We handle the complete trademark objection process including examination report analysis, legal drafting, objection filing, hearing support, and follow-up with the Trademark Registry, helping your brand move towards successful registration.",
     ctaTitle: "Resolve Your Trademark Objection Today"
   },
   {
@@ -414,41 +378,21 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Maintain brand uniqueness",
       "Protect business goodwill"
     ],
-    keyFeaturesHeading: "Our Trademark Opposition Support",
-    keyFeatureFeatures: [
-      {
-        title: "Fast Trademark Opposition Filing",
-        description: "Quick and professional filing of trademark opposition within the prescribed timeline."
-      },
-      {
-        title: "Expert Legal Drafting",
-        description: "Strong opposition notices prepared with proper legal grounds and supporting evidence."
-      },
-      {
-        title: "End-to-End Opposition Support",
-        description: "Complete assistance from filing TM-O to hearings and final decisions."
-      },
-      {
-        title: "Brand Protection Strategy",
-        description: "Protect your business identity from confusing or misleading trademark registrations."
-      }
-    ],
-    benefitsIntro: "Timely opposition filing protects your brand from confusing or misleading registrations.",
     benefitFeatures: [
       {
-        title: "1. Protects Your Brand Identity",
+        title: "Protects Your Brand Identity",
         description: "Prevents registration of confusing or similar trademarks."
       },
       {
-        title: "2. Avoids Customer Confusion",
+        title: "Avoids Customer Confusion",
         description: "Protects customers from misleading or duplicate brands."
       },
       {
-        title: "3. Preserves Market Reputation",
+        title: "Preserves Market Reputation",
         description: "Maintains brand credibility and business goodwill."
       },
       {
-        title: "4. Stronger Legal Protection",
+        title: "Stronger Legal Protection",
         description: "Helps enforce trademark rights effectively."
       }
     ],
@@ -496,12 +440,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Difference Between Trademark Objection and Trademark Opposition",
-        intro:
-          "A trademark objection is raised by the Trademark Examiner during examination of an application. Trademark opposition is filed by a third party after the mark is published in the Trademark Journal. Both require timely legal response but follow different procedures and timelines."
-      },
-      {
-        title: "Why Choose Us for Trademark Opposition?",
+        title: "Why Choose us for Trademark Opposition?",
         items: [
           {
             title: "Experienced Trademark Experts",
@@ -565,7 +504,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Power of Attorney (TM-48)",
       "Identity and Address Proof"
     ],
-    whyChooseUsHeading: "Why Choose Us for Trademark Opposition?",
+    whyChooseUsHeading: "Why Choose us for Trademark Opposition?",
     whyChooseUs: [],
     faq: [
       {
@@ -589,6 +528,9 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "Yes. If the opposition succeeds, the trademark application may be rejected."
       }
     ],
+    benefitsHeading: "Benefits of Trademark Opposition",
+    documentsIntro: "The following documents are generally required:",
+    ctaSubtitle: "We handle the complete trademark opposition process including trademark monitoring, legal drafting, TM-O filing, evidence preparation, hearings, and trademark protection strategy, helping your brand stay legally protected.",
     ctaTitle: "File Trademark Opposition with Expert Support"
   },
   {
@@ -618,7 +560,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whatIsHeading: "What is a Trademark Objection Reply?",
     whatIsDescription:
-      "A Trademark Objection Reply is a formal response submitted to the Trademark Registry when an objection is raised during trademark examination.\n\nA properly drafted objection reply helps explain why your trademark deserves registration and addresses the concerns raised by the examiner.",
+      "A Trademark Objection Reply is a formal response submitted to the Trademark Registry when an objection is raised during trademark examination.",
     keyPointsHeading: "Trademark objections are generally issued because of:",
     keyPoints: [
       "Similarity with existing trademarks",
@@ -628,41 +570,21 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Wrong trademark class selection",
       "Legal or procedural issues"
     ],
-    keyFeaturesHeading: "Our Objection Reply Support",
-    keyFeatureFeatures: [
-      {
-        title: "Expert-Drafted Legal Replies",
-        description: "Professionally prepared replies based on trademark laws and examiner objections."
-      },
-      {
-        title: "In-Depth Examination Report Analysis",
-        description: "Detailed review of the trademark objection report under Section 9 or Section 11."
-      },
-      {
-        title: "End-to-End Filing Support",
-        description: "Complete assistance from drafting to online filing and follow-up."
-      },
-      {
-        title: "Real-Time Status Updates",
-        description: "Stay informed about reply filing status and trademark application progress."
-      }
-    ],
-    benefitsIntro: "A timely, well-drafted reply is critical to keeping your trademark application alive.",
     benefitFeatures: [
       {
-        title: "1. Better Approval Chances",
+        title: "Better Approval Chances",
         description: "Strong legal drafting increases the possibility of trademark acceptance."
       },
       {
-        title: "2. Proper Legal Representation",
+        title: "Proper Legal Representation",
         description: "Professional handling of objections and hearings."
       },
       {
-        title: "3. Accurate Documentation",
+        title: "Accurate Documentation",
         description: "Well-organised evidence and supporting documents strengthen the reply."
       },
       {
-        title: "4. Faster Resolution",
+        title: "Faster Resolution",
         description: "Timely filing and follow-up help avoid unnecessary delays."
       }
     ],
@@ -699,7 +621,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Why Choose Us for Trademark Objection Reply?",
+        title: "Why Choose us for Trademark Objection Reply?",
         items: [
           {
             title: "Experienced Trademark Professionals",
@@ -760,7 +682,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "MSME or Startup Certificate (if applicable)",
       "Power of Attorney (TM-48)"
     ],
-    whyChooseUsHeading: "Why Choose Us for Trademark Objection Reply?",
+    whyChooseUsHeading: "Why Choose us for Trademark Objection Reply?",
     whyChooseUs: [],
     faq: [
       {
@@ -784,6 +706,9 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "In some cases, the Trademark Registry may schedule a hearing if additional clarification is required."
       }
     ],
+    benefitsHeading: "Benefits of Professional Trademark Objection Reply",
+    documentsIntro: "The following documents are generally required:",
+    ctaSubtitle: "We handle the complete trademark objection reply process including examination report analysis, legal drafting, online filing, hearing support, and trademark follow-up, helping your brand move closer to successful registration.",
     ctaTitle: "File Your Trademark Objection Reply Today"
   },
   {
@@ -823,41 +748,21 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Similar domain names or social media handles",
       "Misleading advertisements using your brand identity"
     ],
-    keyFeaturesHeading: "Our Infringement Support",
-    keyFeatureFeatures: [
-      {
-        title: "Legal Protection for Your Brand",
-        description: "Take action against unauthorised use of your trademark or brand identity."
-      },
-      {
-        title: "Expert Legal Notice Drafting",
-        description: "Professionally drafted cease and desist notices for quick resolution."
-      },
-      {
-        title: "Trademark Monitoring Support",
-        description: "Identify and track potential trademark misuse across online and offline platforms."
-      },
-      {
-        title: "End-to-End Legal Assistance",
-        description: "Support for notices, litigation, settlements, and infringement disputes."
-      }
-    ],
-    benefitsIntro: "Taking prompt action against infringement protects your reputation and market share.",
     benefitFeatures: [
       {
-        title: "1. Protects Brand Reputation",
+        title: "Protects Brand Reputation",
         description: "Prevents misuse that may damage customer trust and business image."
       },
       {
-        title: "2. Stops Customer Confusion",
+        title: "Stops Customer Confusion",
         description: "Helps customers identify genuine products and services."
       },
       {
-        title: "3. Protects Revenue and Market Share",
+        title: "Protects Revenue and Market Share",
         description: "Stops competitors from unfairly benefiting from your brand identity."
       },
       {
-        title: "4. Strengthens Legal Rights",
+        title: "Strengthens Legal Rights",
         description: "Proper enforcement strengthens your trademark protection."
       }
     ],
@@ -924,12 +829,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Difference Between Trademark Infringement and Passing Off",
-        intro:
-          "Trademark infringement applies to registered trademarks and is governed by the Trade Marks Act, 1999. Passing off protects unregistered marks based on goodwill and prior usage when a competitor misleads customers about the origin of goods or services."
-      },
-      {
-        title: "Why Choose Us for Trademark Infringement Matters?",
+        title: "Why Choose us for Trademark Infringement Matters?",
         items: [
           {
             title: "Experienced Trademark Professionals",
@@ -989,7 +889,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Legal Identity Proof",
       "Power of Attorney (if applicable)"
     ],
-    whyChooseUsHeading: "Why Choose Us for Trademark Infringement Matters?",
+    whyChooseUsHeading: "Why Choose us for Trademark Infringement Matters?",
     whyChooseUs: [],
     faq: [
       {
@@ -1013,6 +913,9 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "Yes. Infringing listings, websites, social media pages, and advertisements can often be reported and removed."
       }
     ],
+    benefitsHeading: "Benefits of Taking Action Against Trademark Infringement",
+    documentsIntro: "The following documents are generally required:",
+    ctaSubtitle: "We help businesses take quick and effective action against trademark infringement through legal notices, evidence support, trademark monitoring, and legal enforcement, helping your brand stay protected and trusted.",
     ctaTitle: "Protect Your Trademark Today"
   },
   {
@@ -1051,45 +954,25 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Protection against misuse and copying",
       "Long-term business value"
     ],
-    keyFeaturesHeading: "Our Trademark Renewal Support",
-    keyFeatureFeatures: [
-      {
-        title: "Hassle-Free Online Renewal",
-        description: "Complete online trademark renewal support with quick filing and documentation."
-      },
-      {
-        title: "Avoid Trademark Expiry",
-        description: "Renew your trademark on time and maintain uninterrupted legal protection."
-      },
-      {
-        title: "Expert Compliance Support",
-        description: "Professional assistance for renewal, restoration, and registry compliance."
-      },
-      {
-        title: "End-to-End Trademark Assistance",
-        description: "Support from renewal filing to certificate issuance and status tracking."
-      }
-    ],
-    benefitsIntro: "Timely renewal keeps your trademark active and your brand legally protected.",
     benefitFeatures: [
       {
-        title: "1. Continued Brand Protection",
+        title: "Continued Brand Protection",
         description: "Maintain exclusive legal ownership over your trademark."
       },
       {
-        title: "2. Prevents Trademark Expiry",
+        title: "Prevents Trademark Expiry",
         description: "Avoid loss of trademark rights and legal complications."
       },
       {
-        title: "3. Strengthens Business Value",
+        title: "Strengthens Business Value",
         description: "An active trademark increases brand credibility and commercial value."
       },
       {
-        title: "4. Protects Against Infringement",
+        title: "Protects Against Infringement",
         description: "Helps stop unauthorised use of your trademark identity."
       },
       {
-        title: "5. Supports Business Expansion",
+        title: "Supports Business Expansion",
         description: "Important for franchise, licensing, online marketplaces, and investor confidence."
       }
     ],
@@ -1148,7 +1031,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
           "If the trademark has expired and is removed from the register, restoration may still be possible within the prescribed period by filing restoration and renewal application with additional fees and supporting documents."
       },
       {
-        title: "Why Choose Us for Trademark Renewal?",
+        title: "Why Choose us for Trademark Renewal?",
         items: [
           {
             title: "Expert Trademark Professionals",
@@ -1207,7 +1090,7 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
       "Applicant Details",
       "Trademark Renewal Authorization Documents"
     ],
-    whyChooseUsHeading: "Why Choose Us for Trademark Renewal?",
+    whyChooseUsHeading: "Why Choose us for Trademark Renewal?",
     whyChooseUs: [],
     faq: [
       {
@@ -1231,6 +1114,9 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "Yes. Trademark restoration may be possible within the prescribed restoration period after expiry."
       }
     ],
+    benefitsHeading: "Benefits of Trademark Renewal",
+    documentsIntro: "The following documents are generally required:",
+    ctaSubtitle: "We handle the complete trademark renewal process including trademark verification, TM-R filing, restoration support, renewal tracking, and certificate assistance, helping your brand remain legally protected without interruption.",
     ctaTitle: "Renew Your Trademark Today"
   },
   {
@@ -1260,50 +1146,29 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whatIsHeading: "What is a Trademark Hearing?",
     whatIsDescription:
-      "A trademark hearing is an official proceeding conducted by the Trademark Registry when objections raised during trademark examination are not fully resolved through written replies.\n\nThe hearing gives the applicant an opportunity to:\n- Explain the trademark application\n- Clarify objections raised by the examiner\n- Submit additional documents and evidence\n- Defend the trademark before the Registrar\n\nTrademark hearings are commonly scheduled after objections under Section 9 or Section 11 of the Trade Marks Act, 1999.",
-    keyPointsHeading: "When Hearings Are Scheduled",
+      "A trademark hearing is an official proceeding conducted by the Trademark Registry when objections raised during trademark examination are not fully resolved through written replies.\n\nTrademark hearings are commonly scheduled after objections under Section 9 or Section 11 of the Trade Marks Act, 1999.",
+    keyPointsHeading: "The hearing gives the applicant an opportunity to:",
     keyPoints: [
       "Explain the trademark application",
       "Clarify objections raised by the examiner",
       "Submit additional documents and evidence",
-      "Defend the trademark before the Registrar",
-      "Commonly scheduled after Section 9 or Section 11 objections"
+      "Defend the trademark before the Registrar"
     ],
-    keyFeaturesHeading: "Our Trademark Hearing Support",
-    keyFeatureFeatures: [
-      {
-        title: "Expert Hearing Representation",
-        description: "Professional support for presenting your case before the Trademark Registrar."
-      },
-      {
-        title: "Strong Legal Arguments",
-        description: "Well-prepared legal submissions and supporting documents for better case presentation."
-      },
-      {
-        title: "End-to-End Hearing Assistance",
-        description: "Support from hearing notice review to final hearing updates and follow-ups."
-      },
-      {
-        title: "Fast and Hassle-Free Process",
-        description: "Complete coordination and timely preparation for trademark hearings."
-      }
-    ],
-    benefitsIntro: "Professional hearing support improves your chances of trademark approval.",
     benefitFeatures: [
       {
-        title: "1. Better Approval Chances",
+        title: "Better Approval Chances",
         description: "Strong legal presentation improves the possibility of trademark acceptance."
       },
       {
-        title: "2. Proper Legal Representation",
+        title: "Proper Legal Representation",
         description: "Professional handling of hearing proceedings and examiner queries."
       },
       {
-        title: "3. Accurate Documentation",
+        title: "Accurate Documentation",
         description: "Well-organised evidence and legal submissions strengthen the application."
       },
       {
-        title: "4. Saves Time and Avoids Delays",
+        title: "Saves Time and Avoids Delays",
         description: "Timely preparation helps avoid procedural issues and repeated hearings."
       }
     ],
@@ -1445,6 +1310,9 @@ export const TRADEMARK_SUB_SERVICES: SubServicePageContent[] = [
         answer: "The Registrar may approve, adjourn, conditionally accept, or reject the trademark application."
       }
     ],
+    benefitsHeading: "Benefits of Professional Trademark Hearing Support",
+    documentsIntro: "The following documents are generally required:",
+    ctaSubtitle: "We handle the complete trademark hearing process including hearing preparation, legal drafting, written submissions, representation, and follow-up with the Trademark Registry, helping your brand move closer to successful registration.",
     ctaTitle: "Get Expert Support for Trademark Hearing"
   }
 ];

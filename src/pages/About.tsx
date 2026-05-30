@@ -15,8 +15,8 @@ import {
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { TeamSection } from "../components/TeamSection";
-import missionBg from "../Assets/our_mission_new.webp";
-import visionSectionImage from "../Assets/vision_2.jpg";
+import missionBg from "../Assets/our_mission_new.png";
+import visionSectionImage from "../Assets/our_vission_new.png";
 import aboutTeamPhoto from "../Assets/team_member.webp";
 import ctaBackground from "../Assets/details_page_bg.avif";
 
@@ -172,6 +172,16 @@ const Hero = () => {
 const Story = () => {
   const { data: siteDetails } = useCMS();
   const { story } = siteDetails.pages.about;
+  const hero = siteDetails.pages.about.hero;
+  const eyebrow = story.eyebrow?.trim() || "Our Story";
+  const title = story.title?.trim() || "Built on a simple idea: compliance should not be complicated.";
+  const lead = story.lead?.trim();
+  const paragraphs =
+    story.paragraphs?.filter((p) => p.trim()) ??
+    (story.content?.trim() ? story.content.split(/\n\n+/).filter(Boolean) : []);
+  const statDigits = Number.parseInt(String(hero.statNumber ?? "").replace(/[^\d]/g, ""), 10);
+  const statLabel = (hero.statLabel ?? "Years experience").trim();
+
   return (
     <section className="relative py-24 bg-[#18335c] overflow-hidden">
       {/* Decorative Background Elements */}
@@ -247,41 +257,39 @@ const Story = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 text-blue-200 text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-white/10 shadow-sm">
               <Briefcase size={14} className="text-secondary" />
-              Our Story
+              {eyebrow}
             </div>
 
             <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white mb-8 leading-tight">
-              Founded on a Singular Principle: <span className="text-secondary-fixed">Sovereignty.</span>
+              {title}
             </h2>
 
             <div className="space-y-6">
-              <p className="text-blue-100/90 text-xl font-medium leading-relaxed italic border-l-4 border-secondary/30 pl-6 py-2">
-                Phinura Advisors began with a clear mandate: to provide corporate entities with the absolute clarity required to govern their own financial destinies.
-              </p>
+              {lead ? (
+                <p className="text-blue-100/90 text-xl font-medium leading-relaxed italic border-l-4 border-secondary/30 pl-6 py-2">
+                  {lead}
+                </p>
+              ) : null}
 
               <div className="space-y-4 text-blue-100/80 text-lg leading-relaxed">
-                <p>
-                  Our founders recognized that the traditional accounting model was reactive. They sought to create a proactive, architectural approach to fiscal management—one where every ledger entry is a strategic brick in a larger edifice of corporate success.
-                </p>
-                <p>
-                  Today, we continue that legacy, ensuring our clients don't just react to the market, but architect their future with precision and professional sovereignty.
-                </p>
+                {paragraphs.map((paragraph, i) => (
+                  <p key={i}>{paragraph}</p>
+                ))}
               </div>
             </div>
 
-            <div className="mt-12 flex items-center gap-8">
-              <div className="flex -space-x-4">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-full border-4 border-[#18335c] bg-slate-200 overflow-hidden shadow-lg">
-                    <img src={`https://i.pravatar.cc/100?u=${i + 10}`} alt="Founder" />
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm">
-                <div className="font-bold text-white">Trusted by Global Entities</div>
-                <div className="text-blue-200/60">5+ Years of Fiscal Excellence</div>
-              </div>
+            {(story.trustedLine?.trim() || statDigits > 0) && (
+            <div className="mt-12">
+              {story.trustedLine?.trim() ? (
+                <div className="font-bold text-white">{story.trustedLine}</div>
+              ) : null}
+              {statDigits > 0 ? (
+                <div className="text-blue-200/60">
+                  {statDigits}+ {statLabel}
+                </div>
+              ) : null}
             </div>
+            )}
           </motion.div>
 
         </div>

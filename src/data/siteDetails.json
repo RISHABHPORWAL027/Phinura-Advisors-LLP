@@ -21,7 +21,7 @@
     "home": {
       "hero": {
         "title": "You run the business.\nWe handle the compliance.",
-        "subtitle": "Hands-on with MCA filings, GST, and income tax—for founders hustling through scale-ups and operators who refuse to gamble on ROC and portal deadlines.",
+        "subtitle": "Hands-on with MCA filings, GST, and income tax\u2014for founders hustling through scale-ups and operators who refuse to gamble on ROC and portal deadlines.",
         "badge": "CA & CS Support for Growing Businesses",
         "buttonText": "Get Free Quote",
         "secondaryButtonText": "Talk to Expert",
@@ -103,12 +103,12 @@
         {
           "name": "Homes & Beyond Aesthetic Tiles",
           "url": "https://homesandbeyond.in/",
-          "logo": ""
+          "logo": "/client_logo/logo-hb.png"
         },
         {
           "name": "Top Hybrid",
-          "url": "",
-          "logo": ""
+          "url": "https://www.tophybrid.in/home",
+          "logo": "/client_logo/top_logo.webp"
         },
         {
           "name": "Kalangi Estate",
@@ -183,7 +183,7 @@
           {
             "title": "100% Customer Oriented",
             "icon": "ShieldCheck",
-            "desc": "We put your business first—clear communication, practical advice, and filings built around how you actually operate."
+            "desc": "We put your business first\u2014clear communication, practical advice, and filings built around how you actually operate."
           },
           {
             "title": "5+ Years Experience",
@@ -198,7 +198,7 @@
           {
             "title": "500+ Annual Filings",
             "icon": "Rocket",
-            "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+            "desc": "Hundreds of successful filings every year \u2014 from GST to MCA \u2014 delivered with precision."
           },
           {
             "title": "Pan-India Presence",
@@ -218,18 +218,19 @@
         {
           "name": "Venu Gopal Totla",
           "role": "MD & CEO, Kamal Watch & Company",
-          "quote": "Kamal Watch is one of India's most recognised names in fine timepieces, rooted in Hyderabad. Phinura keeps our MCA and corporate compliance orderly so leadership can stay focused on brands, retail, and customers—not statutory firefighting.",
+          "quote": "Kamal Watch is one of India's most recognised names in fine timepieces, rooted in Hyderabad. Phinura keeps our MCA and corporate compliance orderly so leadership can stay focused on brands, retail, and customers\u2014not statutory firefighting.",
           "companyLogo": "/client_logo/kamal_watch_company.jpeg"
         },
         {
           "name": "Lalit Sarda",
           "role": "Homes & Beyond Aesthetic Tiles",
-          "quote": "We carry a five-decade legacy in premium tiles, sanitaryware, and bath environments. Phinura supports us with clear GST and accounting discipline so showroom and project teams meet deadlines calmly."
+          "quote": "We carry a five-decade legacy in premium tiles, sanitaryware, and bath environments. Phinura supports us with clear GST and accounting discipline so showroom and project teams meet deadlines calmly.",
+          "companyLogo": "/client_logo/logo-hb.png"
         },
         {
           "name": "Vikas Gupta",
           "role": "CFO, Goel Distributors",
-          "quote": "GST and income-tax cycles used to collide with quarterly closes. Today we receive practical checklists, filings on schedule, and quick clarity when notices appear—precisely what finance leadership expects.",
+          "quote": "GST and income-tax cycles used to collide with quarterly closes. Today we receive practical checklists, filings on schedule, and quick clarity when notices appear\u2014precisely what finance leadership expects.",
           "companyLogo": "/client_logo/goel-logo.jpg"
         },
         {
@@ -247,7 +248,7 @@
         {
           "name": "Management",
           "role": "Shri Gupta Drug Mart",
-          "quote": "Trademark protection mattered before we scaled packaging further. Search, drafting, Registry coordination—they handled every milestone with pragmatic communication.",
+          "quote": "Trademark protection mattered before we scaled packaging further. Search, drafting, Registry coordination\u2014they handled every milestone with pragmatic communication.",
           "companyLogo": "/client_logo/gupta_durg_mart.jpeg"
         },
         {
@@ -259,12 +260,13 @@
         {
           "name": "Leadership",
           "role": "Top Hybrid",
-          "quote": "MCA compliances, bank coordination, and event-based ROC work intersect for us regularly. Their team is well versed across departments and noticeably quick whenever deadlines compress."
+          "quote": "MCA compliances, bank coordination, and event-based ROC work intersect for us regularly. Their team is well versed across departments and noticeably quick whenever deadlines compress.",
+          "companyLogo": "/client_logo/top_logo.webp"
         },
         {
           "name": "Leadership",
           "role": "Liberty 21",
-          "quote": "We prize responsiveness. ROC expectations and MCA compliances stay current without us chasing weekly status—we hear from them before items slip.",
+          "quote": "We prize responsiveness. ROC expectations and MCA compliances stay current without us chasing weekly status\u2014we hear from them before items slip.",
           "companyLogo": "/client_logo/liberty_21.jpeg"
         },
         {
@@ -276,7 +278,7 @@
         {
           "name": "Vaibhav Jain",
           "role": "Synergy Rail",
-          "quote": "GST, income tax, and MCA updates no longer bounce between disparate advisors—the same disciplined team aligns filings with how contracts and invoices actually behave.",
+          "quote": "GST, income tax, and MCA updates no longer bounce between disparate advisors\u2014the same disciplined team aligns filings with how contracts and invoices actually behave.",
           "companyLogo": "/client_logo/synergy-rail.jpeg"
         },
         {
@@ -305,7 +307,7 @@
         {
           "name": "Sathwik Reddy",
           "role": "Cozy Cups LLP",
-          "quote": "We needed trademark coverage before widening distribution. They guided search, filings, objections if any—all without slowing product momentum.",
+          "quote": "We needed trademark coverage before widening distribution. They guided search, filings, objections if any\u2014all without slowing product momentum.",
           "companyLogo": "/client_logo/cozy-cups-llp.avif"
         },
         {
@@ -317,16 +319,16 @@
       ],
       "team": {
         "title": "Meet Our Team",
-        "subtitle": "Chartered Accountants and Company Secretaries who keep compliance simple — tap a photo to read more.",
+        "subtitle": "Chartered Accountants and Company Secretaries who keep compliance simple \u2014 tap a photo to read more.",
         "aboutLinkText": "About us"
       },
       "testimonialsSubtitle": "Real stories from entrepreneurs who grow with us."
     },
     "services": {
-      "serviceDetailCtaSubtitle": "Ask us about MCA, GST, income tax, trademark filings, bookkeeping, or any related business compliance—we respond with clear steps and timelines.",
+      "serviceDetailCtaSubtitle": "Ask us about MCA, GST, income tax, trademark filings, bookkeeping, or any related business compliance\u2014we respond with clear steps and timelines.",
       "serviceDetailCallBackLinkText": "Request a Call Back",
-      "serviceDetailConsultationHeading": "Consultation — how we can help",
-      "serviceDetailConsultationClosing": "We start from how your business runs day to day—that tells us which MCA, GST, tax, trademark, or allied obligations actually apply.\n\nOn consultation we listen first: what deadlines worry you and what paperwork you already have. Then we map a sensible sequence—what we prepare, what you submit on government portals—and we explain steps in ordinary language before you authorise filings.\n\nMCA, GST, and income-tax cycles often overlap; we keep work coordinated instead of reinventing data in isolation. Reach us on WhatsApp or call for a clear next step, not jargon.",
+      "serviceDetailConsultationHeading": "Consultation \u2014 how we can help",
+      "serviceDetailConsultationClosing": "We start from how your business runs day to day\u2014that tells us which MCA, GST, tax, trademark, or allied obligations actually apply.\n\nOn consultation we listen first: what deadlines worry you and what paperwork you already have. Then we map a sensible sequence\u2014what we prepare, what you submit on government portals\u2014and we explain steps in ordinary language before you authorise filings.\n\nMCA, GST, and income-tax cycles often overlap; we keep work coordinated instead of reinventing data in isolation. Reach us on WhatsApp or call for a clear next step, not jargon.",
       "gridTitle": "Our Core Services",
       "gridSubtitle": "End-to-end compliance and advisory solutions to help your business stay compliant, grow sustainably, and achieve more.",
       "hero": {
@@ -336,12 +338,12 @@
         "bgImage": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=80&w=2000"
       },
       "introTitle": "Compliance that matches your entity",
-      "introContent1": "Whether you operate as a private limited company, LLP, or proprietor, timelines with the MCA, GST portal, and income tax department do not pause for busy seasons—and neither do we.",
+      "introContent1": "Whether you operate as a private limited company, LLP, or proprietor, timelines with the MCA, GST portal, and income tax department do not pause for busy seasons\u2014and neither do we.",
       "introContent2": "We focus on ROC and LLP annual filings, day-to-day accounts, registrations and returns for GST and income tax, trademark protection, and the many small statutory touchpoints owners are expected to juggle alongside running the firm.",
       "introImage": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000",
       "statsCTA": {
         "title": "Not sure where to begin?",
-        "subtitle": "Tell us if you work through a company, LLP, or as an individual—we’ll outline the MCA, GST, and tax filings that apply and help you prioritize.",
+        "subtitle": "Tell us if you work through a company, LLP, or as an individual\u2014we\u2019ll outline the MCA, GST, and tax filings that apply and help you prioritize.",
         "badge": "",
         "buttonText": "WhatsApp us",
         "secondaryButtonText": "Fee structure",
@@ -361,61 +363,67 @@
       "serviceList": [
         {
           "id": "company-registration",
-          "title": "Company Registration Services",
+          "title": "Company Registration",
           "icon": "Building2",
           "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600",
           "description": "Private Limited, LLP, OPC and other business structures.",
           "category": "Incorporation",
           "pageLayout": "hub",
           "heroTitle": "Register Your Business the Right Way",
-          "subtitle": "From choosing the right structure to government filing — we handle everything so you can focus on building your business.",
+          "subtitle": "From choosing the right structure to government filing \u2014 we handle everything so you can focus on building your business.",
           "heroCtaPrimary": "Get Started",
           "heroCtaSecondary": "Talk to Expert",
           "registeredBusinessBenefitsTitle": "Benefits of a Registered Business",
-          "registeredBusinessBenefitsText": "A registered company gives you legal identity, limited liability, and opens doors to funding, contracts, and long-term business growth. Unlike an unregistered setup, a formal entity lets you open corporate bank accounts, hire employees, issue invoices in the company name, and build trust with investors and enterprise clients.",
-          "registeredBusinessBenefitsCards": [
-            {
-              "title": "Limited Liability",
-              "description": "Personal assets protected from business debts & losses.",
-              "icon": "ShieldCheck"
-            },
-            {
-              "title": "Investor Ready",
-              "description": "Raise funding, issue shares & attract serious investors.",
-              "icon": "TrendingUp"
-            },
-            {
-              "title": "Legal Identity",
-              "description": "Open bank accounts, sign contracts & bid for tenders.",
-              "icon": "Landmark"
-            },
-            {
-              "title": "Tax Benefits",
-              "description": "Access startup tax exemptions, deductions & lower corporate tax.",
-              "icon": "BadgeIndianRupee"
-            },
-            {
-              "title": "Hire & Scale",
-              "description": "Issue ESOPs, hire employees & grow with a proper structure.",
-              "icon": "Users"
-            },
-            {
-              "title": "Brand Credibility",
-              "description": "Customers & vendors trust a Pvt Ltd or LLP over sole proprietors.",
-              "icon": "Globe"
-            }
-          ],
+          "registeredBusinessBenefitsText": "A registered company gives you legal identity, limited liability, and opens doors to funding, contracts & growth.",
           "registrationTypesHeading": "Choose your structure",
           "registrationTypesEyebrow": "All Registration Types",
-          "registrationTypesSubtext": "Not sure where to start? Pick the structure that matches your goals — we will walk you through documents, government fees, timelines, and compliance for each option.",
-          "serviceIntro": "Whether you are launching a startup, registering a professional firm, or setting up a non-profit, choosing the right business structure affects your liability, taxes, compliance burden, and ability to raise funds. Our team helps you compare options and complete every filing on MCA and allied portals — with clear guidance at each step.",
+          "registrationTypesSubtext": "Click on any type below to know more: process, documents & fees.",
+          "subServices": [
+            {
+              "id": "private-limited-company",
+              "title": "Private Limited Company",
+              "hook": "Private Limited Company Registration in India",
+              "description": "Register your Private Limited Company with expert Chartered Accountants at Phinura Advisors. We manage the complete incorporation process including DSC, DIN, MoA, AoA, SPICe+ filing, PAN, TAN, GST registration, and post-incorporation compliance; so you can focus entirely on building your business."
+            },
+            {
+              "id": "public-limited-company",
+              "title": "Public Limited Company",
+              "hook": "Public Limited Company Registration in India",
+              "description": "Build a strong foundation for large-scale business growth with expert company registration and compliance support. We provide complete assistance for incorporation, legal documentation, SEBI compliance advisory, and ongoing statutory compliance, helping your company stay investor-ready and future-focused from day one."
+            },
+            {
+              "id": "one-person-company",
+              "title": "One Person Company (OPC)",
+              "hook": "One Person Company Registration in India",
+              "description": "Register your One Person Company with expert Chartered Accountants. We handle the complete registration process including DSC, DIN, SPICe+ filing, MoA, AoA, PAN, TAN, GST registration, Nominee appointment, and post-incorporation compliance, making your business setup simple, fast, and hassle-free."
+            },
+            {
+              "id": "section-8-company",
+              "title": "Section 8 Company",
+              "hook": "Section 8 Company Registration in India",
+              "description": "Establish your non-profit organisation with expert Chartered Accountants. We handle the complete registration process including Central Government licence procurement, MoA drafting, 12A and 80G registration, FCRA compliance, and post-incorporation statutory requirements, so you can focus entirely on your mission."
+            },
+            {
+              "id": "llp-registration",
+              "title": "Limited Liability Partnership",
+              "hook": "Limited Liability Partnership Registration in India",
+              "description": "Register your LLP with expert Chartered Accountants. We handle the complete registration process including DSC, DIN, LLP name approval, FiLLiP filing, LLP Agreement drafting, PAN, TAN, GST registration, and post-registration compliance, so you can focus on growing your business."
+            },
+            {
+              "id": "partnership-firm",
+              "title": "Partnership Firm",
+              "hook": "Partnership Firm Registration in India",
+              "description": "Register your Partnership Firm with expert Chartered Accountants. We handle the complete registration process including Partnership Deed drafting, notarisation, Registrar of Firms filing, PAN, GST registration, and post-registration compliance, so you can focus on growing your business with confidence."
+            }
+          ],
+          "ctaTitle": "Ready to register your company?",
           "postRegistrationSection": {
-            "title": "Company Registration in India — What You Should Know",
+            "title": "Company Registration in India \u2014 What You Should Know",
             "subtitle": "Incorporation is more than a form on the MCA portal. The structure you choose today shapes how you raise capital, pay tax, sign contracts, and stay compliant for years to come.",
             "paragraphs": [
               "In India, most businesses register through the Ministry of Corporate Affairs (MCA) using integrated forms such as SPICe+ (for companies) or FiLLiP (for LLPs). A Private Limited Company remains the most common choice for startups and SMEs because it offers limited liability, a separate legal identity, and a clear path to equity investment. LLPs are popular among consultants, CA firms, and professional partnerships that want flexibility with lower compliance than a full company. OPCs suit solo founders who want company-style protection without bringing in co-founders from day one.",
-              "Registration timelines vary by structure: a Private Limited Company or OPC typically takes 7–15 working days once documents are ready; LLPs often complete in a similar window; partnership and proprietorship setups can be faster depending on state registration and GST requirements. Standard documents include identity and address proof of promoters, registered office proof, photographs, and digital signatures (DSC) where applicable. After incorporation, businesses usually need PAN, TAN, a corporate bank account, GST registration (if turnover or activity requires it), and ongoing MCA filings such as annual returns and financial statements.",
-              "Getting the structure wrong can mean unnecessary compliance cost, tax inefficiency, or difficulty raising funds later. That is why founders across Hyderabad and India work with Phinura Advisors — we help you compare Pvt Ltd, LLP, OPC, Partnership, and Section 8 options honestly, prepare MoA/AoA or LLP Agreements, file on government portals, and set up a post-registration compliance calendar so you stay penalty-free from day one."
+              "Registration timelines vary by structure: a Private Limited Company or OPC typically takes 7\u201315 working days once documents are ready; LLPs often complete in a similar window; partnership and proprietorship setups can be faster depending on state registration and GST requirements. Standard documents include identity and address proof of promoters, registered office proof, photographs, and digital signatures (DSC) where applicable. After incorporation, businesses usually need PAN, TAN, a corporate bank account, GST registration (if turnover or activity requires it), and ongoing MCA filings such as annual returns and financial statements.",
+              "Getting the structure wrong can mean unnecessary compliance cost, tax inefficiency, or difficulty raising funds later. That is why founders across Hyderabad and India work with Phinura Advisors \u2014 we help you compare Pvt Ltd, LLP, OPC, Partnership, and Section 8 options honestly, prepare MoA/AoA or LLP Agreements, file on government portals, and set up a post-registration compliance calendar so you stay penalty-free from day one."
             ],
             "highlights": [
               {
@@ -1543,44 +1551,11 @@
           "heroCtaSecondary": "Talk to Expert",
           "registeredBusinessBenefitsTitle": "Benefits of MCA Compliance",
           "registeredBusinessBenefitsText": "Proper MCA compliance helps maintain your company's legal status, avoids penalties, protects directors, and builds trust with banks, investors, and government authorities.",
-          "registeredBusinessBenefitsCards": [
-            {
-              "title": "Timely ROC Filing",
-              "description": "File annual returns and key MCA forms within due dates to keep company status active.",
-              "icon": "CheckCircle2"
-            },
-            {
-              "title": "Penalty Protection",
-              "description": "Avoid late fees, adjudication notices, and non-compliance consequences with proactive filing.",
-              "icon": "ShieldCheck"
-            },
-            {
-              "title": "Director Safety",
-              "description": "Protect directors from disqualification risk by maintaining proper board and KYC compliance.",
-              "icon": "UserCheck"
-            },
-            {
-              "title": "Investor & Bank Readiness",
-              "description": "Clean MCA records improve credibility during loans, due diligence, and fundraising.",
-              "icon": "TrendingUp"
-            },
-            {
-              "title": "Event-Based Accuracy",
-              "description": "Handle director changes, capital changes, address updates, and other events with correct ROC forms.",
-              "icon": "FileCheck"
-            },
-            {
-              "title": "Compliance Continuity",
-              "description": "Track deadlines through the year so compliance is managed, not rushed at year-end.",
-              "icon": "CalendarCheck2"
-            }
-          ],
           "registrationTypesHeading": "Choose Your MCA Compliance Service",
           "registrationTypesEyebrow": "All MCA & ROC Compliance Services",
           "registrationTypesSubtext": "Click on any service below to know more: process, documents, fees & timeline.",
-          "serviceIntro": "Whether you are managing a private limited company or LLP, MCA compliance is not only about annual returns. Director KYC, auditor filings, capital changes, office changes, and event-based ROC forms all need correct documentation and timely submission. Our team handles end-to-end compliance so your entity stays active, legally protected, and audit-ready.",
           "postRegistrationSection": {
-            "title": "MCA Compliance in India — What You Should Know",
+            "title": "MCA Compliance in India \u2014 What You Should Know",
             "subtitle": "MCA compliance under the Companies Act, 2013 and LLP Act, 2008 is an ongoing legal responsibility. Missing filings can lead to daily penalties, director-related issues, and compliance risk for future funding, banking, and governance.",
             "paragraphs": [
               "Private Limited Companies must typically file annual financials and returns such as AOC-4 and MGT-7/MGT-7A, maintain board and AGM records, and complete statutory filings like ADT-1 and DPT-3 where applicable. LLPs must file Form 11, Form 8, and related updates within prescribed timelines.",
@@ -1606,8 +1581,6 @@
               }
             ]
           },
-          "mainHeading": "Stay compliant with MCA regulations",
-          "longDescription": "We manage complete MCA and ROC compliance services for companies and LLPs, including annual filings, event-based changes, director KYC, statutory forms, and closure support.",
           "subServices": [
             {
               "id": "annual-compliance-private-limited",
@@ -4167,49 +4140,49 @@
           "heroCtaSecondary": "Talk to Expert",
           "registeredBusinessBenefitsTitle": "Benefits of Trademark Registration",
           "registeredBusinessBenefitsText": "A registered trademark protects your brand identity, gives you exclusive legal rights, and helps build trust, credibility, and long-term business value.",
-          "registeredBusinessBenefitsCards": [
-            {
-              "title": "Exclusive Brand Protection",
-              "description": "Protect your business name, logo, tagline, and product identity legally across India.",
-              "icon": "ShieldCheck"
-            },
-            {
-              "title": "Legal Rights Against Copying",
-              "description": "Take legal action against trademark infringement, misuse, and confusingly similar marks.",
-              "icon": "Gavel"
-            },
-            {
-              "title": "Builds Trust & Credibility",
-              "description": "A registered trademark increases customer trust, brand value, and marketplace confidence.",
-              "icon": "Award"
-            },
-            {
-              "title": "Long-Term Business Asset",
-              "description": "Trademarks can be licensed, sold, franchised, or commercially monetised over time.",
-              "icon": "TrendingUp"
-            },
-            {
-              "title": "Valid Across India",
-              "description": "One registration provides nationwide protection for your mark in the chosen classes.",
-              "icon": "Globe"
-            },
-            {
-              "title": "Renewable Every 10 Years",
-              "description": "Trademark protection lasts 10 years and can be renewed indefinitely to stay protected.",
-              "icon": "CheckCircle2"
-            }
-          ],
           "registrationTypesHeading": "Choose Your Trademark Service",
           "registrationTypesEyebrow": "All Trademark Services",
-          "registrationTypesSubtext": "Click on any service below to know more about process, documents, fees, and timeline for each trademark matter.",
-          "serviceIntro": "Your brand name, logo, and tagline are among your most valuable business assets. Whether you are filing a new trademark, replying to an examiner objection, opposing a conflicting mark, or renewing an existing registration, the right legal strategy at each stage protects your identity and avoids costly disputes later.",
+          "registrationTypesSubtext": "Click on any service below to know more: process, documents, fees & timeline.",
+          "subServices": [
+            {
+              "id": "trademark-filing",
+              "title": "Trademark Registration"
+            },
+            {
+              "id": "trademark-objection",
+              "title": "Trademark Objection"
+            },
+            {
+              "id": "trademark-opposition",
+              "title": "Trademark Opposition"
+            },
+            {
+              "id": "trademark-objection-reply",
+              "title": "Response to Trademark Objection"
+            },
+            {
+              "id": "trademark-infringement",
+              "title": "Trademark Infringement"
+            },
+            {
+              "id": "trademark-renewal",
+              "title": "Trademark Renewal"
+            },
+            {
+              "id": "trademark-hearing",
+              "title": "Trademark Hearing"
+            }
+          ],
+          "ctaTitle": "Protect Your Brand Today",
+          "ctaSubtitle": "We handle the complete trademark registration process including trademark search, filing, objection handling, opposition defence, renewal, and legal compliance, helping your business stay protected and legally secure.",
+          "subServicesTitle": "",
           "postRegistrationSection": {
-            "title": "Trademark Protection in India — What You Should Know",
-            "subtitle": "Trademark registration under the Trade Marks Act, 1999 gives you exclusive rights to use your mark for the goods or services covered in your application — but the journey often includes search, examination, journal publication, and sometimes objections or opposition.",
+            "title": "Trademark Protection in India \u2014 What You Should Know",
+            "subtitle": "Trademark registration under the Trade Marks Act, 1999 gives you exclusive rights to use your mark for the goods or services covered in your application \u2014 but the journey often includes search, examination, journal publication, and sometimes objections or opposition.",
             "paragraphs": [
-              "Before filing, a proper trademark search helps identify conflicting marks in the same or related classes. Applications are filed with the Trademark Registry with the correct Nice classification, supporting documents, and Power of Attorney (TM-48). After filing, you may use the ™ symbol immediately; the ® symbol applies once registration is granted.",
+              "Before filing, a proper trademark search helps identify conflicting marks in the same or related classes. Applications are filed with the Trademark Registry with the correct Nice classification, supporting documents, and Power of Attorney (TM-48). After filing, you may use the \u2122 symbol immediately; the \u00ae symbol applies once registration is granted.",
               "The Registry examines every application. Examiners may raise objections under Section 9 (distinctiveness/descriptiveness) or Section 11 (similarity with existing marks). Objection replies must generally be filed within 30 days. Accepted marks are published in the Trademark Journal, where third parties may oppose within four months. The full process typically takes 6 to 24 months depending on objections, hearings, or opposition.",
-              "Phinura Advisors supports startups, MSMEs, e-commerce sellers, manufacturers, and service brands across Hyderabad and India — from first filing through objection replies, opposition defence, infringement notices, hearings, and TM-R renewals — so your brand stays protected at every stage."
+              "Phinura Advisors supports startups, MSMEs, e-commerce sellers, manufacturers, and service brands across Hyderabad and India \u2014 from first filing through objection replies, opposition defence, infringement notices, hearings, and TM-R renewals \u2014 so your brand stays protected at every stage."
             ],
             "highlights": [
               {
@@ -6134,67 +6107,31 @@
     },
     "about": {
       "hero": {
-        "title": "Phinura Advisors — the team beside your MCA, GST and tax filings.",
-        "subtitle": "We are Chartered Accountants and Company Secretaries who answer the phone when GST due dates and ROC timelines land together. Businesses across India rely on us for clear explanations, careful paperwork, and people who speak plain English—not jargon.",
-        "body": "Whether you are steering a founder-led startup, a growing SME, or a multi-branch operation, we help you plan filings, reconcile books, respond to notices, and keep board and MCA paperwork orderly—without losing you in jargon.",
-        "highlights": [
-          "GST, income tax, and TDS timelines planned alongside ROC and MCA due dates",
-          "Bookkeeping and reporting packs your auditor—and your team—can follow",
-          "Notices and departmental queries drafted with calm, structured responses",
-          "Remote-first workflows with predictable status updates across India"
-        ],
-        "photoCaption": "Phinura Advisors team members at work—the colleagues you speak with for MCA, GST, tax and bookkeeping support.",
+        "title": "Phinura Advisors \u2014 the team beside your MCA, GST and Tax filings.",
+        "subtitle": "We are Chartered Accountants and Company Secretaries based in Hyderabad, serving businesses across India. When GST deadlines, ROC timelines, and tax notices land together, we are the people you call \u2014 and we actually pick up.",
+        "body": "Whether you run a founder-led startup, a growing SME, or a multi-branch operation, we help you stay compliant, understand your numbers, and keep board and MCA paperwork in order \u2014 without drowning you in jargon.",
+        "highlights": [],
+        "photoCaption": "Phinura Advisors team members at work\u2014the colleagues you speak with for MCA, GST, tax and bookkeeping support.",
         "badge": "About us",
         "image": "",
         "statNumber": "5",
         "statLabel": "Years experience"
       },
       "story": {
-        "title": "A practice rooted in diligence—and built to scale with every client milestone.",
+        "title": "Built on a simple idea: compliance should not be complicated.",
         "content": "",
         "eyebrow": "Our Story",
-        "lead": "Phinura Advisors was established with one aim: give entrepreneurs and finance teams disciplined support for MCA, GST, income tax, and everyday accounting—explained plainly, executed reliably.",
+        "lead": "",
         "paragraphs": [
-          "Our journey began as a deliberately lean team focusing on filings done right rather than churn. We listened to promoters who needed calm during GST cycles, ROC cadence, audits, notices, board paperwork, and the quiet administrative load that slows growth.",
-          "Relentless effort and clear communication widened both our clientele and breadth of mandates. Competitive clarity, brisk turnaround discipline, and strong digital tooling together keep remote coordination and paperwork movement predictable—even when timelines collide.",
-          "We think of ourselves as a comprehensive advisory partner rather than an ad-hoc desk: MCA and tax hygiene, bookkeeping alignment, introductions to payroll and statutory specialists where needed, and retainership conversations when founders want judgement on call.",
-          "With each passing year we have drafted new checklists from real client tensions—premium retainerships when leadership wants always-on stewardship, sharper reporting packs before investors, tighter coordination ahead of departmental queries—so reassurance travels with expansion."
+          "Phinura Advisors was founded when our team recognised a recurring problem: most businesses received compliance support only after things went wrong. We set out to change that \u2014 by planning filings ahead of time, explaining what each requirement means in plain terms, and making ourselves available when it actually matters.",
+          "Over five years, we have grown into a firm trusted by businesses across India for one core reason: we treat your compliance calendar the same way you treat your operations \u2014 systematically, proactively, and without unnecessary delays."
         ],
         "image": "",
-        "trajectoryTitle": "How far has Phinura reached?",
-        "trajectoryBrandLine": "Phinura Advisors",
-        "trajectoryParagraphs": [
-          "Starting with deliberate engagements alongside a curated client base, the firm matured into trusted counsel across retail, pharma, logistics, SaaS exporters, startups, partnerships, MSME corridors, founder-led firms, LLPs—and teams headquartered in Hyderabad supporting mandates that routinely span Indian metros.",
-          "Today's pipeline blends steady annual compliance with sharper special projects whenever statutes, investors, lenders, or board conversations demand choreography across GST, ROC, bookkeeping, staffing partners, diligence, trademarks, notices, retainership judgements—all sequenced deliberately rather than improvised."
-        ],
-        "milestonesSectionTitle": "Milestones at a glance",
-        "milestones": [
-          {
-            "numericValue": 25,
-            "suffix": "+",
-            "label": "Cities served"
-          },
-          {
-            "numericValue": 38,
-            "suffix": "+",
-            "label": "Advisory & compliance streams"
-          },
-          {
-            "numericValue": 110,
-            "suffix": "+",
-            "label": "Business relationships cumulative"
-          },
-          {
-            "textFigure": "Popular",
-            "suffix": "",
-            "label": "GST & income-tax cycles, ROC + MCA housekeeping, bookkeeping, coordinated payroll filings, trademarks, diligence & board packs when leadership needs sharper storytelling."
-          }
-        ],
-        "trustedLine": "Partner-led stewardship with CAs & CS advisors who stay reachable when calendars collide."
+        "trustedLine": "Trusted by businesses across India"
       },
       "missionVision": {
         "missions": [
-          "We help business owners with company incorporation, GST, income tax, and MCA filings on time — and we explain what matters in plain language, not dense legal wording.",
+          "We help business owners with company incorporation, GST, income tax, and MCA filings on time \u2014 and we explain what matters in plain language, not dense legal wording.",
           "We stay reachable: you can ask doubts, get status updates, and plan ahead so surprises and penalties are avoided."
         ],
         "vision": "To be the firm people happily recommend when they want dependable, easy-to-understand support for taxes, company law, and day-to-day compliance.",
@@ -6235,7 +6172,7 @@
               {
                 "stat": "99+",
                 "title": "Annual Filings",
-                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+                "desc": "Hundreds of successful filings every year \u2014 from GST to MCA \u2014 delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
@@ -6269,7 +6206,7 @@
               {
                 "stat": "99+",
                 "title": "Annual Filings",
-                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+                "desc": "Hundreds of successful filings every year \u2014 from GST to MCA \u2014 delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
@@ -6303,7 +6240,7 @@
               {
                 "stat": "99+",
                 "title": "Annual Filings",
-                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+                "desc": "Hundreds of successful filings every year \u2014 from GST to MCA \u2014 delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
@@ -6337,7 +6274,7 @@
               {
                 "stat": "99+",
                 "title": "Annual Filings",
-                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+                "desc": "Hundreds of successful filings every year \u2014 from GST to MCA \u2014 delivered with precision."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",

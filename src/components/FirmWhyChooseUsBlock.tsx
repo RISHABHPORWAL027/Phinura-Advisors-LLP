@@ -39,10 +39,12 @@ function StatCounter({
   );
 }
 
+type WhyChooseItem = string | { title: string; description?: string };
+
 type Props = {
   heading: string;
   intro?: string;
-  items: string[];
+  items: WhyChooseItem[];
   companyName: string;
   fullName?: string;
   /** Service area label, e.g. "Company registration" */
@@ -128,13 +130,22 @@ export function FirmWhyChooseUsBlock({
           {intro && (
             <p className="mb-6 text-base leading-relaxed text-blue-50/90 md:text-lg">{intro}</p>
           )}
-          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {items.map((item, i) => (
-              <li key={i} className="flex gap-3 text-sm font-medium leading-relaxed text-blue-50/95 md:text-[0.9375rem]">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-secondary-container" aria-hidden />
-                <span>{item}</span>
-              </li>
-            ))}
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {items.map((item, i) => {
+              const title = typeof item === "string" ? item : item.title;
+              const description = typeof item === "string" ? undefined : item.description;
+              return (
+                <li key={i} className="flex gap-3 text-sm leading-relaxed text-blue-50/95 md:text-[0.9375rem]">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-secondary-container" aria-hidden />
+                  <span>
+                    <span className="font-semibold">{title}</span>
+                    {description ? (
+                      <span className="mt-1 block font-normal text-blue-50/85">{description}</span>
+                    ) : null}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

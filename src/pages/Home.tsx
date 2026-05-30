@@ -396,7 +396,7 @@ const StatsBar = () => {
     });
   }, [partnersRaw]);
 
-  /** Two copies enable seamless left-to-right motion (x from -50% to 0%). */
+  /** Two copies enable seamless marquee motion (reverse: rightward scroll). */
   const marqueeItems = useMemo(() => [...partners, ...partners], [partners]);
 
   const partnerUrl = (url: string | undefined) => {
@@ -415,25 +415,31 @@ const StatsBar = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Client Logos */}
-        <div className="border-t border-outline-variant/30 pt-12 md:pt-16 text-center">
-          <motion.p
+        <div className="border-t border-outline-variant/30 pt-14 md:pt-20 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-10 text-xs font-bold uppercase tracking-[0.3em] text-primary md:mb-12"
+            className="mx-auto mb-12 max-w-3xl md:mb-16"
           >
-            {siteDetails.pages.home.statsTitle || "Our Trusted Clients"}
-          </motion.p>
+            <h2 className="font-headline text-3xl font-extrabold tracking-tight text-primary sm:text-4xl md:text-5xl">
+              {siteDetails.pages.home.statsTitle || "Our Trusted Clients"}
+            </h2>
+            <div
+              className="mx-auto mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent"
+              aria-hidden
+            />
+          </motion.div>
 
           <div className="-mx-4 px-0 sm:-mx-6 sm:px-0 md:mx-0 md:px-0">
             <div
               role="region"
-              aria-label="Strategic Industry Partners — logos scroll horizontally left to right"
-              className="relative left-1/2 w-[min(100vw,100dvw)] max-w-[min(100vw,100dvw)] -translate-x-1/2 overflow-x-hidden pb-4 pt-1"
+              aria-label="Strategic Industry Partners — logos scroll horizontally right to left"
+              className="relative left-1/2 w-[min(100vw,100dvw)] max-w-[min(100vw,100dvw)] -translate-x-1/2 overflow-x-hidden pb-6 pt-2 before:pointer-events-none before:absolute before:inset-y-0 before:left-0 before:z-20 before:w-12 before:bg-gradient-to-r before:from-white before:to-transparent sm:before:w-20 after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:z-20 after:w-12 after:bg-gradient-to-l after:from-white after:to-transparent sm:after:w-20"
             >
               <div
-                className={`flex w-max flex-nowrap gap-6 px-5 sm:px-8 md:gap-10${prefersReducedMotion ? "" : " partners-marquee-track"}`}
+                className={`flex w-max flex-nowrap gap-8 px-5 sm:px-10 md:gap-12${prefersReducedMotion ? "" : " partners-marquee-track-reverse"}`}
                 style={
                   prefersReducedMotion
                     ? undefined
@@ -450,7 +456,7 @@ const StatsBar = () => {
                       <motion.div
                         whileHover={{ scale: 1.08, y: -8 }}
                         transition={{ type: "spring", stiffness: 300 }}
-                        className={`relative h-32 w-32 shrink-0 rounded-3xl border bg-white shadow-sm md:h-40 md:w-40 flex items-center justify-center p-6 overflow-hidden transition-all duration-700 ease-out group-hover:border-primary/30 group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] ${
+                        className={`relative flex h-36 w-36 shrink-0 items-center justify-center overflow-hidden rounded-3xl border bg-white p-6 shadow-sm md:h-44 md:w-44 transition-all duration-700 ease-out group-hover:border-primary/30 group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] ${
                           featured
                             ? "border-secondary-container/60 ring-2 ring-secondary-container/35 ring-offset-2 ring-offset-white"
                             : "border-slate-100"
@@ -475,21 +481,21 @@ const StatsBar = () => {
                           />
                         ) : (
                           <span
-                            className="relative z-10 flex h-full w-full items-center justify-center font-headline text-2xl font-extrabold text-primary/35"
+                            className="relative z-10 flex h-full w-full items-center justify-center font-headline text-3xl font-extrabold text-primary/35 md:text-4xl"
                             aria-hidden
                           >
                             {client.name.slice(0, 2).toUpperCase()}
                           </span>
                         )}
                       </motion.div>
-                      <span className="text-center text-sm font-bold text-slate-500 transition-colors group-hover:text-primary max-w-[11rem]">
+                      <span className="max-w-[13rem] text-center font-headline text-base font-bold leading-snug text-slate-600 transition-colors group-hover:text-primary md:max-w-[15rem] md:text-lg">
                         {client.name}
                       </span>
                     </>
                   );
 
                   const itemClass =
-                    "group flex w-[calc(72vw)] max-w-[13rem] shrink-0 flex-col items-center gap-4 rounded-2xl p-3 outline-none sm:w-auto sm:max-w-none sm:min-w-[12rem]" +
+                    "group flex w-[calc(72vw)] max-w-[15rem] shrink-0 flex-col items-center gap-5 rounded-2xl p-4 outline-none sm:w-auto sm:max-w-none sm:min-w-[14rem] md:min-w-[15rem]" +
                     (href
                       ? " transition-colors hover:bg-primary/[0.03] focus-visible:ring-2 focus-visible:ring-secondary-container focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                       : "");

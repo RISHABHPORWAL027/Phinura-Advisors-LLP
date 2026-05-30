@@ -14,8 +14,9 @@ function mergePageContentForAdmin(
   if (!defaults && !cms) return undefined;
   if (!defaults) return cms as SubServicePageContent;
   if (!cms || !isPlainObject(cms)) return defaults;
-  const merged = { ...defaults, ...cms } as SubServicePageContent;
-  for (const key of [
+
+  const merged = { ...cms, ...defaults } as SubServicePageContent;
+  const arrayKeys = [
     "whyChooseItems",
     "whyChooseFeatures",
     "keyPoints",
@@ -31,12 +32,18 @@ function mergePageContentForAdmin(
     "whoShouldApply",
     "labeledSections",
     "faq",
-  ] as const) {
+  ] as const;
+
+  for (const key of arrayKeys) {
+    const defaultVal = defaults[key];
     const cmsVal = cms[key];
-    if (Array.isArray(cmsVal) && cmsVal.length > 0) {
-      (merged as UnknownRecord)[key] = cmsVal;
+    if (Array.isArray(defaultVal) && defaultVal.length > 0) {
+      merged[key] = defaultVal;
+    } else if (Array.isArray(cmsVal) && cmsVal.length > 0) {
+      merged[key] = cmsVal;
     }
   }
+
   return merged;
 }
 

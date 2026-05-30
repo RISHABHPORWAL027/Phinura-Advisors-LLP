@@ -6,7 +6,7 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
     title: "Private Limited Company Registration",
     heroTitle: "Private Limited Company Registration in India",
     shortDescription:
-      "Register your Private Limited Company with experienced Chartered Accountants trusted since 1955. We manage the complete incorporation process including DSC, DIN, MoA, AoA, SPICe+ filing, PAN, TAN, GST registration, and post-incorporation compliance; so you can focus entirely on building your business.",
+      "Register your Private Limited Company with expert Chartered Accountants at Phinura Advisors. We manage the complete incorporation process including DSC, DIN, MoA, AoA, SPICe+ filing, PAN, TAN, GST registration, and post-incorporation compliance; so you can focus entirely on building your business.",
     whyChooseHeading: "Why Choose Private Limited Company Registration?",
     whyChooseFeatures: [
       {
@@ -88,11 +88,11 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
         description: "A registered Private Limited Company builds trust among clients, vendors, banks, and investors."
       }
     ],
-    whyChooseUsHeading: "Why Choose Us for Private Limited Company Registration?",
+    whyChooseUsHeading: "Why Choose Phinura Advisors for Private Limited Company Registration?",
     whyChooseUs: [],
     labeledSections: [
       {
-        title: "Why Choose Us for Private Limited Company Registration?",
+        title: "Why Choose Phinura Advisors for Private Limited Company Registration?",
         items: [
           {
             title: "Expert Company Registration Support",
@@ -244,11 +244,11 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
         description: "Public Limited Companies can receive foreign investment under FEMA guidelines, making them attractive to global investors and strategic partners."
       }
     ],
-    whyChooseUsHeading: "Why Choose Us for Public Limited Company Registration?",
+    whyChooseUsHeading: "Why Choose Phinura Advisors for Public Limited Company Registration?",
     whyChooseUs: [],
     labeledSections: [
       {
-        title: "Why Choose Us for Public Limited Company Registration?",
+        title: "Why Choose Phinura Advisors for Public Limited Company Registration?",
         items: [
           {
             title: "Experienced Corporate Advisory Team",
@@ -336,14 +336,15 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whatIsHeading: "What is a One Person Company (OPC)?",
     whatIsDescription:
-      "A One Person Company (OPC) is a business structure introduced under the Companies Act, 2013 that allows a single entrepreneur to operate a fully registered company with limited liability protection. It combines the flexibility of a sole proprietorship with the legal status and credibility of a Private Limited Company.\n\nAn OPC is regulated by the Ministry of Corporate Affairs (MCA) and supervised by the Registrar of Companies (ROC). It is treated as a separate legal entity distinct from its owner.\n\nBefore OPC was introduced, solo entrepreneurs either operated as sole proprietors or had to add unnecessary partners to register a company. OPC solves this issue by allowing one individual to own and manage a company independently while enjoying legal protection and corporate credibility.\n\nAn OPC is required to convert into a Private Limited Company once its paid-up capital exceeds ₹50 Lakhs or annual turnover exceeds ₹2 Crores.",
+      "A One Person Company (OPC) is a business structure introduced under the Companies Act, 2013 that allows a single entrepreneur to operate a fully registered company with limited liability protection. It combines the flexibility of a sole proprietorship with the legal status and credibility of a Private Limited Company.\n\nAn OPC is regulated by the Ministry of Corporate Affairs (MCA) and supervised by the Registrar of Companies (ROC). It is treated as a separate legal entity distinct from its owner.\n\nBefore OPC was introduced, solo entrepreneurs either operated as sole proprietors or had to add unnecessary partners to register a company. OPC solves this issue by allowing one individual to own and manage a company independently while enjoying legal protection and corporate credibility.",
     keyPointsHeading: "An OPC must have:",
     keyPoints: [
       "One shareholder/member",
       "One nominee",
       "At least one director",
       "One Indian resident member",
-      "The nominee takes over the company in case of the member’s death or incapacity."
+      "The nominee takes over the company in case of the member's death or incapacity.",
+      "An OPC is required to convert into a Private Limited Company once its paid-up capital exceeds ₹50 Lakhs or annual turnover exceeds ₹2 Crores."
     ],
     keyFeaturesHeading: "Key Features of OPC Registration",
     keyFeatureFeatures: [
@@ -428,7 +429,7 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Why Choose Us for OPC Registration?",
+        title: "Why Choose us for OPC Registration?",
         items: [
           {
             title: "Expert Business Registration Support",
@@ -649,7 +650,7 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Why Choose Us for Section 8 Company Registration?",
+        title: "Why Choose us for Section 8 Company Registration?",
         items: [
           {
             title: "Expert Non-Profit Structuring",
@@ -737,7 +738,7 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whatIsHeading: "What is a Limited Liability Partnership (LLP)?",
     whatIsDescription:
-      "A Limited Liability Partnership (LLP) is a modern business structure that combines the flexibility of a traditional partnership with the liability protection of a company. It is governed by the LLP Act, 2008 and regulated by the Ministry of Corporate Affairs (MCA).\n\nAn LLP is treated as a separate legal entity from its partners. It can own property, enter contracts, open bank accounts, and conduct legal proceedings in its own name.\n\nUnlike traditional partnerships, partners in an LLP are not personally liable for the negligence or misconduct of other partners. Liability is limited to the agreed contribution of each partner.\n\nThere is no minimum capital contribution requirement for LLP registration, making it an economical and accessible option for startups and professionals.",
+      "A Limited Liability Partnership (LLP) is a modern business structure that combines the flexibility of a traditional partnership with the liability protection of a company. It is governed by the LLP Act, 2008 and regulated by the Ministry of Corporate Affairs (MCA).\n\nAn LLP is treated as a separate legal entity from its partners. It can own property, enter contracts, open bank accounts, and conduct legal proceedings in its own name.\n\nUnlike traditional partnerships, partners in an LLP are not personally liable for the negligence or misconduct of other partners. Liability is limited to the agreed contribution of each partner.",
     keyPointsHeading: "An LLP is especially suitable for:",
     keyPoints: [
       "Professional service firms",
@@ -746,7 +747,8 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
       "Architects",
       "IT companies",
       "Small and medium-sized businesses",
-      "Every LLP must have a minimum of 2 designated partners, with at least one being an Indian resident. There is no upper limit on the number of partners."
+      "Every LLP must have a minimum of 2 designated partners, with at least one being an Indian resident. There is no upper limit on the number of partners.",
+      "There is no minimum capital contribution requirement for LLP registration, making it an economical and accessible option for startups and professionals."
     ],
     keyFeaturesHeading: "Key Features of LLP Registration",
     keyFeatureFeatures: [
@@ -831,7 +833,7 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Why Choose Us for LLP Registration?",
+        title: "Why Choose us for LLP Registration?",
         items: [
           {
             title: "Experienced Registration and Compliance Support",
@@ -1036,7 +1038,7 @@ export const COMPANY_REGISTRATION_SUB_SERVICES: SubServicePageContent[] = [
         ]
       },
       {
-        title: "Why Choose Us for Partnership Firm Registration?",
+        title: "Why Choose us for Partnership Firm Registration?",
         items: [
           {
             title: "Expert Partnership Structuring",

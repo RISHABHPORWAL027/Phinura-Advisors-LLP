@@ -8,8 +8,6 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     shortDescription:
       "GST Registration is mandatory for businesses engaged in the supply of goods or services once they cross the prescribed turnover limit under GST law. It allows businesses to collect GST legally, claim Input Tax Credit (ITC), expand operations across India, and stay compliant with government regulations. We provide complete support for GST registration including documentation, application filing, GSTIN approval, and post-registration compliance guidance.",
     whyChooseHeading: "Benefits of GST Registration",
-    whyChooseIntro:
-      "GST registration enables legal tax collection, ITC benefits, interstate trade, and stronger business credibility with clients, vendors, and marketplaces.",
     whyChooseFeatures: [
       { title: "Claim Input Tax Credit (ITC)", description: "Reduce overall tax liability by claiming credit on GST paid for purchases and expenses." },
       { title: "Legally Collect GST", description: "Registered businesses can legally collect GST from customers and issue GST invoices." },
@@ -30,8 +28,8 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "GST Registration for E-Commerce Sellers", description: "Mandatory for sellers operating through online marketplaces." },
       { title: "Input Service Distributor (ISD)", description: "Applicable for businesses distributing Input Tax Credit among branches." },
     ],
-    benefitsIntro:
-      "Even below-threshold businesses may voluntarily register to unlock ITC, credibility, and growth opportunities.",
+    benefitsHeading: "Benefits of Voluntary GST Registration",
+    benefitsIntro: "Even if turnover is below the prescribed limit, businesses may voluntarily register for GST.",
     benefitFeatures: [
       { title: "Claim Input Tax Credit", description: "Claim GST paid on business purchases." },
       { title: "Improve Business Credibility", description: "GST registration builds trust among vendors and customers." },
@@ -48,6 +46,7 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       "Non-resident taxable persons",
       "Input Service Distributors",
       "Businesses liable under Reverse Charge Mechanism (RCM)",
+      "Online service providers supplying services from outside India",
     ],
     processStepsHeading: "GST Registration Process",
     processSteps: [
@@ -69,15 +68,26 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
+        title: "GST Registration Threshold Limit",
+        intro: "GST registration becomes mandatory once turnover crosses the prescribed threshold. Special category states include states such as Assam, Meghalaya, Mizoram, Nagaland, Tripura, Arunachal Pradesh, and others notified under GST law.",
+      },
+      {
         title: "Mandatory GST Registration Cases",
-        intro: "GST registration becomes mandatory irrespective of turnover in certain cases:",
-        bullets: [
-          "Interstate Supply",
-          "E-Commerce Sellers (Amazon, Flipkart, Swiggy, etc.)",
-          "Reverse Charge Mechanism liability",
-          "Casual Taxable Persons",
-          "Non-Resident Taxable Persons",
-          "TDS & TCS Deductors",
+        intro: "GST registration becomes mandatory irrespective of turnover in certain cases.",
+        items: [
+          { title: "Interstate Supply", description: "Businesses supplying goods or services across states." },
+          { title: "E-Commerce Sellers", description: "Sellers operating through Amazon, Flipkart, Swiggy, etc." },
+          { title: "Reverse Charge Mechanism", description: "Businesses liable to pay tax under RCM." },
+          { title: "Casual Taxable Persons", description: "Temporary business operators in different states." },
+          { title: "Non-Resident Taxable Persons", description: "Foreign entities supplying taxable goods or services in India." },
+          { title: "TDS & TCS Deductors", description: "Entities responsible for deducting or collecting GST at source." },
+        ],
+      },
+      {
+        title: "Regular Scheme vs Composition Scheme",
+        items: [
+          { title: "Regular Scheme", description: "Suitable for businesses involved in interstate trade, B2B supply, or requiring Input Tax Credit benefits. ITC available, interstate trade allowed, e-commerce selling permitted. Monthly or quarterly GST returns required." },
+          { title: "Composition Scheme", description: "Suitable for small businesses seeking simplified compliance. Lower GST rates, simplified return filing, reduced compliance burden. Interstate sales not allowed, ITC cannot be claimed, e-commerce selling restrictions apply." },
         ],
       },
       {
@@ -101,11 +111,36 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
+        title: "GST Registration Fees",
+        items: [
+          { title: "Government Fees", description: "No government fee is charged for normal GST registration." },
+          { title: "Professional Fees", description: "Professional charges may apply depending on business type and complexity." },
+          { title: "Casual & Non-Resident Taxable Persons", description: "Advance tax deposit may be required as per GST rules." },
+        ],
+      },
+      {
         title: "Penalty for Non-Registration Under GST",
+        intro: "Failure to obtain mandatory GST registration may result in:",
+        items: [
+          { title: "General Penalty", description: "₹10,000 or 10% of tax due, whichever is higher." },
+          { title: "Fraud or Intentional Tax Evasion", description: "₹10,000 or 100% of tax due, whichever is higher." },
+          { title: "Additional Consequences", description: "GST notices, interest on unpaid tax, restriction on business operations." },
+        ],
+      },
+      {
+        title: "GST Registration Cancellation",
+        intro: "GST registration may be cancelled voluntarily or by GST authorities. Voluntary cancellation is applicable in case of business closure, transfer, or turnover falling below threshold. Cancellation by department is possible due to non-filing of GST returns, fraudulent activities, fake invoicing, or non-operational business. Pending GST returns must generally be filed before cancellation.",
+      },
+      {
+        title: "GST Compliance After Registration",
+        intro: "After GST registration, businesses are required to:",
         bullets: [
-          "General Penalty: ₹10,000 or 10% of tax due, whichever is higher",
-          "Fraud or Intentional Tax Evasion: ₹10,000 or 100% of tax due, whichever is higher",
-          "Additional Consequences: GST notices, interest on unpaid tax, restriction on business operations",
+          "File GST returns regularly",
+          "Maintain proper invoices and records",
+          "Pay GST liability on time",
+          "Generate e-way bills where applicable",
+          "Use correct HSN/SAC codes",
+          "Maintain compliance under GST laws",
         ],
       },
       {
@@ -119,7 +154,7 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for GST Registration?",
+        title: "Why Choose us for GST Registration?",
         items: [
           { title: "Experienced GST Professionals", description: "Professional support for GST registration and compliance." },
           { title: "Complete Documentation Support", description: "Assistance for preparing and verifying all required documents." },
@@ -129,6 +164,7 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is GST registration?", answer: "GST registration is the process of obtaining GSTIN under the GST system." },
       { question: "Is GST registration mandatory?", answer: "Yes, once turnover crosses prescribed limits or in specified mandatory cases." },
@@ -137,19 +173,18 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "Can I apply for GST voluntarily?", answer: "Yes, businesses below threshold can also voluntarily register for GST." },
       { question: "Is GST registration required for online sellers?", answer: "Yes, GST registration is generally mandatory for e-commerce sellers." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
     ctaTitle: "Get GST Registration with Expert Support",
+    ctaSubtitle: "We handle complete GST registration services including documentation, GST application filing, GSTIN approval, Aadhaar authentication, compliance guidance, and post-registration support so your business remains fully compliant and growth-ready.",
   },
   {
     id: "gst-return-filing",
     title: "GST Return Filing",
     heroTitle: "File GST Returns Online with Complete GST Compliance Support",
     shortDescription:
-      "GST Return Filing is the process of reporting sales, purchases, Input Tax Credit (ITC), and tax liability under the Goods and Services Tax (GST) system. Every registered business is required to file GST returns within prescribed timelines to remain compliant with GST regulations in India. We provide complete support for GSTR-1, GSTR-3B, GSTR-9, GSTR-4, GST reconciliation, ITC review, and GST compliance management.",
+      "GST Return Filing is the process of reporting sales, purchases, Input Tax Credit (ITC), and tax liability under the Goods and Services Tax (GST) system. Every registered business is required to file GST returns within prescribed timelines to remain compliant with GST regulations in India. Whether you are a regular taxpayer, composition dealer, freelancer, e-commerce seller, or service provider, timely GST return filing is essential to avoid penalties, claim ITC benefits, and maintain smooth business operations. We provide complete support for GSTR-1, GSTR-3B, GSTR-9, GSTR-4, GST reconciliation, ITC review, and GST compliance management.",
     whyChooseHeading: "Benefits of GST Return Filing",
-    whyChooseIntro:
-      "Timely GST return filing keeps your business compliant, protects ITC eligibility, and avoids penalties and registration suspension.",
     whyChooseFeatures: [
       { title: "Stay GST Compliant", description: "Maintain compliance under GST laws and avoid legal complications." },
       { title: "Claim Input Tax Credit (ITC)", description: "Claim eligible GST credit on business purchases and expenses." },
@@ -170,8 +205,8 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "GSTR-9C", description: "GST audit reconciliation statement for specified businesses." },
       { title: "QRMP Scheme", description: "Quarterly GSTR-1 and GSTR-3B for eligible taxpayers up to ₹5 Crores turnover." },
     ],
-    benefitsIntro:
-      "Accurate return filing supports ITC claims, audit readiness, and smoother vendor and banking relationships.",
+    benefitsHeading: "Importance of GST Return Filing",
+    benefitsIntro: "GST return filing plays an important role in India's taxation system.",
     benefitFeatures: [
       { title: "Claim Input Tax Credit", description: "Businesses can claim ITC only through proper GST return filing." },
       { title: "Maintain GST Compliance", description: "Ensures compliance with GST regulations and government reporting requirements." },
@@ -190,6 +225,40 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
+        title: "Who is Required to File GST Returns?",
+        intro: "GST return filing is generally required for:",
+        bullets: [
+          "Registered Businesses",
+          "Private Limited Companies",
+          "LLPs & Partnership Firms",
+          "Proprietorship Businesses",
+          "Freelancers & Consultants",
+          "E-Commerce Sellers",
+          "Composition Dealers",
+          "Input Service Distributors (ISD)",
+          "Non-Resident Taxable Persons",
+          "TDS/TCS Deductors",
+        ],
+      },
+      {
+        title: "GST Return Filing Threshold Limits",
+        items: [
+          { title: "Goods Suppliers", description: "Businesses dealing exclusively in goods generally require GST registration above ₹40 Lakhs turnover." },
+          { title: "Service Providers", description: "GST registration generally becomes mandatory above ₹20 Lakhs turnover." },
+          { title: "Special Category States", description: "Lower limits apply for specified states where the threshold may be ₹10 Lakhs or ₹20 Lakhs depending on business type." },
+        ],
+      },
+      {
+        title: "Other Important GST Returns",
+        items: [
+          { title: "GSTR-5", description: "Applicable for non-resident taxable persons." },
+          { title: "GSTR-6", description: "Applicable for Input Service Distributors (ISD)." },
+          { title: "GSTR-7", description: "Applicable for TDS deductors." },
+          { title: "GSTR-8", description: "Applicable for e-commerce operators collecting TCS." },
+          { title: "GSTR-10", description: "Final return after GST cancellation." },
+        ],
+      },
+      {
         title: "Documents Required for GST Return Filing",
         bullets: [
           "Sales Invoices",
@@ -205,11 +274,12 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       },
       {
         title: "Penalty for Late GST Return Filing",
-        bullets: [
-          "Late Fee for GSTR-1: ₹200 per day (₹100 CGST + ₹100 SGST)",
-          "Late Fee for GSTR-3B: ₹20 per day for NIL returns; ₹50 per day for other cases",
-          "Interest on Outstanding Tax: 18% per annum on unpaid tax liability",
-          "GST Registration Suspension: Continuous non-filing may result in suspension or cancellation",
+        intro: "Failure to file GST returns within due dates may attract penalties and interest.",
+        items: [
+          { title: "Late Fee for GSTR-1", description: "₹200 per day (₹100 CGST + ₹100 SGST)." },
+          { title: "Late Fee for GSTR-3B", description: "₹20 per day for NIL returns; ₹50 per day for other cases." },
+          { title: "Interest on Outstanding Tax", description: "18% per annum on unpaid tax liability." },
+          { title: "GST Registration Suspension", description: "Continuous non-filing may result in suspension or cancellation of GST registration." },
         ],
       },
       {
@@ -224,7 +294,11 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for GST Return Filing?",
+        title: "How to Check GST Return Status?",
+        intro: "GST return status can generally be checked through ARN tracking, GST return filing period, GST portal dashboard, and filing status search.",
+      },
+      {
+        title: "Why Choose us for GST Return Filing?",
         items: [
           { title: "Experienced GST Professionals", description: "Professional support for GST return filing and compliance." },
           { title: "Error-Free GST Filing", description: "Accurate filing with reconciliation and ITC review." },
@@ -234,6 +308,7 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is GST return filing?", answer: "GST return filing is the process of reporting sales, purchases, tax liability, and ITC under GST laws." },
       { question: "Is NIL GST return filing mandatory?", answer: "Yes. NIL returns may still be required even if there is no business activity." },
@@ -242,19 +317,18 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "Can GST returns be revised?", answer: "GST returns cannot generally be revised directly, but corrections can be made in subsequent returns." },
       { question: "What is Input Tax Credit (ITC)?", answer: "ITC is the credit of GST paid on purchases that can be adjusted against output GST liability." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
     ctaTitle: "File GST Returns with Expert Support",
+    ctaSubtitle: "We handle complete GST return filing services including GSTR-1, GSTR-3B, GSTR-9, ITC reconciliation, GST compliance review, annual GST filing, and notice support so your business remains fully GST compliant without hassle.",
   },
   {
     id: "gst-modification",
     title: "GST Modification",
     heroTitle: "Update Your GST Registration with Complete GST Compliance Support",
     shortDescription:
-      "GST Modification refers to updating or amending details in an existing GST Registration Certificate due to changes in business information, address, contact details, business structure, or GST scheme selection. GST modification is filed online through Form GST REG-14 on the GST portal. We provide complete support for GST amendment, profile updates, address changes, partner or director updates, and GST scheme modifications.",
+      "GST Modification refers to updating or amending details in an existing GST Registration Certificate due to changes in business information, address, contact details, business structure, or GST scheme selection. Businesses are required to update GST records whenever there is any change in registration details to maintain compliance under GST laws. GST modification is filed online through Form GST REG-14 on the GST portal. We provide complete support for GST amendment, GST profile updates, business address changes, partner or director updates, mobile number changes, and GST scheme modifications.",
     whyChooseHeading: "Benefits of GST Modification",
-    whyChooseIntro:
-      "Keeping GST registration details accurate prevents notices, ITC mismatches, and invoicing compliance issues.",
     whyChooseFeatures: [
       { title: "Maintain Accurate GST Records", description: "Keep your GST registration details updated with the GST department." },
       { title: "Stay GST Compliant", description: "Avoid notices, penalties, and compliance issues due to incorrect GST information." },
@@ -267,30 +341,37 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       "GST modification refers to making changes or amendments in an existing GST registration certificate whenever there is a change in business details such as business name, address, partners or directors, mobile number, email address, conversion between composition and regular scheme, or addition of new place of business. The application for GST amendment is generally filed using Form GST REG-14.",
     keyFeaturesHeading: "Types of GST Amendments",
     keyFeatureFeatures: [
-      { title: "Core Field Amendments", description: "Changes requiring GST officer approval — business name, principal place of business, partners/directors, business structure." },
+      { title: "Core Field Amendments", description: "Changes generally requiring GST officer approval — business name, principal place of business, partners/directors, business structure." },
       { title: "Non-Core Field Amendments", description: "Generally updated automatically — mobile, email, additional place of business, authorised signatory." },
-      { title: "Composition to Regular Scheme", description: "Businesses crossing turnover threshold may shift to regular GST scheme." },
-      { title: "Regular to Composition Scheme", description: "Eligible small businesses may opt for composition scheme subject to GST rules." },
-    ],
-    benefitsIntro:
-      "Timely GST amendments keep your registration aligned with how your business actually operates.",
-    benefitFeatures: [
-      { title: "Accurate Invoicing", description: "Ensure GST invoices reflect correct legal and address details." },
-      { title: "Notice Prevention", description: "Reduce mismatch between GST records and business reality." },
-      { title: "ITC Protection", description: "Avoid ITC claim issues due to outdated registration data." },
-      { title: "Operational Continuity", description: "Prevent disruptions during audits, banking, or vendor verification." },
-    ],
-    processStepsHeading: "GST Modification Process",
-    processSteps: [
-      { title: "Review Existing GST Details", description: "Current GST registration details are reviewed." },
-      { title: "Collect Supporting Documents", description: "Relevant amendment documents are prepared." },
-      { title: "Prepare GST Amendment Application", description: "Form GST REG-14 is prepared with updated information." },
-      { title: "Upload Documents", description: "Required supporting documents are uploaded on GST portal." },
-      { title: "Verification & Authentication", description: "Application is verified through DSC, EVC, or Aadhaar authentication." },
-      { title: "GST Officer Review", description: "For core amendments, GST officer may review and approve the application." },
-      { title: "GST Amendment Approval", description: "Updated GST Registration Certificate is issued after approval." },
     ],
     labeledSections: [
+      {
+        title: "Core Field Amendments",
+        intro: "Core field changes generally require approval from the GST officer.",
+        items: [
+          { title: "Change in Business Name", description: "Update legal business name in GST registration." },
+          { title: "Change in Principal Place of Business", description: "Modification in registered office or principal business address." },
+          { title: "Addition or Removal of Partners/Directors", description: "Changes in stakeholders responsible for business operations." },
+          { title: "Change in Business Structure", description: "Changes due to conversion, merger, or restructuring." },
+        ],
+      },
+      {
+        title: "Non-Core Field Amendments",
+        intro: "Non-core amendments are generally updated automatically after filing.",
+        items: [
+          { title: "Mobile Number Change", description: "Update registered mobile number." },
+          { title: "Email Address Change", description: "Update official email address linked with GST registration." },
+          { title: "Addition of Additional Place of Business", description: "Add branch office, warehouse, or additional business location." },
+          { title: "Authorised Signatory Details", description: "Update authorised signatory information." },
+        ],
+      },
+      {
+        title: "GST Scheme Modification",
+        items: [
+          { title: "Composition to Regular Scheme", description: "Businesses crossing turnover threshold may shift to regular GST scheme." },
+          { title: "Regular to Composition Scheme", description: "Eligible small businesses may opt for composition scheme subject to GST rules." },
+        ],
+      },
       {
         title: "Details That Can Be Updated in GST Registration",
         bullets: [
@@ -320,17 +401,40 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Consequences of Not Updating GST Registration",
-        bullets: [
-          "GST Notices due to record mismatch",
-          "Compliance and invoicing issues",
-          "ITC mismatch and claim rejection risk",
-          "Penalties for non-compliance under GST regulations",
-          "Business disruptions during audits, banking, or vendor verification",
+        title: "Time Limit for GST Amendment",
+        intro: "GST amendment application should generally be filed within 15 days from the date of change in business details. Timely filing helps avoid compliance issues and GST notices.",
+      },
+      {
+        title: "GST Modification Approval Timeline",
+        items: [
+          { title: "Non-Core Amendments", description: "Usually processed quickly after successful filing." },
+          { title: "Core Amendments", description: "May take approximately 7 to 15 working days depending on GST officer verification and document review." },
         ],
       },
       {
-        title: "Why Choose Us for GST Modification?",
+        title: "Situations Where GST Amendment is Required",
+        items: [
+          { title: "Office Relocation", description: "Change in registered office or business premises." },
+          { title: "Business Expansion", description: "Addition of branch office or warehouse." },
+          { title: "Partner or Director Change", description: "Appointment or resignation of directors/partners." },
+          { title: "Business Rebranding", description: "Change in legal business name or trade name." },
+          { title: "GST Scheme Conversion", description: "Shifting between composition and regular scheme." },
+          { title: "Contact Information Update", description: "Changes in mobile number or email address." },
+        ],
+      },
+      {
+        title: "Consequences of Not Updating GST Registration",
+        intro: "Failure to update GST registration may lead to:",
+        items: [
+          { title: "GST Notices", description: "Mismatch between GST records and actual business details may trigger notices." },
+          { title: "Compliance Issues", description: "Incorrect GST information may create filing and invoicing problems." },
+          { title: "ITC Mismatch", description: "Input Tax Credit claims may get affected." },
+          { title: "Penalties", description: "Penalties may apply for non-compliance under GST regulations." },
+          { title: "Business Disruptions", description: "Incorrect GST details may create issues during audits, banking, or vendor verification." },
+        ],
+      },
+      {
+        title: "Why Choose us for GST Modification?",
         items: [
           { title: "Experienced GST Professionals", description: "Professional support for GST amendments and compliance." },
           { title: "Complete Documentation Assistance", description: "Support for preparing and verifying amendment documents." },
@@ -340,6 +444,17 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    processStepsHeading: "GST Modification Process",
+    processSteps: [
+      { title: "Review Existing GST Details", description: "Current GST registration details are reviewed." },
+      { title: "Collect Supporting Documents", description: "Relevant amendment documents are prepared." },
+      { title: "Prepare GST Amendment Application", description: "Form GST REG-14 is prepared with updated information." },
+      { title: "Upload Documents", description: "Required supporting documents are uploaded on GST portal." },
+      { title: "Verification & Authentication", description: "Application is verified through DSC, EVC, or Aadhaar authentication." },
+      { title: "GST Officer Review", description: "For core amendments, GST officer may review and approve the application." },
+      { title: "GST Amendment Approval", description: "Updated GST Registration Certificate is issued after approval." },
+    ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is GST modification?", answer: "GST modification means updating or amending details in existing GST registration." },
       { question: "Which form is used for GST amendment?", answer: "Form GST REG-14 is generally used for GST modification." },
@@ -348,19 +463,18 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "Is GST officer approval required for amendment?", answer: "Approval is generally required for core field amendments." },
       { question: "How long does GST modification take?", answer: "The timeline depends on the type of amendment and verification process." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
     ctaTitle: "Update Your GST Registration with Expert Support",
+    ctaSubtitle: "We handle complete GST modification services including GST REG-14 filing, address updates, director or partner changes, GST scheme conversion, document preparation, and compliance support so your GST registration remains accurate and fully compliant.",
   },
   {
     id: "gstr-9-annual-filing",
     title: "GSTR-9 Annual Filing",
     heroTitle: "File Your GSTR-9 Annual Return Online with Complete GST Compliance Support",
     shortDescription:
-      "GSTR-9 is an annual GST return that contains consolidated details of outward supplies, inward supplies, Input Tax Credit (ITC), tax paid, refunds, and GST transactions for a financial year. Eligible registered taxpayers are required to file GSTR-9 annually to maintain GST compliance. We provide complete support for GSTR-9 preparation, GST reconciliation, ITC verification, annual GST compliance review, and online filing support.",
+      "GSTR-9 is an annual GST return that contains consolidated details of outward supplies, inward supplies, Input Tax Credit (ITC), tax paid, refunds, and GST transactions for a financial year. As per the Central Goods and Services Tax Act, 2017, eligible registered taxpayers are required to file GSTR-9 annually to maintain GST compliance. Timely filing of GSTR-9 helps businesses maintain proper GST records, avoid penalties, and reconcile annual GST transactions accurately. We provide complete support for GSTR-9 preparation, GST reconciliation, ITC verification, annual GST compliance review, and online filing support.",
     whyChooseHeading: "Benefits of GSTR-9 Filing",
-    whyChooseIntro:
-      "Timely GSTR-9 filing reconciles your annual GST data and helps avoid late fees, notices, and compliance restrictions.",
     whyChooseFeatures: [
       { title: "Maintain Annual GST Compliance", description: "Fulfil annual GST return filing requirements under GST laws." },
       { title: "Proper GST Reconciliation", description: "Reconcile yearly sales, purchases, ITC, and tax payments accurately." },
@@ -378,8 +492,17 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Due Date", description: "Generally required to be filed by 31st October following the financial year." },
       { title: "Who Must File", description: "Regular GST registered taxpayers, companies, LLPs, proprietorships, and partnership firms as applicable." },
     ],
-    benefitsIntro:
-      "Annual filing provides a consolidated GST view for accounting, audits, and compliance planning.",
+    keyPointsHeading: "Who is Required to File GSTR-9?",
+    keyPoints: [
+      "Regular GST Registered Taxpayers",
+      "Businesses crossing prescribed turnover limits",
+      "SEZ Units",
+      "SEZ Developers",
+      "Companies & LLPs",
+      "Proprietorship Businesses",
+      "Partnership Firms",
+    ],
+    benefitsHeading: "Benefits of Annual GSTR-9 Filing",
     benefitFeatures: [
       { title: "Elimination of Cascading Effect", description: "GST helps eliminate tax-on-tax effect and simplifies taxation structure." },
       { title: "Organized Taxation System", description: "Businesses can manage GST compliance under a unified taxation system." },
@@ -398,6 +521,20 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
+        title: "Due Date for GSTR-9 Filing",
+        intro: "GSTR-9 is generally required to be filed by 31st October following the end of the relevant financial year. The due date may be extended through government notifications whenever applicable.",
+      },
+      {
+        title: "Importance of Filing GSTR-9 on Time",
+        items: [
+          { title: "Avoid Late Fees & Penalties", description: "Delayed filing may attract GST late fees and penalties." },
+          { title: "Maintain GST Compliance", description: "Ensures proper compliance under GST law." },
+          { title: "Smooth ITC Reconciliation", description: "Helps reconcile Input Tax Credit accurately." },
+          { title: "Reduce Risk of GST Notices", description: "Accurate annual filing minimizes mismatch notices and compliance actions." },
+          { title: "Better Financial Management", description: "Provides yearly GST transaction summary for accounting and audits." },
+        ],
+      },
+      {
         title: "Documents Required for GSTR-9 Filing",
         bullets: [
           "Details of Inward & Outward Supplies",
@@ -412,11 +549,12 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       },
       {
         title: "Penalty for Late Filing of GSTR-9",
-        bullets: [
-          "Late Fees under GST law may apply for delayed filing",
-          "GST Notices for non-filing",
-          "Restriction on future compliance activities",
-          "Interest and additional liability in certain cases",
+        intro: "Failure to file GSTR-9 within prescribed due date may result in:",
+        items: [
+          { title: "Late Fees", description: "Late fee under GST law may apply for delayed filing." },
+          { title: "GST Notices", description: "Non-filing may trigger GST compliance notices." },
+          { title: "Restriction on Future Compliance", description: "Pending annual returns may affect future GST filings and compliance activities." },
+          { title: "Interest & Additional Liability", description: "Additional interest or liability may arise in certain cases." },
         ],
       },
       {
@@ -429,7 +567,7 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for GSTR-9 Filing?",
+        title: "Why Choose us for GSTR-9 Filing?",
         items: [
           { title: "Experienced GST Professionals", description: "Professional support for annual GST filing and reconciliation." },
           { title: "Accurate GST Reconciliation", description: "Detailed review of sales, purchases, and ITC records." },
@@ -439,6 +577,7 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is GSTR-9?", answer: "GSTR-9 is an annual GST return containing yearly GST transaction details." },
       { question: "Who is required to file GSTR-9?", answer: "Eligible registered taxpayers under GST are generally required to file GSTR-9." },
@@ -446,53 +585,51 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "What happens if GSTR-9 is not filed?", answer: "Late fees, GST notices, and compliance issues may arise." },
       { question: "Can GSTR-9 be revised after filing?", answer: "Generally, GSTR-9 once filed cannot be revised directly." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
     ctaTitle: "File Your GSTR-9 with Expert Support",
+    ctaSubtitle: "We handle complete GSTR-9 annual return filing including GST reconciliation, ITC verification, annual GST compliance review, online filing, and GST support services so your business remains fully compliant and audit-ready.",
   },
   {
     id: "gst-e-way-bill",
     title: "GST E-Way Bill",
-    heroTitle: "Generate & Manage GST E-Way Bills with Complete Compliance Support",
+    heroTitle: "Generate and Manage E-Way Bills with Complete GST Compliance Support",
     shortDescription:
-      "GST E-Way Bill is an electronic document required for movement of goods above prescribed value thresholds under GST rules. It ensures proper tracking of goods in transit and helps businesses stay compliant with transport and invoicing regulations. We provide complete support for e-way bill generation, transporter updates, vehicle changes, validity extension, and movement compliance under GST.",
+      "E-way bill generation, transporter updates, vehicle changes, and movement compliance under GST rules help businesses move goods legally and avoid transit delays. An e-way bill is an electronic document required for movement of goods above prescribed value thresholds under GST law. We provide complete support for e-way bill generation, Part A and Part B filing, transporter updates, vehicle changes, validity extension, consolidated e-way bills, and movement compliance under GST.",
     whyChooseHeading: "Benefits of GST E-Way Bill Compliance",
-    whyChooseIntro:
-      "Proper e-way bill compliance prevents transport delays, penalties, and goods detention during interstate or intrastate movement.",
     whyChooseFeatures: [
-      { title: "Smooth Goods Movement", description: "Generate valid e-way bills for hassle-free transportation of goods." },
-      { title: "Avoid Penalties & Detention", description: "Timely and accurate e-way bills help prevent compliance action during transit checks." },
-      { title: "Transporter & Vehicle Updates", description: "Support for updating transporter ID, vehicle number, and validity extensions." },
-      { title: "Invoice & Transport Alignment", description: "Ensure e-way bill details match invoices and delivery challans correctly." },
-      { title: "Interstate & Intrastate Support", description: "Compliance support for movement across states and within states." },
-      { title: "Dedicated GST Assistance", description: "Professional guidance for e-way bill rules, thresholds, and documentation." },
+      { title: "Smooth Goods Movement", description: "Generate and manage e-way bills smoothly for hassle-free transportation of goods." },
+      { title: "Transporter Updates", description: "Support for updating transporter ID, vehicle number, and transport details during transit." },
+      { title: "Vehicle Changes", description: "Assistance for vehicle change updates and validity extension where applicable under GST rules." },
+      { title: "Movement Compliance", description: "Ensure movement of goods complies with GST e-way bill requirements for interstate and intrastate transport." },
+      { title: "Invoice & Transport Alignment", description: "Ensure e-way bill details match tax invoices, delivery challans, and transport records correctly." },
+      { title: "Avoid Penalties & Detention", description: "Timely and accurate e-way bills help prevent compliance action, penalties, and goods detention during transit checks." },
     ],
     whatIsHeading: "What is GST E-Way Bill?",
     whatIsDescription:
-      "An E-Way Bill (EWB) is an electronic document generated on the GST portal for movement of goods. It contains details of consignor, consignee, transporter, invoice/challan details, and vehicle information. E-way bills are generally mandatory when the value of goods being transported exceeds ₹50,000, subject to applicable GST rules and state notifications.",
-    keyFeaturesHeading: "When is E-Way Bill Required?",
-    keyFeatureFeatures: [
-      { title: "Interstate Movement", description: "Generally required when goods move across state borders above threshold limits." },
-      { title: "Intrastate Movement", description: "Required in many states when consignment value exceeds prescribed limits." },
-      { title: "Supply or Other Reasons", description: "Applicable for supply, return, job work, exhibition, and other specified movements." },
-      { title: "Transporter Responsibility", description: "Transporters may generate or update e-way bills where applicable under GST rules." },
+      "An E-Way Bill (EWB) is an electronic document generated on the GST e-way bill portal for movement of goods. It contains details of consignor, consignee, transporter, invoice or challan details, HSN, value of goods, and vehicle or transport information. E-way bills are generally mandatory when the value of goods being transported exceeds ₹50,000, subject to applicable GST rules, notifications, and state-specific requirements.",
+    keyPointsHeading: "E-Way Bill is generally required for:",
+    keyPoints: [
+      "Interstate movement of goods",
+      "Intrastate movement where state rules apply",
+      "Supply, return, job work, exhibition, and other specified movements",
+      "Movement linked to tax invoice, bill of supply, or delivery challan",
     ],
-    benefitsIntro:
-      "Accurate e-way bill management keeps logistics aligned with GST invoicing and audit requirements.",
-    benefitFeatures: [
-      { title: "Compliance During Transit", description: "Reduce risk of goods detention at checkpoints." },
-      { title: "Accurate Documentation", description: "Match e-way bills with tax invoices and delivery records." },
-      { title: "Operational Efficiency", description: "Avoid last-minute e-way bill errors that delay shipments." },
-      { title: "Audit Readiness", description: "Maintain proper movement records for GST audits and reviews." },
+    keyFeaturesHeading: "Who Can Generate E-Way Bill?",
+    keyFeatureFeatures: [
+      { title: "Registered Supplier", description: "The supplier may generate the e-way bill when goods are moved in connection with a supply." },
+      { title: "Registered Recipient", description: "The recipient may generate the e-way bill where movement is caused by the buyer." },
+      { title: "Registered Transporter", description: "A transporter may generate or update e-way bill details where transport is arranged through a transporter." },
+      { title: "Part A & Part B", description: "Part A contains invoice and party details; Part B contains transport details such as vehicle number or transporter ID." },
     ],
     processStepsHeading: "E-Way Bill Generation Process",
     processSteps: [
-      { title: "Invoice / Challan Preparation", description: "Tax invoice or delivery challan details are verified." },
-      { title: "E-Way Bill Data Entry", description: "Consignor, consignee, HSN, value, and transport details are entered." },
-      { title: "Transporter & Vehicle Details", description: "Transporter ID and vehicle number are added where applicable." },
-      { title: "E-Way Bill Generation", description: "E-way bill is generated on the GST e-way bill portal." },
-      { title: "Validity Management", description: "Validity period is tracked based on distance and transport mode." },
-      { title: "Update or Extend (if needed)", description: "Vehicle changes or validity extensions are processed when required." },
+      { title: "Invoice or Challan Preparation", description: "Tax invoice, bill of supply, or delivery challan details are verified before e-way bill generation." },
+      { title: "Part A Generation", description: "Consignor, consignee, document number, HSN, and value details are entered on the e-way bill portal." },
+      { title: "Part B / Transport Details", description: "Vehicle number, transporter ID, or transport mode details are added where applicable." },
+      { title: "E-Way Bill Generation", description: "E-way bill is generated on the GST e-way bill portal and EWB number is issued." },
+      { title: "Validity Tracking", description: "Validity period is tracked based on distance and mode of transport as per applicable rules." },
+      { title: "Update or Extend (if needed)", description: "Vehicle changes, transporter updates, or validity extensions are processed when required." },
     ],
     labeledSections: [
       {
@@ -507,35 +644,52 @@ export const GST_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Consequences of Non-Compliance",
-        bullets: [
-          "Penalties under GST and state transport rules",
-          "Detention of goods and vehicles during transit verification",
-          "Mismatch issues during GST audits",
-          "Operational delays and supply chain disruption",
+        title: "E-Way Bill Validity",
+        intro: "The validity of an e-way bill depends on the distance to be travelled and the mode of transport, as per applicable GST e-way bill rules. Validity must be tracked carefully to avoid expiry during transit.",
+      },
+      {
+        title: "Important Points About E-Way Bill",
+        items: [
+          { title: "₹50,000 Threshold", description: "E-way bill is generally required when consignment value exceeds ₹50,000, subject to applicable exemptions and notifications." },
+          { title: "Interstate & Intrastate", description: "E-way bill may be required for both interstate and intrastate movement depending on applicable GST rules." },
+          { title: "Vehicle & Transporter Updates", description: "Vehicle number and transporter details can generally be updated during transit where applicable." },
+          { title: "Consolidated E-Way Bill", description: "Multiple consignments may be covered through consolidated e-way bill procedures where applicable." },
         ],
       },
       {
-        title: "Why Choose Us for GST E-Way Bill Support?",
+        title: "Consequences of Non-Compliance",
+        intro: "Failure to generate or carry a valid e-way bill where required may lead to:",
         items: [
-          { title: "Experienced GST Professionals", description: "Professional support for e-way bill generation and compliance." },
-          { title: "Accurate Invoice Matching", description: "Ensure e-way bill data aligns with invoices and challans." },
-          { title: "Transporter & Vehicle Updates", description: "Support for changes during transit and validity extensions." },
+          { title: "Penalties Under GST", description: "Penalties may apply under GST law for non-compliance with e-way bill requirements." },
+          { title: "Detention of Goods & Vehicle", description: "Goods and vehicles may be detained during transit verification if valid e-way bill is not available." },
+          { title: "Compliance Notices", description: "Mismatch or non-compliance may lead to GST notices and audit-related issues." },
+          { title: "Operational Delays", description: "Missing or incorrect e-way bills may disrupt supply chain and delivery timelines." },
+        ],
+      },
+      {
+        title: "Why Choose us for GST E-Way Bill Support?",
+        items: [
+          { title: "Experienced GST Professionals", description: "Professional support for e-way bill generation and movement compliance." },
+          { title: "Accurate Invoice Matching", description: "Ensure e-way bill data aligns with invoices, challans, and transport records." },
+          { title: "Transporter & Vehicle Updates", description: "Support for changes during transit and validity extensions where applicable." },
           { title: "Transparent Pricing", description: "Affordable compliance services with no hidden charges." },
-          { title: "End-to-End GST Support", description: "Integrated support with GST registration, returns, and invoicing compliance." },
+          { title: "End-to-End GST Support", description: "Integrated support with GST registration, returns, invoicing, and compliance management." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
-      { question: "What is a GST e-way bill?", answer: "An e-way bill is an electronic document required for movement of goods under GST rules above prescribed thresholds." },
-      { question: "When is e-way bill mandatory?", answer: "Generally when consignment value exceeds ₹50,000, subject to applicable GST rules and notifications." },
-      { question: "Can e-way bill vehicle details be updated?", answer: "Yes. Vehicle number and transporter details can generally be updated during transit where applicable." },
-      { question: "What happens if e-way bill is not generated?", answer: "Penalties, goods detention, and compliance issues may arise during transport verification." },
-      { question: "Is e-way bill required for intrastate movement?", answer: "In many states, yes — when value exceeds state-prescribed limits." },
+      { question: "What is a GST e-way bill?", answer: "A GST e-way bill is an electronic document required for movement of goods under GST rules when applicable thresholds and conditions are met." },
+      { question: "When is e-way bill mandatory?", answer: "Generally when consignment value exceeds ₹50,000, subject to applicable GST rules, exemptions, and notifications." },
+      { question: "Who generates the e-way bill?", answer: "It may be generated by the registered supplier, recipient, or transporter depending on who causes the movement of goods." },
+      { question: "Can e-way bill vehicle details be updated?", answer: "Yes. Vehicle number and transporter details can generally be updated during transit where applicable under GST rules." },
+      { question: "What happens if e-way bill is not generated?", answer: "Penalties, goods detention, compliance notices, and operational delays may arise during transport verification." },
+      { question: "Is e-way bill required for intrastate movement?", answer: "In many cases, yes — when value exceeds prescribed limits and state-specific e-way bill rules apply." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
-    ctaTitle: "Manage GST E-Way Bills with Expert Support",
+    ctaTitle: "Generate and Manage E-Way Bills with Expert Support",
+    ctaSubtitle: "We handle complete GST e-way bill support including generation, transporter updates, vehicle changes, validity extensions, and movement compliance so your goods transport remains smooth and GST compliant.",
   },
 ];
 

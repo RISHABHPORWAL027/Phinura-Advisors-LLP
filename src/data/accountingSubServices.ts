@@ -30,13 +30,13 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Secretarial Standards Compliance", description: "Assessment of compliance with applicable Secretarial Standards." },
       { title: "SEBI, FEMA and Governance", description: "SEBI compliance requirements, FEMA and RBI compliance where applicable, and corporate governance practices." },
     ],
-    benefitsIntro:
-      "Private companies may also voluntarily conduct secretarial audits to improve governance, maintain compliance, and prepare for future investments or expansion.",
+    benefitsHeading: "Who Needs a Secretarial Audit?",
+    benefitsIntro: "Secretarial Audit is mandatory for:",
     benefitFeatures: [
       { title: "Listed Companies", description: "Secretarial audit is mandatory for listed companies under applicable provisions." },
-      { title: "Large Public Companies", description: "Mandatory for public companies with paid-up share capital of ₹50 Crore or more." },
-      { title: "High-Turnover Public Companies", description: "Mandatory for public companies with turnover of ₹250 Crore or more." },
-      { title: "Voluntary Audits for Private Companies", description: "Private companies may voluntarily conduct secretarial audits to strengthen governance and investor readiness." },
+      { title: "Public Companies with Paid-Up Capital of ₹50 Crore or More", description: "Mandatory for public companies meeting the prescribed capital threshold." },
+      { title: "Public Companies with Turnover of ₹250 Crore or More", description: "Mandatory for public companies meeting the prescribed turnover threshold." },
+      { title: "Voluntary Audits for Private Companies", description: "Private companies may also voluntarily conduct secretarial audits to improve governance, maintain compliance, and prepare for future investments or expansion." },
     ],
     keyPointsHeading: "Common Compliance Issues Identified",
     keyPoints: [
@@ -62,26 +62,18 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     labeledSections: [
       {
-        title: "Who Needs a Secretarial Audit?",
-        intro: "Secretarial Audit is mandatory for:",
-        bullets: [
-          "Listed Companies",
-          "Public Companies with paid-up share capital of ₹50 Crore or more",
-          "Public Companies with turnover of ₹250 Crore or more",
-          "Private companies may also voluntarily conduct secretarial audits to improve governance, maintain compliance, and prepare for future investments or expansion",
-        ],
-      },
-      {
-        title: "Why Choose Phinura Advisors for Secretarial Audit?",
+        title: "Why Choose Phinura Advisors?",
         items: [
           { title: "Experienced Compliance Professionals", description: "Our experts have extensive experience handling secretarial audits and corporate compliances across industries." },
           { title: "Practical Compliance Approach", description: "We provide actionable recommendations that help businesses improve compliance systems efficiently." },
           { title: "End-to-End Support", description: "From document review to final reporting and corrective guidance, we assist throughout the process." },
           { title: "Transparent Communication", description: "Regular updates, clear explanations, and professional guidance at every stage." },
+          { title: "Strong Focus on Accuracy", description: "Detailed review processes to ensure complete compliance and risk identification." },
           { title: "Long-Term Compliance Support", description: "We help businesses build sustainable compliance frameworks beyond the audit process." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is a secretarial audit?", answer: "A secretarial audit is an independent verification by a Practising Company Secretary to check compliance with corporate laws, regulations, and secretarial standards." },
       { question: "Who must conduct a secretarial audit?", answer: "Listed companies and certain large public companies are mandatorily required to conduct secretarial audits under applicable provisions." },
@@ -91,7 +83,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Strengthen Your Compliance with Expert Secretarial Audit Support",
+    ctaTitle: "Ready to Strengthen Your Compliance?",
+    ctaSubtitle: "Talk to our experts for secretarial audit services, ROC compliance support, board governance advisory, and corporate legal compliance assistance.",
   },
   {
     id: "due-diligence",
@@ -173,6 +166,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is due diligence?", answer: "Due diligence is a detailed review and verification process conducted before a business transaction or investment to identify risks and verify records." },
       { question: "When is due diligence required?", answer: "Due diligence is typically conducted before investments, mergers, acquisitions, partnerships, or major business expansions." },
@@ -182,7 +176,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Conduct Business Due Diligence with Expert Support",
+    ctaTitle: "Ready to Conduct Business Due Diligence?",
+    ctaSubtitle: "Connect with our experts for investment due diligence, acquisition reviews, compliance verification, legal assessment, and financial due diligence support.",
   },
   {
     id: "business-plan",
@@ -266,6 +261,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is a business plan?", answer: "A business plan is a structured document outlining a company's objectives, operations, market strategy, financial projections, and growth plans." },
       { question: "Why do startups need a business plan?", answer: "Startups need business plans to define goals, attract investors, secure loans, and create a roadmap for growth." },
@@ -275,7 +271,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Build Your Business Plan with Expert Guidance",
+    ctaTitle: "Ready to Build Your Business Plan?",
+    ctaSubtitle: "Connect with our experts for startup business plans, financial projections, investor-ready presentations, and business growth strategies.",
   },
   {
     id: "accounting-services",
@@ -284,8 +281,6 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     shortDescription:
       "Accounting is the financial backbone of every successful business. From maintaining books of accounts to tax compliance and financial reporting, proper accounting helps businesses make informed decisions and stay compliant with legal requirements. At Phinura Advisors, we provide professional accounting services tailored for startups, SMEs, professionals, and growing businesses across India. Whether you are managing daily transactions, handling payroll, preparing financial statements, or ensuring GST and tax compliance, our team helps simplify your accounting operations with practical and reliable support.",
     whyChooseHeading: "Why Accounting is Important for Businesses",
-    whyChooseIntro:
-      "Professional accounting services support financial record maintenance, tax compliance, business reporting, payroll management, financial planning, regulatory compliance, and business growth decisions.",
     whyChooseFeatures: [
       { title: "Compliance with Tax Laws", description: "Proper accounting helps businesses comply with GST, income tax, TDS, ROC filings, payroll laws, and other statutory requirements." },
       { title: "Better Financial Decisions", description: "Accurate financial data helps business owners understand profits, expenses, cash flow, and future financial requirements." },
@@ -299,15 +294,19 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
       "Accounting services involve recording, maintaining, analysing, and managing the financial transactions of a business. These services help businesses track income, expenses, assets, liabilities, taxes, and overall financial performance. Professional accounting services support financial record maintenance, tax compliance, business reporting, payroll management, financial planning, regulatory compliance, and business growth decisions.",
     keyFeaturesHeading: "Our Accounting Services",
     keyFeatureFeatures: [
-      { title: "End-to-End Accounting Support", description: "Bookkeeping, ledger maintenance, reconciliations, and reporting." },
+      { title: "Secretarial Audit", description: "Review and evaluation of company compliance, records, and secretarial practices as per regulatory requirements." },
+      { title: "Due Diligence", description: "Detailed financial and compliance review for mergers, investments, acquisitions, and business transactions." },
+      { title: "Business Plan", description: "Preparation of professional business plans with financial projections, market analysis, and growth strategies." },
+      { title: "Virtual CFO Services", description: "Strategic financial management support including budgeting, forecasting, MIS reporting, and business advisory." },
+      { title: "Accounting Services", description: "End-to-end accounting support including bookkeeping, ledger maintenance, reconciliations, and reporting." },
       { title: "Accounts Payable Services", description: "Management of vendor payments, purchase entries, invoice processing, and payment tracking." },
       { title: "Accounts Receivable Services", description: "Tracking customer invoices, collections, outstanding receivables, and cash flow management." },
       { title: "Tax Audit", description: "Preparation and support for tax audits under applicable income tax laws and compliance requirements." },
       { title: "Payroll Services", description: "Salary processing, payslip generation, PF, ESI, TDS deductions, and payroll compliance management." },
+      { title: "Forensic Audit", description: "Investigation and analysis of financial records to detect fraud, discrepancies, or financial irregularities." },
       { title: "Financial Report Preparation", description: "Preparation of balance sheets, profit and loss statements, cash flow statements, MIS reports, and financial summaries." },
     ],
-    benefitsIntro:
-      "Outsourcing accounting reduces operational burden and improves efficiency while maintaining accurate financial records.",
+    benefitsHeading: "Benefits of Professional Accounting Services",
     benefitFeatures: [
       { title: "Accurate Financial Records", description: "Maintain organised and error-free accounting records for better management." },
       { title: "Timely Compliance", description: "Avoid penalties and legal issues with proper tax and regulatory compliance." },
@@ -316,36 +315,20 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Cost and Time Savings", description: "Outsourcing accounting reduces operational burden and improves efficiency." },
       { title: "Scalable Financial Systems", description: "Structured accounting processes support long-term business growth." },
     ],
-    keyPointsHeading: "Who Benefits from Professional Accounting?",
-    keyPoints: [
-      "Startups and SMEs seeking organised financial records",
-      "Professionals and freelancers requiring tax-compliant bookkeeping",
-      "Growing businesses needing scalable accounting systems",
-      "Companies preparing for audits, loans, or investor funding",
-      "Businesses requiring GST, TDS, and income tax compliance support",
-      "Enterprises outsourcing payroll and financial reporting",
-    ],
-    processStepsHeading: "How We Support Your Accounting",
-    processSteps: [
-      { title: "Understanding Your Business", description: "We analyse your business operations, revenue model, and accounting structure." },
-      { title: "Bookkeeping and Record Maintenance", description: "Day-to-day ledger maintenance, transaction recording, and reconciliations." },
-      { title: "Tax and Statutory Compliance", description: "Support for GST, TDS, income tax, payroll laws, and regulatory filings." },
-      { title: "Financial Reporting", description: "Preparation of P&L, balance sheets, cash flow statements, and MIS reports." },
-      { title: "Review and Advisory", description: "Regular review of financial data with practical guidance for better decisions." },
-      { title: "Ongoing Support", description: "Continuous accounting support as your business grows and compliance needs evolve." },
-    ],
     labeledSections: [
       {
-        title: "Why Choose Phinura Advisors for Accounting?",
+        title: "Why Choose Phinura Advisors?",
         items: [
           { title: "Experienced Professionals", description: "Our team has expertise in accounting, taxation, compliance, and financial management." },
           { title: "Customized Solutions", description: "Services tailored according to your business size, industry, and operational requirements." },
           { title: "Technology-Driven Approach", description: "Efficient accounting systems and digital tools for smooth financial management." },
           { title: "End-to-End Financial Support", description: "From bookkeeping to tax filing and payroll compliance, we handle complete accounting requirements." },
+          { title: "Transparent Communication", description: "Clear updates, practical guidance, and timely reporting for complete peace of mind." },
           { title: "Reliable Compliance Support", description: "Stay updated with changing financial regulations and filing requirements." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What accounting services does Phinura Advisors provide?", answer: "We provide bookkeeping, ledger maintenance, reconciliations, payroll, tax compliance, financial reporting, and end-to-end accounting support." },
       { question: "Do you serve startups and SMEs?", answer: "Yes, our accounting services are tailored for startups, SMEs, professionals, and growing businesses across India." },
@@ -355,7 +338,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Simplify Your Accounting with Expert Support",
+    ctaTitle: "Ready to Simplify Your Accounting?",
+    ctaSubtitle: "Get professional accounting support for bookkeeping, payroll, audits, tax compliance, financial reporting, and business advisory services.",
   },
   {
     id: "accounts-payable-services",
@@ -439,6 +423,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What are accounts payable services?", answer: "Accounts payable services involve managing vendor invoices, payment approvals, reconciliations, and timely payment processing." },
       { question: "How do AP services improve cash flow?", answer: "AP services help track upcoming liabilities and plan vendor payments strategically to manage working capital efficiently." },
@@ -448,7 +433,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Simplify Your Vendor Payment Process with Expert AP Support",
+    ctaTitle: "Ready to Simplify Your Vendor Payment Process?",
+    ctaSubtitle: "Get professional support for invoice processing, vendor payments, reconciliations, compliance management, and accounts payable reporting.",
   },
   {
     id: "accounts-receivable-services",
@@ -529,6 +515,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What are accounts receivable services?", answer: "Accounts receivable services manage the complete payment collection cycle from invoice generation to payment reconciliation." },
       { question: "How do AR services improve cash flow?", answer: "Structured invoicing, follow-ups, and collection processes help reduce payment delays and maintain working capital stability." },
@@ -538,7 +525,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Improve Your Receivable Management with Expert Support",
+    ctaTitle: "Ready to Improve Your Receivable Management?",
+    ctaSubtitle: "Get expert support for invoicing, collections, reconciliations, customer payment tracking, and accounts receivable reporting.",
   },
   {
     id: "tax-audit",
@@ -625,6 +613,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is a tax audit under Section 44AB?", answer: "A tax audit is an examination of financial records under Section 44AB of the Income Tax Act to verify proper books of accounts and tax compliance." },
       { question: "Who needs a tax audit?", answer: "Businesses and professionals exceeding prescribed turnover or gross receipt thresholds, and certain presumptive taxation cases, may require a tax audit." },
@@ -634,7 +623,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Complete Your Tax Audit with Expert Support",
+    ctaTitle: "Ready to Complete Your Tax Audit?",
+    ctaSubtitle: "Get professional support for tax audit preparation, reporting, filing, and compliance management.",
   },
   {
     id: "payroll-services",
@@ -715,6 +705,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What payroll services does Phinura Advisors provide?", answer: "We provide salary processing, payslip generation, TDS, PF, ESI compliance, payroll reports, and statutory filing support." },
       { question: "Do you handle PF and ESI compliance?", answer: "Yes, we manage Provident Fund and Employee State Insurance calculations and filings as part of our payroll services." },
@@ -724,7 +715,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Simplify Your Payroll Process with Expert Support",
+    ctaTitle: "Ready to Simplify Your Payroll Process?",
+    ctaSubtitle: "Get reliable payroll support for salary processing, statutory compliance, and employee payroll management.",
   },
   {
     id: "financial-report-preparation",
@@ -822,6 +814,7 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What financial reports does Phinura Advisors prepare?", answer: "We prepare balance sheets, profit and loss statements, cash flow statements, MIS reports, and compliance-ready financial summaries." },
       { question: "Who needs financial report preparation services?", answer: "Private limited companies, LLPs, partnership firms, startups, e-commerce businesses, manufacturers, traders, and service providers commonly require financial reports." },
@@ -831,7 +824,8 @@ export const ACCOUNTING_SUB_SERVICES: SubServicePageContent[] = [
     ],
     whyChooseUsHeading: "Why Choose Us?",
     whyChooseUs: [],
-    ctaTitle: "Prepare Accurate Financial Reports with Expert Support",
+    ctaTitle: "Ready to Prepare Accurate Financial Reports?",
+    ctaSubtitle: "Get professional support for preparing financial statements, compliance reports, and business financial analysis.",
   },
 ];
 

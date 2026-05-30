@@ -40,14 +40,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Annual General Meeting (AGM)", description: "Mandatory annual meeting of shareholders as per MCA regulations." },
       { title: "Board Meetings", description: "Private Limited Companies are required to conduct board meetings during the financial year." },
     ],
-    benefitsIntro:
-      "Beyond timely filings, annual compliance keeps your company credible, fundable, and free from MCA penalties.",
-    benefitFeatures: [
-      { title: "Legal Continuity", description: "Keep your company active and compliant in MCA records." },
-      { title: "Penalty Prevention", description: "Avoid late fees, notices, and legal exposure." },
-      { title: "Better Credibility", description: "Build trust with banks, investors, and government authorities." },
-      { title: "Compliance Readiness", description: "Stay prepared for audits, funding, and due diligence." },
-    ],
     labeledSections: [
       {
         title: "Non-ROC Compliance",
@@ -75,7 +67,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for Annual Compliance?",
+        title: "Why Choose us for Annual Compliance?",
         items: [
           { title: "Experienced Compliance Professionals", description: "Professional support for ROC filing and MCA compliance." },
           { title: "End-to-End Filing Assistance", description: "Complete management from documentation to successful filing." },
@@ -92,14 +84,16 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Compliance Tracking", description: "Regular follow-up and filing status monitoring." },
       { title: "Ongoing Compliance Support", description: "Timely reminders and support for future compliance requirements." },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Is annual compliance mandatory for Private Limited Companies?", answer: "Yes. Every registered Private Limited Company must complete annual ROC compliance." },
       { question: "Is ROC filing mandatory for companies with zero turnover?", answer: "Yes. Even inactive or NIL turnover companies must complete annual filing." },
       { question: "What happens if ROC filing is delayed?", answer: "Late filing attracts penalties, additional fees, and legal consequences." },
       { question: "Is audit mandatory for Private Limited Companies?", answer: "Yes. Statutory audit is mandatory under the Companies Act, 2013." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete ROC filing, annual returns, MCA compliance, audit coordination, and statutory compliance support so your business stays legally compliant and professionally managed.",
     ctaTitle: "Get Expert Support for Annual Compliance",
   },
   {
@@ -114,7 +108,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     whyChooseFeatures: [
       { title: "Timely MCA Filing", description: "Complete support for LLP annual filing and ROC compliance." },
       { title: "Hassle-Free Compliance Management", description: "We handle filing deadlines, forms, and compliance tracking for your LLP." },
-      { title: "Avoid Heavy Penalties", description: "Late filing may attract penalties of Rs.100 per day for each form under MCA regulations." },
+      { title: "Avoid Heavy Penalties", description: "Late filing may attract penalties of ₹100 per day for each form under MCA regulations." },
       { title: "Dedicated Expert Assistance", description: "Professional support for annual filing, compliance management, and MCA updates." },
     ],
     whatIsHeading: "What is LLP Annual Compliance?",
@@ -128,14 +122,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "LLP Agreement Compliance", description: "Updating and filing changes in LLP Agreement wherever applicable." },
       { title: "Maintenance of Books of Accounts", description: "LLPs are required to maintain proper books of accounts and financial records." },
       { title: "Audit Compliance", description: "Audit is mandatory if LLP turnover exceeds ₹40 lakhs or partner contribution exceeds ₹25 lakhs." },
-    ],
-    benefitsIntro:
-      "Regular LLP compliance protects partners from penalties and keeps your firm credible with banks and clients.",
-    benefitFeatures: [
-      { title: "Active LLP Status", description: "Keep LLP records current with ROC and MCA." },
-      { title: "Penalty Control", description: "Avoid accumulating delay penalties on Form 8 and Form 11." },
-      { title: "Better Financial Credibility", description: "Stay ready for bank, vendor, and investor checks." },
-      { title: "Operational Continuity", description: "Avoid legal notices and compliance disruptions." },
     ],
     labeledSections: [
       {
@@ -164,7 +150,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for LLP Compliance?",
+        title: "Why Choose us for LLP Compliance?",
         items: [
           { title: "Experienced Compliance Professionals", description: "Professional support for LLP annual filing and MCA compliance." },
           { title: "End-to-End Filing Assistance", description: "Complete management from documentation to successful filing." },
@@ -183,14 +169,16 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Filing Status Tracking", description: "Regular tracking and follow-up until successful filing approval." },
       { title: "Ongoing Compliance Support", description: "Continuous reminders and support for future compliance requirements." },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Is LLP annual compliance mandatory?", answer: "Yes. Every LLP registered in India must complete annual compliance irrespective of turnover or business activity." },
-      { question: "What happens if Form 8 or Form 11 is not filed?", answer: "Late filing attracts a penalty of Rs.100 per day for each form." },
-      { question: "Is audit mandatory for LLP?", answer: "Audit is mandatory if turnover exceeds Rs.40 lakhs or contribution exceeds Rs.25 lakhs." },
+      { question: "What happens if Form 8 or Form 11 is not filed?", answer: "Late filing attracts a penalty of ₹100 per day for each form." },
+      { question: "Is audit mandatory for LLP?", answer: "Audit is mandatory if turnover exceeds ₹40 lakhs or contribution exceeds ₹25 lakhs." },
       { question: "Is compliance required for inactive LLPs?", answer: "Yes. Even LLPs with no business activity must complete annual filing." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete LLP annual compliance including Form 8 filing, Form 11 filing, MCA compliance, income tax filing, audit coordination, and ongoing compliance support so your LLP stays legally compliant and professionally managed.",
     ctaTitle: "Get Expert Support for LLP Compliance",
   },
   {
@@ -213,40 +201,35 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     whatIsDescription:
       "Company Name Change is the legal process of changing the registered name of a company under the Companies Act, 2013 with approval from the Ministry of Corporate Affairs (MCA). After approval from the Registrar of Companies (ROC), the company receives a fresh Certificate of Incorporation with the updated company name. The company remains the same legal entity after the name change. Only the company name gets updated in MCA records and statutory documents.",
     keyPointsHeading: "Common Reasons for Company Name Change",
-    keyPoints: [
-      "Business Rebranding",
-      "Expansion into New Services or Products",
-      "Ownership or Management Change",
-      "Trademark or Legal Issues",
-      "Better Marketing & Brand Positioning",
-      "Company Structure Conversion",
-    ],
     keyFeaturesHeading: "Important MCA Forms for Company Name Change",
     keyFeatureFeatures: [
-      { title: "RUN Service", description: "Used for name availability check and reservation." },
+      { title: "RUN Service", description: "Used for company name availability check and reservation." },
       { title: "MGT-14", description: "Filed for Special Resolution passed by shareholders." },
       { title: "INC-24", description: "Filed for approval of company name change from ROC." },
       { title: "INC-25", description: "Fresh Certificate of Incorporation issued after approval." },
     ],
-    benefitsIntro:
-      "Changing your company name helps align your business identity with future goals while keeping the same legal entity intact.",
-    benefitFeatures: [
-      { title: "1. Strategic Repositioning", description: "Align name with new markets, offerings, or ownership." },
-      { title: "2. Continuity", description: "Preserve contracts and legal continuity while refreshing identity." },
-      { title: "3. Better Recall", description: "Improve customer recall and market trust." },
-      { title: "4. Compliance Integrity", description: "Ensure valid, approved updates across all records." },
-    ],
     processStepsHeading: "Company Name Change Process",
     processSteps: [
-      { title: "Board Meeting & Resolution", description: "Board approves the proposal and filing authorisation." },
-      { title: "Name Availability Check", description: "Apply for reservation through MCA RUN service." },
-      { title: "Shareholder Approval", description: "Pass Special Resolution in EGM." },
-      { title: "ROC Filing", description: "File MGT-14 and INC-24 with supporting documents." },
-      { title: "Approval from ROC", description: "ROC reviews and approves the application." },
-      { title: "Fresh Certificate Issuance", description: "MCA issues fresh Certificate of Incorporation." },
-      { title: "Post-Approval Updates", description: "Update PAN, GST, bank accounts, contracts, and records." },
+      { title: "Board Meeting & Resolution", description: "The Board of Directors approves the proposal for company name change and authorises filing for name approval." },
+      { title: "Name Availability Check", description: "Application for name reservation is filed through the MCA RUN (Reserve Unique Name) service." },
+      { title: "Shareholder Approval", description: "An Extraordinary General Meeting (EGM) is conducted to pass a Special Resolution for changing the company name." },
+      { title: "ROC Filing", description: "Required MCA forms including MGT-14 and INC-24 are prepared and filed with ROC." },
+      { title: "Approval from ROC", description: "Registrar of Companies reviews the application and verifies legal compliance." },
+      { title: "Issuance of Fresh Certificate of Incorporation", description: "Once approved, MCA issues a new Certificate of Incorporation with the updated company name." },
+      { title: "Post-Approval Compliance Updates", description: "Business registrations, PAN, GST, bank accounts, invoices, and statutory records are updated with the new company name." },
     ],
     labeledSections: [
+      {
+        title: "Common Reasons for Company Name Change",
+        items: [
+          { title: "Business Rebranding", description: "To create a fresh and stronger business identity in the market." },
+          { title: "Expansion into New Services or Products", description: "When the company enters new business activities or industries." },
+          { title: "Ownership or Management Change", description: "Rebranding after acquisition, merger, or management restructuring." },
+          { title: "Trademark or Legal Issues", description: "To avoid trademark conflicts or legal disputes with existing brands." },
+          { title: "Better Marketing & Brand Positioning", description: "Choosing a name that is easier to market, promote, and remember." },
+          { title: "Company Structure Conversion", description: "Name modification during conversion from Private Limited to Public Limited Company or vice versa." },
+        ],
+      },
       {
         title: "Eligibility for Company Name Change",
         intro: "A company can apply for name change if:",
@@ -285,7 +268,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for Company Name Change?",
+        title: "Why Choose us for Company Name Change?",
         items: [
           { title: "Complete MCA & ROC Filing Support", description: "End-to-end assistance for name approval, filing, and legal compliance." },
           { title: "Expert Compliance Professionals", description: "Professional guidance for resolutions, documentation, and MCA procedures." },
@@ -295,6 +278,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Does changing company name create a new company?", answer: "No. The company remains the same legal entity after the name change." },
       { question: "Can I choose any company name?", answer: "No. The proposed name must comply with MCA naming guidelines and should not match existing companies or trademarks." },
@@ -303,8 +287,9 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "Is shareholder approval required for company name change?", answer: "Yes. A Special Resolution must be passed by shareholders in an Extraordinary General Meeting (EGM)." },
       { question: "Do I need to update GST and bank details after company name change?", answer: "Yes. PAN, GST, bank accounts, licenses, invoices, and statutory records should be updated after approval." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle the complete company name change process including name approval, board resolutions, ROC filing, MOA & AOA amendment, MCA compliance, and post-change updates so your business transition remains smooth, compliant, and professionally managed.",
     ctaTitle: "Change Your Company Name with Expert Support",
   },
   {
@@ -341,14 +326,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "INC-28", description: "Filed after Regional Director order." },
       { title: "INC-27", description: "MOA alteration filing in interstate shifts." },
     ],
-    benefitsIntro:
-      "Updating your registered office helps maintain legal continuity while supporting operational efficiency and growth.",
-    benefitFeatures: [
-      { title: "1. Compliance Continuity", description: "Prevent filing mismatches and legal notices." },
-      { title: "2. Better Governance", description: "Ensure official communication reaches the right address." },
-      { title: "3. Operational Flexibility", description: "Shift office as per business and cost needs." },
-      { title: "4. Expansion Readiness", description: "Support scale-up, mergers, and restructuring." },
-    ],
     processStepsHeading: "Registered Office Change Process",
     processSteps: [
       { title: "Board Meeting", description: "Pass board resolution for office address change." },
@@ -360,6 +337,17 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Post-Approval Updates", description: "Update GST, PAN, bank, licenses, and statutory records." },
     ],
     labeledSections: [
+      {
+        title: "Common Reasons for Registered Office Change",
+        items: [
+          { title: "Business Expansion", description: "Shifting to a larger office space for growing operations." },
+          { title: "Cost Optimization", description: "Moving to a location with lower rent or operating costs." },
+          { title: "Better Connectivity", description: "Choosing a location with improved accessibility for employees and clients." },
+          { title: "Strategic Business Location", description: "Relocating closer to customers, vendors, or industrial hubs." },
+          { title: "Business Restructuring", description: "Office consolidation during mergers, acquisitions, or internal restructuring." },
+          { title: "Compliance Requirements", description: "Updating office location to meet legal or operational requirements." },
+        ],
+      },
       {
         title: "Types of Registered Office Change",
         items: [
@@ -392,7 +380,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for Registered Office Change?",
+        title: "Why Choose us for Registered Office Change?",
         items: [
           { title: "Complete ROC Filing Support", description: "End-to-end assistance for resolutions, forms, and approvals." },
           { title: "Expert MCA Compliance Assistance", description: "Professional support for all types of registered office changes." },
@@ -402,6 +390,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Is ROC approval required for registered office change?", answer: "Yes. ROC filing and MCA approval are mandatory." },
       { question: "Which form is filed for registered office change?", answer: "Form INC-22 is generally filed for address change." },
@@ -409,8 +398,9 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "How long does registered office change take?", answer: "Timeline depends on type of shift and approval requirements." },
       { question: "Do I need to update GST after address change?", answer: "Yes. GST and other registrations should be updated after approval." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle the complete registered office change process including board resolutions, MCA filing, ROC approval, MOA amendment, address update compliance, and post-approval support so your business transition remains smooth and legally compliant.",
     ctaTitle: "Change Your Registered Office with Expert Support",
   },
   {
@@ -418,76 +408,92 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     title: "DIN eKYC Filing",
     heroTitle: "Keep Your DIN Active with DIR-3 KYC Web Filing",
     shortDescription:
-      "DIR-3 KYC Web is the mandatory MCA compliance process for directors holding DIN. We provide complete support for DIR-3 KYC Web filing, DIN reactivation, DSC verification, and compliance updates.",
+      "DIR-3 KYC Web is the mandatory MCA compliance process for directors holding a Director Identification Number (DIN). The form is used for KYC compliance, DIN reactivation, and updating director details such as mobile number, email address, and residential address. We provide complete support for DIR-3 KYC Web filing, DIN reactivation, DSC verification, and MCA compliance filing.",
     whyChooseHeading: "Benefits of DIR-3 KYC Web Filing",
     whyChooseIntro: "Timely DIR-3 KYC filing keeps DIN active and avoids disruption in ROC and MCA filings.",
     whyChooseFeatures: [
       { title: "Keep DIN Active", description: "Maintain active DIN status and avoid deactivation due to non-compliance." },
-      { title: "Avoid Penalties & Filing Issues", description: "Timely filing prevents late fees and compliance interruption." },
-      { title: "Smooth ROC & MCA Compliance", description: "Active DIN is required for company and LLP filings." },
-      { title: "100% Online Filing Process", description: "Complete filing handled digitally with expert assistance." },
+      { title: "Avoid Penalties & Filing Issues", description: "Timely filing helps prevent late fees and compliance interruptions." },
+      { title: "Smooth ROC & MCA Compliance", description: "Active DIN status is necessary for company and LLP compliance filings." },
+      { title: "100% Online Filing Process", description: "Complete filing process handled digitally with professional assistance." },
+      { title: "Expert Compliance Support", description: "Accurate filing, verification, and MCA submission support." },
     ],
     whatIsHeading: "What is DIR-3 KYC Web?",
     whatIsDescription:
-      "DIR-3 KYC Web is the unified MCA form used for director KYC compliance and DIN-related updates. It covers KYC filing, DIN reactivation, and updates to mobile number, email ID, and residential address.",
-    keyPointsHeading: "DIR-3 KYC Web is used for",
+      "DIR-3 KYC Web is the unified MCA form used for director KYC compliance and updating DIN-related information. The Ministry of Corporate Affairs has replaced the earlier DIR-3 KYC and DIR-3 KYC Web framework with a single DIR-3 KYC Web filing system. The objective is to maintain updated director records with MCA and ROC.",
+    keyPointsHeading: "The form is used for:",
     keyPoints: ["Director KYC Compliance", "DIN Reactivation", "Mobile Number Update", "Email ID Update", "Residential Address Update"],
-    keyFeaturesHeading: "Important Requirements",
+    keyFeaturesHeading: "Important Requirements for DIR-3 KYC Web",
     keyFeatureFeatures: [
-      { title: "Personal Mobile Number & Email", description: "Directors must use personal details for OTP verification." },
-      { title: "Digital Signature Certificate (DSC)", description: "DIR-3 KYC Web requires director DSC authentication." },
-      { title: "Professional Certification", description: "May require CA/CS/CMA certification based on filing purpose." },
-      { title: "Government Fee for Reactivation", description: "Rs.5,000 fee where DIN is deactivated due to non-filing." },
-    ],
-    benefitsIntro:
-      "Timely DIR-3 KYC filing keeps DIN active and avoids disruption in ROC and MCA filings.",
-    benefitFeatures: [
-      { title: "1. Active Director Profile", description: "Keep DIN in active status without interruption." },
-      { title: "2. Better Filing Continuity", description: "Avoid signing and filing blocks for company forms." },
-      { title: "3. Penalty Prevention", description: "Reduce risk of deactivation and reactivation costs." },
-      { title: "4. Updated Records", description: "Keep MCA records accurate with mandatory updates." },
+      { title: "Personal Mobile Number & Email", description: "Directors must use their own mobile number and email address for OTP verification." },
+      { title: "Digital Signature Certificate (DSC)", description: "DIR-3 KYC Web filing requires the director's DSC for authentication." },
+      { title: "Professional Certification", description: "The filing may require certification by a practising Chartered Accountant (CA), Company Secretary (CS), or Cost Accountant (CMA) depending on the filing purpose." },
     ],
     processStepsHeading: "DIR-3 KYC Web Filing Process",
     processSteps: [
-      { title: "DIN Verification", description: "Review DIN status and filing applicability." },
-      { title: "OTP Verification", description: "Authenticate mobile number and email through OTP." },
-      { title: "KYC Details Update", description: "Verify and update director information." },
-      { title: "DSC Authentication", description: "Complete digital signature verification." },
-      { title: "Online MCA Filing", description: "Submit DIR-3 KYC Web on MCA portal." },
-      { title: "DIN Status Confirmation", description: "Confirm successful filing and DIN status update." },
+      { title: "DIN Verification", description: "Review of DIN status and filing applicability." },
+      { title: "OTP Verification", description: "Verification of mobile number and email address through OTP authentication." },
+      { title: "KYC Details Update", description: "Verification and updating of director information." },
+      { title: "DSC Authentication", description: "Digital signature verification and compliance checks." },
+      { title: "Online MCA Filing", description: "Submission of DIR-3 KYC Web through the MCA portal." },
+      { title: "DIN Status Confirmation", description: "Successful filing confirmation and DIN status verification." },
     ],
     labeledSections: [
       {
         title: "Who Needs to File DIR-3 KYC Web?",
+        intro: "DIR-3 KYC Web filing is applicable to:",
         bullets: [
           "Directors of Companies",
           "Designated Partners of LLPs holding DIN",
           "Individuals holding approved DIN status",
-          "Directors with DIN deactivated due to non-filing",
+          "Directors whose DIN has been deactivated due to non-filing of KYC",
         ],
+      },
+      {
+        title: "DIR-3 KYC Filing Frequency",
+        intro: "As per the revised MCA framework effective from 31 March 2026, directors are generally required to file DIR-3 KYC Web once every three consecutive financial years.",
+        items: [
+          { title: "Due Date", description: "DIR-3 KYC Web is required to be filed on or before 30th June of the relevant compliance year under the revised framework." },
+        ],
+      },
+      {
+        title: "Mandatory Update of Director Details",
+        intro: "Even though routine KYC filing is now required once every three years, directors must update certain changes separately. If there is any change in mobile number, email address, or residential address, the updated details must be filed through DIR-3 KYC Web within 30 days of such change. Updating these details does not change or reset the three-year KYC cycle.",
+      },
+      {
+        title: "DIN Reactivation Through DIR-3 KYC Web",
+        intro: 'If a DIN is marked as "Deactivated due to Non-Filing of DIR-3 KYC", the DIN can be reactivated by filing DIR-3 KYC Web along with the applicable government fee. After successful filing and verification, the DIN status is restored to active.',
+      },
+      {
+        title: "Government Fee for DIN Reactivation",
+        intro: "Where DIN is deactivated due to non-filing of DIR-3 KYC, a government fee of ₹5,000 is payable for DIN reactivation through DIR-3 KYC Web filing.",
       },
       {
         title: "Consequences of Non-Filing",
         bullets: ["DIN Deactivation", "Inability to sign MCA forms", "ROC filing delays", "Compliance issues for companies and LLPs", "Government penalties and additional fees"],
       },
       {
-        title: "Why Choose Us for DIR-3 KYC Web Filing?",
+        title: "Why Choose us for DIR-3 KYC Web Filing?",
         items: [
-          { title: "Experienced MCA Compliance Professionals", description: "Professional support for DIN KYC and MCA filing." },
-          { title: "Fast & Accurate Filing", description: "Quick process with proper verification checks." },
-          { title: "End-to-End MCA Assistance", description: "Support for filing, reactivation, and related ROC compliance." },
-          { title: "Smooth Online Process", description: "Completely digital filing with regular updates." },
+          { title: "Experienced MCA Compliance Professionals", description: "Professional support for DIN KYC and MCA filing compliance." },
+          { title: "Fast & Accurate Filing", description: "Quick filing process with proper verification and compliance checks." },
+          { title: "End-to-End MCA Assistance", description: "Support for DIR-3 KYC Web filing, DIN reactivation, and ROC compliance." },
+          { title: "Transparent Pricing", description: "Affordable compliance services with no hidden charges." },
+          { title: "Smooth Online Process", description: "Completely digital filing process with regular updates and assistance." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
-      { question: "Is DIR-3 KYC filing still required every year?", answer: "Under revised framework, generally once every three consecutive financial years, with event-based update obligations." },
-      { question: "Can DIN be reactivated through DIR-3 KYC Web?", answer: "Yes. A deactivated DIN can be reactivated by filing DIR-3 KYC Web with applicable fee." },
-      { question: "What is the fee for DIN reactivation?", answer: "Government fee of Rs.5,000 is generally applicable for DIN reactivation." },
-      { question: "Do directors need to update mobile/email changes separately?", answer: "Yes. Changes should be updated through DIR-3 KYC Web within 30 days." },
+      { question: "Is DIR-3 KYC filing still required every year?", answer: "No. Under the revised MCA framework effective from 31 March 2026, DIR-3 KYC Web is generally required once every three consecutive financial years." },
+      { question: "Can DIN be reactivated through DIR-3 KYC Web?", answer: "Yes. A deactivated DIN can be reactivated by filing DIR-3 KYC Web and paying the applicable government fee." },
+      { question: "What is the government fee for DIN reactivation?", answer: "A government fee of ₹5,000 is applicable for reactivating a DIN deactivated due to non-filing of DIR-3 KYC." },
+      { question: "Is there only one DIR-3 KYC form now?", answer: "Yes. MCA has introduced a unified DIR-3 KYC Web system replacing the earlier DIR-3 KYC and DIR-3 KYC Web framework." },
+      { question: "Do directors need to update mobile number or email changes separately?", answer: "Yes. Changes in mobile number, email address, or residential address must be updated through DIR-3 KYC Web within 30 days of the change." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete DIR-3 KYC Web filing including DIN verification, DSC support, MCA filing, compliance updates, and DIN reactivation assistance so directors can stay compliant without hassle.",
     ctaTitle: "File Your DIR-3 KYC Web with Expert Support",
   },
   {
@@ -495,61 +501,139 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     title: "Change in Director",
     heroTitle: "Easily Change Directors in Your Company with Complete MCA Compliance Support",
     shortDescription:
-      "A change in director includes appointment, resignation, removal, designation change, or updating director details. We provide complete support for board resolutions, DIR-12, DIR-6, and other required filings under the Companies Act, 2013.",
+      "A change in director refers to any alteration in the composition of a company's board of directors. This may include appointment of a new director, resignation of an existing director, removal of a director, or updating director details with MCA. We provide complete support for drafting board resolutions, filing DIR-12, DIR-6, and other required MCA forms while ensuring full compliance under the Companies Act, 2013.",
     whyChooseHeading: "Benefits of Director Change Compliance",
-    whyChooseIntro: "Timely filing keeps company records accurate and governance uninterrupted.",
+    whyChooseIntro:
+      "Proper filing and timely compliance help maintain accurate company records with MCA and ensure smooth business operations.",
     whyChooseFeatures: [
       { title: "Complete ROC Filing Support", description: "Assistance for DIR-12, DIR-6, MGT-14, and related MCA filings." },
-      { title: "Legally Compliant Process", description: "Appointment, resignation, and removal handled as per law." },
-      { title: "Smooth Board Transition", description: "Hassle-free update of directors and authorised signatories." },
-      { title: "Accurate Documentation", description: "Professional drafting of resolutions and consent letters." },
+      { title: "Legally Compliant Process", description: "Director appointment, resignation, and removal handled as per Companies Act, 2013." },
+      { title: "Smooth Board Transition", description: "Hassle-free process for updating directors and authorised signatories." },
+      { title: "Accurate Documentation", description: "Professional drafting of board resolutions, consent letters, and compliance documents." },
+      { title: "Expert MCA Assistance", description: "Dedicated compliance support from experienced professionals." },
     ],
     whatIsHeading: "What is Change in Director?",
     whatIsDescription:
-      "A change in director refers to modifications in the board composition, such as appointment, resignation, removal, designation change, or personal detail updates. These changes are governed by the Companies Act, 2013 and must be filed with MCA.",
-    keyPointsHeading: "Important MCA Forms",
-    keyPoints: ["DIR-2", "DIR-3", "DIR-6", "DIR-11", "DIR-12", "MGT-14"],
-    keyFeaturesHeading: "Director Change Workflows",
-    keyFeatureFeatures: [
-      { title: "Appointment of Director", description: "DIN, board approval, consent, and DIR-12 filing." },
-      { title: "Resignation of Director", description: "Resignation note, board noting, DIR-12, and optional DIR-11." },
-      { title: "Removal of Director", description: "Special notice, EGM resolution, and DIR-12 filing." },
-      { title: "Update in Director Details", description: "Name/address updates through DIR-6 and related approvals." },
+      "A change in director refers to any modification in the composition of a company's board of directors. This may include:",
+    keyPointsHeading: "A change in director may include:",
+    keyPoints: [
+      "Appointment of Director",
+      "Resignation of Director",
+      "Removal of Director",
+      "Change in Director Designation",
+      "Update in Director Details such as address or name",
     ],
-    benefitsIntro: "Timely filing keeps company records accurate and governance uninterrupted.",
-    benefitFeatures: [
-      { title: "1. Record Accuracy", description: "Maintain up-to-date board records in MCA." },
-      { title: "2. Governance Continuity", description: "Ensure valid signatories and decision authority." },
-      { title: "3. Legal Safety", description: "Reduce default exposure and procedural defects." },
-      { title: "4. Operational Clarity", description: "Keep banking, GST, and contract authorisations aligned." },
-    ],
+    keyFeaturesIntro:
+      "These changes are governed under the Companies Act, 2013 and must be reported to the Ministry of Corporate Affairs (MCA) through prescribed forms and resolutions.",
     labeledSections: [
       {
         title: "Common Reasons for Director Change",
-        bullets: ["Appointment of New Director", "Resignation", "Removal", "Change in Designation", "Update in Personal Details"],
+        items: [
+          { title: "Appointment of New Director", description: "To bring new expertise, management support, or fill board vacancies." },
+          { title: "Resignation of Director", description: "Directors may resign due to personal reasons, retirement, or management changes." },
+          { title: "Removal of Director", description: "Shareholders or the board may remove a director as per legal provisions." },
+          { title: "Change in Designation", description: "Change in role from Executive Director to Non-Executive Director or similar changes." },
+          { title: "Update in Director Details", description: "Changes in address, name, or personal details linked with DIN." },
+        ],
+      },
+      {
+        title: "Laws Governing Director Change",
+        items: [
+          { title: "Section 152", description: "Deals with appointment of directors and director consent requirements." },
+          { title: "Section 168", description: "Covers resignation of directors and filing requirements." },
+          { title: "Section 169", description: "Governs removal of directors before expiry of their term." },
+          { title: "Section 164", description: "Specifies disqualifications related to appointment of directors." },
+        ],
+      },
+      {
+        title: "Process for Appointment of Director",
+        items: [
+          { title: "1. Obtain DIN", description: "If the proposed director does not have DIN, Form DIR-3 is filed." },
+          { title: "2. Board Meeting", description: "Board Resolution is passed approving the appointment." },
+          { title: "3. Director Consent", description: "Consent to act as director is obtained through Form DIR-2." },
+          { title: "4. ROC Filing", description: "Form DIR-12 is filed with ROC within 30 days of appointment." },
+          { title: "5. MGT-14 Filing", description: "Filed wherever special resolution is applicable." },
+        ],
+      },
+      {
+        title: "Process for Resignation of Director",
+        items: [
+          { title: "1. Resignation Letter", description: "Director submits written resignation to the company." },
+          { title: "2. Board Meeting", description: "Board takes note of resignation and passes resolution." },
+          { title: "3. ROC Filing by Company", description: "Company files DIR-12 within 30 days." },
+          { title: "4. DIR-11 Filing by Director", description: "Resigning director may also file DIR-11 with ROC." },
+        ],
+      },
+      {
+        title: "Process for Removal of Director",
+        items: [
+          { title: "1. Special Notice", description: "Notice is issued under Section 169 of Companies Act, 2013." },
+          { title: "2. Board Meeting & EGM", description: "Extraordinary General Meeting is conducted for passing Ordinary Resolution." },
+          { title: "3. Opportunity of Being Heard", description: "The concerned director must be given an opportunity to present their case." },
+          { title: "4. ROC Filing", description: "Company files DIR-12 for removal of director." },
+        ],
+      },
+      {
+        title: "Updating Director Particulars with MCA",
+        intro: "Apart from appointment or resignation, companies may also update director details with MCA.",
+        items: [
+          { title: "Director Address Change", description: "Address changes are updated through Form DIR-6." },
+          { title: "Director Name Change", description: "Name changes in MCA records are also updated through DIR-6 with supporting documents." },
+          { title: "Change in Designation", description: "Designation changes are updated through board resolution and DIR-12 filing." },
+        ],
+      },
+      {
+        title: "Important MCA Forms for Director Change",
+        items: [
+          { title: "DIR-2", description: "Consent to act as director." },
+          { title: "DIR-3", description: "Application for obtaining DIN." },
+          { title: "DIR-6", description: "Update of director KYC details such as name or address." },
+          { title: "DIR-11", description: "Notice of resignation filed by director." },
+          { title: "DIR-12", description: "Primary ROC form for appointment, resignation, or removal of directors." },
+          { title: "MGT-14", description: "Filed for certain board or shareholder resolutions." },
+        ],
+      },
+      {
+        title: "Government Fees & Late Filing Penalties",
+        items: [
+          { title: "ROC Filing Fees", description: "Government filing fees depend on authorised share capital and applicable forms." },
+          { title: "Late Filing Penalty", description: "Delay in filing may attract additional fees of ₹100 per day without maximum cap." },
+          { title: "Additional Costs", description: "Additional costs may include DSC renewal, professional fees, and stamp duty wherever applicable." },
+        ],
       },
       {
         title: "Post Director Change Compliance",
-        bullets: ["GST Registration", "Bank Accounts & Signatories", "Import Export Code (IEC)", "PF & ESIC Registration", "Sector-specific licenses", "Internal authorisations"],
+        bullets: [
+          "GST Registration",
+          "Bank Accounts & Signatories",
+          "Import Export Code (IEC)",
+          "PF & ESIC Registration",
+          "Sector-Specific Licenses",
+          "Internal Authorisations & Records",
+        ],
       },
       {
-        title: "Why Choose Us for Director Change Compliance?",
+        title: "Why Choose us for Director Change Compliance?",
         items: [
-          { title: "End-to-End MCA Support", description: "Support for appointment, resignation, removal, and updates." },
-          { title: "Accurate Legal Documentation", description: "Professional drafting and filing support." },
-          { title: "Smooth Online Process", description: "Quick and hassle-free digital filing." },
-          { title: "Dedicated Compliance Experts", description: "Regular updates and expert assistance throughout." },
+          { title: "End-to-End MCA Support", description: "Complete assistance for appointment, resignation, removal, and director updates." },
+          { title: "Accurate Legal Documentation", description: "Professional drafting and filing support for board resolutions and ROC forms." },
+          { title: "Smooth Online Process", description: "Quick and hassle-free digital filing support." },
+          { title: "Transparent Pricing", description: "Affordable professional services with no hidden charges." },
+          { title: "Dedicated Compliance Experts", description: "Regular updates and expert assistance throughout the process." },
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
-      { question: "What is Form DIR-12 used for?", answer: "DIR-12 notifies ROC about appointment, resignation, or removal of directors." },
-      { question: "Is DIN mandatory for becoming a director?", answer: "Yes. A valid DIN is mandatory." },
-      { question: "Can a director resign anytime?", answer: "Yes, by submitting written resignation to the company." },
-      { question: "Is ROC filing mandatory for director changes?", answer: "Yes. Director changes must be filed with MCA." },
+      { question: "What is Form DIR-12 used for?", answer: "DIR-12 is used for notifying ROC regarding appointment, resignation, or removal of directors." },
+      { question: "Is DIN mandatory for becoming a director?", answer: "Yes. A valid Director Identification Number (DIN) is mandatory." },
+      { question: "Can a director resign at any time?", answer: "Yes. A director may resign by submitting written notice to the company." },
+      { question: "Is ROC filing mandatory for director changes?", answer: "Yes. Director changes must be reported to MCA through prescribed ROC forms." },
+      { question: "Are there penalties for delayed filing?", answer: "Yes. Late filing attracts additional fees of ₹100 per day without maximum cap." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete director change compliance including board resolutions, DIR-12 filing, DIN updates, MCA compliance, and ROC filing support so your company records remain accurate, compliant, and professionally managed.",
     ctaTitle: "Change Directors with Expert MCA Support",
   },
   {
@@ -557,68 +641,97 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     title: "ADT-1 Filing for Auditor Appointment",
     heroTitle: "File ADT-1 Online with Complete MCA Compliance Support",
     shortDescription:
-      "ADT-1 filing is mandatory for companies to intimate auditor appointment or reappointment to ROC under the Companies Act, 2013. We provide complete support for documentation, resolutions, consent drafting, and MCA filing.",
+      "ADT-1 filing is a mandatory ROC compliance for companies to intimate the appointment or reappointment of an auditor to the Ministry of Corporate Affairs (MCA) under the Companies Act, 2013. Whether you are appointing your first auditor after incorporation or reappointing an auditor at the Annual General Meeting (AGM), timely filing of Form ADT-1 is important to maintain statutory compliance and avoid penalties. We provide complete support for documentation, board resolutions, consent drafting, and MCA filing for ADT-1 compliance.",
     whyChooseHeading: "Benefits of ADT-1 Filing",
     whyChooseIntro: "Timely ADT-1 filing maintains auditor validity and avoids escalating filing multipliers.",
     whyChooseFeatures: [
-      { title: "Mandatory MCA Compliance", description: "Comply with statutory auditor appointment requirements." },
-      { title: "Avoid Late Filing Penalties", description: "Timely filing helps prevent additional fees." },
-      { title: "Smooth ROC Compliance", description: "Maintain updated auditor records with ROC." },
-      { title: "Complete Filing Assistance", description: "End-to-end support for documentation and filing." },
+      { title: "Mandatory MCA Compliance", description: "Comply with statutory auditor appointment requirements under Companies Act, 2013." },
+      { title: "Avoid Late Filing Penalties", description: "Timely filing helps prevent additional government fees and penalties." },
+      { title: "Smooth ROC Compliance", description: "Maintain updated auditor records with the Registrar of Companies (ROC)." },
+      { title: "Complete Filing Assistance", description: "Support for resolutions, documentation, and MCA filing process." },
+      { title: "Expert Compliance Support", description: "Professional guidance for accurate and hassle-free filing." },
     ],
     whatIsHeading: "What is Form ADT-1?",
     whatIsDescription:
-      "Form ADT-1 is the statutory ROC filing to intimate appointment/reappointment of auditor under Section 139 of the Companies Act, 2013. It applies for first appointment, AGM reappointment, and casual vacancy appointments.",
-    keyPointsHeading: "Who Needs to File ADT-1?",
-    keyPoints: [
-      "Private Limited Companies",
-      "Public Limited Companies",
-      "Listed and Unlisted Companies",
-      "OPCs",
-      "Newly Incorporated Companies",
-      "Companies filling casual vacancy of auditor",
-    ],
-    keyFeaturesHeading: "ADT-1 Due Dates",
+      "Form ADT-1 is a statutory ROC filing used by companies to intimate the appointment or reappointment of an auditor to the Registrar of Companies (ROC) under Section 139 of the Companies Act, 2013. As per the latest Companies (Audit and Auditors) Amendment Rules, 2025, filing Form ADT-1 is mandatory even for first auditor appointments made by the Board of Directors.",
+    keyPointsHeading: "Form ADT-1 is filed for:",
+    keyPoints: ["First Auditor Appointment", "Reappointment of Auditor", "Appointment of Auditor at AGM", "Appointment to Fill Casual Vacancy"],
+    keyFeaturesHeading: "Who Needs to File Form ADT-1?",
     keyFeatureFeatures: [
-      { title: "Newly Incorporated Companies", description: "File within 15 days from board meeting of first auditor appointment." },
-      { title: "Existing Companies", description: "File within 15 days from AGM date of appointment/reappointment." },
-      { title: "Mandatory for First Auditor", description: "As per amended rules, first auditor appointment filing is also mandatory." },
-      { title: "Company Responsibility", description: "Filing obligation lies with the company, not auditor." },
-    ],
-    benefitsIntro:
-      "Timely ADT-1 filing maintains auditor validity and avoids escalating filing multipliers.",
-    benefitFeatures: [
-      { title: "1. Statutory Validity", description: "Ensure formal recognition of auditor appointment." },
-      { title: "2. Penalty Avoidance", description: "Prevent fee multipliers due to delayed filing." },
-      { title: "3. Compliance Continuity", description: "Keep audit and annual filing workflow aligned." },
-      { title: "4. Better Governance", description: "Maintain transparent, updated ROC records." },
+      { title: "Private Limited Companies", description: "Form ADT-1 filing is mandatory for private limited companies." },
+      { title: "Public Limited Companies", description: "Listed and unlisted public companies must file ADT-1." },
+      { title: "One Person Companies (OPCs)", description: "OPCs are also required to file ADT-1 where applicable." },
+      { title: "Newly Incorporated Companies", description: "First auditor appointment must be intimated through ADT-1." },
+      { title: "Casual Vacancy Appointments", description: "ADT-1 must also be filed for auditor appointments made to fill casual vacancies." },
+      { title: "Company Responsibility", description: "The responsibility for filing ADT-1 lies with the company and not the auditor." },
     ],
     processStepsHeading: "ADT-1 Filing Process",
     processSteps: [
-      { title: "Auditor Appointment", description: "Appoint or reappoint auditor through board/AGM." },
-      { title: "Document Preparation", description: "Prepare resolutions, consent, and eligibility certificate." },
-      { title: "Form ADT-1 Preparation", description: "Prepare and verify filing details." },
-      { title: "DSC & Certification", description: "Apply digital signatures and professional certification." },
-      { title: "Online MCA Filing", description: "Submit ADT-1 through MCA portal." },
-      { title: "SRN Confirmation", description: "Track successful filing and SRN generation." },
+      { title: "Auditor Appointment", description: "Company appoints or reappoints auditor through Board Meeting or AGM." },
+      { title: "Document Preparation", description: "Preparation of resolutions, auditor consent, and eligibility documents." },
+      { title: "Form ADT-1 Preparation", description: "Preparation and verification of ROC filing details." },
+      { title: "DSC & Professional Certification", description: "Digital signature authentication and professional certification." },
+      { title: "Online MCA Filing", description: "Form ADT-1 is filed through the MCA portal." },
+      { title: "SRN Generation & Confirmation", description: "Successful filing confirmation and Service Request Number (SRN) generation." },
     ],
     labeledSections: [
       {
-        title: "Documents Required for ADT-1 Filing",
-        bullets: ["Board Resolution or AGM Resolution", "Auditor Consent Letter", "Auditor Eligibility Certificate under Section 141", "Intimation Letter sent to auditor"],
-      },
-      {
-        title: "Late Filing Penalty for ADT-1",
-        bullets: [
-          "Up to 30 Days Delay: 2 times of normal filing fee",
-          "More than 30 Days & Up to 60 Days: 4 times of normal filing fee",
-          "More than 60 Days & Up to 90 Days: 6 times of normal filing fee",
-          "More than 90 Days & Up to 180 Days: 10 times of normal filing fee",
-          "More than 180 Days: 12 times of normal filing fee",
+        title: "ADT-1 Filing Due Date",
+        items: [
+          { title: "For Newly Incorporated Companies", description: "Form ADT-1 must be filed within 15 days from the date of the Board Meeting in which the first auditor is appointed. The first Board Meeting must generally be held within 30 days of incorporation." },
+          { title: "For Existing Companies", description: "Form ADT-1 must be filed within 15 days from the date of the Annual General Meeting (AGM) in which the auditor is appointed or reappointed." },
         ],
       },
       {
-        title: "Why Choose Us for ADT-1 Filing?",
+        title: "Requirements for Filing ADT-1",
+        intro: "Before filing Form ADT-1:",
+        bullets: [
+          "Auditor must be appointed as per Companies Act, 2013",
+          "Written consent from auditor must be obtained",
+          "Auditor must provide eligibility certificate under Section 141",
+          "Appointment must be approved through Board Resolution or AGM Resolution",
+        ],
+      },
+      {
+        title: "Details Required in Form ADT-1",
+        bullets: [
+          "Auditor Name",
+          "Membership Number",
+          "Firm Registration Number (FRN)",
+          "PAN Details",
+          "Professional Address",
+          "Contact Information",
+          "Appointment Period",
+          "Date of Appointment",
+          "Previous Auditor Details (if applicable)",
+        ],
+      },
+      {
+        title: "Documents Required for ADT-1 Filing",
+        bullets: ["Board Resolution or AGM Resolution", "Auditor Consent Letter", "Auditor Eligibility Certificate under Section 141", "Intimation Letter Sent to Auditor"],
+      },
+      {
+        title: "Late Filing Penalty for ADT-1",
+        intro: "Delay in filing ADT-1 attracts additional government fees depending on the number of delayed days.",
+        items: [
+          { title: "Up to 30 Days Delay", description: "2 times of normal filing fee." },
+          { title: "More than 30 Days & Up to 60 Days", description: "4 times of normal filing fee." },
+          { title: "More than 60 Days & Up to 90 Days", description: "6 times of normal filing fee." },
+          { title: "More than 90 Days & Up to 180 Days", description: "10 times of normal filing fee." },
+          { title: "More than 180 Days", description: "12 times of normal filing fee." },
+        ],
+      },
+      {
+        title: "Important Points About ADT-1 Filing",
+        items: [
+          { title: "Mandatory for First Auditor Appointment", description: "ADT-1 filing is now mandatory even for first auditor appointments." },
+          { title: "Applicable to All Companies", description: "The filing requirement applies irrespective of company size or capital structure." },
+          { title: "Filing Required for Casual Vacancy", description: "ADT-1 must also be filed for auditor appointments made to fill casual vacancies." },
+          { title: "Timely Filing is Important", description: "Delayed filing may lead to additional fees and compliance issues." },
+        ],
+      },
+      {
+        title: "Why Choose us for ADT-1 Filing?",
         items: [
           { title: "Experienced MCA Compliance Professionals", description: "Professional support for auditor appointment compliance and ROC filing." },
           { title: "Complete Filing Assistance", description: "End-to-end support from documentation to successful MCA filing." },
@@ -628,6 +741,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is Form ADT-1?", answer: "Form ADT-1 is an ROC filing used to intimate appointment or reappointment of an auditor." },
       { question: "Is ADT-1 mandatory for first auditor appointment?", answer: "Yes. As per updated rules, ADT-1 filing is mandatory even for first auditor appointments." },
@@ -635,8 +749,9 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "What is the due date for ADT-1 filing?", answer: "Form ADT-1 must generally be filed within 15 days from the date of auditor appointment." },
       { question: "What happens if ADT-1 is filed late?", answer: "Delayed filing attracts additional government fees and penalties." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete ADT-1 filing including auditor appointment documentation, board resolutions, ROC filing, MCA compliance, and filing support so your company remains fully compliant under the Companies Act, 2013.",
     ctaTitle: "File Your ADT-1 with Expert Support",
   },
   {
@@ -644,45 +759,40 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     title: "DPT-3 Filing - Return of Deposits",
     heroTitle: "File DPT-3 Online with Complete MCA Compliance Support",
     shortDescription:
-      "DPT-3 is a mandatory ROC filing for reporting outstanding loans, deposits, or exempted borrowings under the Companies Act, 2013. We provide complete support for loan classification, auditor coordination, and MCA filing.",
+      "DPT-3 filing is a mandatory ROC compliance for companies to report outstanding loans, deposits, or exempted borrowings to the Ministry of Corporate Affairs (MCA) under the Companies Act, 2013. Every company, except government companies, is required to file Form DPT-3 annually to report deposits, outstanding loans, or money not considered as deposits as on 31st March of the financial year. We provide complete support for DPT-3 filing, loan classification, auditor coordination, and MCA compliance filing.",
     whyChooseHeading: "Benefits of DPT-3 Filing",
     whyChooseIntro: "Timely DPT-3 filing keeps borrowing disclosures compliant and reduces enforcement risk.",
     whyChooseFeatures: [
-      { title: "Mandatory MCA Compliance", description: "Comply with deposit reporting requirements under law." },
-      { title: "Avoid Penalties & Compliance Issues", description: "Timely filing helps prevent fines and legal consequences." },
-      { title: "Proper Loan Classification", description: "Accurate classification of loans and exempted deposits." },
+      { title: "Mandatory MCA Compliance", description: "Comply with deposit reporting requirements under the Companies Act, 2013." },
+      { title: "Avoid Penalties & Compliance Issues", description: "Timely filing helps prevent penalties and legal consequences." },
+      { title: "Proper Loan Classification", description: "Professional assistance for accurate classification of loans and deposits." },
       { title: "Smooth ROC Compliance", description: "Maintain updated financial reporting with MCA and ROC." },
+      { title: "Dedicated Expert Support", description: "Professional guidance for accurate and hassle-free filing." },
     ],
     whatIsHeading: "What is Form DPT-3?",
     whatIsDescription:
-      "Form DPT-3 is a return filed with MCA to report deposits, outstanding loans, or amounts not treated as deposits under the Companies Act, 2013 and Deposits Rules.",
-    keyPointsHeading: "Applicability of DPT-3 Filing",
+      "Form DPT-3 is a return filed with the Ministry of Corporate Affairs (MCA) for reporting deposits, outstanding loans, or money received by a company that is not treated as deposits under the Companies Act, 2013. The filing requirement was introduced under the Companies (Acceptance of Deposits) Rules, 2014 and subsequent amendment rules notified by MCA. DPT-3 filing helps the government monitor company borrowings and safeguard the interests of creditors and depositors.",
+    keyPointsHeading: "Form DPT-3 filing is applicable to:",
     keyPoints: [
       "Private Limited Companies",
       "Public Limited Companies",
-      "OPCs",
-      "Small and Non-Small Companies",
-      "Companies with deposits, loans, advances, or borrowings",
+      "One Person Companies (OPCs)",
+      "Small Companies",
+      "Non-Small Companies",
     ],
-    keyFeaturesHeading: "Important DPT-3 Compliance Points",
+    keyFeaturesHeading: "Companies generally need to file where they have:",
     keyFeatureFeatures: [
-      { title: "Annual Due Date", description: "Generally due on or before 30th June for FY ending 31st March." },
-      { title: "Auditor Certificate", description: "Generally required with DPT-3 filing." },
-      { title: "Applicable for Exempted Deposits Too", description: "Reporting can apply even for non-deposit receipts." },
-      { title: "Online MCA Filing", description: "Filed digitally through MCA portal with DSC." },
-    ],
-    benefitsIntro:
-      "Timely DPT-3 filing keeps borrowing disclosures compliant and reduces enforcement risk.",
-    benefitFeatures: [
-      { title: "1. Reporting Accuracy", description: "Ensure proper treatment of deposits vs exempted receipts." },
-      { title: "2. Penalty Prevention", description: "Avoid defaults under deposit rules." },
-      { title: "3. Better Governance", description: "Maintain clean records for lenders and authorities." },
-      { title: "4. Smooth Annual Compliance", description: "Align DPT-3 with ROC and tax filing calendar." },
+      { title: "Deposits from Members or Directors", description: "Reporting of deposits received from members or directors." },
+      { title: "Loans from Third Parties", description: "Outstanding loans from third parties may require reporting." },
+      { title: "Advances for Goods or Services", description: "Advances received for goods or services may be reportable." },
+      { title: "Secured or Unsecured Borrowings", description: "Secured and unsecured borrowings may need disclosure." },
+      { title: "Outstanding Money Not Considered as Deposits", description: "Amounts not treated as deposits may still require DPT-3 filing." },
     ],
     labeledSections: [
       {
-        title: "Companies Exempted from DPT-3",
-        bullets: ["Government Companies", "Banking Companies", "NBFCs registered with RBI", "Housing Finance Companies", "Certain notified exempt entities"],
+        title: "Companies Exempted from DPT-3 Filing",
+        intro: "The following entities are generally exempt from filing Form DPT-3:",
+        bullets: ["Government Companies", "Banking Companies", "NBFCs registered with RBI", "Housing Finance Companies", "Certain notified companies exempted by MCA"],
       },
       {
         title: "Transactions Not Considered as Deposits",
@@ -698,6 +808,27 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
+        title: "DPT-3 Filing Due Date",
+        intro: "The due date for filing Form DPT-3 is generally 30th June every year for the financial year ending on 31st March. For FY 2025–26, DPT-3 filing is generally required on or before 30th June 2026.",
+      },
+      {
+        title: "Information Required in Form DPT-3",
+        bullets: [
+          "Company CIN",
+          "Company Email ID",
+          "Net Worth of Company",
+          "Outstanding Loan Details",
+          "Particulars of Charges",
+          "Credit Rating Details (if applicable)",
+          "Outstanding Deposits & Borrowings",
+          "Auditor Information",
+        ],
+      },
+      {
+        title: "Documents Required for DPT-3 Filing",
+        bullets: ["Auditor's Certificate", "Trust Deed (if applicable)", "Instrument Creating Charge (if applicable)", "Details of Liquid Assets", "List of Depositors (where applicable)"],
+      },
+      {
         title: "Penalty for Non-Compliance",
         intro: "Failure to comply with DPT-3 filing requirements may lead to penalties and legal consequences under the Companies Act, 2013.",
         items: [
@@ -707,7 +838,16 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for DPT-3 Filing?",
+        title: "Important Points About DPT-3 Filing",
+        items: [
+          { title: "Applicable Even for Exempted Deposits", description: "Companies may still need to file DPT-3 for amounts not considered as deposits." },
+          { title: "Annual Filing Requirement", description: "DPT-3 filing is generally required every financial year." },
+          { title: "Auditor Verification Required", description: "An auditor certificate is generally required while filing Form DPT-3." },
+          { title: "Online MCA Filing", description: "The complete filing process is carried out online through the MCA portal." },
+        ],
+      },
+      {
+        title: "Why Choose us for DPT-3 Filing?",
         items: [
           { title: "Experienced MCA Compliance Professionals", description: "Professional support for DPT-3 filing and ROC compliance." },
           { title: "Accurate Loan Classification", description: "Proper classification of deposits and exempted borrowings." },
@@ -726,6 +866,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "DSC Authentication & Filing", description: "Sign and file online on MCA portal." },
       { title: "SRN Confirmation", description: "Track SRN and filing confirmation." },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Who is required to file Form DPT-3?", answer: "Every company except exempted entities such as government companies, banks, and certain NBFCs is generally required to file DPT-3." },
       { question: "What is the due date for DPT-3 filing?", answer: "Form DPT-3 is generally required to be filed on or before 30th June every year." },
@@ -733,8 +874,9 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "Is auditor certification required for DPT-3?", answer: "Yes. Auditor certification is generally required for DPT-3 filing." },
       { question: "What happens if DPT-3 is not filed?", answer: "Non-compliance may lead to penalties and legal consequences under the Companies Act, 2013." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete DPT-3 filing including loan classification, auditor coordination, ROC filing, MCA compliance, and online filing support so your company remains fully compliant under the Companies Act, 2013.",
     ctaTitle: "File Your DPT-3 with Expert Support",
   },
   {
@@ -771,14 +913,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "LLP-15", description: "Filed in certain office change cases within state." },
       { title: "LLP-23", description: "Filed in interstate registered office shift cases." },
     ],
-    benefitsIntro:
-      "A properly updated LLP Agreement protects partner clarity and compliance readiness.",
-    benefitFeatures: [
-      { title: "1. Legal Validity", description: "Keep operational terms enforceable and compliant." },
-      { title: "2. Partner Clarity", description: "Define duties, rights, and responsibilities clearly." },
-      { title: "3. Better Governance", description: "Align agreement with current business realities." },
-      { title: "4. Dispute Reduction", description: "Prevent misunderstandings through clear contractual clauses." },
-    ],
     processStepsHeading: "Process for Changing LLP Agreement",
     processSteps: [
       { title: "Partner Meeting & Resolution", description: "Approve proposed changes through partner resolution." },
@@ -788,6 +922,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "LLP-4 Filing (if applicable)", description: "File partner-related updates where required." },
       { title: "ROC Approval & Record Update", description: "ROC reviews and updates LLP records." },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Is it mandatory to file changes in LLP Agreement with MCA?", answer: "Yes. Changes in LLP Agreement must generally be filed with ROC through Form LLP-3." },
       { question: "What is a Supplementary LLP Agreement?", answer: "It is a document used to record amendments or modifications made to the original LLP Agreement." },
@@ -820,7 +955,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for LLP Agreement Change?",
+        title: "Why Choose us for LLP Agreement Change?",
         items: [
           { title: "Experienced MCA Compliance Professionals", description: "Professional support for LLP Agreement amendment and ROC filing." },
           { title: "End-to-End Filing Assistance", description: "Complete assistance from drafting to MCA filing and approval." },
@@ -830,8 +965,9 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete LLP Agreement amendment services including supplementary agreement drafting, partner resolutions, LLP-3 filing, LLP-4 filing, ROC compliance, and MCA filing support so your LLP remains legally compliant and professionally managed.",
     ctaTitle: "Update Your LLP Agreement with Expert Support",
   },
   {
@@ -867,14 +1003,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "MOA Amendment", description: "Capital clause must be altered to reflect revised limit." },
       { title: "Stamp Duty Payment", description: "Applicable e-stamp and filing fees must be paid." },
     ],
-    benefitsIntro:
-      "Authorized capital increase expands financing headroom and supports structured growth.",
-    benefitFeatures: [
-      { title: "1. Growth Capacity", description: "Enable fresh capital raise through share issuance." },
-      { title: "2. Capital Flexibility", description: "Support strategic transactions and investor onboarding." },
-      { title: "3. Compliance Safety", description: "Issue shares only after lawful approval." },
-      { title: "4. Better Financial Planning", description: "Create room for future equity actions." },
-    ],
     processStepsHeading: "Process for Increasing Authorized Capital",
     processSteps: [
       { title: "Review AOA", description: "Check if AOA permits capital alteration; amend if required." },
@@ -884,14 +1012,16 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Stamp Duty Payment", description: "Pay applicable government charges." },
       { title: "ROC Approval & Update", description: "ROC updates revised authorized capital records." },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is authorized capital?", answer: "Maximum share capital a company is allowed to issue." },
       { question: "Why increase authorized capital?", answer: "To issue more shares, raise funds, or support expansion." },
       { question: "Which form is filed for increase?", answer: "Form SH-7 is primarily used." },
       { question: "Is MOA amendment necessary?", answer: "Yes. Capital clause of MOA must be updated." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete authorized capital increase compliance including board resolutions, EGM support, SH-7 filing, MGT-14 filing, MOA amendment, ROC filing, and MCA compliance support so your business can raise funds smoothly and remain fully compliant.",
     ctaTitle: "Increase Authorized Capital with Expert Support",
   },
   {
@@ -920,14 +1050,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Stamp Duty", description: "Pay applicable duty on transfer deed." },
       { title: "Board Approval", description: "Board must approve transfer before register update." },
     ],
-    benefitsIntro:
-      "A compliant transfer process protects ownership clarity and avoids disputes.",
-    benefitFeatures: [
-      { title: "1. Ownership Clarity", description: "Ensure valid transfer and updated member records." },
-      { title: "2. Legal Safety", description: "Avoid defects due to procedural errors." },
-      { title: "3. Governance Quality", description: "Keep board and shareholder records up to date." },
-      { title: "4. Transaction Confidence", description: "Provide legally clean transfer chain for future deals." },
-    ],
     processStepsHeading: "Share Transfer Process",
     processSteps: [
       { title: "Review AOA", description: "Check pre-emptive rights and transfer restrictions." },
@@ -948,14 +1070,16 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       "Indemnity Bond (if applicable)",
       "Stamp Duty Proof",
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "Which form is used for share transfer?", answer: "Form SH-4 is generally used as transfer deed." },
       { question: "Is stamp duty required for share transfer?", answer: "Yes. Applicable stamp duty must be paid." },
       { question: "Can directors refuse transfer?", answer: "Yes, where AOA permits refusal on specified grounds." },
       { question: "Is board approval required?", answer: "Yes, generally board approval is required before registration." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete share transfer compliance including Form SH-4 preparation, board resolutions, share certificate documentation, compliance support, and company record updates so your share transfer process remains smooth and legally compliant.",
     ctaTitle: "Transfer Company Shares with Expert Support",
   },
   {
@@ -984,14 +1108,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "No pending legal proceedings", description: "No active litigation should be pending." },
       { title: "Up-to-date filings", description: "Form 8, Form 11, ITR, and GST compliance should be complete." },
     ],
-    benefitsIntro:
-      "Proper closure prevents compliance leakage and protects partners from ongoing defaults.",
-    benefitFeatures: [
-      { title: "1. Penalty Shield", description: "Stop daily default accumulation on delayed forms." },
-      { title: "2. Clean Exit", description: "Close entity lawfully with documentary closure trail." },
-      { title: "3. Partner Protection", description: "Reduce future legal/compliance exposure." },
-      { title: "4. Better Record Hygiene", description: "Maintain cleaner regulatory history." },
-    ],
     processStepsHeading: "LLP Strike Off Process",
     processSteps: [
       { title: "Cease Business Operations", description: "Stop all LLP activities before closure." },
@@ -1003,14 +1119,16 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "File Form 24", description: "Submit closure application with supporting documents." },
       { title: "ROC Scrutiny & Final Strike Off", description: "ROC review, notice, and final name removal." },
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is Form 24?", answer: "Form 24 is MCA form used for LLP strike-off and closure." },
       { question: "Can inactive LLPs be closed?", answer: "Yes. Inactive/defunct LLPs can apply through Form 24." },
       { question: "Is annual filing mandatory before closure?", answer: "Yes. Pending Form 8 and Form 11 are generally required to be completed." },
       { question: "What happens if inactive LLP is not closed?", answer: "Late fees and penalties can continue to accumulate." },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete LLP winding up and closure services including Form 24 filing, annual compliance completion, GST cancellation, ROC filing, and MCA compliance support so your LLP closure process remains smooth and legally compliant.",
     ctaTitle: "Close Your LLP with Expert Support",
   },
   {
@@ -1018,20 +1136,21 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     title: "Company Winding Up",
     heroTitle: "Close Your Company Legally with Complete MCA Compliance Support",
     shortDescription:
-      "Company winding up is the legal process of closing business operations, settling liabilities, liquidating assets, and dissolving the company under Companies Act, 2013. We provide complete support for voluntary closure and ROC compliance filings.",
+      "Company winding up is the formal legal process through which a company closes its business operations, settles liabilities, liquidates assets, and ultimately gets dissolved under the Companies Act, 2013. Whether your company is inactive, non-operational, financially unviable, or no longer required, timely winding up is important to avoid unnecessary compliance burdens, penalties, and legal complications. We provide complete support for voluntary company closure, liquidation documentation, ROC filing, MGT-14 filing, accounts finalisation, and MCA compliance support.",
     whyChooseHeading: "Benefits of Company Winding Up",
     whyChooseIntro: "A structured winding-up process reduces residual liabilities and compliance exposure.",
     whyChooseFeatures: [
-      { title: "Legally Close Business Operations", description: "Close through proper MCA and ROC route." },
-      { title: "Avoid Future Compliance Burden", description: "Stop annual filing and compliance obligations for inactive entities." },
-      { title: "Proper Settlement of Liabilities", description: "Systematic debt and obligation closure." },
-      { title: "Smooth ROC Filing Support", description: "Assistance for resolutions and closure documentation." },
+      { title: "Legally Close Business Operations", description: "Complete company closure through proper MCA and ROC process." },
+      { title: "Avoid Future Compliance Burden", description: "Prevent annual ROC filings, tax filings, and regulatory obligations on inactive companies." },
+      { title: "Proper Settlement of Liabilities", description: "Systematic closure process for settlement of debts and obligations." },
+      { title: "Smooth ROC Filing Support", description: "Professional assistance for resolutions, liquidation filings, and compliance documentation." },
+      { title: "Expert Compliance Assistance", description: "Dedicated support throughout the winding-up and dissolution process." },
     ],
     whatIsHeading: "What is Winding Up of a Company?",
     whatIsDescription:
-      "Winding up is the formal process of ceasing operations, liquidating assets, paying liabilities, and dissolving a company under legal framework. The company exists legally until dissolution formalities are completed.",
-    keyPointsHeading: "Modes of Winding Up",
-    keyPoints: ["Compulsory Winding Up by Tribunal", "Voluntary Winding Up", "Winding Up under Court Supervision"],
+      "Winding up refers to the formal process of closing a company through the procedures provided under the Companies Act, 2013 or liquidation under the Insolvency and Bankruptcy Code, 2016. The process generally involves ceasing business activities, liquidating company assets, settling outstanding debts, distributing remaining surplus among shareholders, and dissolution of the company. Until dissolution is completed, the company continues to exist as a legal entity for the purpose of completing winding-up proceedings.",
+    keyPointsHeading: "Modes of Winding Up Under Companies Act",
+    keyPoints: ["Compulsory Winding Up by Tribunal", "Voluntary Winding Up", "Winding Up Subject to Court Supervision"],
     keyFeaturesHeading: "Role of Liquidator",
     keyFeatureFeatures: [
       { title: "Asset Liquidation", description: "Realisation and disposal of company assets." },
@@ -1039,33 +1158,46 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Distribution", description: "Distribute residual funds as per legal priority." },
       { title: "Reporting", description: "File reports before ROC/Tribunal and manage dissolution process." },
     ],
-    benefitsIntro:
-      "A structured winding-up process reduces residual liabilities and compliance exposure.",
-    benefitFeatures: [
-      { title: "1. Lawful Closure", description: "Close entity without leaving unresolved obligations." },
-      { title: "2. Governance Assurance", description: "Follow proper process with documented approvals." },
-      { title: "3. Creditor Handling", description: "Settle claims in a transparent sequence." },
-      { title: "4. Regulatory Clean-up", description: "Obtain final dissolution with proper filings." },
-    ],
     processStepsHeading: "Procedure for Voluntary Winding Up",
     processSteps: [
-      { title: "Declaration of Solvency", description: "Directors confirm company's debt payment position." },
-      { title: "Board Meeting", description: "Approve winding-up proposal and call meeting." },
-      { title: "Shareholder Approval", description: "Pass Special Resolution for winding up." },
-      { title: "Appointment of Liquidator", description: "Appoint liquidator to manage closure process." },
-      { title: "Notification & Filing", description: "Publish and file resolution as required." },
-      { title: "Settlement & Reporting", description: "Settle liabilities and prepare liquidation reports." },
-      { title: "Final Meeting & Filing", description: "Submit final accounts and closure documents." },
-      { title: "Dissolution", description: "ROC removes company name after completion." },
-    ],
-    faq: [
-      { question: "What is winding up of a company?", answer: "Winding up is the legal process of closing a company by liquidating assets, settling liabilities, and dissolving the company." },
-      { question: "What is voluntary winding up?", answer: "Voluntary winding up is initiated by shareholders or creditors through resolution without court intervention." },
-      { question: "Who appoints the liquidator?", answer: "The company members or Tribunal appoint the liquidator depending on the type of winding up." },
-      { question: "Can a company continue business during winding up?", answer: "The company generally ceases normal business operations except activities required for winding-up proceedings." },
-      { question: "How long does company winding up take?", answer: "The timeline depends on liabilities, legal matters, and compliance complexity." },
+      { title: "Declaration of Solvency", description: "Directors assess financial position and declare the company capable of paying debts." },
+      { title: "Board Meeting", description: "Board approves proposal for winding up and calls General Meeting." },
+      { title: "Shareholder Approval", description: "Special Resolution is passed for voluntary winding up." },
+      { title: "Appointment of Liquidator", description: "Liquidator is appointed to manage closure process and settlement of liabilities." },
+      { title: "Notification of Resolution", description: "Resolution is published in Official Gazette and filed with ROC." },
+      { title: "Settlement of Liabilities", description: "Company liabilities and creditor claims are settled." },
+      { title: "Liquidator's Report", description: "Liquidator prepares reports and financial statements during winding-up process." },
+      { title: "Final Meeting", description: "Final meeting is conducted for presenting liquidation accounts and closure report." },
+      { title: "Submission to ROC", description: "Final documents and reports are filed with ROC for dissolution approval." },
+      { title: "Company Dissolution", description: "ROC removes company name from records after successful completion of winding-up proceedings." },
     ],
     labeledSections: [
+      {
+        title: "Compulsory Winding Up by Tribunal",
+        intro: "Compulsory winding up is initiated through an order of the Tribunal when:",
+        bullets: [
+          "Company is unable to pay debts",
+          "Company violates legal requirements",
+          "Fraudulent or unlawful activities are involved",
+          "Annual ROC filings are not completed",
+          "Tribunal considers winding up necessary in public interest",
+        ],
+      },
+      {
+        title: "Voluntary Winding Up of Company",
+        intro: "Voluntary winding up is generally initiated by company members when they mutually decide to close the business. This process may begin by Special Resolution where shareholders pass a Special Resolution approving company closure, or by expiry or event mentioned in AOA where the Articles of Association specify dissolution upon occurrence of certain events or expiry of duration.",
+      },
+      {
+        title: "Compulsory Winding Up of Company",
+        intro: "Compulsory winding up is ordered by the Tribunal under circumstances such as:",
+        bullets: [
+          "Failure to repay debts",
+          "Fraud or unlawful activities",
+          "Non-filing of ROC returns for consecutive years",
+          "Public interest concerns",
+          "Insolvency or financial default",
+        ],
+      },
       {
         title: "Documents Required for Company Winding Up",
         bullets: [
@@ -1092,7 +1224,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for Company Winding Up?",
+        title: "Why Choose us for Company Winding Up?",
         items: [
           { title: "Experienced MCA Compliance Professionals", description: "Professional support for company closure and liquidation compliance." },
           { title: "Complete Filing Assistance", description: "End-to-end support from resolutions to ROC filing and dissolution." },
@@ -1102,8 +1234,17 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    faqHeading: "Frequently Asked Questions (FAQ)",
+    faq: [
+      { question: "What is winding up of a company?", answer: "Winding up is the legal process of closing a company by liquidating assets, settling liabilities, and dissolving the company." },
+      { question: "What is voluntary winding up?", answer: "Voluntary winding up is initiated by shareholders or creditors through resolution without court intervention." },
+      { question: "Who appoints the liquidator?", answer: "The company members or Tribunal appoint the liquidator depending on the type of winding up." },
+      { question: "Can a company continue business during winding up?", answer: "The company generally ceases normal business operations except activities required for winding-up proceedings." },
+      { question: "How long does company winding up take?", answer: "The timeline depends on liabilities, legal matters, and compliance complexity." },
+    ],
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete company winding-up services including resolutions, liquidation support, ROC filing, accounts finalisation, MGT-14 filing, and MCA compliance support so your company closure process remains smooth and legally compliant.",
     ctaTitle: "Close Your Company with Expert Support",
   },
   {
@@ -1111,18 +1252,19 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
     title: "Commencement (INC-20A)",
     heroTitle: "File INC-20A Online with Complete MCA Compliance Support",
     shortDescription:
-      "Form INC-20A is the mandatory declaration for commencement of business for eligible companies incorporated with share capital. We provide complete support for board resolution, bank proof verification, certification, and MCA filing.",
+      "Form INC-20A is a mandatory declaration filed with the Registrar of Companies (ROC) for commencement of business by companies incorporated on or after 2nd November 2018 having share capital. The form confirms that subscribers to the Memorandum of Association have paid the share subscription amount and that the company is ready to commence business operations. A company cannot legally commence business activities or exercise borrowing powers until Form INC-20A is filed and approved by MCA. We provide complete support for INC-20A filing including board resolution drafting, bank statement verification, professional certification, and MCA filing support.",
     whyChooseHeading: "Benefits of INC-20A Filing",
     whyChooseIntro: "Timely INC-20A filing establishes lawful start of operations and borrowing readiness.",
     whyChooseFeatures: [
-      { title: "Mandatory MCA Compliance", description: "Comply with Section 10A requirements under Companies Act, 2013." },
-      { title: "Start Business Operations Legally", description: "File declaration before commencing business activities." },
-      { title: "Activate Borrowing Powers", description: "Borrowing powers become operational after filing approval." },
-      { title: "Avoid Heavy Penalties", description: "Prevent penalties and potential strike-off action." },
+      { title: "Mandatory MCA Compliance", description: "Comply with Section 10A of the Companies Act, 2013." },
+      { title: "Start Business Operations Legally", description: "File declaration for commencement of business activities." },
+      { title: "Activate Borrowing Powers", description: "Companies can exercise borrowing powers only after INC-20A approval." },
+      { title: "Avoid Heavy Penalties", description: "Timely filing helps prevent penalties and ROC action." },
+      { title: "Complete Filing Assistance", description: "Professional support for documentation, certification, and MCA filing." },
     ],
     whatIsHeading: "What is Form INC-20A?",
     whatIsDescription:
-      "INC-20A is declaration of commencement of business confirming that MOA subscribers have paid share subscription amount and company is ready to commence operations.",
+      "Form INC-20A is a declaration for commencement of business filed by companies incorporated with share capital. It is filed by directors confirming that all subscribers to the Memorandum have paid the value of shares agreed to be taken by them. The form must generally be filed within 180 days from the date of incorporation.",
     keyPointsHeading: "Applicability of INC-20A",
     keyPoints: [
       "Private Limited Companies with share capital",
@@ -1138,14 +1280,6 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { title: "Bank Statement Requirement", description: "Must show receipt of subscriber share capital." },
       { title: "Board Resolution", description: "Authorise filing and confirm commencement readiness." },
       { title: "Restriction Before Filing", description: "Company cannot legally commence business or borrow before approval." },
-    ],
-    benefitsIntro:
-      "Timely INC-20A filing establishes lawful start of operations and borrowing readiness.",
-    benefitFeatures: [
-      { title: "1. Legal Activation", description: "Enable lawful commencement of business." },
-      { title: "2. Borrowing Eligibility", description: "Access borrowing powers after filing approval." },
-      { title: "3. Penalty Avoidance", description: "Reduce risk of fines and strike-off actions." },
-      { title: "4. Governance Confidence", description: "Show proper capital receipt and compliance discipline." },
     ],
     processStepsHeading: "Step-by-Step Process for INC-20A Filing",
     processSteps: [
@@ -1168,6 +1302,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       "Proof of Registered Office (if applicable)",
       "Sectoral Approval Certificates (if required)",
     ],
+    faqHeading: "Frequently Asked Questions (FAQ)",
     faq: [
       { question: "What is Form INC-20A?", answer: "INC-20A is a declaration for commencement of business filed with ROC." },
       { question: "Who is required to file INC-20A?", answer: "Companies incorporated on or after 2nd November 2018 having share capital are generally required to file INC-20A." },
@@ -1176,6 +1311,58 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
       { question: "What happens if INC-20A is not filed?", answer: "Penalties may apply and ROC may initiate strike-off action." },
     ],
     labeledSections: [
+      {
+        title: "Objectives of INC-20A Filing",
+        intro: "The primary objectives of Form INC-20A include:",
+        items: [
+          { title: "Declaration of Commencement of Business", description: "Confirms that the company is ready to commence business operations legally." },
+          { title: "Confirmation of Share Capital Receipt", description: "Ensures that subscribers have paid the agreed share subscription amount." },
+          { title: "Prevention of Shell Companies", description: "Helps prevent incorporation of fake or non-operational companies." },
+          { title: "Activation of Borrowing Powers", description: "Allows companies to borrow funds legally after filing approval." },
+          { title: "Compliance Under Companies Act", description: "Ensures adherence to MCA compliance requirements." },
+        ],
+      },
+      {
+        title: "Companies Exempt from INC-20A Filing",
+        intro: "The following entities are generally exempt:",
+        bullets: [
+          "Companies incorporated before 2nd November 2018",
+          "Companies incorporated without share capital",
+          "Certain exempted government companies",
+        ],
+      },
+      {
+        title: "Due Date for INC-20A Filing",
+        intro: "Form INC-20A must generally be filed within 180 days from the date of incorporation of the company. Failure to file within the prescribed timeline may attract penalties and ROC action.",
+      },
+      {
+        title: "Importance of Bank Statement in INC-20A",
+        intro: "The company bank statement is one of the most important documents for INC-20A filing. It must clearly show receipt of subscription money from all subscribers, amount credited to company bank account, and share capital contribution details. This serves as proof that the company has received its initial share capital.",
+      },
+      {
+        title: "Board Resolution for INC-20A",
+        intro: "A Board Resolution is generally passed authorising filing of Form INC-20A. The resolution typically confirms receipt of share subscription money, readiness to commence business, and authorisation of director for filing the form.",
+      },
+      {
+        title: "Government Fees for INC-20A Filing",
+        intro: "The filing fee for INC-20A depends on the company's authorised share capital.",
+        items: [
+          { title: "Less than ₹1,00,000", description: "₹200" },
+          { title: "₹1,00,000 to ₹4,99,999", description: "₹300" },
+          { title: "₹5,00,000 to ₹24,99,999", description: "₹400" },
+          { title: "₹25,00,000 to ₹99,99,999", description: "₹500" },
+          { title: "₹1 Crore & Above", description: "₹600" },
+        ],
+      },
+      {
+        title: "Restrictions Before Filing INC-20A",
+        intro: "Before INC-20A filing and approval:",
+        bullets: [
+          "Company cannot legally commence business operations",
+          "Company cannot exercise borrowing powers",
+          "Financial institutions may deny loans or credit facilities",
+        ],
+      },
       {
         title: "Penalty for Non-Filing of INC-20A",
         items: [
@@ -1186,7 +1373,7 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
       {
-        title: "Why Choose Us for INC-20A Filing?",
+        title: "Why Choose us for INC-20A Filing?",
         items: [
           { title: "Experienced MCA Compliance Professionals", description: "Professional support for INC-20A filing and ROC compliance." },
           { title: "Accurate Documentation Support", description: "Complete assistance for bank statement verification and board resolutions." },
@@ -1196,8 +1383,9 @@ export const MCA_COMPLIANCE_SUB_SERVICES: SubServicePageContent[] = [
         ],
       },
     ],
-    whyChooseUsHeading: "Why Choose Us?",
+    whyChooseUsHeading: "Why Choose us?",
     whyChooseUs: [],
+    ctaSubtitle: "We handle complete INC-20A filing including board resolutions, bank statement verification, professional certification, ROC filing, and MCA compliance support so your company can legally commence business operations without compliance issues.",
     ctaTitle: "File Your INC-20A with Expert Support",
   },
 ];

@@ -10,6 +10,25 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
   return !!value && typeof value === "object" && !Array.isArray(value);
 }
 
+const PAGE_CONTENT_ARRAY_KEYS = [
+  "whyChooseItems",
+  "whyChooseFeatures",
+  "keyPoints",
+  "keyFeatures",
+  "keyFeatureFeatures",
+  "benefits",
+  "benefitFeatures",
+  "whyChooseUs",
+  "idealFor",
+  "registrableItems",
+  "processSteps",
+  "documentsRequired",
+  "whoShouldApply",
+  "labeledSections",
+  "faq",
+] as const;
+
+/** Bundled client copy wins; CMS pageContent only fills gaps when defaults are empty. */
 function mergePageContent(
   defaults: SubServicePageContent | undefined,
   cms: Partial<SubServicePageContent> | undefined
@@ -18,27 +37,14 @@ function mergePageContent(
   if (!defaults) return cms as SubServicePageContent;
   if (!cms || !isPlainObject(cms)) return defaults;
 
-  const merged = { ...defaults, ...cms } as SubServicePageContent;
+  const merged = { ...cms, ...defaults } as SubServicePageContent;
 
-  for (const key of [
-    "whyChooseItems",
-    "whyChooseFeatures",
-    "keyPoints",
-    "keyFeatures",
-    "keyFeatureFeatures",
-    "benefits",
-    "benefitFeatures",
-    "whyChooseUs",
-    "idealFor",
-    "registrableItems",
-    "processSteps",
-    "documentsRequired",
-    "whoShouldApply",
-    "labeledSections",
-    "faq",
-  ] as const) {
+  for (const key of PAGE_CONTENT_ARRAY_KEYS) {
+    const defaultVal = defaults[key];
     const cmsVal = cms[key];
-    if (Array.isArray(cmsVal) && cmsVal.length > 0) {
+    if (Array.isArray(defaultVal) && defaultVal.length > 0) {
+      (merged as Record<string, unknown>)[key] = defaultVal;
+    } else if (Array.isArray(cmsVal) && cmsVal.length > 0) {
       (merged as Record<string, unknown>)[key] = cmsVal;
     }
   }
@@ -46,7 +52,7 @@ function mergePageContent(
   return merged;
 }
 
-/** Resolve sub-service page: CMS pageContent overrides bundled defaults. */
+/** Resolve sub-service page: bundled client copy is source of truth; CMS fills only missing fields. */
 export async function getSubServicePageContent(
   serviceId: string,
   subServiceId: string,

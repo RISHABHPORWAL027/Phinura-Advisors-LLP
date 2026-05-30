@@ -22,14 +22,15 @@ export type SubServicePageContent = {
   whyChooseItems?: string[];
   /** Title + description cards for why-choose block */
   whyChooseFeatures?: SubServiceFeature[];
-  whatIsHeading: string;
-  whatIsDescription: string;
+  whatIsHeading?: string;
+  whatIsDescription?: string;
   keyPointsHeading?: string;
   keyPoints?: string[];
   keyFeaturesHeading?: string;
   keyFeaturesIntro?: string;
   keyFeatures?: string[];
   keyFeatureFeatures?: SubServiceFeature[];
+  benefitsHeading?: string;
   benefitsIntro?: string;
   benefits?: string[];
   /** Title + description benefit cards (optional alternative layout) */
@@ -40,14 +41,18 @@ export type SubServicePageContent = {
   idealForHeading?: string;
   idealFor?: string[];
   registrableItemsHeading?: string;
+  registrableItemsIntro?: string;
   registrableItems?: string[];
   processStepsHeading?: string;
   processSteps?: SubServiceProcessStep[];
   documentsHeading?: string;
+  documentsIntro?: string;
   documentsRequired?: string[];
   whoShouldApplyHeading?: string;
   whoShouldApply?: string[];
   labeledSections?: SubServiceLabeledSection[];
   faq: SubServiceFaq[];
+  faqHeading?: string;
   ctaTitle: string;
+  ctaSubtitle?: string;
 };

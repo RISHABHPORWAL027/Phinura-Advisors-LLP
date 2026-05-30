@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AppLink } from "../navigation/AppLink";
 import { motion } from "motion/react";
@@ -6,6 +7,8 @@ import { useCMS } from "../hooks/useCMS";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
 import { CtaImageCard } from "../components/CtaImageCard";
 import detailsBg from "../Assets/details_page_bg.avif";
+import type { SubServicePageContent } from "../data/subServiceTypes";
+import { loadDefaultSubServices } from "../utils/subServiceDefaults";
 
 const SERVICE_DETAIL_FALLBACK_CONSULTATION_HEADING = "Consultation — how we can help";
 
@@ -18,15 +21,45 @@ const SERVICE_DETAIL_FALLBACK_CONSULTATION_CLOSING = [
   "MCA, GST, and income-tax cycles often overlap; we keep work coordinated instead of reinventing data in isolation. Reach us on WhatsApp or call for a clear next step, not jargon.",
 ].join("\n");
 
+function resolveSubServiceCardCopy(
+  sub: { id?: string; hook?: string; description?: string },
+  bundledById: Map<string, SubServicePageContent>
+) {
+  const bundled = sub.id ? bundledById.get(sub.id.toLowerCase()) : undefined;
+  return {
+    hook: sub.hook?.trim() || "",
+    description: sub.description?.trim() || bundled?.shortDescription?.trim() || "",
+  };
+}
+
 export const ServiceDetail = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
   const { data } = useCMS();
+  const [bundledSubServices, setBundledSubServices] = useState<Map<string, SubServicePageContent>>(new Map());
 
   const services = data.pages.services.serviceList || [];
   const serviceIdNormalized = (serviceId || "").toLowerCase();
   const service =
     services.find((s: any) => String(s?.id ?? "").toLowerCase() === serviceIdNormalized) ||
     services.find((s: any) => String(s?.slug ?? "").toLowerCase() === serviceIdNormalized);
+
+  useEffect(() => {
+    const serviceKey = String(service?.id ?? "").toLowerCase();
+    if (!serviceKey) {
+      setBundledSubServices(new Map());
+      return;
+    }
+
+    let cancelled = false;
+    loadDefaultSubServices(serviceKey).then((list) => {
+      if (cancelled) return;
+      setBundledSubServices(new Map(list.map((item) => [item.id.toLowerCase(), item])));
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [service?.id]);
 
   if (!service) {
     return (
@@ -128,6 +161,59 @@ export const ServiceDetail = () => {
     perConsultationHeading || globalConsultationHeading || SERVICE_DETAIL_FALLBACK_CONSULTATION_HEADING;
   const consultationClosing =
     perConsultationClosing || globalConsultationClosing || SERVICE_DETAIL_FALLBACK_CONSULTATION_CLOSING;
+
+  const postRegistrationHubBlock =
+    hasRegistrationHub && postRegistrationTitle ? (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <div className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
+          <h2 className="mb-4 font-headline text-3xl font-extrabold text-primary md:text-4xl">
+            {postRegistrationTitle}
+          </h2>
+          {postRegistrationSubtitle && (
+            <p className="text-lg leading-relaxed text-on-surface-variant">{postRegistrationSubtitle}</p>
+          )}
+        </div>
+
+        {postRegistrationParagraphs.length > 0 && (
+          <div className="mx-auto mb-14 max-w-4xl space-y-6 md:mb-16">
+            {postRegistrationParagraphs.map((paragraph: string, i: number) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="text-justify text-base leading-relaxed text-on-surface-variant md:text-lg"
+              >
+                {paragraph}
+              </motion.p>
+            ))}
+          </div>
+        )}
+
+        {postRegistrationHighlights.length > 0 && (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 md:gap-6">
+            {postRegistrationHighlights.map((item: { title: string; description: string }, i: number) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="rounded-2xl border border-outline-variant/15 bg-surface-container-lowest p-6"
+              >
+                <h3 className="mb-2 font-headline text-base font-bold text-primary">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-on-surface-variant">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        )}
+      </motion.div>
+    ) : null;
 
   return (
     <div className="min-h-screen bg-white">
@@ -416,8 +502,10 @@ export const ServiceDetail = () => {
             </motion.div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
-              {subServices.map((sub: { id?: string; title: string; hook?: string; description?: string }, i: number) =>
-                sub.id ? (
+              {subServices.map((sub: { id?: string; title: string; hook?: string; description?: string }, i: number) => {
+                const cardCopy = resolveSubServiceCardCopy(sub, bundledSubServices);
+
+                return sub.id ? (
                   <AppLink
                     key={sub.id}
                     to={`/services/${service.id}/${sub.id}`}
@@ -426,14 +514,14 @@ export const ServiceDetail = () => {
                     <h3 className="mb-2 font-headline text-lg font-bold text-[#18335c] group-hover:text-secondary">
                       {sub.title}
                     </h3>
-                    {sub.hook?.trim() && (
+                    {cardCopy.hook && (
                       <p className="mb-3 text-sm font-semibold leading-snug text-secondary">
-                        {sub.hook}
+                        {cardCopy.hook}
                       </p>
                     )}
-                    {sub.description && (
+                    {cardCopy.description && (
                       <p className="mb-5 flex-grow text-sm leading-relaxed text-on-surface-variant">
-                        {sub.description}
+                        {cardCopy.description}
                       </p>
                     )}
                     <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-secondary">
@@ -447,70 +535,20 @@ export const ServiceDetail = () => {
                     className="rounded-2xl border border-white/10 bg-white p-6 md:p-7"
                   >
                     <h3 className="mb-2 font-headline text-lg font-bold text-[#18335c]">{sub.title}</h3>
-                    {sub.description && (
-                      <p className="text-sm leading-relaxed text-on-surface-variant">{sub.description}</p>
+                    {cardCopy.description && (
+                      <p className="text-sm leading-relaxed text-on-surface-variant">{cardCopy.description}</p>
                     )}
                   </div>
-                )
-              )}
+                );
+              })}
             </div>
           </div>
         </section>
       )}
 
-      {/* Post-registration hub content — after structure grid */}
-      {hasRegistrationHub && postRegistrationTitle && (
+      {postRegistrationHubBlock && (
         <section className="bg-white py-14 md:py-20 lg:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mx-auto max-w-4xl text-center mb-12 md:mb-16"
-            >
-              <h2 className="mb-4 font-headline text-3xl font-extrabold text-primary md:text-4xl">
-                {postRegistrationTitle}
-              </h2>
-              {postRegistrationSubtitle && (
-                <p className="text-lg leading-relaxed text-on-surface-variant">{postRegistrationSubtitle}</p>
-              )}
-            </motion.div>
-
-            {postRegistrationParagraphs.length > 0 && (
-              <div className="mx-auto mb-14 max-w-4xl space-y-6 md:mb-16">
-                {postRegistrationParagraphs.map((paragraph: string, i: number) => (
-                  <motion.p
-                    key={i}
-                    initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="text-justify text-base leading-relaxed text-on-surface-variant md:text-lg"
-                  >
-                    {paragraph}
-                  </motion.p>
-                ))}
-              </div>
-            )}
-
-            {postRegistrationHighlights.length > 0 && (
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 md:gap-6">
-                {postRegistrationHighlights.map((item: { title: string; description: string }, i: number) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.06 }}
-                    className="rounded-2xl border border-outline-variant/15 bg-surface-container-lowest p-6"
-                  >
-                    <h3 className="mb-2 font-headline text-base font-bold text-primary">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-on-surface-variant">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            )}
-          </div>
+          <div className="mx-auto max-w-7xl px-6">{postRegistrationHubBlock}</div>
         </section>
       )}
 
