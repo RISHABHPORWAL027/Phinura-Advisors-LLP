@@ -812,11 +812,14 @@ const WhyChooseUs = () => {
             viewport={{ once: true, margin: "-50px" }}
             className="relative order-2 lg:order-1 mt-6 lg:mt-0"
           >
-            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-black/40 mx-auto max-w-sm lg:max-w-none border border-white/10" style={{ aspectRatio: "4/5" }}>
+            <div
+              className="relative mx-auto max-w-sm overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40 lg:max-w-none leading-[0]"
+              style={{ aspectRatio: "4/5" }}
+            >
               <img
                 src={whyChooseUsSectionImage}
                 alt="Phinura Advisors team"
-                className="w-full h-full object-cover"
+                className="block h-full w-full max-h-none max-w-none object-cover object-[center_22%] origin-top"
               />
             </div>
 

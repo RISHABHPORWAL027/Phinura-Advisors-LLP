@@ -1,7 +1,8 @@
+import { useState, type FormEvent } from "react";
 import { motion } from "motion/react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
-import { CtaImageCard } from "../components/CtaImageCard";
+import { hasContactFormDelivery, submitContactForm } from "../utils/submitContactForm";
 import contactHeroImage from "../Assets/contactus.svg";
 
 const Hero = () => {
@@ -43,6 +44,60 @@ const Hero = () => {
 
 const ContactForm = () => {
   const { data: siteDetails } = useCMS();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [selectedNeeds, setSelectedNeeds] = useState<string[]>([]);
+  const [message, setMessage] = useState("");
+  const [gotcha, setGotcha] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"gas" | "mailto">("gas");
+
+  const formDeliveryConfigured = hasContactFormDelivery();
+  const serviceOptions = ["Audit", "Taxation", "Company Secretarial", "Advisory"];
+
+  function toggleNeed(need: string) {
+    setSelectedNeeds((prev) => (prev.includes(need) ? prev.filter((n) => n !== need) : [...prev, need]));
+  }
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (gotcha) return;
+
+    setErrorMessage("");
+    setStatus("submitting");
+
+    const needsLine = selectedNeeds.length ? selectedNeeds.join(", ") : "Not specified";
+    const bodyText = `Services of interest: ${needsLine}\n\nMessage:\n${message}`;
+
+    const result = await submitContactForm(
+      {
+        name,
+        email,
+        phone,
+        message: bodyText,
+        subject: `Contact form — ${name || "Website visitor"}`,
+        source: "Contact page",
+        _gotcha: gotcha,
+      },
+      siteDetails.email
+    );
+
+    if (result.status === "success") {
+      setLastDeliveryMethod(result.method);
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setSelectedNeeds([]);
+      setMessage("");
+      setGotcha("");
+    } else {
+      setStatus("error");
+      setErrorMessage(result.message);
+    }
+  }
 
   return (
     <section className="pb-16 md:pb-24 bg-white">
@@ -53,21 +108,55 @@ const ContactForm = () => {
           viewport={{ once: true }}
           className="lg:col-span-7 bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-all duration-500"
         >
-          <form className="space-y-8">
+          {status === "success" ? (
+            <div className="space-y-6 text-center py-8">
+              <p className="rounded-2xl bg-primary/5 px-5 py-4 text-primary font-headline font-semibold leading-relaxed">
+                {lastDeliveryMethod === "gas"
+                  ? "Thank you — your message has been sent. We'll get back to you shortly."
+                  : "Your email app should open with your message ready to send. If it doesn't, please email us directly."}
+              </p>
+              <button
+                type="button"
+                onClick={() => setStatus("idle")}
+                className="rounded-2xl border border-outline-variant/30 px-8 py-3.5 font-headline font-bold text-primary hover:bg-slate-50 transition-colors"
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <input
+              type="text"
+              name="_gotcha"
+              value={gotcha}
+              onChange={(e) => setGotcha(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
+            />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Full Name</label>
                 <input
+                  required
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="John Doe"
+                  autoComplete="name"
                   className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Email Address</label>
                 <input
+                  required
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="john@company.com"
+                  autoComplete="email"
                   className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
                 />
               </div>
@@ -76,9 +165,12 @@ const ContactForm = () => {
             <div className="space-y-2">
               <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Mobile Number</label>
               <input
+                required
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 placeholder="+91 98765 43210"
                 className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all"
               />
@@ -86,11 +178,16 @@ const ContactForm = () => {
 
             <div className="space-y-4">
               <div className="flex flex-wrap gap-3">
-                {["Audit", "Taxation", "Company Secretarial", "Advisory"].map((need) => (
+                {serviceOptions.map((need) => (
                   <button
                     key={need}
                     type="button"
-                    className="px-6 py-2.5 rounded-full bg-slate-100 text-on-surface-variant font-semibold text-sm hover:bg-primary hover:text-white transition-all cursor-pointer"
+                    onClick={() => toggleNeed(need)}
+                    className={`px-6 py-2.5 rounded-full font-semibold text-sm transition-all cursor-pointer ${
+                      selectedNeeds.includes(need)
+                        ? "bg-primary text-white"
+                        : "bg-slate-100 text-on-surface-variant hover:bg-primary hover:text-white"
+                    }`}
                   >
                     {need}
                   </button>
@@ -101,14 +198,44 @@ const ContactForm = () => {
             <div className="space-y-2">
               <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Your Message</label>
               <textarea
+                required
                 rows={5}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tell us a little about your business goals..."
                 className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-primary hover:border-primary/20 transition-all resize-none"
               ></textarea>
             </div>
 
-            <button className="w-full bg-primary text-white py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-primary-container transition-all shadow-xl shadow-primary/20 cursor-pointer">
-              {siteDetails.pages.contact.form.buttonText} <Send className="w-5 h-5" />
+            {!formDeliveryConfigured ? (
+              <p className="text-[11px] text-on-surface-variant leading-relaxed rounded-xl bg-amber-50 border border-amber-100 px-3 py-2">
+                <strong className="text-amber-900">Setup tip:</strong> deploy{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">scripts/google-apps-script-contact-form.gs</code>{" "}
+                and add <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_GOOGLE_APPS_SCRIPT_URL</code> to{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code> to deliver submissions to{" "}
+                {siteDetails.email}.
+              </p>
+            ) : null}
+
+            {status === "error" && errorMessage ? (
+              <p className="text-sm text-red-700 bg-red-50 border border-red-100 rounded-xl px-3 py-2">{errorMessage}</p>
+            ) : null}
+
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="w-full bg-primary text-white py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-primary-container transition-all shadow-xl shadow-primary/20 cursor-pointer disabled:opacity-60"
+            >
+              {status === "submitting" ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" aria-hidden />
+                  Sending…
+                </>
+              ) : (
+                <>
+                  {siteDetails.pages.contact.form.buttonText} <Send className="w-5 h-5" />
+                </>
+              )}
             </button>
 
             <div className="flex items-center justify-center py-4">
@@ -129,6 +256,7 @@ const ContactForm = () => {
               {siteDetails.pages.contact.form.whatsappButtonText}
             </a>
           </form>
+          )}
         </motion.div>
 
         <div className="lg:col-span-5 space-y-8">
@@ -192,46 +320,11 @@ const ContactForm = () => {
   );
 };
 
-const Newsletter = () => (
-  <section className="py-16 md:py-24 px-6">
-    <div className="max-w-7xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/25 md:rounded-[3rem]"
-      >
-        <CtaImageCard className="rounded-[2.5rem] text-white md:rounded-[3rem]" contentClassName="p-8 md:p-20">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 w-full">
-            <div className="max-w-xl">
-              <h2 className="text-4xl md:text-5xl font-headline font-extrabold mb-6 text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">Stay Informed.</h2>
-              <p className="text-xl text-sky-100/95 leading-relaxed font-normal tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
-                Join 5,000+ business owners receiving our monthly regulatory insights and financial strategy guide.
-              </p>
-            </div>
-            <div className="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your work email"
-                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-8 py-5 text-white placeholder:text-white/50 focus:ring-2 focus:ring-secondary hover:bg-white/20 transition-all w-full lg:w-80"
-              />
-              <button className="bg-secondary-fixed text-on-secondary-fixed-variant px-10 py-5 rounded-2xl font-headline font-bold text-lg hover:scale-105 transition-transform cursor-pointer">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </CtaImageCard>
-      </motion.div>
-    </div>
-  </section>
-);
-
 export const Contact = () => {
   return (
     <div className="min-h-screen">
       <Hero />
       <ContactForm />
-      <Newsletter />
     </div>
   );
 };

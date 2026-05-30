@@ -3,8 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneCall, X, Loader2 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
-
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+import { hasContactFormDelivery, submitContactForm } from "../utils/submitContactForm";
 
 export function FloatingCallbackRequest() {
   const { pathname } = useLocation();
@@ -14,10 +13,12 @@ export function FloatingCallbackRequest() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [gotcha, setGotcha] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"gas" | "mailto">("gas");
 
-  const web3AccessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+  const formDeliveryConfigured = hasContactFormDelivery();
   const abovePreviewChrome = pathname.startsWith("/preview");
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export function FloatingCallbackRequest() {
       setEmail("");
       setPhone("");
       setMessage("");
+      setGotcha("");
     }
   }, [open]);
 
@@ -51,54 +53,31 @@ export function FloatingCallbackRequest() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    if (gotcha) return;
+
     setErrorMessage("");
     setStatus("submitting");
 
-    const to = (site.email || "").trim();
-    if (!to) {
+    const result = await submitContactForm(
+      {
+        name,
+        email,
+        phone,
+        message,
+        subject: `Callback request — ${name || "Website visitor"}`,
+        source: "Callback widget",
+        _gotcha: gotcha,
+      },
+      site.email
+    );
+
+    if (result.status === "success") {
+      setLastDeliveryMethod(result.method);
+      setStatus("success");
+    } else {
       setStatus("error");
-      setErrorMessage("Site email is not configured.");
-      return;
+      setErrorMessage(result.message);
     }
-
-    const bodyText = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
-
-    if (web3AccessKey) {
-      try {
-        const res = await fetch(WEB3FORMS_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            access_key: web3AccessKey,
-            subject: `Callback request — ${name || "Website visitor"}`,
-            name,
-            email,
-            phone,
-            message: bodyText,
-            from_name: name,
-            replyto: email,
-          }),
-        });
-        const json = (await res.json()) as { success?: boolean; message?: string };
-        if (!res.ok || !json.success) {
-          throw new Error(json.message || "Could not send message. Try again.");
-        }
-        setStatus("success");
-      } catch (err) {
-        setStatus("error");
-        setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
-      }
-      return;
-    }
-
-    const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(
-      `Callback request — ${name || "Website visitor"}`
-    )}&body=${encodeURIComponent(bodyText)}`;
-    window.location.href = mailto;
-    setStatus("success");
   }
 
   return (
@@ -172,12 +151,22 @@ export function FloatingCallbackRequest() {
 
                 {status === "success" ? (
                   <p className="rounded-2xl bg-primary/5 px-5 py-4 text-center text-primary font-headline font-semibold leading-relaxed">
-                    {web3AccessKey
+                    {lastDeliveryMethod === "gas"
                       ? "Thank you — your message has been sent."
-                      : "Your email app should open with your message ready to send. If it doesn’t, please email us directly."}
+                      : "Your email app should open with your message ready to send. If it doesn't, please email us directly."}
                   </p>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      value={gotcha}
+                      onChange={(e) => setGotcha(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
+                    />
                     <div className="space-y-1.5">
                       <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Name</label>
                       <input
@@ -226,12 +215,12 @@ export function FloatingCallbackRequest() {
                       />
                     </div>
 
-                    {!web3AccessKey ? (
+                    {!formDeliveryConfigured ? (
                       <p className="text-[11px] text-on-surface-variant leading-relaxed rounded-xl bg-amber-50 border border-amber-100 px-3 py-2">
-                        <strong className="text-amber-900">Setup tip:</strong> add{" "}
-                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_WEB3FORMS_ACCESS_KEY</code> in{" "}
-                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code> (free at web3forms.com) to
-                        deliver submissions to the inbox you verify on Web3Forms (ideally the same as your site contact email).
+                        <strong className="text-amber-900">Setup tip:</strong> deploy{" "}
+                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">scripts/google-apps-script-contact-form.gs</code>{" "}
+                        and add <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_GOOGLE_APPS_SCRIPT_URL</code> to{" "}
+                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code>.
                       </p>
                     ) : null}
 

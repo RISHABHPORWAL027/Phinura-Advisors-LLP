@@ -18,6 +18,24 @@ const TEAM_MEMBER_HEADSHOTS: Record<string, string> = {
   "Priya Porwal": priyaProfile,
 };
 
+/** Crop/focus tweaks for photos with extra headroom or letterboxing in the source file. */
+const TEAM_MEMBER_PHOTO_FRAMING: Record<string, string> = {
+  "Ambuj Jain": "object-[center_20%]",
+  "Shivani Jain": "object-[center_14%]",
+  "Priya Porwal": "object-[center_84%]",
+};
+
+const TEAM_PHOTO_IMG_BASE =
+  "block h-full w-full max-h-none max-w-none object-cover origin-top transition-transform duration-500 ease-out group-hover:scale-[1.03]";
+
+const TEAM_PHOTO_IMG_STATIC =
+  "block h-full w-full max-h-none max-w-none object-cover origin-top";
+
+function teamPhotoClassName(member: TeamMember, base = TEAM_PHOTO_IMG_BASE): string {
+  const framing = TEAM_MEMBER_PHOTO_FRAMING[member.name] ?? "object-[center_22%]";
+  return `${base} ${framing}`;
+}
+
 function resolveTeamPhoto(member: TeamMember): string {
   const bundled = TEAM_MEMBER_HEADSHOTS[member.name];
   const url = typeof member.img === "string" ? member.img.trim() : "";
@@ -37,11 +55,12 @@ function TeamMemberPortraitFill({
 }: {
   member: TeamMember;
   /** Applied only when a real photo is shown */
-  imgClassName: string;
+  imgClassName?: string;
 }) {
   const src = resolveTeamPhoto(member);
   const [broken, setBroken] = useState(false);
   const showImage = Boolean(src) && !broken;
+  const resolvedClassName = teamPhotoClassName(member, imgClassName ?? TEAM_PHOTO_IMG_BASE);
 
   useEffect(() => {
     setBroken(false);
@@ -51,13 +70,13 @@ function TeamMemberPortraitFill({
     <img
       src={src}
       alt={member.name}
-      className={imgClassName}
+      className={resolvedClassName}
       referrerPolicy="no-referrer"
       onError={() => setBroken(true)}
     />
   ) : (
     <div
-      className="flex h-full w-full min-h-[8rem] flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary/[0.12] via-slate-100 to-[#18335c]/[0.12] px-4 text-center"
+      className="flex h-full w-full min-h-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary/[0.12] via-slate-100 to-[#18335c]/[0.12] px-4 text-center"
       role="img"
       aria-label={`Photo placeholder for ${member.name}`}
     >
@@ -137,18 +156,16 @@ export function TeamSection({ variant }: Props) {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
                 onClick={() => setSelected(person)}
-                className="text-left group rounded-2xl border border-outline-variant/15 bg-white shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="text-left group flex flex-col rounded-2xl border border-outline-variant/15 bg-white p-0 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-300 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <div className="h-full w-full overflow-hidden transition-transform duration-500 group-hover:scale-105">
-                    <TeamMemberPortraitFill member={person} imgClassName="h-full w-full object-cover" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <span className="absolute bottom-4 left-4 right-4 text-white text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden leading-[0]">
+                  <TeamMemberPortraitFill member={person} />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <span className="pointer-events-none absolute bottom-4 left-4 right-4 text-sm font-bold text-white opacity-0 transition-opacity group-hover:opacity-100">
                     View profile
                   </span>
                 </div>
-                <div className="p-5">
+                <div className="p-5 pt-4">
                   <h3 className="text-lg font-headline font-bold text-primary mb-1">{person.name}</h3>
                   <p className="text-secondary text-[10px] font-bold tracking-widest uppercase opacity-90 mb-2">{person.role}</p>
                   <p className="text-on-surface-variant text-sm leading-relaxed line-clamp-2 opacity-80">{person.desc}</p>
@@ -202,8 +219,8 @@ export function TeamSection({ variant }: Props) {
               </button>
 
               <div className="flex flex-col items-center text-center px-6 pt-10 pb-8 md:px-10 md:pb-10 overflow-y-auto">
-                <div className="mb-6 aspect-[4/5] w-full max-w-[200px] shrink-0 overflow-hidden rounded-2xl border-[3px] border-white shadow-xl ring-1 ring-black/5">
-                  <TeamMemberPortraitFill member={selected} imgClassName="h-full w-full object-cover" />
+                <div className="relative mb-6 aspect-[4/5] w-full max-w-[200px] shrink-0 overflow-hidden rounded-2xl leading-[0] shadow-xl ring-1 ring-black/5">
+                  <TeamMemberPortraitFill member={selected} imgClassName={teamPhotoClassName(selected, TEAM_PHOTO_IMG_STATIC)} />
                 </div>
 
                 <h2 className="font-headline text-2xl font-extrabold tracking-tight text-primary md:text-[1.65rem] px-1">

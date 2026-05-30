@@ -18,6 +18,7 @@ import { TeamSection } from "../components/TeamSection";
 import missionBg from "../Assets/our_mission_new.png";
 import visionSectionImage from "../Assets/our_vission_new.png";
 import aboutTeamPhoto from "../Assets/team_member.webp";
+import storyTeamPhoto from "../Assets/team_profile/ourteam.webp";
 import ctaBackground from "../Assets/details_page_bg.avif";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
@@ -56,7 +57,7 @@ const Hero = () => {
   const highlightItems = (hero.highlights ?? []).map((h) => String(h).trim()).filter(Boolean);
   const caption =
     hero.photoCaption?.trim() ||
-    "Phinura Advisors team members at work—the colleagues you speak with for MCA, GST, tax and bookkeeping support.";
+    "Our team of Chartered Accountants and Company Secretaries, delivering expert MCA, GST, tax, and bookkeeping support.";
 
   return (
     <section className="relative overflow-hidden bg-primary pb-44 pt-32 md:pb-52 md:pt-40 lg:pb-56">
@@ -181,6 +182,8 @@ const Story = () => {
     (story.content?.trim() ? story.content.split(/\n\n+/).filter(Boolean) : []);
   const statDigits = Number.parseInt(String(hero.statNumber ?? "").replace(/[^\d]/g, ""), 10);
   const statLabel = (hero.statLabel ?? "Years experience").trim();
+  const storyImage =
+    typeof story.image === "string" && story.image.trim() ? story.image.trim() : storyTeamPhoto;
 
   return (
     <section className="relative py-24 bg-[#18335c] overflow-hidden">
@@ -210,12 +213,12 @@ const Story = () => {
             >
               <div className="absolute inset-0 border border-white/20 rounded-[2.5rem] pointer-events-none" />
 
-              <div className="rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40 aspect-[4/3] relative z-10 bg-[#18335c] border-4 border-[#18335c]">
+              <div className="relative z-10 h-[320px] w-full overflow-hidden rounded-[2rem] bg-[#18335c] shadow-2xl shadow-black/40 sm:h-[380px] md:h-[420px] lg:h-[500px] leading-[0]">
                 <img
-                  src={story.image || "https://images.unsplash.com/photo-1556155092-490a1ba16284"}
-                  alt="Phinura Story"
-                  className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
+                  src={storyImage}
+                  alt="Phinura Advisors team"
+                  className="block h-full w-full max-h-none max-w-none object-cover object-[center_42%] grayscale-[0.2] transition-all duration-700 hover:grayscale-0"
+                  referrerPolicy={storyImage.startsWith("http") ? "no-referrer" : undefined}
                 />
               </div>
 
