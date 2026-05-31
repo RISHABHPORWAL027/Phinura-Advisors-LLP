@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 import { CheckCircle2, MessageSquare, PhoneCall, ArrowLeft, TrendingUp, Layers, ArrowRight } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
+import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import { CtaImageCard } from "../components/CtaImageCard";
-import detailsBg from "../Assets/details_page_bg.avif";
 import type { SubServicePageContent } from "../data/subServiceTypes";
 import { loadDefaultSubServices } from "../utils/subServiceDefaults";
 
@@ -132,6 +132,10 @@ export const ServiceDetail = () => {
     : [];
   const heroCtaPrimary = service.heroCtaPrimary?.trim() || data.pages.home.hero.buttonText || "Get Started";
   const heroCtaSecondary = service.heroCtaSecondary?.trim() || data.pages.home.hero.secondaryButtonText || "Talk to Expert";
+  const servicesListTitle =
+    data.pages.services.gridTitle?.trim() ||
+    data.pages.services.hero?.title?.trim() ||
+    "Services";
   const ctaTitle = service.ctaTitle || service.cta_title || "Ready to get started?";
   const ctaBlockSubtitle =
     service.ctaSubtitle ||
@@ -215,6 +219,8 @@ export const ServiceDetail = () => {
       </motion.div>
     ) : null;
 
+  const heroImage = resolveServiceHeroImage(service.image);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero — fluid padding so long subtitles (e.g. Allied compliance) don’t sit flush to edges */}
@@ -222,8 +228,8 @@ export const ServiceDetail = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0 min-h-[100%]">
           <img
-            src={detailsBg}
-            alt="Architectural Background"
+            src={heroImage}
+            alt=""
             className="h-full min-h-[520px] w-full object-cover md:min-h-full"
             referrerPolicy="no-referrer"
           />
@@ -232,13 +238,21 @@ export const ServiceDetail = () => {
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          <AppLink
+            to="/services"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-white/80 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to {servicesListTitle}
+          </AppLink>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl pb-4"
           >
-            <span className="mb-6 inline-block rounded-full bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+            <span className="mb-6 inline-block rounded-full bg-secondary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white sm:px-5 sm:py-2.5 sm:text-sm">
               {category}
             </span>
             <h1 className="mb-6 font-headline text-5xl font-extrabold leading-tight tracking-tighter text-white md:mb-8 md:text-7xl">
@@ -299,7 +313,7 @@ export const ServiceDetail = () => {
                 className="mb-14 md:mb-20"
               >
                 <div className="mb-10 text-center md:mb-12">
-                  <h2 className="text-3xl md:text-4xl font-headline font-extrabold text-primary mb-4">
+                  <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-primary mb-4">
                     {registeredBusinessBenefitsTitle}
                   </h2>
                   {registeredBusinessBenefitsText && (
@@ -486,11 +500,11 @@ export const ServiceDetail = () => {
               viewport={{ once: true }}
               className="mb-10 text-center md:mb-14"
             >
-              <h2 className="mb-3 font-headline text-3xl font-extrabold text-white md:text-4xl lg:text-5xl">
+              <h2 className="mb-4 font-headline text-4xl font-extrabold text-white md:text-5xl lg:text-6xl">
                 {registrationTypesHeading}
               </h2>
               {registrationTypesEyebrow && (
-                <p className="mb-2 text-base font-semibold text-blue-100 md:text-lg">
+                <p className="mb-2 text-lg font-semibold text-blue-100 md:text-xl">
                   {registrationTypesEyebrow}
                 </p>
               )}
@@ -511,7 +525,7 @@ export const ServiceDetail = () => {
                     to={`/services/${service.id}/${sub.id}`}
                     className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.35)] transition-all hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)] md:p-7"
                   >
-                    <h3 className="mb-2 font-headline text-lg font-bold text-[#18335c] group-hover:text-secondary">
+                    <h3 className="mb-2 font-headline text-xl font-bold text-[#18335c] group-hover:text-secondary md:text-2xl">
                       {sub.title}
                     </h3>
                     {cardCopy.hook && (

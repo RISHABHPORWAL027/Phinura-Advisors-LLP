@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import ctaBackdropDefault from "../Assets/accoutned.webp";
+import { ASSETS } from "../constants/assetPaths";
 
 type Props = {
   children: ReactNode;
@@ -17,7 +17,7 @@ export function CtaImageCard({ children, className = "", contentClassName = "p-8
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <img
-        src={backgroundImage || ctaBackdropDefault}
+        src={backgroundImage || ASSETS.bg.ctaDefault}
         alt=""
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
         decoding="async"

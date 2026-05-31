@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
-import phinuraLogo from "../Assets/Phinura_Advisors_logo.png";
+import { ASSETS } from "../constants/assetPaths";
 import { RotatingLogoWatermark } from "./RotatingLogoWatermark";
 
 type FirmStat = {
@@ -53,7 +53,7 @@ type Props = {
 };
 
 const DEFAULT_STATS: FirmStat[] = [
-  { label: "Years Experience", value: 5, suffix: "+" },
+  { label: "Years Experience", value: 10, suffix: "+" },
   { label: "Happy Clients", value: 499, suffix: "+" },
 ];
 
@@ -93,7 +93,7 @@ export function FirmWhyChooseUsBlock({
         {/* Firm identity */}
         <div className="mb-8 flex flex-col items-center gap-4 text-center md:mb-10 md:flex-row md:items-center md:text-left">
           <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white p-3 shadow-lg md:h-24 md:w-24">
-            <img src={phinuraLogo} alt={displayName} className="h-full w-full object-contain" />
+            <img src={ASSETS.brand.logo} alt={displayName} className="h-full w-full object-contain" />
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-200/70">Why choose our firm</p>

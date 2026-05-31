@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { PhoneCall, X, Loader2 } from "lucide-react";
+import { CALLBACK_REQUEST_EVENT } from "../utils/openCallbackRequest";
 import { useCMS } from "../hooks/useCMS";
 import { hasContactFormDelivery, submitContactForm } from "../utils/submitContactForm";
 
@@ -20,6 +21,12 @@ export function FloatingCallbackRequest() {
 
   const formDeliveryConfigured = hasContactFormDelivery();
   const abovePreviewChrome = pathname.startsWith("/preview");
+
+  useEffect(() => {
+    const openFromEvent = () => setOpen(true);
+    window.addEventListener(CALLBACK_REQUEST_EVENT, openFromEvent);
+    return () => window.removeEventListener(CALLBACK_REQUEST_EVENT, openFromEvent);
+  }, []);
 
   useEffect(() => {
     if (!open) return;

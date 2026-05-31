@@ -1,7 +1,7 @@
 import { FacebookIcon as Facebook, InstagramIcon as Instagram, LinkedinIcon as Linkedin } from "./SocialIcons";
 import { AppLink } from "../navigation/AppLink";
 import { DeveloperCredit } from "./DeveloperCredit";
-import logo from "../Assets/Phinura_Advisors_logo.png";
+import { ASSETS } from "../constants/assetPaths";
 import { useCMS } from "../hooks/useCMS";
 
 export const Footer = () => {
@@ -13,7 +13,7 @@ export const Footer = () => {
     <div className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
       <div className="col-span-1 md:col-span-1">
         <AppLink to="/" className="flex items-center gap-2 mb-4 group">
-          <img src={logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img brightness-0 invert" />
+          <img src={ASSETS.brand.logo} alt={siteDetails.companyName} className="h-8 w-auto logo-img brightness-0 invert" />
           <span className="text-lg font-bold text-white group-hover:text-secondary-fixed transition-all">{siteDetails.companyName}</span>
         </AppLink>
         <p className="text-white/75 text-sm mb-6">{siteDetails.tagline}</p>

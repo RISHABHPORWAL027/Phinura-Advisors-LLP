@@ -32,7 +32,7 @@ import {
   DEFAULT_FIRM_WHY_CHOOSE_US_ITEMS,
 } from "../utils/firmWhyChooseUsDefaults";
 import { FirmWhyChooseUsBlock } from "../components/FirmWhyChooseUsBlock";
-import detailsBg from "../Assets/details_page_bg.avif";
+import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 
 function FeatureCards({ items }: { items: { title: string; description: string }[] }) {
   return (
@@ -430,13 +430,16 @@ export const SubServiceDetail = () => {
     labeledSectionToGridItem(section, `remaining-${i}`)
   );
 
+  const heroImage = resolveServiceHeroImage(service.image);
+  const parentCategory = service.category || "Registration";
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="relative overflow-hidden pt-[7.25rem] pb-20 sm:pb-24 md:pt-28 md:pb-28 lg:pt-32 lg:pb-32">
         <div className="absolute inset-0 z-0 min-h-full">
           <img
-            src={detailsBg}
+            src={heroImage}
             alt=""
             className="h-full min-h-[520px] w-full object-cover md:min-h-full"
             referrerPolicy="no-referrer"
@@ -460,8 +463,8 @@ export const SubServiceDetail = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl pb-4"
           >
-            <span className="mb-6 inline-block rounded-full bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-              {service.category || "Registration"}
+            <span className="mb-6 inline-block rounded-full bg-secondary px-4 py-2 text-xs font-bold uppercase tracking-widest text-white sm:px-5 sm:py-2.5 sm:text-sm">
+              {parentCategory}
             </span>
             <h1 className="mb-6 font-headline text-4xl font-extrabold leading-tight tracking-tighter text-white md:mb-8 md:text-6xl">
               {content.heroTitle}

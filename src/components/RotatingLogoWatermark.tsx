@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
-import logo from "../Assets/Phinura_Advisors_logo.png";
+import { ASSETS } from "../constants/assetPaths";
 
 const maskStyle = {
-  WebkitMaskImage: `url(${logo})`,
+  WebkitMaskImage: `url(${ASSETS.brand.logo})`,
   WebkitMaskSize: "contain",
   WebkitMaskRepeat: "no-repeat",
   WebkitMaskPosition: "center",
-  maskImage: `url(${logo})`,
+  maskImage: `url(${ASSETS.brand.logo})`,
   maskSize: "contain",
   maskRepeat: "no-repeat",
   maskPosition: "center",

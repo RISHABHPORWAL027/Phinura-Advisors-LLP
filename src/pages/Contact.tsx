@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 import { hasContactFormDelivery, submitContactForm } from "../utils/submitContactForm";
-import contactHeroImage from "../Assets/contactus.svg";
+import { ASSETS } from "../constants/assetPaths";
 
 const Hero = () => {
   const { data: siteDetails } = useCMS();
@@ -30,7 +30,7 @@ const Hero = () => {
             className="relative m-0 flex w-full justify-center p-0 lg:justify-end"
           >
             <img
-              src={contactHeroImage}
+              src={ASSETS.contact.hero}
               alt=""
               className="m-0 block h-[450px] w-auto max-w-full border-0 object-contain object-center p-0"
               decoding="async"

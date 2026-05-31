@@ -26,12 +26,8 @@ import { TeamSection } from "../components/TeamSection";
 import { getHomepageFeaturedServices } from "../utils/homeFeaturedServices";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
 import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
-import bundledHomeBannerWebm from "../Assets/homebanner.webm";
-import bundledHomeBannerMp4 from "../Assets/homebanner.mp4";
-import bundledHomeBannerPoster from "../Assets/BANNERPREVIEW.webp";
-import phinuraLogo from "../Assets/Phinura_Advisors_logo.png";
-import whyChooseUsSectionImage from "../Assets/team_member.webp";
-import ctaBackground from "../Assets/details_page_bg.avif";
+import { openCallbackRequest } from "../utils/openCallbackRequest";
+import { ASSETS } from "../constants/assetPaths";
 const ScrollTypewriterText = ({ text, className }: { text: string; className?: string }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
@@ -145,7 +141,7 @@ export const FadeInItem = ({ children, className }: { children: ReactNode; class
   </motion.div>
 );
 
-const resolveBundledMedia = (value: string | undefined, fallback: string, aliases: string[]) => {
+const resolveHeroMedia = (value: string | undefined, fallback: string, aliases: string[]) => {
   if (!value) return fallback;
   return aliases.includes(value) ? fallback : value;
 };
@@ -170,19 +166,19 @@ const Hero = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const posterSrc = resolveBundledMedia(heroMedia.posterUrl, bundledHomeBannerPoster, [
+  const posterSrc = resolveHeroMedia(heroMedia.posterUrl, ASSETS.hero.poster, [
     "/BANNERPREVIEW.png",
     "BANNERPREVIEW.png",
-    "/BANNERPREVIEW.webp",
+    ASSETS.hero.poster,
     "BANNERPREVIEW.webp",
   ]);
 
-  const webmSrc = resolveBundledMedia(heroMedia.videoUrl, bundledHomeBannerWebm, [
-    "/homebanner.webm",
+  const webmSrc = resolveHeroMedia(heroMedia.videoUrl, ASSETS.hero.videoWebm, [
+    ASSETS.hero.videoWebm,
     "homebanner.webm",
   ]);
 
-  const mp4FallbackSrc = bundledHomeBannerMp4;
+  const mp4FallbackSrc = ASSETS.hero.videoMp4;
 
   const titleText = siteDetails.pages.home.hero.title || "You run the business.\nWe handle the compliance.";
 
@@ -194,8 +190,10 @@ const Hero = () => {
         style={{ scale: bgScale, filter: bgBlur, opacity: bgOpacity }}
       >
         <motion.img
-          src={hasPosterError ? bundledHomeBannerPoster : posterSrc}
+          src={hasPosterError ? ASSETS.hero.poster : posterSrc}
           alt="Background"
+          fetchPriority="high"
+          decoding="async"
           initial={{ opacity: 1, scale: 1.05 }}
           animate={{ opacity: isVideoLoaded && !hasVideoError ? 0 : 0.6, scale: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
@@ -370,6 +368,7 @@ const StatsBar = () => {
   const partnersRaw = siteDetails.pages.home.statsPartners ?? [];
 
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [marqueePaused, setMarqueePaused] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -437,9 +436,14 @@ const StatsBar = () => {
               role="region"
               aria-label="Strategic Industry Partners — logos scroll horizontally right to left"
               className="relative left-1/2 w-[min(100vw,100dvw)] max-w-[min(100vw,100dvw)] -translate-x-1/2 overflow-x-hidden pb-6 pt-2 before:pointer-events-none before:absolute before:inset-y-0 before:left-0 before:z-20 before:w-12 before:bg-gradient-to-r before:from-white before:to-transparent sm:before:w-20 after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:z-20 after:w-12 after:bg-gradient-to-l after:from-white after:to-transparent sm:after:w-20"
+              onMouseEnter={() => setMarqueePaused(true)}
+              onMouseLeave={() => setMarqueePaused(false)}
+              onTouchStart={() => setMarqueePaused(true)}
+              onTouchEnd={() => setMarqueePaused(false)}
+              onTouchCancel={() => setMarqueePaused(false)}
             >
               <div
-                className={`flex w-max flex-nowrap gap-8 px-5 sm:px-10 md:gap-12${prefersReducedMotion ? "" : " partners-marquee-track-reverse"}`}
+                className={`flex w-max flex-nowrap gap-8 px-5 sm:px-10 md:gap-12${prefersReducedMotion ? "" : " partners-marquee-track-reverse"}${marqueePaused ? " is-paused" : ""}`}
                 style={
                   prefersReducedMotion
                     ? undefined
@@ -456,7 +460,7 @@ const StatsBar = () => {
                       <motion.div
                         whileHover={{ scale: 1.08, y: -8 }}
                         transition={{ type: "spring", stiffness: 300 }}
-                        className={`relative flex h-36 w-36 shrink-0 items-center justify-center overflow-hidden rounded-3xl border bg-white p-6 shadow-sm md:h-44 md:w-44 transition-all duration-700 ease-out group-hover:border-primary/30 group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] ${
+                        className={`relative flex h-40 w-40 shrink-0 items-center justify-center overflow-hidden rounded-3xl border bg-white p-4 shadow-sm md:h-52 md:w-52 md:p-5 transition-all duration-700 ease-out group-hover:border-primary/30 group-hover:shadow-[0_20px_40px_-15px_rgba(0,31,73,0.15)] ${
                           featured
                             ? "border-secondary-container/60 ring-2 ring-secondary-container/35 ring-offset-2 ring-offset-white"
                             : "border-slate-100"
@@ -472,7 +476,7 @@ const StatsBar = () => {
                           <img
                             src={logo}
                             alt={client.name}
-                            className="relative z-10 max-h-full max-w-full object-contain transition-all duration-700 ease-out"
+                            className="relative z-10 h-[92%] w-[92%] max-h-none max-w-none object-contain transition-all duration-700 ease-out"
                             onError={(e) => {
                               const el = e.target as HTMLImageElement;
                               el.onerror = null;
@@ -555,7 +559,7 @@ const CoreServices = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="mb-16 max-w-2xl">
           <FadeInStagger className="max-w-2xl">
             <FadeInItem>
               <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">{(siteDetails.pages.home as any).coreServices?.badge || "Comprehensive Expertise"}</span>
@@ -569,10 +573,6 @@ const CoreServices = () => {
               </p>
             </FadeInItem>
           </FadeInStagger>
-          <AppLink to="/services" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl font-headline font-bold text-base shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 flex items-center gap-2 shrink-0 group">
-            View All Services
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </AppLink>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {(() => {
@@ -730,7 +730,7 @@ const ProcessFlow = () => {
     <section ref={containerRef} className="relative bg-white lg:h-[200vh]">
       <div className="flex flex-col items-center justify-center overflow-hidden lg:sticky lg:top-0 lg:h-screen">
         <div className="pointer-events-none absolute inset-0 z-0 flex select-none items-center justify-center opacity-[0.05]">
-          <img src={phinuraLogo} alt="" className="w-[500px] grayscale md:w-[800px]" />
+          <img src={ASSETS.brand.logo} alt="" className="w-[500px] grayscale md:w-[800px]" loading="lazy" decoding="async" />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
@@ -754,7 +754,7 @@ const ProcessFlow = () => {
               style={{ left: logoPosition, rotate: logoRotation }}
               className="absolute top-[-22px] z-30 hidden h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border border-slate-100 bg-white p-2 shadow-2xl lg:flex"
             >
-              <img src={phinuraLogo} alt="Logo" className="h-full w-full object-contain" />
+              <img src={ASSETS.brand.logo} alt="Logo" className="h-full w-full object-contain" />
             </motion.div>
 
             {/* Mobile progress line removed as layout is now centered */}
@@ -817,9 +817,11 @@ const WhyChooseUs = () => {
               style={{ aspectRatio: "4/5" }}
             >
               <img
-                src={whyChooseUsSectionImage}
+                src={ASSETS.team.member}
                 alt="Phinura Advisors team"
                 className="block h-full w-full max-h-none max-w-none object-cover object-[center_22%] origin-top"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -892,6 +894,18 @@ const Testimonials = () => {
   const { data: siteDetails } = useCMS();
   const { testimonials } = siteDetails.pages.home;
   const reviews = testimonials ?? [];
+  const [marqueePaused, setMarqueePaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const onChange = () => setPrefersReducedMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const marqueeItems = useMemo(() => [...reviews, ...reviews], [reviews]);
 
   return (
     <section className="relative overflow-hidden bg-[#dfe9f5] py-20 md:py-28">
@@ -915,19 +929,18 @@ const Testimonials = () => {
         </FadeInStagger>
       </div>
 
-      <div className="relative z-10 flex overflow-hidden">
-        <motion.div
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            duration: 30,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          className="flex gap-8 whitespace-nowrap"
+      <div
+        className="relative z-10 flex overflow-hidden"
+        onMouseEnter={() => setMarqueePaused(true)}
+        onMouseLeave={() => setMarqueePaused(false)}
+        onTouchStart={() => setMarqueePaused(true)}
+        onTouchEnd={() => setMarqueePaused(false)}
+        onTouchCancel={() => setMarqueePaused(false)}
+      >
+        <div
+          className={`flex gap-8 whitespace-nowrap${prefersReducedMotion ? "" : " testimonials-marquee-track"}${marqueePaused ? " is-paused" : ""}`}
         >
-          {[...reviews, ...reviews].map((t, i) => {
+          {marqueeItems.map((t, i) => {
             const companyLogo = t.companyLogo?.trim();
             return (
               <div
@@ -978,7 +991,7 @@ const Testimonials = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -998,7 +1011,7 @@ const FinalCTA = () => {
           className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/30 md:rounded-[3rem]"
         >
           <CtaImageCard
-            backgroundImage={ctaBackground}
+            backgroundImage={ASSETS.bg.detailsPage}
             className="rounded-[2.5rem] text-center text-white md:rounded-[3rem]"
             contentClassName="p-8 md:p-20"
           >
@@ -1023,9 +1036,13 @@ const FinalCTA = () => {
               >
                 {siteDetails.pages.home.cta.buttonText}
               </a>
-              <AppLink to="/services" className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center">
+              <button
+                type="button"
+                onClick={openCallbackRequest}
+                className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-colors cursor-pointer text-center"
+              >
                 {siteDetails.pages.home.cta.secondaryButtonText}
-              </AppLink>
+              </button>
             </div>
           </CtaImageCard>
         </motion.div>

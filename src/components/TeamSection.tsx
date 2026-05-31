@@ -4,18 +4,16 @@ import { UserRound, X } from "lucide-react";
 import { AppLink } from "../navigation/AppLink";
 import { useCMS } from "../hooks/useCMS";
 import type { SiteDetails } from "../services/types";
+import { ASSETS } from "../constants/assetPaths";
 import { RotatingLogoWatermark } from "./RotatingLogoWatermark";
-import ambujProfile from "../Assets/team_profile/ambuj_profile.jpeg";
-import shivaniProfile from "../Assets/team_profile/shivani_profile.jpeg";
-import priyaProfile from "../Assets/team_profile/priya_profile.jpeg";
 
 type TeamMember = SiteDetails["pages"]["about"]["people"]["team"][number];
 
-/** Local headshots bundled from `src/Assets/team_profile` (override CMS image URL when present). */
+/** Local headshots from `public/images/team` (override CMS image URL when present). */
 const TEAM_MEMBER_HEADSHOTS: Record<string, string> = {
-  "Ambuj Jain": ambujProfile,
-  "Shivani Jain": shivaniProfile,
-  "Priya Porwal": priyaProfile,
+  "Ambuj Jain": ASSETS.team.ambuj,
+  "Shivani Jain": ASSETS.team.shivani,
+  "Priya Porwal": ASSETS.team.priya,
 };
 
 /** Crop/focus tweaks for photos with extra headroom or letterboxing in the source file. */
@@ -71,6 +69,8 @@ function TeamMemberPortraitFill({
       src={src}
       alt={member.name}
       className={resolvedClassName}
+      loading="lazy"
+      decoding="async"
       referrerPolicy="no-referrer"
       onError={() => setBroken(true)}
     />

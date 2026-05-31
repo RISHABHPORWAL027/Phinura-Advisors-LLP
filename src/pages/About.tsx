@@ -14,12 +14,9 @@ import {
 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
+import { openCallbackRequest } from "../utils/openCallbackRequest";
 import { TeamSection } from "../components/TeamSection";
-import missionBg from "../Assets/our_mission_new.png";
-import visionSectionImage from "../Assets/our_vission_new.png";
-import aboutTeamPhoto from "../Assets/team_member.webp";
-import storyTeamPhoto from "../Assets/team_profile/ourteam.webp";
-import ctaBackground from "../Assets/details_page_bg.avif";
+import { ASSETS } from "../constants/assetPaths";
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
@@ -48,16 +45,14 @@ const Hero = () => {
   const bgImg =
     typeof hero.image === "string" && hero.image.trim()
       ? hero.image.trim()
-      : aboutTeamPhoto;
+      : ASSETS.team.member;
 
   const statDigits = Number.parseInt(String(hero.statNumber ?? "").replace(/[^\d]/g, ""), 10);
   const statShow = Number.isFinite(statDigits) ? statDigits : 0;
   const badge = hero.badge?.trim();
   const bodyText = hero.body?.trim();
   const highlightItems = (hero.highlights ?? []).map((h) => String(h).trim()).filter(Boolean);
-  const caption =
-    hero.photoCaption?.trim() ||
-    "Our team of Chartered Accountants and Company Secretaries, delivering expert MCA, GST, tax, and bookkeeping support.";
+  const caption = hero.photoCaption?.trim() ?? "";
 
   return (
     <section className="relative overflow-hidden bg-primary pb-44 pt-32 md:pb-52 md:pt-40 lg:pb-56">
@@ -160,9 +155,11 @@ const Hero = () => {
             ) : null}
           </div>
 
+          {caption ? (
           <p className="mt-12 max-w-2xl text-sm leading-snug text-on-primary/[0.76] md:text-[0.9375rem] md:leading-relaxed">
             {caption}
           </p>
+          ) : null}
         </motion.div>
       </div>
     </section>
@@ -183,7 +180,7 @@ const Story = () => {
   const statDigits = Number.parseInt(String(hero.statNumber ?? "").replace(/[^\d]/g, ""), 10);
   const statLabel = (hero.statLabel ?? "Years experience").trim();
   const storyImage =
-    typeof story.image === "string" && story.image.trim() ? story.image.trim() : storyTeamPhoto;
+    typeof story.image === "string" && story.image.trim() ? story.image.trim() : ASSETS.team.ourTeam;
 
   return (
     <section className="relative py-24 bg-[#18335c] overflow-hidden">
@@ -242,8 +239,8 @@ const Story = () => {
                     <CheckCircle2 size={32} />
                   </div>
                   <div>
-                    <div className="text-3xl font-headline font-extrabold text-[#18335c]">100%</div>
-                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Compliance Guaranteed</div>
+                    <div className="text-3xl font-headline font-extrabold text-[#18335c]">Client</div>
+                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">First Approach</div>
                   </div>
                 </div>
               </motion.div>
@@ -330,17 +327,20 @@ const MissionVision = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 relative flex min-h-[400px] flex-col justify-center overflow-hidden rounded-[2rem] border border-slate-100 shadow-sm bg-slate-900 shadow-2xl"
+            className="lg:col-span-2 relative flex min-h-[400px] flex-col justify-center overflow-hidden rounded-[2rem] border border-primary/10 bg-[#eef4fb] shadow-xl"
           >
             <div className="pointer-events-none absolute inset-0" aria-hidden>
-              <img src={missionBg} alt="Our Mission" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-[#0D1B2A]/40 group-hover:bg-[#0D1B2A]/20 transition-colors duration-500" aria-hidden></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent" aria-hidden></div>
+              <img src={ASSETS.about.mission} alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              <div className="absolute inset-0 bg-primary/15" aria-hidden />
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-[#eef4fb]/96 via-[#dfe9f5]/72 to-[#dfe9f5]/15"
+                aria-hidden
+              />
             </div>
 
             <div className="relative z-10 flex max-w-xl flex-col justify-center p-12 md:p-16">
-              <Building2 className="mb-8 h-10 w-10 text-white" />
-              <h3 className="mb-6 font-headline text-3xl font-bold text-white">Our Mission</h3>
+              <Building2 className="mb-8 h-10 w-10 text-primary" />
+              <h3 className="mb-6 font-headline text-3xl font-bold text-primary">Our Mission</h3>
 
               <div className="relative h-32 overflow-hidden md:h-24">
                 <AnimatePresence mode="wait">
@@ -350,7 +350,7 @@ const MissionVision = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute text-xl font-medium leading-relaxed text-white/90"
+                    className="absolute text-xl font-medium leading-relaxed text-[#18335c]/90"
                   >
                     {safeMissions[currentMission]}
                   </motion.p>
@@ -363,7 +363,7 @@ const MissionVision = () => {
                     key={i}
                     type="button"
                     onClick={() => setCurrentMission(i)}
-                    className={`h-1.5 rounded-full transition-all duration-500 ${currentMission === i ? "w-10 bg-slate-400" : "w-4 bg-slate-200"}`}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${currentMission === i ? "w-10 bg-primary" : "w-4 bg-primary/25"}`}
                   />
                 ))}
               </div>
@@ -376,17 +376,17 @@ const MissionVision = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="relative rounded-[2.5rem] overflow-hidden group min-h-[450px] bg-slate-900 shadow-2xl"
+            className="relative min-h-[450px] overflow-hidden rounded-[2.5rem] border border-primary/10 bg-[#eef4fb] shadow-xl group"
           >
             <div className="absolute inset-0">
               <img
-                src={missionVision.visionImage?.trim() ? missionVision.visionImage : visionSectionImage}
-                alt="Our Vision"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60"
+                src={missionVision.visionImage?.trim() ? missionVision.visionImage : ASSETS.about.vision}
+                alt=""
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-[#0D1B2A]/40 group-hover:bg-[#0D1B2A]/20 transition-colors duration-500"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-primary/15" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#eef4fb]/96 via-[#dfe9f5]/68 to-[#dfe9f5]/10" />
             </div>
 
             <div className="absolute inset-0 flex flex-col justify-end p-12">
@@ -395,9 +395,9 @@ const MissionVision = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="w-12 h-1 bg-orange-500 mb-6 rounded-full group-hover:w-24 transition-all duration-500"></div>
-                <h3 className="text-4xl font-headline font-bold text-white mb-6 tracking-tight">Our Vision</h3>
-                <p className="text-slate-200 text-lg leading-relaxed max-w-md font-light">
+                <div className="mb-6 h-1 w-12 rounded-full bg-secondary group-hover:w-24 transition-all duration-500" />
+                <h3 className="mb-6 font-headline text-4xl font-bold tracking-tight text-primary">Our Vision</h3>
+                <p className="max-w-md text-lg font-medium leading-relaxed text-[#18335c]/90">
                   {missionVision.vision}
                 </p>
               </motion.div>
@@ -452,7 +452,7 @@ const CTA = () => {
           className="overflow-hidden rounded-[2.5rem] shadow-2xl shadow-primary/20 md:rounded-[4rem]"
         >
           <CtaImageCard
-            backgroundImage={ctaBackground}
+            backgroundImage={ASSETS.bg.detailsPage}
             className="rounded-[2.5rem] text-center text-white md:rounded-[4rem]"
             contentClassName="p-10 md:p-20"
           >
@@ -469,12 +469,13 @@ const CTA = () => {
               >
                 {cta.buttonText}
               </AppLink>
-              <AppLink
-                to="/services"
-                className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-all"
+              <button
+                type="button"
+                onClick={openCallbackRequest}
+                className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:bg-white/20 transition-all cursor-pointer"
               >
                 {cta.secondaryButtonText}
-              </AppLink>
+              </button>
             </div>
           </CtaImageCard>
         </motion.div>

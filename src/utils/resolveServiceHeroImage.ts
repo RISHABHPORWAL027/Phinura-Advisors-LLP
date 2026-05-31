@@ -1,41 +1,56 @@
-import detailsBg from "../Assets/details_page_bg.avif";
-import gstImage from "../Assets/GST.jpeg";
-import incomeTaxImage from "../Assets/income_tax.jpg";
+import { ASSETS } from "../constants/assetPaths";
 
-/**
- * Bundled service card / hero images. Vite emits stable hashed URLs in production.
- * CMS may store legacy `src/Assets/...` paths that only work in dev — map them here.
- */
-const SERVICE_IMAGE_URLS: Record<string, string> = {
-  "/GST.jpeg": gstImage,
-  "/gst.jpeg": gstImage,
-  "GST.jpeg": gstImage,
-  "public/GST.jpeg": gstImage,
-  "src/Assets/GST.jpeg": gstImage,
-  "src/Assets/gst_india.webp": gstImage,
-  "/gst_india.webp": gstImage,
+const SERVICE_IMAGE_ALIASES: Record<string, string> = {
+  "/GST.jpeg": ASSETS.services.gst,
+  "/gst.jpeg": ASSETS.services.gst,
+  "GST.jpeg": ASSETS.services.gst,
+  "public/GST.jpeg": ASSETS.services.gst,
+  "src/Assets/GST.jpeg": ASSETS.services.gst,
+  "src/Assets/gst_india.webp": ASSETS.services.gst,
+  "/gst_india.webp": ASSETS.services.gst,
 
-  "/income_tax.jpg": incomeTaxImage,
-  "/income_tax.jpeg": incomeTaxImage,
-  "income_tax.jpg": incomeTaxImage,
-  "src/Assets/income_tax.jpg": incomeTaxImage,
+  "/income_tax.jpg": ASSETS.services.incomeTax,
+  "/income_tax.jpeg": ASSETS.services.incomeTax,
+  "income_tax.jpg": ASSETS.services.incomeTax,
+  "src/Assets/income_tax.jpg": ASSETS.services.incomeTax,
+
+  "/trademark.jpeg": ASSETS.services.trademark,
+  "/trademark.jpg": ASSETS.services.trademark,
+  "trademark.jpeg": ASSETS.services.trademark,
+  "public/trademark.jpeg": ASSETS.services.trademark,
+
+  "/genral_banner.jpg": ASSETS.services.companyReg,
+  "genral_banner.jpg": ASSETS.services.companyReg,
+  "src/Assets/genral_banner.jpg": ASSETS.services.companyReg,
+
+  "/working.png": ASSETS.services.mca,
+  "working.png": ASSETS.services.mca,
+  "src/Assets/working.png": ASSETS.services.mca,
+
+  "/accoutned.webp": ASSETS.services.accounting,
+  "accoutned.webp": ASSETS.services.accounting,
+  "src/Assets/accoutned.webp": ASSETS.services.accounting,
 };
 
-/** Normalize CMS paths to keys we can resolve in production. */
+/** Normalize CMS paths to public URLs. */
 export function normalizeServiceImagePath(image?: string | null): string {
   const trimmed = typeof image === "string" ? image.trim() : "";
   if (!trimmed) return "";
-  if (SERVICE_IMAGE_URLS[trimmed]) return trimmed;
+  if (SERVICE_IMAGE_ALIASES[trimmed]) return SERVICE_IMAGE_ALIASES[trimmed];
 
   if (trimmed.startsWith("src/Assets/")) {
     const filename = trimmed.split("/").pop() ?? "";
     const lower = filename.toLowerCase();
-    if (lower.includes("gst")) return "/GST.jpeg";
-    if (lower.includes("income_tax")) return "/income_tax.jpg";
+    if (lower.includes("gst")) return ASSETS.services.gst;
+    if (lower.includes("income_tax")) return ASSETS.services.incomeTax;
+    if (lower.includes("trademark")) return ASSETS.services.trademark;
+    if (lower.includes("genral_banner")) return ASSETS.services.companyReg;
+    if (lower.includes("accoutned") || lower.includes("account")) return ASSETS.services.accounting;
+    if (lower.includes("working")) return ASSETS.services.mca;
     return `/${filename}`;
   }
 
-  if (trimmed.toLowerCase().includes("gst_india")) return "/GST.jpeg";
+  if (trimmed.toLowerCase().includes("gst_india")) return ASSETS.services.gst;
 
   return trimmed;
 }
@@ -43,6 +58,6 @@ export function normalizeServiceImagePath(image?: string | null): string {
 /** Resolve a service image for `<img src>` — safe in dev and production builds. */
 export function resolveServiceHeroImage(image?: string | null): string {
   const normalized = normalizeServiceImagePath(image);
-  if (!normalized) return detailsBg;
-  return SERVICE_IMAGE_URLS[normalized] ?? normalized;
+  if (!normalized) return ASSETS.bg.detailsPage;
+  return SERVICE_IMAGE_ALIASES[normalized] ?? normalized;
 }

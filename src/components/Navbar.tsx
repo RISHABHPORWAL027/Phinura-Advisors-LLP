@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAppPath } from "../navigation/AppLink";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "../Assets/Phinura_Advisors_logo.png";
+import { ASSETS } from "../constants/assetPaths";
 import { useCMS } from "../hooks/useCMS";
 
 export const Navbar = () => {
@@ -51,7 +51,7 @@ export const Navbar = () => {
             className="group flex items-center gap-2.5 rounded-lg py-2 pr-2 focus-visible:outline-offset-4"
           >
             <img
-              src={logo}
+              src={ASSETS.brand.logo}
               alt=""
               aria-hidden
               className="h-9 w-auto transition-transform duration-200 group-hover:scale-[1.02]"
@@ -126,7 +126,7 @@ export const Navbar = () => {
           >
             {/* Header row with logo + close button */}
             <div className="flex items-center justify-between mb-10">
-              <img src={logo} alt="" aria-hidden className="h-9 w-auto" />
+              <img src={ASSETS.brand.logo} alt="" aria-hidden className="h-9 w-auto" />
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}

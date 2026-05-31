@@ -2,8 +2,8 @@
   "companyName": "Phinura Advisors",
   "fullName": "Phinura Advisors LLP",
   "tagline": "Your Trusted Partner for Taxes and Business Growth.",
-  "address": "Phinura Advisors LLP\n15-2-619, 4th floor, Kishan Gunj, Gowliguda, Hyderabad, Telangana, India, 500012",
-  "shortAddress": "Gowliguda, Hyderabad",
+  "address": "Phinura Advisors LLP\n213, 2nd Floor, Landmark Complex, 15-2-417/F, Beside Tara International Hotel, Siddiamber Bazar, Kishan Gunj, Jam Bagh, Hyderabad, Telangana 500012",
+  "shortAddress": "Siddiamber Bazar, Hyderabad",
   "mobile": "+91 8318697595",
   "email": "info@phinura.com",
   "logo": "/logo.png",
@@ -33,7 +33,7 @@
         {
           "name": "Kamal Watch & Company",
           "url": "https://www.kamalwatch.com/",
-          "logo": "/client_logo/kamal_watch_company.jpeg"
+          "logo": "/client_logo/kamal_watch_compaany.webp"
         },
         {
           "name": "Goel Distributors",
@@ -71,9 +71,9 @@
           "logo": "/client_logo/nikansh-infratech.png"
         },
         {
-          "name": "Synergy Rail",
+          "name": "Synergy Rail Engineering Private Limited",
           "url": "",
-          "logo": "/client_logo/synergy-rail.jpeg"
+          "logo": "/client_logo/synergy.png"
         },
         {
           "name": "Tomato Tailored Furniture",
@@ -113,13 +113,13 @@
         {
           "name": "Kalangi Estate",
           "url": "",
-          "logo": ""
+          "logo": "/client_logo/kalingi_state.jpg"
         }
       ],
       "stats": [
         {
           "label": "Years Experience",
-          "value": 5,
+          "value": 10,
           "suffix": "+"
         },
         {
@@ -129,7 +129,7 @@
         },
         {
           "label": "Annual Filings",
-          "value": 500,
+          "value": 2000,
           "suffix": "+"
         }
       ],
@@ -186,7 +186,7 @@
             "desc": "We put your business first—clear communication, practical advice, and filings built around how you actually operate."
           },
           {
-            "title": "5+ Years Experience",
+            "title": "10+ Years Experience",
             "icon": "Zap",
             "desc": "Hands-on support with MCA filings, GST, and income tax for startups and established businesses."
           },
@@ -196,7 +196,7 @@
             "desc": "Trusted by owners and teams who want reliable books, filings on time, and advice in plain language."
           },
           {
-            "title": "500+ Annual Filings",
+            "title": "2000+ Annual Filings",
             "icon": "Rocket",
             "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
           },
@@ -212,14 +212,14 @@
         "title": "Ready to grow your business?",
         "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free.",
         "buttonText": "Schedule Free Call",
-        "secondaryButtonText": "View Pricing"
+        "secondaryButtonText": "Request a Call Back"
       },
       "testimonials": [
         {
           "name": "Venu Gopal Totla",
           "role": "MD & CEO, Kamal Watch & Company",
-          "quote": "Kamal Watch is one of India's most recognised names in fine timepieces, rooted in Hyderabad. Phinura keeps our MCA and corporate compliance orderly so leadership can stay focused on brands, retail, and customers—not statutory firefighting.",
-          "companyLogo": "/client_logo/kamal_watch_company.jpeg"
+          "quote": "Kamal Watch is one of India's most recognised names in fine timepieces, rooted in Hyderabad. Phinura keeps our MCA and corporate compliance orderly so leadership can stay focused on brands, retail, and customers\u2014not statutory firefighting.",
+          "companyLogo": "/client_logo/kamal_watch_compaany.webp"
         },
         {
           "name": "Lalit Sarda",
@@ -277,9 +277,9 @@
         },
         {
           "name": "Vaibhav Jain",
-          "role": "Synergy Rail",
-          "quote": "GST, income tax, and MCA updates no longer bounce between disparate advisors—the same disciplined team aligns filings with how contracts and invoices actually behave.",
-          "companyLogo": "/client_logo/synergy-rail.jpeg"
+          "role": "Director, Synergy Rail Engineering Private Limited",
+          "quote": "GST, income tax, and MCA updates no longer bounce between disparate advisors\u2014the same disciplined team aligns filings with how contracts and invoices actually behave.",
+          "companyLogo": "/client_logo/synergy.png"
         },
         {
           "name": "Venu Gopal",
@@ -296,7 +296,8 @@
         {
           "name": "Abdul Tayeb",
           "role": "Kalangi Estate",
-          "quote": "Land-heavy structures demand crisp corporate hygiene. MCA compliances, incorporations when needed, and a responsive team underpin how we cooperate with JV partners."
+          "quote": "Land-heavy structures demand crisp corporate hygiene. MCA compliances, incorporations when needed, and a responsive team underpin how we cooperate with JV partners.",
+          "companyLogo": "/client_logo/kalingi_state.jpg"
         },
         {
           "name": "Anshul",
@@ -4791,7 +4792,7 @@
           "id": "trademark-registration",
           "title": "Trademark Registration",
           "icon": "ShieldCheck",
-          "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600",
+          "image": "/trademark.jpeg",
           "description": "Search, filing, oppositions & brand protection.",
           "category": "Trademark & IP",
           "pageLayout": "hub",
@@ -6459,7 +6460,7 @@
           "id": "accounting-bookkeeping",
           "title": "Accounting Services",
           "icon": "Calculator",
-          "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=600",
+          "image": "/accoutned.webp",
           "description": "Bookkeeping, MIS reports, reconciliations & more.",
           "category": "Accounts",
           "heroTitle": "Simplify Your Business Finances with Expert Accounting Support",
@@ -11169,10 +11170,10 @@
         "subtitle": "We are Chartered Accountants and Company Secretaries based in Hyderabad, serving businesses across India. When GST deadlines, ROC timelines, and tax notices land together, we are the people you call — and we actually pick up.",
         "body": "Whether you run a founder-led startup, a growing SME, or a multi-branch operation, we help you stay compliant, understand your numbers, and keep board and MCA paperwork in order — without drowning you in jargon.",
         "highlights": [],
-        "photoCaption": "Our team of Chartered Accountants and Company Secretaries, delivering expert MCA, GST, tax, and bookkeeping support.",
+        "photoCaption": "",
         "badge": "About us",
         "image": "",
-        "statNumber": "5",
+        "statNumber": "10",
         "statLabel": "Years experience"
       },
       "story": {
@@ -11182,9 +11183,9 @@
         "lead": "",
         "paragraphs": [
           "Phinura Advisors was founded when our team recognised a recurring problem: most businesses received compliance support only after things went wrong. We set out to change that — by planning filings ahead of time, explaining what each requirement means in plain terms, and making ourselves available when it actually matters.",
-          "Over five years, we have grown into a firm trusted by businesses across India for one core reason: we treat your compliance calendar the same way you treat your operations — systematically, proactively, and without unnecessary delays."
+          "Over 10 years, we have grown into a firm trusted by businesses across India for one core reason: we treat your compliance calendar the same way you treat your operations — systematically, proactively, and without unnecessary delays."
         ],
-        "image": "",
+        "image": "/images/team/our_team.webp",
         "trustedLine": "Trusted by businesses across India"
       },
       "missionVision": {
@@ -11208,24 +11209,24 @@
             "name": "Ambuj Jain",
             "role": "Chartered Accountant (CA)",
             "rolesList": [
-              "Tax & Audit Lead",
-              "Business Advisor"
+              "Taxation & Auditing",
+              "Financial Advisory"
             ],
             "expertise": [
-              "Company Incorporation",
               "GST & Income Tax",
-              "MCA Compliance"
+              "Auditing & Assurance",
+              "Financial Advisory & Bookkeeping"
             ],
             "trackRecord": [
               {
-                "stat": "5+",
+                "stat": "8+",
                 "title": "Years Experience",
-                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+                "desc": "Years of experience in taxation, auditing, financial advisory, accounting, and compliance services."
               },
               {
                 "stat": "100+",
-                "title": "Happy Clients",
-                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+                "title": "Clients Served",
+                "desc": "Managing clients and professional assignments from across India with reliable, result-oriented solutions."
               },
               {
                 "stat": "99+",
@@ -11234,76 +11235,76 @@
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
-            "desc": "Guides tax, audit, and compliance with clear, practical advice for growing businesses.",
-            "bio": "Ambuj Jain is a Chartered Accountant who leads accounting, tax, and audit engagements for a wide range of clients. He focuses on making statutory requirements understandable and ensuring filings are planned well in advance. Business owners appreciate his calm, solution-oriented approach when timelines are tight or rules change.",
+            "desc": "Qualified Chartered Accountant with 8+ years in taxation, auditing, financial advisory, and compliance — including prior experience at PwC.",
+            "bio": "A qualified Chartered Accountant with 8+ years of experience in taxation, auditing, financial advisory, accounting, and compliance services. Skilled in handling GST matters, income tax filings, financial statement preparation, bookkeeping, business advisory, and audit-related work for clients across various industries.\n\nWith prior experience at renowned organizations including PwC, he is currently practicing as a Chartered Accountant and managing clients and professional assignments from across India, delivering reliable and result-oriented financial solutions.",
             "img": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
           },
           {
             "name": "Shivani Jain",
-            "role": "Chartered Accountant (CA)",
+            "role": "Company Secretary (CS)",
             "rolesList": [
-              "Tax & Audit Lead",
-              "Business Advisor"
+              "Corporate Compliance",
+              "Secretarial Matters"
             ],
             "expertise": [
-              "Company Incorporation",
-              "GST & Income Tax",
-              "MCA Compliance"
+              "ROC Filings & Annual Compliances",
+              "Company Law & Corporate Governance",
+              "Board & Shareholder Meetings"
             ],
             "trackRecord": [
               {
                 "stat": "5+",
                 "title": "Years Experience",
-                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+                "desc": "Years of experience in corporate compliance and secretarial matters across diverse sectors."
               },
               {
                 "stat": "100+",
-                "title": "Happy Clients",
-                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+                "title": "Companies Managed",
+                "desc": "Statutory and regulatory compliances handled for 100+ companies with accuracy and professionalism."
               },
               {
                 "stat": "99+",
                 "title": "Annual Filings",
-                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+                "desc": "ROC filings, annual compliances, and corporate governance delivered on time, every time."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
-            "desc": "Experienced in financial reporting, assurance, and helping you make sense of the numbers.",
-            "bio": "Shivani Jain is a Chartered Accountant with strong experience in financial statements, internal controls, and audit support. She helps leadership teams interpret results and stay audit-ready. Her communication style is straightforward, which helps non-finance founders feel confident about their books.",
+            "desc": "Qualified Company Secretary with 5+ years in corporate compliance, ROC filings, and corporate governance for 100+ companies.",
+            "bio": "A qualified Company Secretary with 5+ years of experience in corporate compliance and secretarial matters. Experienced in handling statutory and regulatory compliances for 100+ companies with expertise in company law matters, ROC filings, annual compliances, board and shareholder meetings, and corporate governance. Known for delivering accurate, timely, and professional compliance solutions to businesses across various sectors.",
             "img": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
           },
           {
             "name": "Priya Porwal",
-            "role": "Company Secretary (CS)",
+            "role": "Semi Qualified Chartered Accountant & Company Secretary",
             "rolesList": [
-              "Tax & Audit Lead",
-              "Business Advisor"
+              "Corporate Compliance",
+              "Secretarial Practices"
             ],
             "expertise": [
               "Company Incorporation",
-              "GST & Income Tax",
-              "MCA Compliance"
+              "ROC & Annual Filings",
+              "Board & Shareholder Meetings"
             ],
             "trackRecord": [
               {
-                "stat": "5+",
+                "stat": "3+",
                 "title": "Years Experience",
-                "desc": "Years of helping Indian businesses stay compliant and on schedule with GST, tax, and MCA."
+                "desc": "Years of experience in corporate compliance, secretarial practices, and regulatory filings."
               },
               {
                 "stat": "100+",
-                "title": "Happy Clients",
-                "desc": "Trusted by owners and teams who want clear advice and filings done on time."
+                "title": "Companies Managed",
+                "desc": "Statutory and legal compliances managed for 100+ companies across corporate laws and regulatory requirements."
               },
               {
                 "stat": "99+",
                 "title": "Annual Filings",
-                "desc": "Hundreds of successful filings every year — from GST to MCA — delivered with precision."
+                "desc": "Incorporations, annual filings, ROC compliances, and secretarial matters handled with accuracy."
               }
             ],
             "bioQuote": "We don't just crunch numbers; we provide peace of mind so you can focus on growing your business.",
-            "desc": "Handles company law, board matters, and MCA filings so your entity stays legally sound.",
-            "bio": "Priya Porwal is a Company Secretary who supports companies with incorporation, annual compliance, board resolutions, and Ministry of Corporate Affairs filings. She ensures documents are correct the first time and keeps directors informed about what must be done each year.",
+            "desc": "Semi Qualified Company Secretary with 3+ years in corporate compliance, secretarial practices, and regulatory filings for 100+ companies.",
+            "bio": "A dedicated Semi Qualified Company Secretary with 3+ years of experience in corporate compliance, secretarial practices, and regulatory filings. Skilled in managing statutory and legal compliances for 100+ companies, ensuring adherence to corporate laws and regulatory requirements. Experienced in handling company incorporations, annual filings, ROC compliances, board and shareholder meetings, and other secretarial matters with accuracy and professionalism.",
             "img": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600"
           },
           {
@@ -11346,7 +11347,7 @@
         "title": "Ready to grow your business?",
         "subtitle": "Let us handle the paperwork while you focus on your customers. Your first consultation is completely free.",
         "buttonText": "Schedule Free Call",
-        "secondaryButtonText": "View Pricing"
+        "secondaryButtonText": "Request a Call Back"
       }
     },
     "contact": {
