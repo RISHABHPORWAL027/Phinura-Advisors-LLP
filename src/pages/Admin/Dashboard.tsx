@@ -4,7 +4,7 @@ import {
   Save, AlertCircle, CheckCircle2, LayoutDashboard, FileText, 
   Settings, Phone, Info, Briefcase, Plus, Trash2, Shield, Eye,
   Camera, Upload, X, Image as ImageIcon, Search, Globe, User, 
-  Sparkles, History, HelpCircle
+  Sparkles, History, HelpCircle, Quote, Building2
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { SiteDetails } from "../../services/types";
@@ -566,9 +566,15 @@ export function AdminDashboard() {
                   </div>
                 </div>
 
-                  <div className="space-y-2 mt-6 pt-6 border-t border-outline-variant/30">
-                    <label className="text-sm font-medium text-on-surface">Stats section label</label>
-                    <p className="text-xs text-on-surface-variant">Small caps line above the statistics row on the home page.</p>
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                  <h3 className="text-sm font-black text-[#001f49] uppercase tracking-widest mb-2 flex items-center gap-3">
+                    <Building2 size={18} /> Strategic Industry Partners
+                  </h3>
+                  <p className="text-xs text-on-surface-variant mb-6">
+                    Logo marquee on the home page. Upload or replace logos here (e.g. Shri Gupta Drug Mart).
+                  </p>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Section heading</label>
                     <input
                       type="text"
                       value={formData.pages.home.statsTitle ?? ""}
@@ -578,10 +584,10 @@ export function AdminDashboard() {
                     />
                   </div>
 
-                  <div className="space-y-3 mt-4 pt-4 border-t border-outline-variant/20">
-                    <label className="text-sm font-medium text-on-surface">Partner / client logos (under the label)</label>
+                  <div className="space-y-3 mt-6 pt-6 border-t border-outline-variant/20">
+                    <label className="text-sm font-medium text-on-surface">Partner / client logos</label>
                     <p className="text-xs text-on-surface-variant">
-                      Landmark partners (featured) appear first with a badge. Rows without logos are grouped at the end. Only{" "}
+                      Landmark partners (featured) appear first with a badge. Only{" "}
                       <code className="text-[10px] bg-surface-container px-1 rounded">https://…</code> links open in a new tab.
                     </p>
                     {(formData.pages.home.statsPartners ?? []).map((p, index) => (
@@ -638,7 +644,88 @@ export function AdminDashboard() {
                       <Plus size={16} /> Add partner
                     </button>
                   </div>
-                  
+                </div>
+
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm">
+                  <h3 className="text-sm font-black text-[#001f49] uppercase tracking-widest mb-2 flex items-center gap-3">
+                    <Quote size={18} /> Client reviews — Trusted by Businesses Like Yours
+                  </h3>
+                  <p className="text-xs text-on-surface-variant mb-6">
+                    Scrolling review cards on the home page. When the role mentions a partner name (e.g. Shri Gupta Drug Mart), the review uses that partner&apos;s logo from Strategic Industry Partners automatically—update the logo there to change it in reviews too.
+                  </p>
+                  <div className="space-y-2 mb-4">
+                    <label className="text-sm font-medium text-on-surface">Section heading</label>
+                    <input
+                      type="text"
+                      value={formData.pages.home.testimonialsTitle}
+                      onChange={(e) => handleChange(["pages", "home", "testimonialsTitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
+                      placeholder="Trusted by Businesses Like Yours"
+                    />
+                  </div>
+                  <div className="space-y-2 mb-6">
+                    <label className="text-sm font-medium text-on-surface">Section subtitle</label>
+                    <input
+                      type="text"
+                      value={formData.pages.home.testimonialsSubtitle ?? ""}
+                      onChange={(e) => handleChange(["pages", "home", "testimonialsSubtitle"], e.target.value)}
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
+                      placeholder="Real stories from entrepreneurs who grow with us."
+                    />
+                  </div>
+                  {formData.pages.home.testimonials.map((test, index) => (
+                    <div key={index} className="p-4 border border-outline-variant rounded-xl relative space-y-3 mb-4 bg-surface-container-lowest">
+                      <button onClick={() => handleArrayRemove(["pages", "home", "testimonials"], index)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                        <Trash2 size={16} />
+                      </button>
+                      <input type="text" value={test.name} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "name"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Author name" />
+                      <input type="text" value={test.role} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Role / company (e.g. Shri Gupta Drug Mart)" />
+                      <textarea rows={3} value={test.quote} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "quote"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Review quote" />
+                      <ImageUploadField label="Author photo (optional)" value={test.image ?? ""} onChange={(val) => handleChange(["pages", "home", "testimonials", index, "image"], val)} />
+                      <ImageUploadField
+                        label="Company logo (same upload as Strategic Industry Partners)"
+                        value={test.companyLogo ?? ""}
+                        onChange={(val) => handleChange(["pages", "home", "testimonials", index, "companyLogo"], val)}
+                      />
+                      <div className="space-y-1">
+                        <label className="text-[10px] font-bold uppercase text-on-surface-variant">Or copy logo from a partner</label>
+                        <select
+                          className="w-full p-2 bg-surface-container rounded-lg border outline-none text-sm"
+                          defaultValue=""
+                          onChange={(e) => {
+                            const partnerIndex = Number(e.target.value);
+                            if (Number.isNaN(partnerIndex) || partnerIndex < 0) return;
+                            const logo = formData.pages.home.statsPartners?.[partnerIndex]?.logo ?? "";
+                            if (logo) handleChange(["pages", "home", "testimonials", index, "companyLogo"], logo);
+                            e.target.value = "";
+                          }}
+                        >
+                          <option value="">— Select partner to use their logo —</option>
+                          {(formData.pages.home.statsPartners ?? []).map((p, pi) => (
+                            <option key={pi} value={pi}>
+                              {p.name || `Partner ${pi + 1}`}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  ))}
+                  <button
+                    onClick={() =>
+                      handleArrayAdd(["pages", "home", "testimonials"], {
+                        name: "John Doe",
+                        role: "CEO, Company Name",
+                        quote: "Great service!",
+                        image: "",
+                        companyLogo: "",
+                      })
+                    }
+                    className="flex items-center gap-2 text-primary text-sm font-medium hover:underline"
+                  >
+                    <Plus size={16} /> Add review
+                  </button>
+                </div>
+
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Home Page Stats</h3>
                   {formData.pages.home.stats.map((stat, index) => (
                     <div key={index} className="mb-4 p-4 border border-outline-variant rounded-xl relative space-y-3">
@@ -818,59 +905,6 @@ export function AdminDashboard() {
                   ))}
                   <button onClick={() => handleArrayAdd(["pages", "home", "whyChooseUs", "cards"], {title: "New Reason", icon: "CheckCircle", desc: "Description", badge: "", trustedText: "", img: ""})} className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6">
                     <Plus size={16} /> Add Reason Card
-                  </button>
-
-                  {/* Testimonials */}
-                  <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Testimonials</h3>
-                  <div className="space-y-2 mb-4">
-                    <label className="text-sm font-medium text-on-surface">Section heading</label>
-                    <input
-                      type="text"
-                      value={formData.pages.home.testimonialsTitle}
-                      onChange={(e) => handleChange(["pages", "home", "testimonialsTitle"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
-                      placeholder="Trusted by Businesses Like Yours"
-                    />
-                  </div>
-                  <div className="space-y-2 mb-4">
-                    <label className="text-sm font-medium text-on-surface">Section subtitle</label>
-                    <input
-                      type="text"
-                      value={formData.pages.home.testimonialsSubtitle ?? ""}
-                      onChange={(e) => handleChange(["pages", "home", "testimonialsSubtitle"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary outline-none"
-                      placeholder="Real stories from entrepreneurs who grow with us."
-                    />
-                  </div>
-                  {formData.pages.home.testimonials.map((test, index) => (
-                    <div key={index} className="p-4 border border-outline-variant rounded-xl relative space-y-2 mb-4 bg-surface-container-lowest">
-                      <button onClick={() => handleArrayRemove(["pages", "home", "testimonials"], index)} className="absolute top-2 right-2 text-red-500 hover:text-red-700">
-                        <Trash2 size={16} />
-                      </button>
-                      <input type="text" value={test.name} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "name"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Author Name" />
-                      <input type="text" value={test.role} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "role"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none" placeholder="Author Role" />
-                      <textarea rows={3} value={test.quote} onChange={(e) => handleChange(["pages", "home", "testimonials", index, "quote"], e.target.value)} className="w-full p-2 bg-surface-container rounded-lg border outline-none resize-none" placeholder="Quote Text" />
-                      <ImageUploadField label="Photo (optional)" value={test.image ?? ""} onChange={(val) => handleChange(["pages", "home", "testimonials", index, "image"], val)} />
-                      <ImageUploadField
-                        label="Company logo (optional)"
-                        value={test.companyLogo ?? ""}
-                        onChange={(val) => handleChange(["pages", "home", "testimonials", index, "companyLogo"], val)}
-                      />
-                    </div>
-                  ))}
-                  <button
-                    onClick={() =>
-                      handleArrayAdd(["pages", "home", "testimonials"], {
-                        name: "John Doe",
-                        role: "CEO",
-                        quote: "Great service!",
-                        image: "",
-                        companyLogo: "",
-                      })
-                    }
-                    className="flex items-center gap-2 text-primary text-sm font-medium hover:underline mb-6"
-                  >
-                    <Plus size={16} /> Add Testimonial
                   </button>
 
                   <h3 className="text-lg font-bold text-on-surface mt-6 pt-6 border-t border-outline-variant/30">Bottom CTA</h3>

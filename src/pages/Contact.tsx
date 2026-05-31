@@ -52,7 +52,7 @@ const ContactForm = () => {
   const [gotcha, setGotcha] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"gas" | "mailto">("gas");
+  const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"smtp" | "gas" | "mailto">("smtp");
 
   const formDeliveryConfigured = hasContactFormDelivery();
   const serviceOptions = ["Audit", "Taxation", "Company Secretarial", "Advisory"];
@@ -111,9 +111,9 @@ const ContactForm = () => {
           {status === "success" ? (
             <div className="space-y-6 text-center py-8">
               <p className="rounded-2xl bg-primary/5 px-5 py-4 text-primary font-headline font-semibold leading-relaxed">
-                {lastDeliveryMethod === "gas"
-                  ? "Thank you — your message has been sent. We'll get back to you shortly."
-                  : "Your email app should open with your message ready to send. If it doesn't, please email us directly."}
+                {lastDeliveryMethod === "mailto"
+                  ? "Your email app should open with your message ready to send. If it doesn't, please email us directly."
+                  : "Thank you — your message has been sent. We'll get back to you shortly."}
               </p>
               <button
                 type="button"
@@ -209,11 +209,11 @@ const ContactForm = () => {
 
             {!formDeliveryConfigured ? (
               <p className="text-[11px] text-on-surface-variant leading-relaxed rounded-xl bg-amber-50 border border-amber-100 px-3 py-2">
-                <strong className="text-amber-900">Setup tip:</strong> deploy{" "}
-                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">scripts/google-apps-script-contact-form.gs</code>{" "}
-                and add <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_GOOGLE_APPS_SCRIPT_URL</code> to{" "}
-                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code> to deliver submissions to{" "}
-                {siteDetails.email}.
+                <strong className="text-amber-900">Setup tip:</strong> add Hostinger SMTP secrets (
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_USER</code>,{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_PASS</code>) in Vercel, or set{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_CONTACT_FORM_ENABLED=true</code> in{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code> for local testing.
               </p>
             ) : null}
 

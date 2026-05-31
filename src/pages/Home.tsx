@@ -24,6 +24,7 @@ import { useCMS } from "../hooks/useCMS";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { TeamSection } from "../components/TeamSection";
 import { getHomepageFeaturedServices } from "../utils/homeFeaturedServices";
+import { resolveTestimonialCompanyLogo } from "../utils/resolveTestimonialCompanyLogo";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
 import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import { openCallbackRequest } from "../utils/openCallbackRequest";
@@ -893,6 +894,7 @@ const WhyChooseUs = () => {
 const Testimonials = () => {
   const { data: siteDetails } = useCMS();
   const { testimonials } = siteDetails.pages.home;
+  const partners = siteDetails.pages.home.statsPartners ?? [];
   const reviews = testimonials ?? [];
   const [marqueePaused, setMarqueePaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -941,7 +943,7 @@ const Testimonials = () => {
           className={`flex gap-8 whitespace-nowrap${prefersReducedMotion ? "" : " testimonials-marquee-track"}${marqueePaused ? " is-paused" : ""}`}
         >
           {marqueeItems.map((t, i) => {
-            const companyLogo = t.companyLogo?.trim();
+            const companyLogo = resolveTestimonialCompanyLogo(t, partners);
             return (
               <div
                 key={`${t.name}-${t.role}-${i}`}

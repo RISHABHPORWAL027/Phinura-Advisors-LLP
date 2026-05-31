@@ -17,7 +17,7 @@ export function FloatingCallbackRequest() {
   const [gotcha, setGotcha] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"gas" | "mailto">("gas");
+  const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"smtp" | "gas" | "mailto">("smtp");
 
   const formDeliveryConfigured = hasContactFormDelivery();
   const abovePreviewChrome = pathname.startsWith("/preview");
@@ -158,9 +158,9 @@ export function FloatingCallbackRequest() {
 
                 {status === "success" ? (
                   <p className="rounded-2xl bg-primary/5 px-5 py-4 text-center text-primary font-headline font-semibold leading-relaxed">
-                    {lastDeliveryMethod === "gas"
-                      ? "Thank you — your message has been sent."
-                      : "Your email app should open with your message ready to send. If it doesn't, please email us directly."}
+                    {lastDeliveryMethod === "mailto"
+                      ? "Your email app should open with your message ready to send. If it doesn't, please email us directly."
+                      : "Thank you — your message has been sent."}
                   </p>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -224,10 +224,9 @@ export function FloatingCallbackRequest() {
 
                     {!formDeliveryConfigured ? (
                       <p className="text-[11px] text-on-surface-variant leading-relaxed rounded-xl bg-amber-50 border border-amber-100 px-3 py-2">
-                        <strong className="text-amber-900">Setup tip:</strong> deploy{" "}
-                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">scripts/google-apps-script-contact-form.gs</code>{" "}
-                        and add <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_GOOGLE_APPS_SCRIPT_URL</code> to{" "}
-                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code>.
+                        <strong className="text-amber-900">Setup tip:</strong> add{" "}
+                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_USER</code> and{" "}
+                        <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_PASS</code> in Vercel (Hostinger mailbox).
                       </p>
                     ) : null}
 
