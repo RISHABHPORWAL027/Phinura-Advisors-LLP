@@ -1,5 +1,6 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { CountUp } from "../components/CountUp";
 import { AppLink } from "../navigation/AppLink";
 import {
   Heart,
@@ -17,25 +18,6 @@ import { CtaImageCard } from "../components/CtaImageCard";
 import { openCallbackRequest } from "../utils/openCallbackRequest";
 import { TeamSection } from "../components/TeamSection";
 import { ASSETS } from "../constants/assetPaths";
-
-const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { damping: 30, stiffness: 60 });
-  const displayValue = useTransform(springValue, (latest) => Math.floor(latest).toLocaleString());
-
-  useEffect(() => {
-    if (isInView) motionValue.set(value);
-  }, [isInView, value, motionValue]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      <motion.span>{displayValue}</motion.span>
-      {suffix}
-    </span>
-  );
-};
 
 /* ─── Hero — immersive wash (matches Services hero pattern; BG = bundled team photo by default) ─ */
 const Hero = () => {
@@ -145,7 +127,7 @@ const Hero = () => {
               <div className="flex min-h-[52px] flex-1 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 py-3.5 backdrop-blur-md sm:min-h-[56px] sm:min-w-[13rem] sm:flex-initial sm:px-6">
                 <span className="inline-flex items-center justify-center gap-x-2 text-center">
                   <span className="font-headline text-2xl font-extrabold tabular-nums leading-none text-white sm:text-3xl">
-                    <Counter value={statShow} suffix="+" />
+                    <CountUp value={statShow} suffix="+" />
                   </span>
                   <span className="text-sm font-medium leading-snug text-blue-50/92 sm:text-base">
                     {(hero.statLabel ?? "").trim() || "Years experience"}

@@ -3,6 +3,7 @@ import { AppLink } from "../navigation/AppLink";
 import { DeveloperCredit } from "./DeveloperCredit";
 import { ASSETS } from "../constants/assetPaths";
 import { useCMS } from "../hooks/useCMS";
+import { ContactInfoAction } from "./ContactInfoAction";
 
 export const Footer = () => {
   const { data: siteDetails } = useCMS();
@@ -47,8 +48,32 @@ export const Footer = () => {
       </div>
       <div>
         <h4 className="font-headline font-bold text-white mb-6">Contact</h4>
-        <p className="text-white/75 text-sm mb-4 whitespace-pre-line">{siteDetails.address}</p>
-        <p className="text-white text-sm font-bold">{siteDetails.mobile}</p>
+        <div className="space-y-3">
+          <ContactInfoAction
+            action="maps"
+            value={siteDetails.address}
+            hint="Open in Google Maps"
+            className="block w-full rounded-lg text-white/75 text-sm whitespace-pre-line hover:text-white"
+          >
+            {siteDetails.address}
+          </ContactInfoAction>
+          <ContactInfoAction
+            action="copy"
+            value={siteDetails.mobile}
+            hint="Click to copy"
+            className="block w-full rounded-lg text-white text-sm font-bold hover:text-secondary-fixed"
+          >
+            {siteDetails.mobile}
+          </ContactInfoAction>
+          <ContactInfoAction
+            action="copy"
+            value={siteDetails.email}
+            hint="Click to copy"
+            className="block w-full rounded-lg text-white/90 text-sm font-semibold hover:text-secondary-fixed break-all"
+          >
+            {siteDetails.email}
+          </ContactInfoAction>
+        </div>
       </div>
     </div>
     <div className="max-w-7xl mx-auto px-8 py-8 border-t border-white/15 flex flex-col md:flex-row justify-between items-center gap-4">

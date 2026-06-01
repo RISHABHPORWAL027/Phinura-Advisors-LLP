@@ -8,6 +8,8 @@ import {
   submitContactForm,
 } from "../utils/submitContactForm";
 import { ASSETS } from "../constants/assetPaths";
+import { ContactInfoAction } from "../components/ContactInfoAction";
+import { buildGoogleMapsEmbedUrl } from "../utils/contactActions";
 
 const Hero = () => {
   const { data: siteDetails } = useCMS();
@@ -361,35 +363,51 @@ const ContactForm = () => {
             className="space-y-4"
           >
             {[
-              { icon: Phone, label: "Call Us Directly", value: siteDetails.mobile, color: "bg-primary" },
-              { icon: Mail, label: "Email Our Partners", value: siteDetails.email, color: "bg-primary" },
-              { icon: MapPin, label: "Visit Headquarters", value: siteDetails.shortAddress, color: "bg-primary" },
+              {
+                icon: Phone,
+                label: "Call Us Directly",
+                display: siteDetails.mobile,
+                action: "copy" as const,
+                copyValue: siteDetails.mobile,
+              },
+              {
+                icon: Mail,
+                label: "Email Our Partners",
+                display: siteDetails.email,
+                action: "copy" as const,
+                copyValue: siteDetails.email,
+              },
+              {
+                icon: MapPin,
+                label: "Visit Headquarters",
+                display: siteDetails.shortAddress,
+                action: "maps" as const,
+                copyValue: siteDetails.address,
+              },
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-6 p-6 bg-slate-50 rounded-3xl border border-outline-variant/5 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 group">
-                <div className={`w-12 h-12 rounded-2xl ${item.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
+              <ContactInfoAction
+                key={i}
+                action={item.action}
+                value={item.copyValue}
+                hint={item.action === "maps" ? "Open in Google Maps" : "Click to copy"}
+                className="group flex w-full items-center gap-6 rounded-3xl border border-outline-variant/5 bg-slate-50 p-6 shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5"
+              >
+                <div className="flex w-12 h-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white transition-transform group-hover:scale-110">
                   <item.icon className="w-6 h-6" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">{item.label}</p>
-                  {item.label === "Email Our Partners" ? (
-                    <a
-                      href={`mailto:${siteDetails.email}`}
-                      className="text-lg font-headline font-bold text-primary hover:text-secondary transition-colors break-all"
-                    >
-                      {item.value}
-                    </a>
-                  ) : item.label === "Call Us Directly" ? (
-                    <a
-                      href={`tel:${siteDetails.mobile.replace(/\s/g, "")}`}
-                      className="text-lg font-headline font-bold text-primary hover:text-secondary transition-colors"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-lg font-headline font-bold text-primary">{item.value}</p>
-                  )}
+                  <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">
+                    {item.label}
+                  </p>
+                  <p
+                    className={`text-lg font-headline font-bold text-primary group-hover:text-secondary transition-colors ${
+                      item.action === "copy" && item.label.includes("Email") ? "break-all" : ""
+                    }`}
+                  >
+                    {item.display}
+                  </p>
                 </div>
-              </div>
+              </ContactInfoAction>
             ))}
           </motion.div>
 
@@ -402,27 +420,30 @@ const ContactForm = () => {
             <iframe
               title="Office Location"
               className="pointer-events-none lg:pointer-events-auto w-full h-full transition-all duration-700"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(siteDetails.address)}&output=embed`}
+              src={buildGoogleMapsEmbedUrl()}
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
             ></iframe>
             <div className="absolute inset-0 pointer-events-none bg-primary/10 group-hover:opacity-0 transition-opacity duration-500"></div>
-            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-xl p-6 rounded-2xl shadow-lg border border-white/20">
-              <div className="pr-12">
-                <p className="font-bold text-primary mb-3">HQ Main Office</p>
-                <p className="text-xs text-on-surface-variant leading-relaxed whitespace-pre-line">{siteDetails.address}</p>
+            <ContactInfoAction
+              action="maps"
+              value={siteDetails.address}
+              hint="Open in Google Maps"
+              className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/20 bg-white/95 p-6 text-left shadow-lg backdrop-blur-xl transition-transform hover:scale-[1.01] focus-visible:ring-offset-white"
+            >
+              <div className="flex items-start gap-4 pr-2">
+                <div className="min-w-0 flex-1">
+                  <p className="font-bold text-primary mb-3">HQ Main Office</p>
+                  <p className="text-xs text-on-surface-variant leading-relaxed whitespace-pre-line">
+                    {siteDetails.address}
+                  </p>
+                </div>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+                  <MapPin className="w-5 h-5" aria-hidden />
+                </span>
               </div>
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteDetails.fullName + " " + siteDetails.address)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer shadow-lg"
-                title="Open in Google Maps"
-              >
-                <MapPin className="w-5 h-5" />
-              </a>
-            </div>
+            </ContactInfoAction>
           </motion.div>
         </div>
       </div>

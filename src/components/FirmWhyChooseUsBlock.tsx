@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { ASSETS } from "../constants/assetPaths";
 import { RotatingLogoWatermark } from "./RotatingLogoWatermark";
+import { CountUp } from "./CountUp";
 
 type FirmStat = {
   label: string;
@@ -10,34 +10,6 @@ type FirmStat = {
   suffix?: string;
   prefix?: string;
 };
-
-function StatCounter({
-  value,
-  suffix = "",
-  prefix = "",
-}: {
-  value: number;
-  suffix?: string;
-  prefix?: string;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { damping: 30, stiffness: 60 });
-  const displayValue = useTransform(springValue, (latest) => Math.floor(latest).toLocaleString());
-
-  useEffect(() => {
-    if (isInView) motionValue.set(value);
-  }, [isInView, value, motionValue]);
-
-  return (
-    <span ref={ref} className="font-headline text-3xl font-extrabold tabular-nums text-white md:text-4xl">
-      {prefix}
-      <motion.span>{displayValue}</motion.span>
-      {suffix}
-    </span>
-  );
-}
 
 type WhyChooseItem = string | { title: string; description?: string };
 
@@ -54,7 +26,7 @@ type Props = {
 
 const DEFAULT_STATS: FirmStat[] = [
   { label: "Years Experience", value: 10, suffix: "+" },
-  { label: "Happy Clients", value: 499, suffix: "+" },
+  { label: "Happy Clients", value: 500, suffix: "+" },
 ];
 
 export function FirmWhyChooseUsBlock({
@@ -109,7 +81,12 @@ export function FirmWhyChooseUsBlock({
               key={i}
               className="rounded-2xl border border-white/10 bg-white/[0.07] px-5 py-5 text-center backdrop-blur-sm md:px-6 md:py-6"
             >
-              <StatCounter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
+              <CountUp
+                value={stat.value}
+                suffix={stat.suffix}
+                prefix={stat.prefix}
+                className="font-headline text-3xl font-extrabold tabular-nums text-white md:text-4xl"
+              />
               <p className="mt-2 text-sm font-medium leading-snug text-blue-100/80">{stat.label}</p>
             </div>
           ))}

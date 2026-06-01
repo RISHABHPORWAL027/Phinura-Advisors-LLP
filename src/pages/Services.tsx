@@ -1,5 +1,4 @@
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react";
-import { useEffect, useRef } from "react";
+import { motion } from "motion/react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -10,33 +9,7 @@ import { useCMS } from "../hooks/useCMS";
 import { resolveLucideIcon } from "../utils/lucideIconMap";
 import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import { CtaImageCard } from "../components/CtaImageCard";
-
-const Counter = ({ value, suffix = "", prefix = "", decimals = 0 }: { value: number; suffix?: string; prefix?: string; decimals?: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 30,
-    stiffness: 60,
-  });
-  const displayValue = useTransform(springValue, (latest) =>
-    latest.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
-  );
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {prefix}
-      <motion.span>{displayValue}</motion.span>
-      {suffix}
-    </span>
-  );
-};
+import { CountUp } from "../components/CountUp";
 
 const Hero = ({ hero }: { hero: any }) => {
   return (
@@ -314,7 +287,7 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any; siteDetails: any }
               {(statsCTA.stats ?? []).slice(0, 2).map((stat: any, i: number) => (
                 <div key={i} className="text-left py-6 border-l border-white/20 pl-8">
                   <div className="text-4xl md:text-5xl font-extrabold mb-2 text-white tabular-nums">
-                    <Counter
+                    <CountUp
                       value={stat.value}
                       prefix={stat.prefix}
                       suffix={stat.suffix}

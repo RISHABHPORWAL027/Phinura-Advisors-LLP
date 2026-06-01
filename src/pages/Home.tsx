@@ -6,6 +6,7 @@ import {
   type MotionValue,
 } from "motion/react";
 import { Fragment, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { CountUp } from "../components/CountUp";
 import {
   Rocket,
   CheckCircle2,
@@ -195,41 +196,45 @@ const HeroBadgeTypewriter = ({ text, className }: { text: string; className?: st
   );
 };
 
-const TypewriterText = ({ text, className }: { text: string; className?: string }) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [isComplete, setIsComplete] = useState(false);
+const HERO_TITLE_EASE = [0.16, 1, 0.3, 1] as const;
+const HERO_LINE_DURATION_S = 1.28;
+const HERO_LINE_STAGGER_S = 0.32;
+const HERO_LINE_START_DELAY_S = 0.2;
+
+/** Line-by-line mask reveal — smooth, slower slide + fade. */
+const HeroTitleReveal = ({ text, className }: { text: string; className?: string }) => {
+  const lines = useMemo(
+    () => text.split("\n").map((line) => line.trim()).filter(Boolean),
+    [text]
+  );
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    let currentText = "";
-    let currentIndex = 0;
-
-    setDisplayedText("");
-    setIsComplete(false);
-
-    const interval = setInterval(() => {
-      if (currentIndex < text.length) {
-        currentText += text[currentIndex];
-        setDisplayedText(currentText);
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-        setIsComplete(true);
-      }
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, [text]);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = () => setReducedMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   return (
-    <h1 className={className} style={{ whiteSpace: "pre-wrap" }}>
-      {displayedText}
-      {!isComplete && (
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-          className="inline-block w-[0.05em] h-[1em] bg-white align-baseline ml-1 translate-y-[0.1em]"
-        />
-      )}
+    <h1 className={className}>
+      {lines.map((line, i) => (
+        <span key={line} className="block overflow-hidden pb-[0.08em]">
+          <motion.span
+            className="block text-white"
+            initial={reducedMotion ? false : { y: "88%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: reducedMotion ? 0 : HERO_LINE_DURATION_S,
+              ease: HERO_TITLE_EASE,
+              delay: reducedMotion ? 0 : HERO_LINE_START_DELAY_S + i * HERO_LINE_STAGGER_S,
+            }}
+          >
+            {line}
+          </motion.span>
+        </span>
+      ))}
     </h1>
   );
 };
@@ -305,6 +310,14 @@ const Hero = () => {
   const mp4FallbackSrc = ASSETS.hero.videoMp4;
 
   const titleText = siteDetails.pages.home.hero.title || "You run the business.\nWe handle the compliance.";
+
+  const happyClientsStat = useMemo(() => {
+    const stats = siteDetails.pages.home.stats ?? [];
+    const match = stats.find((s) => s.label?.toLowerCase().includes("happy"));
+    const raw = match?.value ?? 500;
+    const value = typeof raw === "number" ? raw : Number.parseInt(String(raw).replace(/\D/g, ""), 10) || 500;
+    return { value, suffix: match?.suffix ?? "+" };
+  }, [siteDetails.pages.home.stats]);
 
   return (
     <section ref={containerRef} className="relative overflow-hidden min-h-screen flex items-center pt-24 pb-16 bg-primary">
@@ -385,24 +398,32 @@ const Hero = () => {
             />
           </motion.div>
 
-          <TypewriterText
+          <HeroTitleReveal
             text={titleText}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-headline font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-blue-400 leading-[1.05] tracking-tight mb-6 sm:mb-8"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-headline font-extrabold leading-[1.05] tracking-tight mb-6 sm:mb-8"
           />
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: (titleText.length * 0.05) + 0.2, duration: 0.8 }}
+            transition={{
+              delay: HERO_LINE_START_DELAY_S + HERO_LINE_STAGGER_S + HERO_LINE_DURATION_S * 0.55,
+              duration: 1.05,
+              ease: HERO_TITLE_EASE,
+            }}
             className="mb-11 max-w-[min(42rem,100%)] text-pretty text-base font-light leading-[1.65] text-blue-100/82 sm:text-lg md:text-xl"
           >
             {siteDetails.pages.home.hero.subtitle}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: (titleText.length * 0.05) + 0.5, duration: 0.8 }}
+            transition={{
+              delay: HERO_LINE_START_DELAY_S + HERO_LINE_STAGGER_S + HERO_LINE_DURATION_S * 0.78,
+              duration: 1.05,
+              ease: HERO_TITLE_EASE,
+            }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <a
@@ -443,7 +464,14 @@ const Hero = () => {
                 ))}
               </div>
               <div className="text-right">
-                <div className="text-2xl font-black text-white">500+</div>
+                <div className="text-2xl font-black text-white">
+                  <CountUp
+                    value={happyClientsStat.value}
+                    suffix={happyClientsStat.suffix}
+                    startDelayMs={700}
+                    className="tabular-nums"
+                  />
+                </div>
                 <div className="text-[10px] text-blue-200/60 uppercase tracking-widest">Happy Clients</div>
               </div>
             </div>
