@@ -20,7 +20,7 @@
   "pages": {
     "home": {
       "hero": {
-        "title": "You run the business.\nWe handle the compliance.",
+        "title": "The Professional Backbone of \nGrowing Businesses.",
         "subtitle": "Hands-on with MCA filings, GST, and income tax—for founders hustling through scale-ups and operators who refuse to gamble on ROC and portal deadlines.",
         "badge": "CA & CS Support for Growing Businesses",
         "buttonText": "Get Free Quote",
@@ -4771,13 +4771,201 @@
               "id": "charge",
               "title": "Charge Creation, Modification & Satisfaction",
               "hook": "Secure your company charges with proper ROC compliance.",
-              "description": "Complete support for charge registration, modification, and satisfaction filing under MCA regulations."
+              "description": "Complete support for charge registration, modification, and satisfaction filing under MCA regulations.",
+              "pageContent": {
+                "id": "charge",
+                "title": "Charge Creation, Modification & Satisfaction",
+                "heroTitle": "Secure Your Company Charges with Proper ROC Compliance",
+                "shortDescription": "A company creating loans or borrowing funds against its assets is required to register the charge with the Registrar of Companies (ROC). Timely filing of charge creation, modification, and satisfaction helps businesses maintain legal compliance and avoid penalties under the Companies Act, 2013.\n\nAt Phinura Advisors, we assist companies in managing complete ROC charge-related filings accurately and efficiently.",
+                "whyChooseHeading": "Our Charge Filing Services Include",
+                "whyChooseIntro": "Whether you are creating a new charge, modifying existing loan terms, or filing charge satisfaction after repayment, our experts ensure smooth and timely ROC compliance.",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Charge Creation",
+                    "description": "Filing of charge creation with ROC for loans secured against company assets."
+                  },
+                  {
+                    "title": "Charge Modification",
+                    "description": "Updating ROC records when there are changes in loan amount, terms, security, or lender details."
+                  },
+                  {
+                    "title": "Charge Satisfaction",
+                    "description": "Filing satisfaction of charge after complete repayment of loan or closure of borrowing."
+                  },
+                  {
+                    "title": "ROC Documentation Support",
+                    "description": "Preparation and verification of all required documents and forms."
+                  },
+                  {
+                    "title": "Digital Filing Assistance",
+                    "description": "End-to-end support for online filing on the MCA portal."
+                  },
+                  {
+                    "title": "Compliance Advisory",
+                    "description": "Guidance on timelines, penalties, and legal compliance requirements."
+                  }
+                ],
+                "whatIsHeading": "What is Charge Creation?",
+                "whatIsDescription": "When a company takes a secured loan from a bank or financial institution by offering its assets as security, it creates a charge on those assets. The company is required to register this charge with ROC within the prescribed time limit.",
+                "keyPointsHeading": "Common examples include:",
+                "keyPoints": [
+                  "Loan against property",
+                  "Working capital loans",
+                  "Machinery financing",
+                  "Debenture creation",
+                  "Hypothecation of assets"
+                ],
+                "benefitsHeading": "Benefits of Timely Charge Filing",
+                "benefitFeatures": [
+                  {
+                    "title": "Legal Compliance",
+                    "description": "Ensures compliance under the Companies Act, 2013."
+                  },
+                  {
+                    "title": "Avoid Penalties",
+                    "description": "Prevents additional ROC fees and legal penalties."
+                  },
+                  {
+                    "title": "Transparency",
+                    "description": "Maintains accurate public records of company borrowings."
+                  },
+                  {
+                    "title": "Better Credibility",
+                    "description": "Improves trust with banks, investors, and financial institutions."
+                  },
+                  {
+                    "title": "Smooth Loan Closure",
+                    "description": "Proper satisfaction filing helps clear company records after repayment."
+                  }
+                ],
+                "labeledSections": [
+                  {
+                    "title": "What is Charge Modification?",
+                    "intro": "Charge modification is required when there is any change in:",
+                    "bullets": [
+                      "Loan amount",
+                      "Interest rate",
+                      "Repayment terms",
+                      "Security offered",
+                      "Lender details"
+                    ],
+                    "outro": "The company must update these changes with ROC through proper filing."
+                  },
+                  {
+                    "title": "What is Charge Satisfaction?",
+                    "intro": "Once the company repays the loan completely, the charge must be removed from ROC records by filing satisfaction of charge. This confirms that:",
+                    "bullets": [
+                      "The loan has been fully repaid",
+                      "No liability remains against the secured assets",
+                      "The charge is closed legally"
+                    ]
+                  },
+                  {
+                    "title": "Forms Used for Charge Filing",
+                    "items": [
+                      {
+                        "title": "CHG-1",
+                        "description": "Used for creation or modification of charge other than debentures."
+                      },
+                      {
+                        "title": "CHG-9",
+                        "description": "Used for creation or modification of charge related to debentures."
+                      },
+                      {
+                        "title": "CHG-4",
+                        "description": "Used for filing satisfaction of charge after repayment."
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Why Choose Phinura Advisors?",
+                    "items": [
+                      {
+                        "title": "Expert ROC Filing Support",
+                        "description": "Experienced professionals handling ROC and MCA compliances."
+                      },
+                      {
+                        "title": "Accurate Documentation",
+                        "description": "Proper preparation and verification of charge-related documents."
+                      },
+                      {
+                        "title": "Timely Filing",
+                        "description": "Quick processing to avoid late fees and penalties."
+                      },
+                      {
+                        "title": "End-to-End Assistance",
+                        "description": "Complete support from documentation to final ROC approval."
+                      },
+                      {
+                        "title": "Transparent Process",
+                        "description": "Clear communication and regular status updates throughout the filing process."
+                      }
+                    ]
+                  }
+                ],
+                "faq": [],
+                "whyChooseUsHeading": "Why Choose Phinura Advisors?",
+                "whyChooseUs": [],
+                "ctaTitle": "Ready to File Charge Creation, Modification or Satisfaction?",
+                "ctaSubtitle": "Get expert assistance for ROC charge filing and ensure smooth corporate compliance."
+              }
             },
             {
               "id": "mca-compliances-on-demand",
               "title": "MCA Compliances on Demand & Applicability",
               "hook": "Know what applies—and file on time.",
-              "description": "Timely and accurate MCA compliance solutions for companies, LLPs, directors, and business entities across India."
+              "description": "Timely and accurate MCA compliance solutions for companies, LLPs, directors, and business entities across India.",
+              "pageContent": {
+                "id": "mca-compliances-on-demand",
+                "title": "MCA Compliances on Demand & Applicability",
+                "heroTitle": "MCA Compliances on Demand & Applicability",
+                "shortDescription": "Timely and accurate MCA compliance solutions for companies, LLPs, directors, and business entities across India.",
+                "whyChooseHeading": "MCA Compliance in India — What You Should Know",
+                "whyChooseIntro": "MCA compliance under the Companies Act, 2013 and LLP Act, 2008 is an ongoing legal responsibility. Missing filings can lead to daily penalties, director-related issues, and compliance risk for future funding, banking, and governance.",
+                "whyChooseFeatures": [
+                  {
+                    "title": "Annual Filing Management",
+                    "description": "AOC-4, MGT-7/MGT-7A, Form 8, Form 11, and other recurring compliance handled with deadline control."
+                  },
+                  {
+                    "title": "Event-Based ROC Filings",
+                    "description": "Director changes, office shift, capital increase, name change, and statutory updates filed with proper documentation."
+                  },
+                  {
+                    "title": "Director & DIN Compliance",
+                    "description": "DIR-3 KYC, DIN reactivation, and director data updates to maintain filing eligibility."
+                  },
+                  {
+                    "title": "Closure & Strike-Off Support",
+                    "description": "LLP and company closure support with pre-closure compliance cleanup and ROC filing workflow."
+                  }
+                ],
+                "whatIsHeading": "Annual & recurring MCA obligations",
+                "whatIsDescription": "Private Limited Companies must typically file annual financials and returns such as AOC-4 and MGT-7/MGT-7A, maintain board and AGM records, and complete statutory filings like ADT-1 and DPT-3 where applicable. LLPs must file Form 11, Form 8, and related updates within prescribed timelines.",
+                "labeledSections": [
+                  {
+                    "title": "Event-based filings are equally important",
+                    "intro": "Changes in directors, registered office, company name, authorized capital, LLP agreement, and commencement declarations (INC-20A) require specific ROC forms and documentary backing. Delayed or incorrect filing can trigger additional fees and legal complications."
+                  },
+                  {
+                    "title": "Why a strong compliance system matters",
+                    "intro": "A strong MCA compliance system is not just about avoiding penalties. It helps maintain entity credibility with investors, banks, regulators, and business partners. With proper tracking, documentation, and timely filing, businesses stay active and governance-ready throughout the year."
+                  }
+                ],
+                "benefitsHeading": "Benefits of MCA Compliance",
+                "benefitsIntro": "Proper MCA compliance helps maintain your company's legal status, avoids penalties, protects directors, and builds trust with banks, investors, and government authorities.",
+                "benefits": [
+                  "Structured calendar tuned to MCA due dates",
+                  "Penalty-free compliance with timely filings",
+                  "Plain-language summaries before you authorize filings",
+                  "Single point of contact for all ROC-related queries"
+                ],
+                "faq": [],
+                "whyChooseUsHeading": "Why Choose Phinura Advisors?",
+                "whyChooseUs": [],
+                "ctaTitle": "Get MCA Compliance Support On Demand",
+                "ctaSubtitle": "Timely and accurate MCA compliance solutions for companies, LLPs, directors, and business entities across India."
+              }
             }
           ],
           "deliverables": [
