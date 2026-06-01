@@ -7,6 +7,8 @@ export type SubServiceProcessStep = { title: string; description: string };
 export type SubServiceLabeledSection = {
   title: string;
   intro?: string;
+  /** Paragraph shown after bullets (e.g. closing line of a section). */
+  outro?: string;
   items?: SubServiceFeature[];
   bullets?: string[];
 };

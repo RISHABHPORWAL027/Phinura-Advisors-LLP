@@ -164,6 +164,9 @@ function LabeledSectionBody({ section }: { section: SubServiceLabeledSection }) 
       {section.bullets && section.bullets.length > 0 && (
         <BulletList items={section.bullets} iconClass="text-primary" />
       )}
+      {section.outro && (
+        <p className="mt-6 text-lg leading-relaxed text-on-surface-variant">{section.outro}</p>
+      )}
     </>
   );
 }
@@ -469,7 +472,7 @@ export const SubServiceDetail = () => {
             <h1 className="mb-6 font-headline text-4xl font-extrabold leading-tight tracking-tighter text-white md:mb-8 md:text-6xl">
               {content.heroTitle}
             </h1>
-            <p className="mb-10 text-lg leading-relaxed text-white/85 md:mb-12 md:max-w-2xl md:text-xl">
+            <p className="mb-10 whitespace-pre-line text-lg leading-relaxed text-white/85 md:mb-12 md:max-w-2xl md:text-xl">
               {content.shortDescription}
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">

@@ -4766,6 +4766,18 @@
                 "faqHeading": "Frequently Asked Questions (FAQ)",
                 "ctaSubtitle": "We handle complete INC-20A filing including board resolutions, bank statement verification, professional certification, ROC filing, and MCA compliance support so your company can legally commence business operations without compliance issues."
               }
+            },
+            {
+              "id": "charge",
+              "title": "Charge Creation, Modification & Satisfaction",
+              "hook": "Secure your company charges with proper ROC compliance.",
+              "description": "Complete support for charge registration, modification, and satisfaction filing under MCA regulations."
+            },
+            {
+              "id": "mca-compliances-on-demand",
+              "title": "MCA Compliances on Demand & Applicability",
+              "hook": "Know what applies—and file on time.",
+              "description": "Timely and accurate MCA compliance solutions for companies, LLPs, directors, and business entities across India."
             }
           ],
           "deliverables": [

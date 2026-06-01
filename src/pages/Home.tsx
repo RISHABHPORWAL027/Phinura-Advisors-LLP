@@ -72,6 +72,129 @@ const ScrollTypewriterText = ({ text, className }: { text: string; className?: s
   );
 };
 
+const HIGHLIGHT_BADGE_TERMS = ["CA", "CS"] as const;
+
+function parseBadgeSegments(visible: string): { text: string; highlight: boolean }[] {
+  const segments: { text: string; highlight: boolean }[] = [];
+  let i = 0;
+
+  while (i < visible.length) {
+    const term = HIGHLIGHT_BADGE_TERMS.find((t) => visible.startsWith(t, i));
+    if (term) {
+      segments.push({ text: term, highlight: true });
+      i += term.length;
+      continue;
+    }
+
+    let end = visible.length;
+    for (const t of HIGHLIGHT_BADGE_TERMS) {
+      const at = visible.indexOf(t, i);
+      if (at !== -1) end = Math.min(end, at);
+    }
+    segments.push({ text: visible.slice(i, end), highlight: false });
+    i = end;
+  }
+
+  return segments;
+}
+
+const BADGE_TYPE_MS = 48;
+const BADGE_ERASE_MS = 22;
+const BADGE_HOLD_MS = 3200;
+const BADGE_PAUSE_MS = 500;
+
+const HeroBadgeTypewriter = ({ text, className }: { text: string; className?: string }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+  const [highlightPulse, setHighlightPulse] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = () => setReducedMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setDisplayedText(text);
+      setShowCursor(false);
+      setHighlightPulse(true);
+      return;
+    }
+
+    let cancelled = false;
+    let index = 0;
+
+    const sleep = (ms: number) => new Promise<void>((resolve) => window.setTimeout(resolve, ms));
+
+    async function loop() {
+      while (!cancelled) {
+        setShowCursor(true);
+        setHighlightPulse(false);
+
+        for (index = 0; index <= text.length && !cancelled; index++) {
+          setDisplayedText(text.slice(0, index));
+          await sleep(BADGE_TYPE_MS);
+        }
+        if (cancelled) break;
+
+        setHighlightPulse(true);
+        setShowCursor(false);
+        await sleep(BADGE_HOLD_MS);
+        if (cancelled) break;
+
+        setShowCursor(true);
+        setHighlightPulse(false);
+
+        for (index = text.length; index >= 0 && !cancelled; index--) {
+          setDisplayedText(text.slice(0, index));
+          await sleep(BADGE_ERASE_MS);
+        }
+        if (cancelled) break;
+
+        await sleep(BADGE_PAUSE_MS);
+      }
+    }
+
+    loop();
+    return () => {
+      cancelled = true;
+    };
+  }, [text, reducedMotion]);
+
+  const segments = useMemo(() => parseBadgeSegments(displayedText), [displayedText]);
+
+  return (
+    <p className={className} aria-live="polite">
+      {segments.map((seg, i) =>
+        seg.highlight ? (
+          <motion.span
+            key={i}
+            className="font-extrabold tracking-wide text-secondary-container [text-shadow:0_0_24px_rgba(251,191,36,0.35)]"
+            animate={highlightPulse ? { opacity: [1, 0.88, 1] } : undefined}
+            transition={highlightPulse ? { repeat: Infinity, duration: 2.2, ease: "easeInOut" } : undefined}
+          >
+            {seg.text}
+          </motion.span>
+        ) : (
+          <Fragment key={i}>{seg.text}</Fragment>
+        )
+      )}
+      {showCursor && (
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ repeat: Infinity, duration: 0.75, ease: "linear" }}
+          className="ml-0.5 inline-block h-[0.9em] w-[0.06em] translate-y-[0.05em] bg-amber-300 align-baseline"
+          aria-hidden
+        />
+      )}
+    </p>
+  );
+};
+
 const TypewriterText = ({ text, className }: { text: string; className?: string }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
@@ -252,9 +375,10 @@ const Hero = () => {
             transition={{ duration: 0.7 }}
             className="relative mb-7 max-w-[min(38rem,100%)] sm:mb-9"
           >
-            <p className="pb-3 font-headline text-[1.0625rem] font-bold leading-snug tracking-[-0.02em] text-balance text-white sm:pb-4 sm:text-xl md:text-2xl [text-shadow:0_2px_28px_rgba(0,0,0,0.42)]">
-              {siteDetails.pages.home.hero.badge || "Excellence in Finance"}
-            </p>
+            <HeroBadgeTypewriter
+              text={siteDetails.pages.home.hero.badge || "CA & CS Support for Growing Businesses"}
+              className="pb-3 font-headline text-[1.0625rem] font-bold leading-snug tracking-[-0.02em] text-balance text-white sm:pb-4 sm:text-xl md:text-2xl [text-shadow:0_2px_28px_rgba(0,0,0,0.42)]"
+            />
             <div
               className="h-0.5 max-w-xl bg-gradient-to-r from-secondary-container from-[-2%] via-secondary-container/70 to-transparent"
               aria-hidden
