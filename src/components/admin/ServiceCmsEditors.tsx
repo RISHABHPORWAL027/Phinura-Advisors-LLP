@@ -660,6 +660,17 @@ export function ServiceHubEditor({
                 className={`${inputClass} resize-y`}
               />
             </Field>
+            <label className="flex cursor-pointer items-center gap-2 text-sm text-on-surface-variant">
+              <input
+                type="checkbox"
+                checked={Boolean(sub.hubCardLinkDisabled)}
+                onChange={(e) =>
+                  handlers.handleChange([...p("subServices"), si, "hubCardLinkDisabled"], e.target.checked)
+                }
+                className="h-4 w-4 rounded border-outline-variant text-primary focus:ring-primary"
+              />
+              Info-only hub card (no link, no “Know more” button)
+            </label>
             <SubServicePageContentEditor
               basePath={[...p("subServices"), si]}
               content={sub.pageContent as Partial<SubServicePageContent> | undefined}

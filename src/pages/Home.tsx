@@ -7,6 +7,7 @@ import {
 } from "motion/react";
 import { Fragment, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { CountUp } from "../components/CountUp";
+import { getWhatsAppUrl } from "../utils/phoneNumbers";
 import {
   Rocket,
   CheckCircle2,
@@ -427,7 +428,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <a
-              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+              href={getWhatsAppUrl(siteDetails)}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex min-h-12 flex-1 items-center justify-center gap-3 overflow-hidden rounded-2xl bg-blue-600 px-8 py-3.5 text-center font-headline text-sm font-bold text-white shadow-[0_0_34px_-4px_rgba(37,99,235,0.45)] transition-all duration-200 hover:bg-blue-500 hover:shadow-[0_0_44px_-4px_rgba(37,99,235,0.55)] active:translate-y-[1px] sm:min-h-[3.125rem] sm:flex-initial sm:py-4 sm:text-base"
@@ -1183,7 +1184,7 @@ const FinalCTA = () => {
             </FadeInStagger>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+                href={getWhatsAppUrl(siteDetails)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl shadow-xl shadow-secondary/20 hover:scale-105 transition-transform cursor-pointer text-center"

@@ -4,7 +4,8 @@
   "tagline": "Your Trusted Partner for Taxes and Business Growth.",
   "address": "Phinura Advisors LLP\n213, 2nd Floor, Landmark Complex, 15-2-417/F, Beside Tara International Hotel, Siddiamber Bazar, Kishan Gunj, Jam Bagh, Hyderabad, Telangana 500012",
   "shortAddress": "Siddiamber Bazar, Hyderabad",
-  "mobile": "+91 8318697595, +91 8889788733",
+  "mobile": "+91 8318697595",
+  "mobileSecondary": "+91 8889788733",
   "email": "info@phinura.com",
   "logo": "/logo.png",
   "developerCredit": {
@@ -4915,6 +4916,7 @@
               "title": "MCA Compliances on Demand & Applicability",
               "hook": "Know what applies—and file on time.",
               "description": "Timely and accurate MCA compliance solutions for companies, LLPs, directors, and business entities across India.",
+              "hubCardLinkDisabled": true,
               "pageContent": {
                 "id": "mca-compliances-on-demand",
                 "title": "MCA Compliances on Demand & Applicability",

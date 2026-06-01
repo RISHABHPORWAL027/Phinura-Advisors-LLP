@@ -1606,22 +1606,33 @@ export function AdminDashboard() {
                   </div>
                 </div>
 
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-on-surface">Email Address</label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleChange(["email"], e.target.value)}
+                    className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                  />
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Email Address</label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleChange(["email"], e.target.value)}
-                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-on-surface">Phone Number</label>
+                    <label className="text-sm font-medium text-on-surface">Primary phone (WhatsApp &amp; Talk to Expert)</label>
                     <input
                       type="text"
                       value={formData.mobile}
                       onChange={(e) => handleChange(["mobile"], e.target.value)}
+                      placeholder="+91 8318697595"
+                      className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-on-surface">Secondary phone (display &amp; copy only)</label>
+                    <input
+                      type="text"
+                      value={formData.mobileSecondary ?? ""}
+                      onChange={(e) => handleChange(["mobileSecondary"], e.target.value)}
+                      placeholder="+91 8889788733"
                       className="w-full p-4 bg-surface-container rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
                     />
                   </div>

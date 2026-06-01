@@ -10,6 +10,7 @@ import { resolveLucideIcon } from "../utils/lucideIconMap";
 import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import { CtaImageCard } from "../components/CtaImageCard";
 import { CountUp } from "../components/CountUp";
+import { getWhatsAppUrl } from "../utils/phoneNumbers";
 
 const Hero = ({ hero }: { hero: any }) => {
   return (
@@ -273,7 +274,7 @@ const StatsCTA = ({ statsCTA, siteDetails }: { statsCTA: any; siteDetails: any }
               <p className="mb-12 max-w-xl text-xl text-on-primary/82">{subtitle}</p>
               <div className="flex flex-wrap gap-6 text-center">
                 <a
-                  href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, "")}`}
+                  href={getWhatsAppUrl(siteDetails)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-secondary text-white px-10 py-5 rounded-2xl font-headline font-bold text-xl hover:scale-105 transition-transform shadow-xl shadow-secondary/20 inline-block"

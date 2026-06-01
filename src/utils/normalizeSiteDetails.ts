@@ -1,5 +1,6 @@
 import defaults from "../data/siteDetails.json";
 import type { SiteDetails } from "../services/types";
+import { normalizePhoneFields } from "./phoneNumbers";
 import { normalizeServiceImagePath } from "./resolveServiceHeroImage";
 
 type UnknownRecord = Record<string, unknown>;
@@ -216,6 +217,6 @@ export function normalizeSiteDetails(input: unknown): SiteDetails {
     merged.pages.services.serviceList = mergeServiceLists(defaultList, incServices) as SiteDetails["pages"]["services"]["serviceList"];
   }
 
-  return merged;
+  return normalizePhoneFields(merged);
 }
 

@@ -33,6 +33,7 @@ import {
 } from "../utils/firmWhyChooseUsDefaults";
 import { FirmWhyChooseUsBlock } from "../components/FirmWhyChooseUsBlock";
 import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
+import { getTelHref, getWhatsAppUrl } from "../utils/phoneNumbers";
 
 function FeatureCards({ items }: { items: { title: string; description: string }[] }) {
   return (
@@ -359,8 +360,8 @@ export const SubServiceDetail = () => {
     );
   }
 
-  const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
-  const telHref = whatsappPhone ? `tel:+${whatsappPhone}` : "/contact";
+  const whatsappUrl = getWhatsAppUrl(data);
+  const telHref = getTelHref(data) || "/contact";
   const parentTitle = service.title || "Services";
   const firmWhyChooseUs = resolveFirmWhyChooseUsContent(content);
   const labeledSplit = splitProcessCompanionSections(content.labeledSections);
@@ -482,9 +483,9 @@ export const SubServiceDetail = () => {
               >
                 {heroCtaPrimary}
               </AppLink>
-              {whatsappPhone ? (
+              {whatsappUrl ? (
                 <a
-                  href={`https://wa.me/${whatsappPhone}`}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-white/30 bg-white/10 px-8 py-4 font-headline font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -746,9 +747,9 @@ export const SubServiceDetail = () => {
                     <PhoneCall className="h-5 w-5" />
                     Call Us
                   </a>
-                  {whatsappPhone ? (
+                  {whatsappUrl ? (
                     <a
-                      href={`https://wa.me/${whatsappPhone}`}
+                      href={whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-500 px-8 py-4 font-headline font-bold text-lg text-white transition-colors hover:bg-emerald-600"

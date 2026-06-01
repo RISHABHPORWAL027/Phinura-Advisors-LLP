@@ -10,6 +10,11 @@ import {
 import { ASSETS } from "../constants/assetPaths";
 import { ContactInfoAction } from "../components/ContactInfoAction";
 import { buildGoogleMapsEmbedUrl } from "../utils/contactActions";
+import {
+  getPrimaryMobile,
+  getSecondaryMobile,
+  getWhatsAppUrl,
+} from "../utils/phoneNumbers";
 
 const Hero = () => {
   const { data: siteDetails } = useCMS();
@@ -76,6 +81,9 @@ const ContactForm = () => {
   }, []);
 
   const serviceOptions = ["Audit", "Taxation", "Company Secretarial", "Advisory"];
+  const primaryPhone = getPrimaryMobile(siteDetails);
+  const secondaryPhone = getSecondaryMobile(siteDetails);
+  const whatsappUrl = getWhatsAppUrl(siteDetails);
 
   function toggleNeed(need: string) {
     setSelectedNeeds((prev) => (prev.includes(need) ? prev.filter((n) => n !== need) : [...prev, need]));
@@ -341,7 +349,7 @@ const ContactForm = () => {
             </div>
 
             <a
-              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full bg-emerald-500 text-white py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20 cursor-pointer"
@@ -362,14 +370,41 @@ const ContactForm = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
+            <div className="group flex w-full items-center gap-6 rounded-3xl border border-outline-variant/5 bg-slate-50 p-6 shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white transition-transform group-hover:scale-110">
+                <Phone className="w-6 h-6" />
+              </div>
+              <div className="min-w-0 flex-1 space-y-2">
+                <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Call Us Directly</p>
+                <ContactInfoAction
+                  action="copy"
+                  value={primaryPhone}
+                  hint="Click to copy primary number"
+                  className="block w-full rounded-lg p-0"
+                >
+                  <span className="text-lg font-headline font-bold text-primary group-hover:text-secondary transition-colors">
+                    {primaryPhone}
+                    <span className="ml-2 text-[10px] font-semibold uppercase tracking-wider text-on-surface-variant">
+                      Primary · WhatsApp
+                    </span>
+                  </span>
+                </ContactInfoAction>
+                {secondaryPhone ? (
+                  <ContactInfoAction
+                    action="copy"
+                    value={secondaryPhone}
+                    hint="Click to copy secondary number"
+                    className="block w-full rounded-lg p-0"
+                  >
+                    <span className="text-lg font-headline font-bold text-primary group-hover:text-secondary transition-colors">
+                      {secondaryPhone}
+                    </span>
+                  </ContactInfoAction>
+                ) : null}
+              </div>
+            </div>
+
             {[
-              {
-                icon: Phone,
-                label: "Call Us Directly",
-                display: siteDetails.mobile,
-                action: "copy" as const,
-                copyValue: siteDetails.mobile,
-              },
               {
                 icon: Mail,
                 label: "Email Our Partners",
@@ -401,7 +436,7 @@ const ContactForm = () => {
                   </p>
                   <p
                     className={`text-lg font-headline font-bold text-primary group-hover:text-secondary transition-colors ${
-                      item.action === "copy" && item.label.includes("Email") ? "break-all" : ""
+                      item.label.includes("Email") ? "break-all" : ""
                     }`}
                   >
                     {item.display}

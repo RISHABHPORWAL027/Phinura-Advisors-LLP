@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ASSETS } from "../constants/assetPaths";
 import { useCMS } from "../hooks/useCMS";
+import { getWhatsAppUrl } from "../utils/phoneNumbers";
 
 export const Navbar = () => {
   const { data: siteDetails } = useCMS();
@@ -56,7 +57,7 @@ export const Navbar = () => {
               aria-hidden
               className="h-9 w-auto transition-transform duration-200 group-hover:scale-[1.02]"
             />
-            <span className="hidden font-headline text-lg font-bold tracking-tight text-primary sm:inline sm:text-xl">
+            <span className="max-w-[42vw] truncate font-headline text-sm font-bold leading-tight tracking-tight text-primary sm:max-w-none sm:text-xl">
               {siteDetails.companyName}
             </span>
           </Link>
@@ -86,7 +87,7 @@ export const Navbar = () => {
 
           <div className="flex items-center gap-2 sm:gap-3">
             <a
-              href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+              href={getWhatsAppUrl(siteDetails)}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden min-h-[44px] min-w-[44px] items-center justify-center rounded-2xl border-2 border-primary bg-primary px-6 py-2.5 font-headline text-sm font-extrabold text-white shadow-[0_12px_32px_-8px_rgba(24,51,92,0.35)] transition-all duration-200 hover:border-primary hover:bg-[#142a4f] lg:inline-flex hover:brightness-[1.02] active:scale-[0.98]"
@@ -125,8 +126,11 @@ export const Navbar = () => {
             aria-label="Main menu"
           >
             {/* Header row with logo + close button */}
-            <div className="flex items-center justify-between mb-10">
-              <img src={ASSETS.brand.logo} alt="" aria-hidden className="h-9 w-auto" />
+            <div className="flex items-center justify-between mb-10 gap-3">
+              <Link to={homePath} onClick={() => setIsOpen(false)} className="flex min-w-0 items-center gap-2.5">
+                <img src={ASSETS.brand.logo} alt="" aria-hidden className="h-9 w-auto shrink-0" />
+                <span className="truncate font-headline text-lg font-bold text-primary">{siteDetails.companyName}</span>
+              </Link>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
@@ -165,7 +169,7 @@ export const Navbar = () => {
               className="mt-auto pb-12"
             >
               <a
-                href={`https://wa.me/${siteDetails.mobile.replace(/\D/g, '')}`}
+                href={getWhatsAppUrl(siteDetails)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex min-h-[52px] w-full items-center justify-center rounded-[2rem] bg-primary px-6 py-4 text-center font-headline text-lg font-black text-white shadow-xl shadow-primary/25 transition-colors hover:bg-[#142a4f] active:scale-[0.99]"

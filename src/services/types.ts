@@ -7,6 +7,8 @@ export interface SiteDetails {
   address: string;
   shortAddress: string;
   mobile: string;
+  /** Optional second line — display & copy only; WhatsApp uses `mobile`. */
+  mobileSecondary?: string;
   email: string;
   logo: string;
   /** Shown in footers site-wide: “{prefix}{name as link}” */
@@ -143,6 +145,8 @@ export interface SiteDetails {
           title: string;
           hook?: string;
           description?: string;
+          /** Hub grid card: show copy only — no link or “Know more”. */
+          hubCardLinkDisabled?: boolean;
           pageContent?: Partial<SubServicePageContent>;
         }>;
         /** Optional heading above sub-services list; defaults to service title. */

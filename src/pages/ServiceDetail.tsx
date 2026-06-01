@@ -9,6 +9,7 @@ import { resolveServiceHeroImage } from "../utils/resolveServiceHeroImage";
 import { CtaImageCard } from "../components/CtaImageCard";
 import type { SubServicePageContent } from "../data/subServiceTypes";
 import { loadDefaultSubServices } from "../utils/subServiceDefaults";
+import { getWhatsAppUrl } from "../utils/phoneNumbers";
 
 const SERVICE_DETAIL_FALLBACK_CONSULTATION_HEADING = "Consultation — how we can help";
 
@@ -145,7 +146,7 @@ export const ServiceDetail = () => {
     service.callBackLinkText ||
     data.pages.services.serviceDetailCallBackLinkText ||
     "Request a Call Back";
-  const whatsappPhone = String(data.mobile || "").replace(/\D/g, "");
+  const whatsappUrl = getWhatsAppUrl(data);
   const servicesPage = data.pages.services;
   const globalConsultationHeading =
     typeof servicesPage.serviceDetailConsultationHeading === "string"
@@ -268,9 +269,9 @@ export const ServiceDetail = () => {
               >
                 {heroCtaPrimary}
               </AppLink>
-              {whatsappPhone ? (
+              {whatsappUrl ? (
                 <a
-                  href={`https://wa.me/${whatsappPhone}`}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-xl border-2 border-white/30 bg-white/10 px-8 py-4 font-headline font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
@@ -516,45 +517,72 @@ export const ServiceDetail = () => {
             </motion.div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
-              {subServices.map((sub: { id?: string; title: string; hook?: string; description?: string }, i: number) => {
+              {subServices.map(
+                (
+                  sub: {
+                    id?: string;
+                    title: string;
+                    hook?: string;
+                    description?: string;
+                    hubCardLinkDisabled?: boolean;
+                  },
+                  i: number
+                ) => {
                 const cardCopy = resolveSubServiceCardCopy(sub, bundledSubServices);
+                const infoOnly = Boolean(sub.hubCardLinkDisabled);
+                const cardClass =
+                  "flex h-full flex-col rounded-2xl border border-white/10 bg-white p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.35)] md:p-7";
+
+                const cardBody = (
+                  <>
+                    <h3
+                      className={`mb-2 font-headline text-xl font-bold text-[#18335c] md:text-2xl ${!infoOnly ? "group-hover:text-secondary" : ""}`}
+                    >
+                      {sub.title}
+                    </h3>
+                    {cardCopy.hook && (
+                      <p className="mb-3 text-sm font-semibold leading-snug text-secondary">{cardCopy.hook}</p>
+                    )}
+                    {cardCopy.description && (
+                      <p className={`text-sm leading-relaxed text-on-surface-variant ${infoOnly ? "" : "mb-5 flex-grow"}`}>
+                        {cardCopy.description}
+                      </p>
+                    )}
+                    {!infoOnly && sub.id ? (
+                      <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-secondary">
+                        Know more
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    ) : null}
+                  </>
+                );
+
+                if (infoOnly) {
+                  return (
+                    <div key={sub.id || String(i)} className={cardClass}>
+                      {cardBody}
+                    </div>
+                  );
+                }
 
                 return sub.id ? (
                   <AppLink
                     key={sub.id}
                     to={`/services/${service.id}/${sub.id}`}
-                    className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white p-6 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.35)] transition-all hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)] md:p-7"
+                    className={`group ${cardClass} transition-all hover:-translate-y-1 hover:shadow-[0_24px_48px_-12px_rgba(0,0,0,0.45)]`}
                   >
-                    <h3 className="mb-2 font-headline text-xl font-bold text-[#18335c] group-hover:text-secondary md:text-2xl">
-                      {sub.title}
-                    </h3>
-                    {cardCopy.hook && (
-                      <p className="mb-3 text-sm font-semibold leading-snug text-secondary">
-                        {cardCopy.hook}
-                      </p>
-                    )}
-                    {cardCopy.description && (
-                      <p className="mb-5 flex-grow text-sm leading-relaxed text-on-surface-variant">
-                        {cardCopy.description}
-                      </p>
-                    )}
-                    <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-secondary">
-                      Know more
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
+                    {cardBody}
                   </AppLink>
                 ) : (
-                  <div
-                    key={i}
-                    className="rounded-2xl border border-white/10 bg-white p-6 md:p-7"
-                  >
+                  <div key={i} className={cardClass}>
                     <h3 className="mb-2 font-headline text-lg font-bold text-[#18335c]">{sub.title}</h3>
                     {cardCopy.description && (
                       <p className="text-sm leading-relaxed text-on-surface-variant">{cardCopy.description}</p>
                     )}
                   </div>
                 );
-              })}
+              }
+              )}
             </div>
           </div>
         </section>
@@ -588,9 +616,9 @@ export const ServiceDetail = () => {
               {ctaBlockSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              {whatsappPhone ? (
+              {whatsappUrl ? (
                 <a 
-                  href={`https://wa.me/${whatsappPhone}`}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-500 text-white px-8 py-4 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-600 transition-all cursor-pointer text-center"

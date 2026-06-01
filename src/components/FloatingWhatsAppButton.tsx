@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useCMS } from "../hooks/useCMS";
+import { getPrimaryPhoneDigits } from "../utils/phoneNumbers";
 
 const DEFAULT_MESSAGE =
   "Hi, I'd like to know more about your services. Could you please help?";
@@ -10,7 +11,7 @@ export function FloatingWhatsAppButton() {
 
   if (pathname.startsWith("/admin")) return null;
 
-  const phone = String(siteDetails.mobile ?? "").replace(/\D/g, "");
+  const phone = getPrimaryPhoneDigits(siteDetails);
   if (!phone) return null;
 
   const text = encodeURIComponent(DEFAULT_MESSAGE);

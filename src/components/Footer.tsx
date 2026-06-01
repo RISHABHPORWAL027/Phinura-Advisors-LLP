@@ -4,10 +4,13 @@ import { DeveloperCredit } from "./DeveloperCredit";
 import { ASSETS } from "../constants/assetPaths";
 import { useCMS } from "../hooks/useCMS";
 import { ContactInfoAction } from "./ContactInfoAction";
+import { getPrimaryMobile, getSecondaryMobile } from "../utils/phoneNumbers";
 
 export const Footer = () => {
   const { data: siteDetails } = useCMS();
   const taglineLine = siteDetails.tagline.replace(/\.\s*$/, "");
+  const primaryPhone = getPrimaryMobile(siteDetails);
+  const secondaryPhone = getSecondaryMobile(siteDetails);
 
   return (
   <footer className="w-full bg-primary text-on-primary">
@@ -59,12 +62,22 @@ export const Footer = () => {
           </ContactInfoAction>
           <ContactInfoAction
             action="copy"
-            value={siteDetails.mobile}
-            hint="Click to copy"
+            value={primaryPhone}
+            hint="Click to copy primary number"
             className="block w-full rounded-lg text-white text-sm font-bold hover:text-secondary-fixed"
           >
-            {siteDetails.mobile}
+            {primaryPhone}
           </ContactInfoAction>
+          {secondaryPhone ? (
+            <ContactInfoAction
+              action="copy"
+              value={secondaryPhone}
+              hint="Click to copy secondary number"
+              className="block w-full rounded-lg text-white text-sm font-bold hover:text-secondary-fixed"
+            >
+              {secondaryPhone}
+            </ContactInfoAction>
+          ) : null}
           <ContactInfoAction
             action="copy"
             value={siteDetails.email}
