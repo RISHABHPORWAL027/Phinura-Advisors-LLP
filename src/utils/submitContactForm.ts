@@ -13,17 +13,43 @@ export type SubmitContactFormResult =
   | { status: "success"; method: "smtp" | "gas" | "mailto" }
   | { status: "error"; message: string };
 
+const CONTACT_API_TIMEOUT_MS = 20_000;
+
+function abortAfter(ms: number): AbortSignal {
+  if (typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function") {
+    return AbortSignal.timeout(ms);
+  }
+  const controller = new AbortController();
+  setTimeout(() => controller.abort(), ms);
+  return controller.signal;
+}
+
 function getGoogleAppsScriptUrl(): string | undefined {
   return (import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL as string | undefined)?.trim() || undefined;
 }
 
-/** True when SMTP (production), local API testing, or Google Apps Script is configured. */
+/** Client-side hint only; use `checkContactApiConfigured()` for SMTP readiness. */
 export function hasContactFormDelivery(): boolean {
   return (
-    import.meta.env.PROD ||
     import.meta.env.VITE_CONTACT_FORM_ENABLED === "true" ||
+    import.meta.env.VITE_CONTACT_FORM_SMTP === "true" ||
     Boolean(getGoogleAppsScriptUrl())
   );
+}
+
+/** Ask the server whether Hostinger SMTP env vars are set (works on Vercel and local dev:api). */
+export async function checkContactApiConfigured(): Promise<boolean> {
+  try {
+    const res = await fetch("/api/contact", {
+      method: "GET",
+      signal: abortAfter(8_000),
+    });
+    if (!res.ok) return false;
+    const json = (await res.json()) as { configured?: boolean };
+    return Boolean(json.configured);
+  } catch {
+    return false;
+  }
 }
 
 async function tryHostingerSmtpApi(payload: ContactFormPayload): Promise<SubmitContactFormResult | null> {
@@ -32,15 +58,17 @@ async function tryHostingerSmtpApi(payload: ContactFormPayload): Promise<SubmitC
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...payload, _gotcha: payload._gotcha || "" }),
+      signal: abortAfter(CONTACT_API_TIMEOUT_MS),
     });
 
-    const json = (await res.json()) as {
-      success?: boolean;
-      configured?: boolean;
-      message?: string;
-    };
+    let json: { success?: boolean; configured?: boolean; message?: string } = {};
+    try {
+      json = (await res.json()) as typeof json;
+    } catch {
+      return null;
+    }
 
-    if (res.status === 503 && json.configured === false) {
+    if (res.status === 503 || res.status === 404) {
       return null;
     }
 
@@ -64,6 +92,7 @@ async function tryGoogleAppsScript(payload: ContactFormPayload): Promise<SubmitC
       mode: "cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({ ...payload, _gotcha: payload._gotcha || "" }),
+      signal: abortAfter(CONTACT_API_TIMEOUT_MS),
     });
 
     const json = (await res.json()) as { success?: boolean; message?: string };

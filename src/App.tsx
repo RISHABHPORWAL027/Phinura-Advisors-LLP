@@ -47,6 +47,9 @@ function MainNavbarGate() {
 }
 
 function MainShell() {
+  const { pathname } = useLocation();
+  const hideFloatingActions = pathname === "/contact";
+
   return (
     <PreviewLinkBaseProvider base="">
       <div className="min-h-screen bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -55,8 +58,12 @@ function MainShell() {
           <Outlet />
         </main>
         <MainFooterGate />
-        <FloatingWhatsAppButton />
-        <FloatingCallbackRequest />
+        {!hideFloatingActions ? (
+          <>
+            <FloatingWhatsAppButton />
+            <FloatingCallbackRequest />
+          </>
+        ) : null}
       </div>
     </PreviewLinkBaseProvider>
   );

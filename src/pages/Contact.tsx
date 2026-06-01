@@ -1,8 +1,12 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { useCMS } from "../hooks/useCMS";
-import { hasContactFormDelivery, submitContactForm } from "../utils/submitContactForm";
+import {
+  checkContactApiConfigured,
+  hasContactFormDelivery,
+  submitContactForm,
+} from "../utils/submitContactForm";
 import { ASSETS } from "../constants/assetPaths";
 
 const Hero = () => {
@@ -49,65 +53,128 @@ const ContactForm = () => {
   const [phone, setPhone] = useState("");
   const [selectedNeeds, setSelectedNeeds] = useState<string[]>([]);
   const [message, setMessage] = useState("");
-  const [gotcha, setGotcha] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [lastDeliveryMethod, setLastDeliveryMethod] = useState<"smtp" | "gas" | "mailto">("smtp");
 
-  const formDeliveryConfigured = hasContactFormDelivery();
+  const [smtpConfigured, setSmtpConfigured] = useState<boolean | null>(null);
+  const [validationError, setValidationError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    checkContactApiConfigured().then((ok) => {
+      if (!cancelled) setSmtpConfigured(ok);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const serviceOptions = ["Audit", "Taxation", "Company Secretarial", "Advisory"];
 
   function toggleNeed(need: string) {
     setSelectedNeeds((prev) => (prev.includes(need) ? prev.filter((n) => n !== need) : [...prev, need]));
   }
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (gotcha) return;
+  function focusField(fieldId: string) {
+    const el = document.getElementById(fieldId);
+    el?.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (el instanceof HTMLElement) el.focus();
+  }
+
+  function validateForm(): boolean {
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedPhone = phone.trim();
+    const trimmedMessage = message.trim();
+
+    if (!trimmedName) {
+      setValidationError("Please enter your full name.");
+      focusField("contact-name");
+      return false;
+    }
+    if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      setValidationError("Please enter a valid email address.");
+      focusField("contact-email");
+      return false;
+    }
+    if (!trimmedPhone) {
+      setValidationError("Please enter your mobile number.");
+      focusField("contact-phone");
+      return false;
+    }
+    if (!trimmedMessage) {
+      setValidationError("Please enter your message.");
+      focusField("contact-message");
+      return false;
+    }
+    setValidationError("");
+    return true;
+  }
+
+  async function sendMessage() {
+    if (isSubmitting) return;
+
+    if (honeypotRef.current?.value.trim()) {
+      setValidationError("Something went wrong. Please refresh the page and try again.");
+      return;
+    }
+
+    if (!validateForm()) return;
 
     setErrorMessage("");
-    setStatus("submitting");
+    setIsSubmitting(true);
 
     const needsLine = selectedNeeds.length ? selectedNeeds.join(", ") : "Not specified";
     const bodyText = `Services of interest: ${needsLine}\n\nMessage:\n${message}`;
 
-    const result = await submitContactForm(
-      {
-        name,
-        email,
-        phone,
-        message: bodyText,
-        subject: `Contact form — ${name || "Website visitor"}`,
-        source: "Contact page",
-        _gotcha: gotcha,
-      },
-      siteDetails.email
-    );
+    try {
+      const result = await submitContactForm(
+        {
+          name,
+          email,
+          phone,
+          message: bodyText,
+          subject: `Contact form — ${name || "Website visitor"}`,
+          source: "Contact page",
+          _gotcha: honeypotRef.current?.value ?? "",
+        },
+        siteDetails.email
+      );
 
-    if (result.status === "success") {
-      setLastDeliveryMethod(result.method);
-      setStatus("success");
-      setName("");
-      setEmail("");
-      setPhone("");
-      setSelectedNeeds([]);
-      setMessage("");
-      setGotcha("");
-    } else {
+      if (result.status === "success") {
+        setLastDeliveryMethod(result.method);
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSelectedNeeds([]);
+        setMessage("");
+        if (honeypotRef.current) honeypotRef.current.value = "";
+      } else {
+        setStatus("error");
+        setErrorMessage(result.message);
+      }
+    } catch {
       setStatus("error");
-      setErrorMessage(result.message);
+      setErrorMessage("Could not send message. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    void sendMessage();
+  }
+
   return (
-    <section className="pb-16 md:pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="lg:col-span-7 bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-all duration-500"
-        >
+    <section className="pb-28 md:pb-24 bg-white">
+      <div className="relative isolate max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="relative z-20 lg:col-span-7 bg-white p-10 rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:border-primary/20 transition-all duration-500 pointer-events-auto">
           {status === "success" ? (
             <div className="space-y-6 text-center py-8">
               <p className="rounded-2xl bg-primary/5 px-5 py-4 text-primary font-headline font-semibold leading-relaxed">
@@ -124,22 +191,34 @@ const ContactForm = () => {
               </button>
             </div>
           ) : (
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <input
-              type="text"
-              name="_gotcha"
-              value={gotcha}
-              onChange={(e) => setGotcha(e.target.value)}
-              tabIndex={-1}
-              autoComplete="off"
-              aria-hidden="true"
-              className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
-            />
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            noValidate
+            className="relative space-y-8 pointer-events-auto"
+            data-gramm="false"
+            data-gramm_editor="false"
+            data-enable-grammarly="false"
+            spellCheck={true}
+          >
+            <div className="absolute h-0 w-0 overflow-hidden" aria-hidden="true">
+              <label htmlFor="contact-hp">Leave blank</label>
+              <input
+                ref={honeypotRef}
+                id="contact-hp"
+                type="text"
+                name="fax"
+                tabIndex={-1}
+                autoComplete="off"
+                defaultValue=""
+              />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Full Name</label>
                 <input
-                  required
+                  id="contact-name"
+                  name="contact-name"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -151,7 +230,8 @@ const ContactForm = () => {
               <div className="space-y-2">
                 <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Email Address</label>
                 <input
-                  required
+                  id="contact-email"
+                  name="contact-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -165,7 +245,8 @@ const ContactForm = () => {
             <div className="space-y-2">
               <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Mobile Number</label>
               <input
-                required
+                id="contact-phone"
+                name="contact-phone"
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
@@ -198,7 +279,8 @@ const ContactForm = () => {
             <div className="space-y-2">
               <label className="text-xs font-bold text-primary uppercase tracking-widest ml-1">Your Message</label>
               <textarea
-                required
+                id="contact-message"
+                name="contact-message"
                 rows={5}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -207,13 +289,19 @@ const ContactForm = () => {
               ></textarea>
             </div>
 
-            {!formDeliveryConfigured ? (
+            {smtpConfigured === false && !hasContactFormDelivery() ? (
               <p className="text-[11px] text-on-surface-variant leading-relaxed rounded-xl bg-amber-50 border border-amber-100 px-3 py-2">
-                <strong className="text-amber-900">Setup tip:</strong> add Hostinger SMTP secrets (
-                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_USER</code>,{" "}
-                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_PASS</code>) in Vercel, or set{" "}
-                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">VITE_CONTACT_FORM_ENABLED=true</code> in{" "}
-                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">.env</code> for local testing.
+                <strong className="text-amber-900">Email sending is not active yet.</strong> Add{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_USER</code> and{" "}
+                <code className="text-amber-950 bg-amber-100/80 px-1 rounded">SMTP_PASS</code> in Vercel (Hostinger
+                mailbox), or run <code className="text-amber-950 bg-amber-100/80 px-1 rounded">yarn dev:full</code>{" "}
+                locally. You can still submit — we will open your email app as a fallback.
+              </p>
+            ) : null}
+
+            {validationError ? (
+              <p className="text-sm text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2" role="alert">
+                {validationError}
               </p>
             ) : null}
 
@@ -221,12 +309,17 @@ const ContactForm = () => {
               <p className="text-sm text-red-700 bg-red-50 border border-red-100 rounded-xl px-3 py-2">{errorMessage}</p>
             ) : null}
 
+            <div className="relative z-[110]">
             <button
-              type="submit"
-              disabled={status === "submitting"}
-              className="w-full bg-primary text-white py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-primary-container transition-all shadow-xl shadow-primary/20 cursor-pointer disabled:opacity-60"
+              type="button"
+              disabled={isSubmitting}
+              onClick={(e) => {
+                e.stopPropagation();
+                void sendMessage();
+              }}
+              className="w-full bg-primary text-white py-5 rounded-2xl font-headline font-bold text-lg flex items-center justify-center gap-3 hover:bg-primary-container transition-all shadow-xl shadow-primary/20 cursor-pointer touch-manipulation disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {status === "submitting" ? (
+              {isSubmitting ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" aria-hidden />
                   Sending…
@@ -237,6 +330,7 @@ const ContactForm = () => {
                 </>
               )}
             </button>
+            </div>
 
             <div className="flex items-center justify-center py-4">
               <div className="flex-grow border-t border-outline-variant/30"></div>
@@ -257,9 +351,9 @@ const ContactForm = () => {
             </a>
           </form>
           )}
-        </motion.div>
+        </div>
 
-        <div className="lg:col-span-5 space-y-8">
+        <div className="relative z-0 lg:col-span-5 space-y-8 pointer-events-auto">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -275,9 +369,25 @@ const ContactForm = () => {
                 <div className={`w-12 h-12 rounded-2xl ${item.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>
                   <item.icon className="w-6 h-6" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">{item.label}</p>
-                  <p className="text-lg font-headline font-bold text-primary">{item.value}</p>
+                  {item.label === "Email Our Partners" ? (
+                    <a
+                      href={`mailto:${siteDetails.email}`}
+                      className="text-lg font-headline font-bold text-primary hover:text-secondary transition-colors break-all"
+                    >
+                      {item.value}
+                    </a>
+                  ) : item.label === "Call Us Directly" ? (
+                    <a
+                      href={`tel:${siteDetails.mobile.replace(/\s/g, "")}`}
+                      className="text-lg font-headline font-bold text-primary hover:text-secondary transition-colors"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-lg font-headline font-bold text-primary">{item.value}</p>
+                  )}
                 </div>
               </div>
             ))}
@@ -287,11 +397,11 @@ const ContactForm = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative rounded-[2.5rem] overflow-hidden aspect-square shadow-xl border border-outline-variant/10 group"
+            className="relative z-0 rounded-[2.5rem] overflow-hidden aspect-square shadow-xl border border-outline-variant/10 group"
           >
             <iframe
               title="Office Location"
-              className="w-full h-full transition-all duration-700"
+              className="pointer-events-none lg:pointer-events-auto w-full h-full transition-all duration-700"
               src={`https://www.google.com/maps?q=${encodeURIComponent(siteDetails.address)}&output=embed`}
               style={{ border: 0 }}
               allowFullScreen

@@ -65,25 +65,30 @@ export function FloatingCallbackRequest() {
     setErrorMessage("");
     setStatus("submitting");
 
-    const result = await submitContactForm(
-      {
-        name,
-        email,
-        phone,
-        message,
-        subject: `Callback request — ${name || "Website visitor"}`,
-        source: "Callback widget",
-        _gotcha: gotcha,
-      },
-      site.email
-    );
+    try {
+      const result = await submitContactForm(
+        {
+          name,
+          email,
+          phone,
+          message,
+          subject: `Callback request — ${name || "Website visitor"}`,
+          source: "Callback widget",
+          _gotcha: gotcha,
+        },
+        site.email
+      );
 
-    if (result.status === "success") {
-      setLastDeliveryMethod(result.method);
-      setStatus("success");
-    } else {
+      if (result.status === "success") {
+        setLastDeliveryMethod(result.method);
+        setStatus("success");
+      } else {
+        setStatus("error");
+        setErrorMessage(result.message);
+      }
+    } catch {
       setStatus("error");
-      setErrorMessage(result.message);
+      setErrorMessage("Could not send message. Please try again.");
     }
   }
 

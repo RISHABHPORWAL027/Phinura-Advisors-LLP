@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { CMSProvider } from "../hooks/useCMS";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
@@ -21,6 +21,8 @@ function PreviewFooterGate() {
 }
 
 export function PreviewLayout() {
+  const { pathname } = useLocation();
+  const hideFloatingActions = pathname.endsWith("/contact");
   const [draft, setDraft] = useState<SiteDetails | null>(null);
   const [missing, setMissing] = useState(false);
 
@@ -65,8 +67,12 @@ export function PreviewLayout() {
             <Outlet />
           </main>
           <PreviewFooterGate />
-          <FloatingWhatsAppButton />
-          <FloatingCallbackRequest />
+          {!hideFloatingActions ? (
+            <>
+              <FloatingWhatsAppButton />
+              <FloatingCallbackRequest />
+            </>
+          ) : null}
           <div className="fixed bottom-0 left-0 right-0 z-[110] bg-amber-500 text-amber-950 text-center text-sm font-semibold py-2.5 px-4 border-t border-amber-600/30 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
             Preview — unsaved draft. Close this tab when done; use Save in Admin to publish to GitHub.
           </div>

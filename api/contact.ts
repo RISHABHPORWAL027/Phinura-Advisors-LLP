@@ -35,8 +35,15 @@ function getSmtpConfig() {
 }
 
 export default async function handler(req: any, res: any) {
-  if ((req.method || "").toUpperCase() !== "POST") {
-    res.setHeader("Allow", "POST");
+  const method = (req.method || "").toUpperCase();
+
+  if (method === "GET") {
+    const smtp = getSmtpConfig();
+    return json(res, 200, { success: true, configured: Boolean(smtp) });
+  }
+
+  if (method !== "POST") {
+    res.setHeader("Allow", "GET, POST");
     return json(res, 405, { success: false, message: "Method not allowed" });
   }
 
