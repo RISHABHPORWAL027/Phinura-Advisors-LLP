@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation, Navigate } from "react-router-dom";
+import { isComingSoonEnabled } from "./utils/featureFlags";
 import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -19,6 +20,9 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy").then((m) => ({ 
 const TermsOfService = lazy(() => import("./pages/TermsOfService").then((m) => ({ default: m.TermsOfService })));
 const AdminDashboard = lazy(() => import("./pages/Admin/Dashboard").then((m) => ({ default: m.AdminDashboard })));
 const PreviewLayout = lazy(() => import("./preview/PreviewLayout").then((m) => ({ default: m.PreviewLayout })));
+const ComingSoon = lazy(() => import("./pages/ComingSoon").then((m) => ({ default: m.ComingSoon })));
+
+const comingSoonMode = isComingSoonEnabled();
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -48,16 +52,16 @@ function MainNavbarGate() {
 
 function MainShell() {
   const { pathname } = useLocation();
-  const hideFloatingActions = pathname === "/contact";
+  const hideFloatingActions = pathname === "/contact" || comingSoonMode;
 
   return (
     <PreviewLinkBaseProvider base="">
       <div className="min-h-screen bg-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
-        <MainNavbarGate />
+        {!comingSoonMode ? <MainNavbarGate /> : null}
         <main>
           <Outlet />
         </main>
-        <MainFooterGate />
+        {!comingSoonMode ? <MainFooterGate /> : null}
         {!hideFloatingActions ? (
           <>
             <FloatingWhatsAppButton />
@@ -92,14 +96,23 @@ export default function App() {
             {previewRoutes}
           </Route>
           <Route element={<MainShell />}>
-            <Route path="/" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="services" element={<Services />} />
-            <Route path="services/:serviceId/:subServiceId" element={<SubServiceDetail />} />
-            <Route path="services/:serviceId" element={<ServiceDetail />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="privacy" element={<PrivacyPolicy />} />
-            <Route path="terms" element={<TermsOfService />} />
+            {comingSoonMode ? (
+              <>
+                <Route path="/" element={<ComingSoon />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </>
+            ) : (
+              <>
+                <Route path="/" element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="services" element={<Services />} />
+                <Route path="services/:serviceId/:subServiceId" element={<SubServiceDetail />} />
+                <Route path="services/:serviceId" element={<ServiceDetail />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="privacy" element={<PrivacyPolicy />} />
+                <Route path="terms" element={<TermsOfService />} />
+              </>
+            )}
             <Route
               path="admin"
               element={
